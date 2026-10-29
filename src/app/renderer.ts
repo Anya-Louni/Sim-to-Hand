@@ -38,7 +38,7 @@ export class Renderer {
     r.toneMapping = THREE.ACESFilmicToneMapping;
     r.toneMappingExposure = 1.05;
     r.shadowMap.enabled = true;
-    r.shadowMap.type = THREE.PCFSoftShadowMap;
+    r.shadowMap.type = THREE.PCFShadowMap;
     this.renderer = r;
 
     const pmrem = new THREE.PMREMGenerator(r);
