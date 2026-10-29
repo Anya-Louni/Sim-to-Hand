@@ -52,6 +52,7 @@ export interface EpisodeResult {
   simSeconds: number;
   failure?: string;
   planner: string;
+  providers: string[];
 }
 
 export interface EpisodeOptions {
@@ -107,6 +108,7 @@ export async function runEpisode(deps: AgentDeps, opts: EpisodeOptions): Promise
     chaosEvents: 0,
     simSeconds: 0,
     planner: deps.planner.name,
+    providers: [],
   };
   const history: Attempt[] = [];
   let lastImage: string | undefined;
@@ -128,6 +130,7 @@ export async function runEpisode(deps: AgentDeps, opts: EpisodeOptions): Promise
       });
       plan = out.plan;
       result.llmCalls += out.calls;
+      result.providers.push(out.provider);
       emit({ type: 'plan', attempt, plan, provider: out.provider, goalSource: opts.goal ? 'task' : 'planner' });
     } catch (e) {
       const message = (e as Error).message;
@@ -163,6 +166,7 @@ export async function runEpisode(deps: AgentDeps, opts: EpisodeOptions): Promise
         try {
           vision = await deps.judge.judge(opts.instruction, image);
           result.llmCalls++;
+          result.providers.push(vision.provider);
         } catch (e) {
           visionError = (e as Error).message;
         }

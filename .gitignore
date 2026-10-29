@@ -8,3 +8,4 @@ vendor/
 bench/out/
 *.log
 .local-notes/
+bench-*.log

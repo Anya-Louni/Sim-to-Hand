@@ -56,7 +56,7 @@ async function runBench(cfg: BenchConfig): Promise<BenchRow[]> {
     } catch (e) {
       row = {
         id: task.id, kind: task.kind, chaos: cfg.chaos, wallSeconds: (performance.now() - t0) / 1000, error: (e as Error).message,
-        success: false, attempts: 0, replans: 0, visionChecks: 0, visionAgreements: 0, disagreements: [], llmCalls: 0, chaosEvents: 0, simSeconds: 0, planner: cfg.planner,
+        success: false, attempts: 0, replans: 0, visionChecks: 0, visionAgreements: 0, disagreements: [], llmCalls: 0, chaosEvents: 0, simSeconds: 0, planner: cfg.planner, providers: [],
       };
     }
     rows.push(row);

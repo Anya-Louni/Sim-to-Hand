@@ -36,6 +36,7 @@ export default defineConfig(({ mode }) => ({
   optimizeDeps: { exclude: ['@mujoco/mujoco'] },
   build: {
     target: 'es2022',
+    chunkSizeWarningLimit: 1200,
     rollupOptions: { input: { main: resolve('index.html'), bench: resolve('bench.html') } },
   },
 }));
