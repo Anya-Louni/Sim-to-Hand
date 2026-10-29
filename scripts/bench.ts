@@ -16,7 +16,7 @@ const want = (process.argv[2] ?? ALL.map((c) => c.name).join(',')).split(',');
 const ids = process.argv[3]?.split(',');
 const MAX_REPLANS = 3;
 
-const server = await createServer({ server: { port: 5299, strictPort: true }, logLevel: 'warn' });
+const server = await createServer({ server: { port: 5299, strictPort: true, hmr: false, watch: null }, logLevel: 'warn' });
 await server.listen();
 const browser = await chromium.launch({ channel: fs.existsSync('C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe') ? 'msedge' : 'chrome', headless: true, args: ['--use-angle=swiftshader', '--enable-unsafe-swiftshader'] });
 const page = await browser.newPage({ viewport: { width: 700, height: 600 } });

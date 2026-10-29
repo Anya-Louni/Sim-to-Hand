@@ -235,9 +235,15 @@ export class Renderer {
     const h = this.canvas.clientHeight;
     this.renderer.setSize(w, h, false);
     this.camera.aspect = w / h;
-    // Shift the view left so the side panel does not cover the workspace.
-    const shift = w > 860 ? 200 : 0;
-    this.camera.setViewOffset(w, h, shift, 0, w, h);
+    if (w > 860) {
+      // Shift the view left so the side panel does not cover the workspace.
+      this.camera.fov = 38;
+      this.camera.setViewOffset(w, h, 200, 0, w, h);
+    } else {
+      // Phones: wider view, workspace pushed into the top part above the controls.
+      this.camera.fov = w < h ? 70 : 50;
+      this.camera.setViewOffset(w, h, 0, h * 0.3, w, h);
+    }
     this.camera.updateProjectionMatrix();
   }
 }
