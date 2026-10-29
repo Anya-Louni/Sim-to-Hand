@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sim-to-Hand</title>
+    <meta name="description" content="An LLM plans tabletop tasks, MuJoCo executes them in your browser, and two checks verify the result." />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect x='6' y='14' width='12' height='12' rx='2' fill='%23e5483a'/><rect x='14' y='4' width='12' height='12' rx='2' fill='%233a73ea'/></svg>" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/src/app/style.css" />
+  </head>
+  <body>
+    <canvas id="scene"></canvas>
+
+    <header class="brand">
+      <h1>Sim-to-Hand</h1>
+      <p>Language in, verified manipulation out.</p>
+    </header>
+
+    <div id="loading" class="loading" role="status">
+      <div class="spinner"></div>
+      <span>Loading physics</span>
+    </div>
+
+    <section class="dock" aria-label="Task controls">
+      <div class="presets" role="group" aria-label="Task presets">
+        <button class="chip" data-preset="stack">Stack</button>
+        <button class="chip" data-preset="sort">Sort by color</button>
+        <button class="chip" data-preset="tower">3-cube tower</button>
+        <button class="chip ghost" id="shuffle" title="New random scene with four cubes">New scene</button>
+      </div>
+      <form id="task-form" class="command">
+        <label class="sr-only" for="instruction">Instruction</label>
+        <input id="instruction" autocomplete="off" maxlength="300" placeholder="Tell the robot what to do, e.g. put the yellow cube in the blue zone" />
+        <button id="run" class="run" type="submit">Run</button>
+        <button id="stop" class="run stop" type="button" hidden>Stop</button>
+      </form>
+      <div class="options">
+        <label class="toggle" title="Randomly nudge cubes and make grasps slip">
+          <input type="checkbox" id="chaos" />
+          <span class="track"><span class="thumb"></span></span>
+          Chaos
+        </label>
+        <label class="field">Replans
+          <select id="replans">
+            <option>0</option><option>1</option><option>2</option><option selected>3</option><option>4</option>
+          </select>
+        </label>
+        <label class="field">Speed
+          <select id="speed">
+            <option value="1">1x</option><option value="2" selected>2x</option><option value="4">4x</option>
+          </select>
+        </label>
+        <label class="field">Planner
+          <select id="planner">
+            <option value="llm">LLM</option>
+            <option value="scripted">Scripted (presets only)</option>
+          </select>
+        </label>
+        <button class="icon-btn" id="open-settings" type="button" aria-label="API keys">Keys</button>
+      </div>
+    </section>
+
+    <aside class="panel" aria-label="Agent log">
+      <div class="panel-head">
+        <div>
+          <span class="eyebrow">Agent</span>
+          <div id="status" class="status idle"><span class="dot"></span><span id="status-text">Idle</span></div>
+        </div>
+        <span id="attempt" class="attempt"></span>
+      </div>
+      <div id="feed" class="feed" aria-live="polite">
+        <div class="empty">
+          <p>Pick a preset or type an instruction.</p>
+          <p class="muted">The planner writes a JSON plan from five skills. The sim runs it with inverse kinematics. Then the sim state and a camera-based vision check each judge the result. Failures trigger a replan.</p>
+        </div>
+      </div>
+    </aside>
+
+    <dialog id="settings" class="settings">
+      <form method="dialog">
+        <h2>Your own API keys</h2>
+        <p class="muted">Optional. Keys stay in this browser (localStorage) and go straight to Google or Groq, never to this site's server. Without keys, the shared demo proxy is used and is rate limited.</p>
+        <label>Gemini key <span class="muted">(plans and vision)</span>
+          <input id="key-gemini" type="password" autocomplete="off" spellcheck="false" />
+        </label>
+        <label>Groq key <span class="muted">(text-only plan fallback)</span>
+          <input id="key-groq" type="password" autocomplete="off" spellcheck="false" />
+        </label>
+        <div class="row">
+          <button value="clear" class="chip ghost" id="clear-keys">Clear</button>
+          <button value="save" class="run" id="save-keys">Save</button>
+        </div>
+      </form>
+    </dialog>
+
+    <script type="module" src="/src/app/main.ts"></script>
+  </body>
+</html>
