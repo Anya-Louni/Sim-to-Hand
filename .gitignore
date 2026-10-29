@@ -1,0 +1,10 @@
+node_modules/
+dist/
+vendor/
+.env
+.env.*
+!.env.example
+.vercel/
+bench/out/
+*.log
+.local-notes/
