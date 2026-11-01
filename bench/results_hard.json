@@ -1,0 +1,1585 @@
+{
+  "date": "2026-11-01T22:21:05.000Z",
+  "maxReplans": 3,
+  "conditions": {
+    "scripted": [
+      {
+        "success": true,
+        "attempts": 1,
+        "replans": 0,
+        "visionChecks": 0,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
+        "visionAgreements": 0,
+        "disagreements": [],
+        "llmCalls": 0,
+        "chaosEvents": 0,
+        "simSeconds": 10.644000000000224,
+        "planner": "scripted",
+        "providers": [
+          "scripted"
+        ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": null,
+            "declared": true,
+            "seconds": 8.45
+          }
+        ],
+        "injected": null,
+        "id": "rel-01",
+        "kind": "relational",
+        "chaos": false,
+        "wallSeconds": 2.711399999976158,
+        "impossible": false
+      },
+      {
+        "success": true,
+        "attempts": 1,
+        "replans": 0,
+        "visionChecks": 0,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
+        "visionAgreements": 0,
+        "disagreements": [],
+        "llmCalls": 0,
+        "chaosEvents": 0,
+        "simSeconds": 12.40000000000081,
+        "planner": "scripted",
+        "providers": [
+          "scripted"
+        ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": null,
+            "declared": true,
+            "seconds": 9.65
+          }
+        ],
+        "injected": null,
+        "id": "rel-02",
+        "kind": "relational",
+        "chaos": false,
+        "wallSeconds": 1.894300000011921,
+        "impossible": false
+      },
+      {
+        "success": true,
+        "attempts": 1,
+        "replans": 0,
+        "visionChecks": 0,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
+        "visionAgreements": 0,
+        "disagreements": [],
+        "llmCalls": 0,
+        "chaosEvents": 0,
+        "simSeconds": 11.010000000000346,
+        "planner": "scripted",
+        "providers": [
+          "scripted"
+        ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": null,
+            "declared": true,
+            "seconds": 9.25
+          }
+        ],
+        "injected": null,
+        "id": "rel-03",
+        "kind": "relational",
+        "chaos": false,
+        "wallSeconds": 1.628199999988079,
+        "impossible": false
+      },
+      {
+        "success": true,
+        "attempts": 1,
+        "replans": 0,
+        "visionChecks": 0,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
+        "visionAgreements": 0,
+        "disagreements": [],
+        "llmCalls": 0,
+        "chaosEvents": 0,
+        "simSeconds": 11.608000000000546,
+        "planner": "scripted",
+        "providers": [
+          "scripted"
+        ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": null,
+            "declared": true,
+            "seconds": 9.55
+          }
+        ],
+        "injected": null,
+        "id": "rel-04",
+        "kind": "relational",
+        "chaos": false,
+        "wallSeconds": 1.8535,
+        "impossible": false
+      },
+      {
+        "success": true,
+        "attempts": 1,
+        "replans": 0,
+        "visionChecks": 0,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
+        "visionAgreements": 0,
+        "disagreements": [],
+        "llmCalls": 0,
+        "chaosEvents": 0,
+        "simSeconds": 11.658000000000563,
+        "planner": "scripted",
+        "providers": [
+          "scripted"
+        ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": null,
+            "declared": true,
+            "seconds": 8.97
+          }
+        ],
+        "injected": null,
+        "id": "rel-05",
+        "kind": "relational",
+        "chaos": false,
+        "wallSeconds": 1.6941000000238418,
+        "impossible": false
+      },
+      {
+        "success": true,
+        "attempts": 2,
+        "replans": 1,
+        "visionChecks": 0,
+        "sensorChecks": 2,
+        "sensorAgreements": 2,
+        "visionAgreements": 0,
+        "disagreements": [],
+        "llmCalls": 0,
+        "chaosEvents": 0,
+        "simSeconds": 19.885999999999857,
+        "planner": "scripted",
+        "providers": [
+          "scripted",
+          "scripted"
+        ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": null,
+            "declared": false,
+            "stepError": "step 4 place(red) failed: No contact felt when lowering the blue cube onto red.",
+            "seconds": 7.18
+          },
+          {
+            "attempt": 1,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": null,
+            "declared": true,
+            "seconds": 8.94
+          }
+        ],
+        "injected": null,
+        "id": "ord-01",
+        "kind": "reorder",
+        "chaos": false,
+        "wallSeconds": 3.272399999976158,
+        "impossible": false
+      },
+      {
+        "success": true,
+        "attempts": 2,
+        "replans": 1,
+        "visionChecks": 0,
+        "sensorChecks": 2,
+        "sensorAgreements": 2,
+        "visionAgreements": 0,
+        "disagreements": [],
+        "llmCalls": 0,
+        "chaosEvents": 0,
+        "simSeconds": 27.595999999995584,
+        "planner": "scripted",
+        "providers": [
+          "scripted",
+          "scripted"
+        ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": null,
+            "declared": false,
+            "stepError": "step 4 place(green) failed: No contact felt when lowering the red cube onto green.",
+            "seconds": 7.1
+          },
+          {
+            "attempt": 1,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": null,
+            "declared": true,
+            "seconds": 16.78
+          }
+        ],
+        "injected": null,
+        "id": "ord-02",
+        "kind": "reorder",
+        "chaos": false,
+        "wallSeconds": 4.472400000035763,
+        "impossible": false
+      },
+      {
+        "success": true,
+        "attempts": 1,
+        "replans": 0,
+        "visionChecks": 0,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
+        "visionAgreements": 0,
+        "disagreements": [],
+        "llmCalls": 0,
+        "chaosEvents": 0,
+        "simSeconds": 11.432000000000487,
+        "planner": "scripted",
+        "providers": [
+          "scripted"
+        ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": null,
+            "declared": true,
+            "seconds": 8.85
+          }
+        ],
+        "injected": null,
+        "id": "ord-03",
+        "kind": "reorder",
+        "chaos": false,
+        "wallSeconds": 1.6187000000476837,
+        "impossible": false
+      },
+      {
+        "success": true,
+        "attempts": 2,
+        "replans": 1,
+        "visionChecks": 0,
+        "sensorChecks": 2,
+        "sensorAgreements": 2,
+        "visionAgreements": 0,
+        "disagreements": [],
+        "llmCalls": 0,
+        "chaosEvents": 0,
+        "simSeconds": 23.70399999999774,
+        "planner": "scripted",
+        "providers": [
+          "scripted",
+          "scripted"
+        ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": null,
+            "declared": false,
+            "stepError": "step 4 place(red_zone) failed: No contact felt when lowering the green cube onto red_zone.",
+            "seconds": 8.24
+          },
+          {
+            "attempt": 1,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": null,
+            "declared": true,
+            "seconds": 9.7
+          }
+        ],
+        "injected": null,
+        "id": "ord-04",
+        "kind": "reorder",
+        "chaos": false,
+        "wallSeconds": 4.216800000011921,
+        "impossible": false
+      },
+      {
+        "success": false,
+        "attempts": 4,
+        "replans": 3,
+        "visionChecks": 0,
+        "sensorChecks": 4,
+        "sensorAgreements": 4,
+        "visionAgreements": 0,
+        "disagreements": [],
+        "llmCalls": 0,
+        "chaosEvents": 0,
+        "simSeconds": 35.39399999999729,
+        "planner": "scripted",
+        "providers": [
+          "scripted",
+          "scripted",
+          "scripted",
+          "scripted"
+        ],
+        "declared": false,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": null,
+            "declared": false,
+            "stepError": "step 3 lift() failed: Sensors lost the yellow cube during lift: fingertip switches went off.",
+            "seconds": 4.44
+          },
+          {
+            "attempt": 1,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": null,
+            "declared": false,
+            "stepError": "step 4 place(blue) failed: No contact felt when lowering the yellow cube onto blue.",
+            "seconds": 8.04
+          },
+          {
+            "attempt": 2,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": null,
+            "declared": false,
+            "stepError": "step 4 place(blue) failed: No contact felt when lowering the yellow cube onto blue.",
+            "seconds": 8.01
+          },
+          {
+            "attempt": 3,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": null,
+            "declared": false,
+            "stepError": "step 4 place(blue) failed: No contact felt when lowering the yellow cube onto blue.",
+            "seconds": 6.87
+          }
+        ],
+        "failure": "step 4 place(blue) failed: No contact felt when lowering the yellow cube onto blue. Goal check: yellow is not on blue (offset 1.1 cm, height diff 10.0 cm); red is not on yellow (offset 1.1 cm, height diff -5.0 cm)",
+        "injected": null,
+        "id": "ord-05",
+        "kind": "reorder",
+        "chaos": false,
+        "wallSeconds": 6.4795,
+        "impossible": false
+      },
+      {
+        "success": false,
+        "attempts": 1,
+        "replans": 0,
+        "visionChecks": 0,
+        "sensorChecks": 0,
+        "sensorAgreements": 0,
+        "visionAgreements": 0,
+        "disagreements": [],
+        "llmCalls": 0,
+        "chaosEvents": 0,
+        "simSeconds": 0,
+        "planner": "scripted",
+        "providers": [
+          "scripted"
+        ],
+        "declared": false,
+        "decider": "oracle",
+        "log": [],
+        "refused": "no goal",
+        "failure": "planner refused: no goal",
+        "injected": null,
+        "id": "imp-01",
+        "kind": "impossible",
+        "chaos": false,
+        "wallSeconds": 0.00019999998807907106,
+        "impossible": true
+      },
+      {
+        "success": false,
+        "attempts": 1,
+        "replans": 0,
+        "visionChecks": 0,
+        "sensorChecks": 0,
+        "sensorAgreements": 0,
+        "visionAgreements": 0,
+        "disagreements": [],
+        "llmCalls": 0,
+        "chaosEvents": 0,
+        "simSeconds": 0,
+        "planner": "scripted",
+        "providers": [
+          "scripted"
+        ],
+        "declared": false,
+        "decider": "oracle",
+        "log": [],
+        "refused": "no goal",
+        "failure": "planner refused: no goal",
+        "injected": null,
+        "id": "imp-02",
+        "kind": "impossible",
+        "chaos": false,
+        "wallSeconds": 0.00019999998807907106,
+        "impossible": true
+      },
+      {
+        "success": false,
+        "attempts": 1,
+        "replans": 0,
+        "visionChecks": 0,
+        "sensorChecks": 0,
+        "sensorAgreements": 0,
+        "visionAgreements": 0,
+        "disagreements": [],
+        "llmCalls": 0,
+        "chaosEvents": 0,
+        "simSeconds": 0,
+        "planner": "scripted",
+        "providers": [
+          "scripted"
+        ],
+        "declared": false,
+        "decider": "oracle",
+        "log": [],
+        "refused": "no goal",
+        "failure": "planner refused: no goal",
+        "injected": null,
+        "id": "imp-03",
+        "kind": "impossible",
+        "chaos": false,
+        "wallSeconds": 0.00009999996423721313,
+        "impossible": true
+      },
+      {
+        "success": false,
+        "attempts": 1,
+        "replans": 0,
+        "visionChecks": 0,
+        "sensorChecks": 0,
+        "sensorAgreements": 0,
+        "visionAgreements": 0,
+        "disagreements": [],
+        "llmCalls": 0,
+        "chaosEvents": 0,
+        "simSeconds": 0,
+        "planner": "scripted",
+        "providers": [
+          "scripted"
+        ],
+        "declared": false,
+        "decider": "oracle",
+        "log": [],
+        "refused": "no goal",
+        "failure": "planner refused: no goal",
+        "injected": null,
+        "id": "imp-04",
+        "kind": "impossible",
+        "chaos": false,
+        "wallSeconds": 0.00020000004768371582,
+        "impossible": true
+      },
+      {
+        "success": false,
+        "attempts": 1,
+        "replans": 0,
+        "visionChecks": 0,
+        "sensorChecks": 0,
+        "sensorAgreements": 0,
+        "visionAgreements": 0,
+        "disagreements": [],
+        "llmCalls": 0,
+        "chaosEvents": 0,
+        "simSeconds": 0,
+        "planner": "scripted",
+        "providers": [
+          "scripted"
+        ],
+        "declared": false,
+        "decider": "oracle",
+        "log": [],
+        "refused": "no goal",
+        "failure": "planner refused: no goal",
+        "injected": null,
+        "id": "imp-05",
+        "kind": "impossible",
+        "chaos": false,
+        "wallSeconds": 0.00009999996423721313,
+        "impossible": true
+      },
+      {
+        "success": true,
+        "attempts": 1,
+        "replans": 0,
+        "visionChecks": 0,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
+        "visionAgreements": 0,
+        "disagreements": [],
+        "llmCalls": 0,
+        "chaosEvents": 0,
+        "simSeconds": 10.918000000000315,
+        "planner": "scripted",
+        "providers": [
+          "scripted"
+        ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": null,
+            "declared": true,
+            "seconds": 8.73
+          }
+        ],
+        "injected": null,
+        "id": "dis-01",
+        "kind": "distractor",
+        "chaos": false,
+        "wallSeconds": 1.891199999988079,
+        "impossible": false
+      },
+      {
+        "success": true,
+        "attempts": 1,
+        "replans": 0,
+        "visionChecks": 0,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
+        "visionAgreements": 0,
+        "disagreements": [],
+        "llmCalls": 0,
+        "chaosEvents": 0,
+        "simSeconds": 11.956000000000662,
+        "planner": "scripted",
+        "providers": [
+          "scripted"
+        ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": null,
+            "declared": true,
+            "seconds": 9.37
+          }
+        ],
+        "injected": null,
+        "id": "dis-02",
+        "kind": "distractor",
+        "chaos": false,
+        "wallSeconds": 1.784300000011921,
+        "impossible": false
+      },
+      {
+        "success": true,
+        "attempts": 1,
+        "replans": 0,
+        "visionChecks": 0,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
+        "visionAgreements": 0,
+        "disagreements": [],
+        "llmCalls": 0,
+        "chaosEvents": 0,
+        "simSeconds": 11.198000000000409,
+        "planner": "scripted",
+        "providers": [
+          "scripted"
+        ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": null,
+            "declared": true,
+            "seconds": 8.57
+          }
+        ],
+        "injected": null,
+        "id": "dis-03",
+        "kind": "distractor",
+        "chaos": false,
+        "wallSeconds": 1.6486000000238419,
+        "impossible": false
+      },
+      {
+        "success": true,
+        "attempts": 1,
+        "replans": 0,
+        "visionChecks": 0,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
+        "visionAgreements": 0,
+        "disagreements": [],
+        "llmCalls": 0,
+        "chaosEvents": 0,
+        "simSeconds": 11.306000000000445,
+        "planner": "scripted",
+        "providers": [
+          "scripted"
+        ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": null,
+            "declared": true,
+            "seconds": 8.91
+          }
+        ],
+        "injected": null,
+        "id": "dis-04",
+        "kind": "distractor",
+        "chaos": false,
+        "wallSeconds": 1.618100000023842,
+        "impossible": false
+      },
+      {
+        "success": true,
+        "attempts": 1,
+        "replans": 0,
+        "visionChecks": 0,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
+        "visionAgreements": 0,
+        "disagreements": [],
+        "llmCalls": 0,
+        "chaosEvents": 0,
+        "simSeconds": 10.286000000000104,
+        "planner": "scripted",
+        "providers": [
+          "scripted"
+        ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": null,
+            "declared": true,
+            "seconds": 8.3
+          }
+        ],
+        "injected": null,
+        "id": "dis-05",
+        "kind": "distractor",
+        "chaos": false,
+        "wallSeconds": 1.4986000000238417,
+        "impossible": false
+      }
+    ],
+    "scripted-chaos": [
+      {
+        "success": true,
+        "attempts": 1,
+        "replans": 0,
+        "visionChecks": 0,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
+        "visionAgreements": 0,
+        "disagreements": [],
+        "llmCalls": 0,
+        "chaosEvents": 2,
+        "simSeconds": 10.69000000000024,
+        "planner": "scripted",
+        "providers": [
+          "scripted"
+        ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": null,
+            "declared": true,
+            "seconds": 8.49
+          }
+        ],
+        "injected": null,
+        "id": "rel-01",
+        "kind": "relational",
+        "chaos": true,
+        "wallSeconds": 1.575,
+        "impossible": false
+      },
+      {
+        "success": true,
+        "attempts": 2,
+        "replans": 1,
+        "visionChecks": 0,
+        "sensorChecks": 2,
+        "sensorAgreements": 2,
+        "visionAgreements": 0,
+        "disagreements": [],
+        "llmCalls": 0,
+        "chaosEvents": 1,
+        "simSeconds": 18.788000000000466,
+        "planner": "scripted",
+        "providers": [
+          "scripted",
+          "scripted"
+        ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": null,
+            "declared": false,
+            "stepError": "step 3 lift() failed: Sensors lost the blue cube during lift: fingertip switches went off.",
+            "seconds": 4.26
+          },
+          {
+            "attempt": 1,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": null,
+            "declared": true,
+            "seconds": 9.93
+          }
+        ],
+        "injected": null,
+        "id": "rel-02",
+        "kind": "relational",
+        "chaos": true,
+        "wallSeconds": 2.7815,
+        "impossible": false
+      },
+      {
+        "success": true,
+        "attempts": 3,
+        "replans": 2,
+        "visionChecks": 0,
+        "sensorChecks": 3,
+        "sensorAgreements": 2,
+        "visionAgreements": 0,
+        "disagreements": [],
+        "llmCalls": 0,
+        "chaosEvents": 3,
+        "simSeconds": 22.795999999998244,
+        "planner": "scripted",
+        "providers": [
+          "scripted",
+          "scripted",
+          "scripted"
+        ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": null,
+            "declared": false,
+            "stepError": "step 3 lift() failed: Sensors lost the green cube during lift: fingertip switches went off.",
+            "seconds": 4.33
+          },
+          {
+            "attempt": 1,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": null,
+            "declared": false,
+            "stepError": "step 3 lift() failed: Sensors lost the green cube during lift: fingertip switches went off.",
+            "seconds": 4.52
+          },
+          {
+            "attempt": 2,
+            "truth": true,
+            "sensors": false,
+            "camera": null,
+            "vision": null,
+            "declared": true,
+            "stepError": "step 4 place(yellow) failed: Sensors lost the green cube while lowering it onto yellow: fingertip switches went off.",
+            "seconds": 8.17
+          }
+        ],
+        "injected": null,
+        "id": "rel-03",
+        "kind": "relational",
+        "chaos": true,
+        "wallSeconds": 3.015,
+        "impossible": false
+      },
+      {
+        "success": true,
+        "attempts": 1,
+        "replans": 0,
+        "visionChecks": 0,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
+        "visionAgreements": 0,
+        "disagreements": [],
+        "llmCalls": 0,
+        "chaosEvents": 0,
+        "simSeconds": 11.608000000000546,
+        "planner": "scripted",
+        "providers": [
+          "scripted"
+        ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": null,
+            "declared": true,
+            "seconds": 9.55
+          }
+        ],
+        "injected": null,
+        "id": "rel-04",
+        "kind": "relational",
+        "chaos": true,
+        "wallSeconds": 1.8606000000238418,
+        "impossible": false
+      },
+      {
+        "success": true,
+        "attempts": 1,
+        "replans": 0,
+        "visionChecks": 0,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
+        "visionAgreements": 0,
+        "disagreements": [],
+        "llmCalls": 0,
+        "chaosEvents": 0,
+        "simSeconds": 11.658000000000563,
+        "planner": "scripted",
+        "providers": [
+          "scripted"
+        ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": null,
+            "declared": true,
+            "seconds": 8.97
+          }
+        ],
+        "injected": null,
+        "id": "rel-05",
+        "kind": "relational",
+        "chaos": true,
+        "wallSeconds": 1.8533999999761581,
+        "impossible": false
+      },
+      {
+        "success": true,
+        "attempts": 2,
+        "replans": 1,
+        "visionChecks": 0,
+        "sensorChecks": 2,
+        "sensorAgreements": 2,
+        "visionAgreements": 0,
+        "disagreements": [],
+        "llmCalls": 0,
+        "chaosEvents": 1,
+        "simSeconds": 19.93199999999983,
+        "planner": "scripted",
+        "providers": [
+          "scripted",
+          "scripted"
+        ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": null,
+            "declared": false,
+            "stepError": "step 4 place(red) failed: Sensors lost the blue cube while lowering it onto red: fingertip switches went off.",
+            "seconds": 7.18
+          },
+          {
+            "attempt": 1,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": null,
+            "declared": true,
+            "seconds": 8.94
+          }
+        ],
+        "injected": null,
+        "id": "ord-01",
+        "kind": "reorder",
+        "chaos": true,
+        "wallSeconds": 3.403,
+        "impossible": false
+      },
+      {
+        "success": true,
+        "attempts": 3,
+        "replans": 2,
+        "visionChecks": 0,
+        "sensorChecks": 3,
+        "sensorAgreements": 3,
+        "visionAgreements": 0,
+        "disagreements": [],
+        "llmCalls": 0,
+        "chaosEvents": 2,
+        "simSeconds": 36.65399999999883,
+        "planner": "scripted",
+        "providers": [
+          "scripted",
+          "scripted",
+          "scripted"
+        ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": null,
+            "declared": false,
+            "stepError": "step 4 place(green) failed: Sensors lost the red cube while lowering it onto green: fingertip switches went off.",
+            "seconds": 7.1
+          },
+          {
+            "attempt": 1,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": null,
+            "declared": false,
+            "stepError": "step 4 place(green) failed: No contact felt when lowering the red cube onto green.",
+            "seconds": 7.31
+          },
+          {
+            "attempt": 2,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": null,
+            "declared": true,
+            "seconds": 16.78
+          }
+        ],
+        "injected": null,
+        "id": "ord-02",
+        "kind": "reorder",
+        "chaos": true,
+        "wallSeconds": 5.985800000011921,
+        "impossible": false
+      },
+      {
+        "success": true,
+        "attempts": 2,
+        "replans": 1,
+        "visionChecks": 0,
+        "sensorChecks": 2,
+        "sensorAgreements": 1,
+        "visionAgreements": 0,
+        "disagreements": [],
+        "llmCalls": 0,
+        "chaosEvents": 2,
+        "simSeconds": 14.358000000001464,
+        "planner": "scripted",
+        "providers": [
+          "scripted",
+          "scripted"
+        ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": null,
+            "declared": false,
+            "stepError": "step 3 lift() failed: Sensors lost the yellow cube during lift: fingertip switches went off.",
+            "seconds": 4.17
+          },
+          {
+            "attempt": 1,
+            "truth": true,
+            "sensors": false,
+            "camera": null,
+            "vision": null,
+            "declared": true,
+            "stepError": "step 4 place(green_zone) failed: Sensors lost the yellow cube while carrying it to green_zone: fingertip switches went off.",
+            "seconds": 5.7
+          }
+        ],
+        "injected": null,
+        "id": "ord-03",
+        "kind": "reorder",
+        "chaos": true,
+        "wallSeconds": 1.872300000011921,
+        "impossible": false
+      },
+      {
+        "success": true,
+        "attempts": 2,
+        "replans": 1,
+        "visionChecks": 0,
+        "sensorChecks": 2,
+        "sensorAgreements": 2,
+        "visionAgreements": 0,
+        "disagreements": [],
+        "llmCalls": 0,
+        "chaosEvents": 1,
+        "simSeconds": 23.70399999999774,
+        "planner": "scripted",
+        "providers": [
+          "scripted",
+          "scripted"
+        ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": null,
+            "declared": false,
+            "stepError": "step 4 place(red_zone) failed: No contact felt when lowering the green cube onto red_zone.",
+            "seconds": 8.24
+          },
+          {
+            "attempt": 1,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": null,
+            "declared": true,
+            "seconds": 9.7
+          }
+        ],
+        "injected": null,
+        "id": "ord-04",
+        "kind": "reorder",
+        "chaos": true,
+        "wallSeconds": 4.285099999964237,
+        "impossible": false
+      },
+      {
+        "success": false,
+        "attempts": 4,
+        "replans": 3,
+        "visionChecks": 0,
+        "sensorChecks": 4,
+        "sensorAgreements": 4,
+        "visionAgreements": 0,
+        "disagreements": [],
+        "llmCalls": 0,
+        "chaosEvents": 3,
+        "simSeconds": 29.80599999999436,
+        "planner": "scripted",
+        "providers": [
+          "scripted",
+          "scripted",
+          "scripted",
+          "scripted"
+        ],
+        "declared": false,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": null,
+            "declared": false,
+            "stepError": "step 3 lift() failed: Sensors lost the yellow cube during lift: fingertip switches went off.",
+            "seconds": 4.44
+          },
+          {
+            "attempt": 1,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": null,
+            "declared": false,
+            "stepError": "step 4 place(blue) failed: Sensors lost the yellow cube while lowering it onto blue: fingertip switches went off.",
+            "seconds": 8.04
+          },
+          {
+            "attempt": 2,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": null,
+            "declared": false,
+            "stepError": "step 3 lift() failed: Sensors lost the yellow cube during lift: fingertip switches went off.",
+            "seconds": 4.69
+          },
+          {
+            "attempt": 3,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": null,
+            "declared": false,
+            "stepError": "step 3 lift() failed: Sensors lost the yellow cube during lift: fingertip switches went off.",
+            "seconds": 4.68
+          }
+        ],
+        "failure": "step 3 lift() failed: Sensors lost the yellow cube during lift: fingertip switches went off. Goal check: yellow is not on blue (offset 21.6 cm, height diff 0.0 cm); red is not on yellow (offset 21.6 cm, height diff 5.0 cm)",
+        "injected": null,
+        "id": "ord-05",
+        "kind": "reorder",
+        "chaos": true,
+        "wallSeconds": 4.554,
+        "impossible": false
+      },
+      {
+        "success": false,
+        "attempts": 1,
+        "replans": 0,
+        "visionChecks": 0,
+        "sensorChecks": 0,
+        "sensorAgreements": 0,
+        "visionAgreements": 0,
+        "disagreements": [],
+        "llmCalls": 0,
+        "chaosEvents": 0,
+        "simSeconds": 0,
+        "planner": "scripted",
+        "providers": [
+          "scripted"
+        ],
+        "declared": false,
+        "decider": "oracle",
+        "log": [],
+        "refused": "no goal",
+        "failure": "planner refused: no goal",
+        "injected": null,
+        "id": "imp-01",
+        "kind": "impossible",
+        "chaos": true,
+        "wallSeconds": 0.00019999998807907106,
+        "impossible": true
+      },
+      {
+        "success": false,
+        "attempts": 1,
+        "replans": 0,
+        "visionChecks": 0,
+        "sensorChecks": 0,
+        "sensorAgreements": 0,
+        "visionAgreements": 0,
+        "disagreements": [],
+        "llmCalls": 0,
+        "chaosEvents": 0,
+        "simSeconds": 0,
+        "planner": "scripted",
+        "providers": [
+          "scripted"
+        ],
+        "declared": false,
+        "decider": "oracle",
+        "log": [],
+        "refused": "no goal",
+        "failure": "planner refused: no goal",
+        "injected": null,
+        "id": "imp-02",
+        "kind": "impossible",
+        "chaos": true,
+        "wallSeconds": 0.00010000002384185791,
+        "impossible": true
+      },
+      {
+        "success": false,
+        "attempts": 1,
+        "replans": 0,
+        "visionChecks": 0,
+        "sensorChecks": 0,
+        "sensorAgreements": 0,
+        "visionAgreements": 0,
+        "disagreements": [],
+        "llmCalls": 0,
+        "chaosEvents": 0,
+        "simSeconds": 0,
+        "planner": "scripted",
+        "providers": [
+          "scripted"
+        ],
+        "declared": false,
+        "decider": "oracle",
+        "log": [],
+        "refused": "no goal",
+        "failure": "planner refused: no goal",
+        "injected": null,
+        "id": "imp-03",
+        "kind": "impossible",
+        "chaos": true,
+        "wallSeconds": 0.00019999998807907106,
+        "impossible": true
+      },
+      {
+        "success": false,
+        "attempts": 1,
+        "replans": 0,
+        "visionChecks": 0,
+        "sensorChecks": 0,
+        "sensorAgreements": 0,
+        "visionAgreements": 0,
+        "disagreements": [],
+        "llmCalls": 0,
+        "chaosEvents": 0,
+        "simSeconds": 0,
+        "planner": "scripted",
+        "providers": [
+          "scripted"
+        ],
+        "declared": false,
+        "decider": "oracle",
+        "log": [],
+        "refused": "no goal",
+        "failure": "planner refused: no goal",
+        "injected": null,
+        "id": "imp-04",
+        "kind": "impossible",
+        "chaos": true,
+        "wallSeconds": 0.00009999996423721313,
+        "impossible": true
+      },
+      {
+        "success": false,
+        "attempts": 1,
+        "replans": 0,
+        "visionChecks": 0,
+        "sensorChecks": 0,
+        "sensorAgreements": 0,
+        "visionAgreements": 0,
+        "disagreements": [],
+        "llmCalls": 0,
+        "chaosEvents": 0,
+        "simSeconds": 0,
+        "planner": "scripted",
+        "providers": [
+          "scripted"
+        ],
+        "declared": false,
+        "decider": "oracle",
+        "log": [],
+        "refused": "no goal",
+        "failure": "planner refused: no goal",
+        "injected": null,
+        "id": "imp-05",
+        "kind": "impossible",
+        "chaos": true,
+        "wallSeconds": 0.00020000004768371582,
+        "impossible": true
+      },
+      {
+        "success": true,
+        "attempts": 2,
+        "replans": 1,
+        "visionChecks": 0,
+        "sensorChecks": 2,
+        "sensorAgreements": 2,
+        "visionAgreements": 0,
+        "disagreements": [],
+        "llmCalls": 0,
+        "chaosEvents": 3,
+        "simSeconds": 17.33600000000127,
+        "planner": "scripted",
+        "providers": [
+          "scripted",
+          "scripted"
+        ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": null,
+            "declared": false,
+            "stepError": "step 3 lift() failed: Sensors lost the red cube during lift: fingertip switches went off.",
+            "seconds": 3.95
+          },
+          {
+            "attempt": 1,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": null,
+            "declared": true,
+            "seconds": 9.35
+          }
+        ],
+        "injected": null,
+        "id": "dis-01",
+        "kind": "distractor",
+        "chaos": true,
+        "wallSeconds": 2.596700000047684,
+        "impossible": false
+      },
+      {
+        "success": true,
+        "attempts": 1,
+        "replans": 0,
+        "visionChecks": 0,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
+        "visionAgreements": 0,
+        "disagreements": [],
+        "llmCalls": 0,
+        "chaosEvents": 1,
+        "simSeconds": 11.956000000000662,
+        "planner": "scripted",
+        "providers": [
+          "scripted"
+        ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": null,
+            "declared": true,
+            "seconds": 9.37
+          }
+        ],
+        "injected": null,
+        "id": "dis-02",
+        "kind": "distractor",
+        "chaos": true,
+        "wallSeconds": 1.7625999999642372,
+        "impossible": false
+      },
+      {
+        "success": true,
+        "attempts": 1,
+        "replans": 0,
+        "visionChecks": 0,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
+        "visionAgreements": 0,
+        "disagreements": [],
+        "llmCalls": 0,
+        "chaosEvents": 0,
+        "simSeconds": 11.198000000000409,
+        "planner": "scripted",
+        "providers": [
+          "scripted"
+        ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": null,
+            "declared": true,
+            "seconds": 8.57
+          }
+        ],
+        "injected": null,
+        "id": "dis-03",
+        "kind": "distractor",
+        "chaos": true,
+        "wallSeconds": 1.704800000011921,
+        "impossible": false
+      },
+      {
+        "success": true,
+        "attempts": 1,
+        "replans": 0,
+        "visionChecks": 0,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
+        "visionAgreements": 0,
+        "disagreements": [],
+        "llmCalls": 0,
+        "chaosEvents": 0,
+        "simSeconds": 11.306000000000445,
+        "planner": "scripted",
+        "providers": [
+          "scripted"
+        ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": null,
+            "declared": true,
+            "seconds": 8.91
+          }
+        ],
+        "injected": null,
+        "id": "dis-04",
+        "kind": "distractor",
+        "chaos": true,
+        "wallSeconds": 1.6102000000476837,
+        "impossible": false
+      },
+      {
+        "success": true,
+        "attempts": 2,
+        "replans": 1,
+        "visionChecks": 0,
+        "sensorChecks": 2,
+        "sensorAgreements": 2,
+        "visionAgreements": 0,
+        "disagreements": [],
+        "llmCalls": 0,
+        "chaosEvents": 1,
+        "simSeconds": 16.322000000001832,
+        "planner": "scripted",
+        "providers": [
+          "scripted",
+          "scripted"
+        ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": null,
+            "declared": false,
+            "stepError": "step 3 lift() failed: Sensors lost the red cube during lift: fingertip switches went off.",
+            "seconds": 3.94
+          },
+          {
+            "attempt": 1,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": null,
+            "declared": true,
+            "seconds": 8.74
+          }
+        ],
+        "injected": null,
+        "id": "dis-05",
+        "kind": "distractor",
+        "chaos": true,
+        "wallSeconds": 2.316600000023842,
+        "impossible": false
+      }
+    ]
+  }
+}

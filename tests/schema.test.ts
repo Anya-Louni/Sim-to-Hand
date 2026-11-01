@@ -63,3 +63,10 @@ test('judge output needs success and reason', () => {
   assert.throws(() => validateJudgement({ success: 'yes', reason: 'x' }));
   assert.throws(() => validateJudgement({ success: true }));
 });
+
+test('a refusal is a valid plan with no steps; an empty plan without one is not', () => {
+  const r = validatePlan({ reasoning: 'No purple cube.', refuse: 'there is no purple cube', goal: [], steps: [] }, cubes);
+  assert.deepEqual(r.errors, []);
+  assert.equal(r.plan?.refuse, 'there is no purple cube');
+  assert.match(validatePlan({ reasoning: 'x', goal: [], steps: [] }, cubes).errors.join(), /must not be empty/);
+});

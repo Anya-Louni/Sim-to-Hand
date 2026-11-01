@@ -44,12 +44,18 @@ export function randomScene(seed: number, colors: Color[]): SceneSpec {
   return { seed, cubes };
 }
 
+/** Resting height of a cube's centre: on the table, or on top of the cube it starts on. */
+function startZ(scene: SceneSpec, name: string): number {
+  const c = scene.cubes.find((k) => k.name === name)!;
+  return c.on ? startZ(scene, c.on) + 2 * CUBE_HALF + 0.0005 : CUBE_HALF;
+}
+
 export function sceneXml(scene: SceneSpec): string {
   const cubes = scene.cubes
     .map((c) => {
       const [r, g, b] = COLORS[c.name];
       const h = CUBE_HALF;
-      return `<body name="${c.name}" pos="${c.x} ${c.y} ${h}" euler="0 0 ${c.yaw}">
+      return `<body name="${c.name}" pos="${c.x} ${c.y} ${startZ(scene, c.name)}" euler="0 0 ${c.yaw}">
   <freejoint name="${c.name}"/>
   <geom type="box" size="${h} ${h} ${h}" rgba="${r} ${g} ${b} 1" density="500" friction="1.6 0.01 0.001" condim="4"/>
 </body>`;

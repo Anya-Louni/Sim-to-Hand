@@ -54,5 +54,5 @@ export function describeScene(sim: Sim, holding: string | null): string {
     (c) => `- ${c.name} cube at x=${cm(c.pos[0])} y=${cm(c.pos[1])} z=${cm(c.pos[2])} cm, ${c.name === holding ? 'held by the gripper' : supportOf(c, cubes)}`,
   );
   const zones = ZONES.map((z) => `- ${z.name} centered at x=${cm(z.x)} y=${cm(z.y)} cm`);
-  return `Cubes (5 cm):\n${lines.join('\n')}\nZones on the table:\n${zones.join('\n')}\nGripper: ${holding ? 'holding ' + holding : 'empty'}`;
+  return `Frame: robot base at x=0 y=0, x points away from the robot, +y is the robot's left.\nCubes (5 cm):\n${lines.join('\n')}\nZones on the table:\n${zones.join('\n')}\nGripper: ${holding ? 'holding ' + holding : 'empty'}`;
 }

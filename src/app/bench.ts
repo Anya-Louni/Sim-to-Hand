@@ -1,7 +1,7 @@
 import { runEpisode, type Decider, type Detector, type EpisodeResult } from '../core/agent.ts';
 import { CUBE_HALF, HOVER_Z, mulberry32, randomScene, ZONES } from '../core/scene.ts';
 import { DEFAULT_CHAOS, Executor, type Injection } from '../core/skills.ts';
-import { BENCHMARK, generateTasks } from '../core/tasks.ts';
+import { BENCHMARK, generateTasks, HARD_BENCHMARK } from '../core/tasks.ts';
 import type { CubePose } from '../core/sim.ts';
 import type { Color, Skill, Task } from '../core/types.ts';
 import { verifyGoals } from '../core/verify.ts';
@@ -11,6 +11,8 @@ import { World } from './world.ts';
 
 export interface BenchConfig {
   ids?: string[];
+  /** 'hard': the A6 suite (relational, reorder, impossible, distractor). Default: the main suite. */
+  suite?: 'main' | 'hard';
   chaos: boolean;
   planner: 'llm' | 'scripted';
   vision: boolean;
@@ -23,6 +25,8 @@ export interface BenchRow extends EpisodeResult {
   chaos: boolean;
   wallSeconds: number;
   error?: string;
+  /** Hard suite: the task cannot be done, so a refusal is the right answer. */
+  impossible?: boolean;
 }
 
 const log = document.getElementById('log')!;
@@ -31,7 +35,7 @@ const transport = makeTransport(() => ({}), 3);
 let world: World | null = null;
 
 async function runBench(cfg: BenchConfig): Promise<BenchRow[]> {
-  const tasks = BENCHMARK.filter((t) => !cfg.ids || cfg.ids.includes(t.id));
+  const tasks = (cfg.suite === 'hard' ? HARD_BENCHMARK : BENCHMARK).filter((t) => !cfg.ids || cfg.ids.includes(t.id));
   world ??= await World.create(document.getElementById('scene') as HTMLCanvasElement, tasks[0].scene);
   const w = world;
   const rows: BenchRow[] = [];
@@ -63,7 +67,7 @@ async function runBench(cfg: BenchConfig): Promise<BenchRow[]> {
         success: false, attempts: 0, replans: 0, visionChecks: 0, visionAgreements: 0, sensorChecks: 0, sensorAgreements: 0, disagreements: [], llmCalls: 0, chaosEvents: 0, simSeconds: 0, planner: cfg.planner, providers: [],
       };
     }
-    rows.push(row);
+    rows.push({ ...row, impossible: !!task.impossible });
     log.textContent += `\n${task.id} ${row.success ? 'OK' : 'FAIL'} attempts=${row.attempts} vision=${row.visionAgreements}/${row.visionChecks} ${row.failure ?? row.error ?? ''}`;
   }
   return rows;

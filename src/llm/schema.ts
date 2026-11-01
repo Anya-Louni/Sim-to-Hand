@@ -10,9 +10,10 @@ export const PLAN_SCHEMA = {
   required: ['reasoning', 'goal', 'steps'],
   properties: {
     reasoning: { type: 'string', maxLength: 800 },
+    refuse: { type: 'string', minLength: 1, maxLength: 300 },
     goal: {
       type: 'array',
-      minItems: 1,
+      minItems: 0,
       maxItems: 8,
       items: {
         oneOf: [
@@ -23,7 +24,7 @@ export const PLAN_SCHEMA = {
     },
     steps: {
       type: 'array',
-      minItems: 1,
+      minItems: 0,
       maxItems: 40,
       items: {
         oneOf: [
@@ -63,8 +64,10 @@ export function validatePlan(raw: unknown, cubes: string[]): { plan?: Plan; erro
     return { errors: (planValidator.errors ?? []).slice(0, 6).map((e) => `${e.instancePath || '/'} ${e.message}`) };
   }
   const plan = raw as unknown as Plan;
+  if (plan.refuse) return { plan: { ...plan, goal: [], steps: [] }, errors: [] };
   const zones = ZONES.map((z) => z.name);
   const errors: string[] = [];
+  if (!plan.goal.length || !plan.steps.length) errors.push('goal and steps must not be empty unless you refuse');
   const isCube = (n: string) => cubes.includes(n);
   const isTarget = (n: string) => isCube(n) || zones.includes(n);
   plan.steps.forEach((s, i) => {

@@ -100,6 +100,8 @@ export interface EpisodeResult {
   decider?: Decider;
   injected?: string | null;
   log?: AttemptLog[];
+  /** The planner declined the task, with its reason. The robot did not move. */
+  refused?: string;
 }
 
 export interface EpisodeOptions {
@@ -209,6 +211,13 @@ export async function runEpisode(deps: AgentDeps, opts: EpisodeOptions): Promise
       const message = (e as Error).message;
       emit({ type: 'plan_error', attempt, message });
       result.failure = `planner error: ${message}`;
+      break;
+    }
+
+    if (plan.refuse) {
+      result.refused = plan.refuse;
+      result.failure = `planner refused: ${plan.refuse}`;
+      emit({ type: 'plan_error', attempt, message: `Planner refused: ${plan.refuse}` });
       break;
     }
 

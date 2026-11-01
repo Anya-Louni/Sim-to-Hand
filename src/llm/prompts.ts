@@ -34,6 +34,8 @@ Rules:
   {"pred":"on","a":A,"b":B} means cube A rests directly on cube B.
   {"pred":"in_zone","a":A,"zone":Z} means cube A sits inside zone Z.
 - If earlier attempts failed, read the failure, look at the current scene, and plan only what is still needed.
+- If the instruction cannot be done in this scene (an object or zone that does not exist, a cube on itself,
+  goals that contradict each other), do not plan. Return {"reasoning": "...", "refuse": "<why>", "goal": [], "steps": []}.
 Return only JSON: {"reasoning": "<one or two sentences>", "goal": [...], "steps": [...]}`;
 
 export function planUserText(p: PlanPayload): string {

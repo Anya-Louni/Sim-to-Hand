@@ -1,4 +1,4 @@
-// Builds bench/RESULTS.md from bench/results.json. No browser, no API calls.
+// Builds bench/RESULTS.md from bench/results.json (and bench/RESULTS_HARD.md from bench/results_hard.json). No browser, no API calls.
 // Usage: node --experimental-strip-types scripts/bench-report.ts
 import fs from 'node:fs';
 
@@ -55,8 +55,40 @@ export function report(all: Record<string, any[]>): string {
   return md;
 }
 
+const FAMILIES = ['relational', 'reorder', 'impossible', 'distractor'];
+
+/**
+ * Hard suite (A6). Correct means: the goal holds at the end for a possible task, or the planner refused an
+ * impossible one. Also counts refusals of possible tasks and impossible tasks the planner tried to do.
+ */
+export function hardReport(all: Record<string, any[]>): string {
+  const ok = (r: any) => (r.impossible ? !!r.refused : r.success);
+  let md = 'Hard suite (A6): hand-written goals; for impossible tasks the right answer is a refusal. Brackets are 95% Wilson confidence intervals.\n\n';
+  md += `| Condition | Tasks | Correct | ${FAMILIES.join(' | ')} | Refused a possible task | Acted on an impossible task | LLM calls |\n|---|---|---|${FAMILIES.map(() => '---|').join('')}---|---|---|\n`;
+  for (const c of CONDITIONS) {
+    const rows = all[c];
+    if (!rows) continue;
+    const fam = (f: string) => {
+      const r = rows.filter((x) => x.kind === f);
+      return `${r.filter(ok).length}/${r.length}`;
+    };
+    const possible = rows.filter((r) => !r.impossible);
+    const imp = rows.filter((r) => r.impossible);
+    md += `| ${c} | ${rows.length} | ${rate(rows.filter(ok).length, rows.length)} | ${FAMILIES.map(fam).join(' | ')} | ${possible.filter((r) => r.refused).length}/${possible.length} | ${imp.filter((r) => !r.refused).length}/${imp.length} | ${rows.reduce((s, r) => s + (r.llmCalls ?? 0), 0)} |\n`;
+  }
+  const wrong = Object.entries(all).flatMap(([name, rows]) => rows.filter((r: any) => !ok(r)).map((r: any) => `- ${name} ${r.id}: ${r.impossible ? 'tried an impossible task' : (r.failure ?? r.error)}`));
+  md += `\nWrong answers (${wrong.length}):\n\n${wrong.join('\n') || 'none'}\n`;
+  const refusals = Object.entries(all).flatMap(([name, rows]) => rows.filter((r: any) => r.refused).map((r: any) => `- ${name} ${r.id}: "${r.refused}"`));
+  md += `\nRefusals (${refusals.length}):\n\n${refusals.join('\n') || 'none'}\n`;
+  return md;
+}
+
 if (import.meta.url === `file:///${process.argv[1]?.replace(/\\/g, '/')}` || process.argv[1]?.endsWith('bench-report.ts')) {
   const all = JSON.parse(fs.readFileSync('bench/results.json', 'utf8')).conditions;
   fs.writeFileSync('bench/RESULTS.md', report(all));
   console.log('wrote bench/RESULTS.md');
+  if (fs.existsSync('bench/results_hard.json')) {
+    fs.writeFileSync('bench/RESULTS_HARD.md', hardReport(JSON.parse(fs.readFileSync('bench/results_hard.json', 'utf8')).conditions));
+    console.log('wrote bench/RESULTS_HARD.md');
+  }
 }

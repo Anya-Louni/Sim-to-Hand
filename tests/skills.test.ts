@@ -112,3 +112,12 @@ test('perceived state: a 4 mm camera error still stacks; a cube the camera misse
   assert.match((await ex.run({ skill: 'move_to', target: 'green' })).error!, /camera cannot find the green cube/);
   sim.dispose();
 });
+
+test('a scene can start with cubes stacked', async () => {
+  const { HARD_BENCHMARK } = await import('../src/core/tasks.ts');
+  const t = HARD_BENCHMARK.find((k) => k.id === 'ord-02')!;
+  const sim = await makeSim(t.scene);
+  for (let i = 0; i < 500; i++) sim.step();
+  assert.equal(verifyGoals(sim, [{ pred: 'on', a: 'red', b: 'blue' }, { pred: 'on', a: 'green', b: 'red' }]).ok, true);
+  sim.dispose();
+});

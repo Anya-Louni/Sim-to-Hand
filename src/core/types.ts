@@ -5,6 +5,8 @@ export interface CubeSpec {
   x: number;
   y: number;
   yaw: number;
+  /** Starts resting on this cube (which must come earlier in the list). Default: on the table. */
+  on?: Color;
 }
 
 export interface Zone {
@@ -33,14 +35,19 @@ export interface Plan {
   reasoning: string;
   goal: Goal[];
   steps: Skill[];
+  /** Set instead of a plan when the instruction cannot be done in this scene. */
+  refuse?: string;
 }
 
 export interface Task {
   id: string;
-  kind: 'stack' | 'tower' | 'sort' | 'zone';
+  kind: 'stack' | 'tower' | 'sort' | 'zone' | 'relational' | 'reorder' | 'impossible' | 'distractor';
   instruction: string;
   scene: SceneSpec;
+  /** Hand-written goal. Empty for impossible tasks, where the right answer is a refusal. */
   goal: Goal[];
+  /** Why the task cannot be done (impossible tasks only). */
+  impossible?: string;
 }
 
 export interface Judgement {

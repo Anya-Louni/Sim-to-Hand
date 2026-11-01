@@ -40,6 +40,7 @@ export function scriptedPlanner(goal: Goal[]): Planner {
   return {
     name: 'scripted',
     async plan(req: PlanRequest) {
+      if (!goal.length) return { plan: { reasoning: 'Scripted: the task has no goal to plan for.', refuse: 'no goal', goal: [], steps: [] }, provider: 'scripted', calls: 0 };
       const plan = scriptedPlan(goal);
       if (req.history.length) plan.reasoning = 'Scripted retry: redo the full goal sequence.';
       return { plan, provider: 'scripted', calls: 0 };
