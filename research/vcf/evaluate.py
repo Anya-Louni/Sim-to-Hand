@@ -216,7 +216,7 @@ def _ci(c) -> str:
 
 
 def _p(p: float) -> str:
-    return "<0.001" if p < 0.001 else f"{p:.3f}"
+    return "<0.001" if p < 0.001 else f"{half_up(p, 3)}"
 
 
 MIN_COVERAGE = 0.5  # judges that answered less of the test set go to the appendix table
@@ -279,7 +279,7 @@ def plot(r: dict, out: Path):
     for name, j in r["judges"].items():
         rel = j["overall"].get("reliability")
         if rel and (j["kind"] != "vlm" or "(single)" in name):
-            ax.plot([b["mean_p"] for b in rel], [b["frac_success"] for b in rel], "o-", ms=3, label=f"{name} (ECE {j['overall']['ece']:.2f})")
+            ax.plot([b["mean_p"] for b in rel], [b["frac_success"] for b in rel], "o-", ms=3, label=f"{name} (ECE {half_up(j['overall']['ece'], 2)})")
     ax.set_xlabel("predicted P(success)")
     ax.set_ylabel("observed success rate")
     ax.legend(fontsize=6)

@@ -44,6 +44,9 @@ def main():
     env = {"PYTHONPATH": str(RESEARCH)}
     for split in ("small", "large"):
         run(f"research leaderboard ({split})", [PY, "-m", "vcf.evaluate", "--test", f"data/{split}", "--out", f"results/{split}"], cwd=RESEARCH, env=env)
+    run("VLM coverage report", [PY, "scripts/coverage_report.py"], cwd=RESEARCH)
+    if any((RESEARCH / "data/small/trace_llm").glob("*.jsonl")):
+        run("LLMs reading touch traces", [PY, "scripts/trace_llm_report.py"], cwd=RESEARCH)
     run("6-axis wrist sensor ablation", [PY, "scripts/ft_ablation.py"], cwd=RESEARCH)
     run("report tables", [PY, "scripts/make_tables.py"], cwd=RESEARCH)
     if any((REPO / "experiments/images/checkpoints").glob("*.jpg")):
@@ -55,6 +58,7 @@ def main():
         run("website data", [PY, "scripts/export_site.py"], cwd=RESEARCH)
     else:
         skip("website data", "dataset images or robot assets not present")
+    run("report tables for the agent sections", [PY, "scripts/report_extras.py"], cwd=RESEARCH)
     run("README and report numbers", [PY, "scripts/fill_docs.py"], cwd=RESEARCH)
     print(f"done in {time.time() - t0:.0f}s")
 

@@ -35,7 +35,7 @@ def ci(c, pct=False):
 
 
 def pval(p: float) -> str:
-    return "$<$0.001" if p < 0.001 else f"{p:.3f}"
+    return "$<$0.001" if p < 0.001 else f"{half_up(p, 3)}"
 
 
 def table(cols: str, header: str, rows: list[str]) -> str:
@@ -95,7 +95,7 @@ def attack():
         cells = []
         for task in TASKS:
             rs = [max(r["mm_to_fool_ladder"], r["mm_to_fool_with_llm"]) for r in s if r["model"] == m and r["task"] == task]
-            cells.append(f"{sum(rs) / len(rs):.1f}" if rs else "--")
+            cells.append(f"{half_up(sum(rs) / len(rs), 1)}" if rs else "--")
         lines.append(esc(m) + " & " + " & ".join(cells) + END)
     write("attack.tex", table("l" + "r" * len(TASKS), "Model & " + " & ".join(TASKS), lines))
     tp = ROOT / "results" / "attack" / "transfer.json"
@@ -118,7 +118,7 @@ def pixel_stats():
         if rs:
             mags = sorted(r["mag_mm"] for r in rs)
             px = sorted(r["pair_pixel_diff"]["front"]["mean_abs"] for r in rs)
-            lines.append(f"{task} & {len(rs)} & {mags[0]:.1f}--{mags[-1]:.1f} & {px[len(px) // 2]:.1f} (median)" + END)
+            lines.append(f"{task} & {len(rs)} & {half_up(mags[0], 1)}--{half_up(mags[-1], 1)} & {half_up(px[len(px) // 2], 1)} (median)" + END)
     write("pairs.tex", table("lrrr", "Task & Pairs & Failure magnitude (mm) & Front pixel diff", lines))
 
 

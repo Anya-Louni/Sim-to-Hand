@@ -97,3 +97,15 @@ def test_ft_features_on_a_clean_step():
     assert f["ft_peak_change"] == pytest.approx(4.0)
     assert f["ft_peak_dir_z"] == pytest.approx(1.0, abs=1e-3)
     assert f["ft_end_lateral"] == pytest.approx(0.0) and f["ft_torque_peak"] == pytest.approx(0.0)
+
+
+def test_coverage_policy():
+    from vcf.evaluate import policy
+
+    j = lambda cov, fs, ff, kind="vlm": {"coverage": cov, "kind": kind, "overall": {"false_success_rate": fs, "false_failure_rate": ff}}  # noqa: E731
+    assert policy(j("150/400", 0.5, 0.4), 400)["main"] is False
+    assert policy(j("200/400", 0.5, 0.4), 400)["main"] is True
+    p = policy(j("100/100", 1.0, 0.0), 100)  # always says success
+    assert p["degenerate"] and p["says_success"] == pytest.approx(1.0)
+    assert not policy(j("100/100", 0.2, 0.2), 100)["degenerate"]
+    assert not policy(j("100/100", 1.0, 0.0, "sensor"), 100)["degenerate"]

@@ -20,6 +20,11 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt  # noqa: E402
 import numpy as np  # noqa: E402
 
+import sys  # noqa: E402
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from vcf.stats import half_up  # noqa: E402
+
 ROOT = Path(__file__).resolve().parents[2]
 EXP = ROOT / "experiments"
 DATA = EXP / "data"
@@ -49,7 +54,7 @@ def fmt(k: int, n: int) -> str:
     if n == 0:
         return "n/a"
     p, lo, hi = wilson(k, n)
-    return f"{k}/{n} = {100 * p:.0f}% [{100 * lo:.0f}, {100 * hi:.0f}]"
+    return f"{k}/{n} = {half_up(p, 0, 100)}% [{half_up(lo, 0, 100)}, {half_up(hi, 0, 100)}]"
 
 
 def read(name: str) -> list[dict]:
@@ -127,7 +132,7 @@ def trials_summary(md: list[str]):
         for r in sub:
             md.append(
                 f"| {LABEL[r['decider']]} | {r['n']} | {fmt(r['success'], r['n'])} | {fmt(r['false_success'], r['n'])} | {fmt(r['caught'], r['first_failures'])} | "
-                f"{fmt(r['recovered'], r['first_failures'])} | {r['mean_attempts']:.2f} | {'' if math.isnan(r['mean_detect_s']) else f'{r['mean_detect_s']:.1f}'} |"
+                f"{fmt(r['recovered'], r['first_failures'])} | {half_up(r['mean_attempts'], 2)} | {'' if math.isnan(r['mean_detect_s']) else f'{half_up(r['mean_detect_s'], 1)}'} |"
             )
         md.append("")
 
@@ -229,7 +234,7 @@ def checkpoints_summary(md: list[str]):
         "",
         "Minimal pairs from the agent's own robot and cubes. Half of each set succeeds and half fails, by construction (even seeds succeed).",
         "",
-        f"- **Contact**: the robot lowers a held cube onto another and stops either in contact or hovering just above it (measured gaps {gmin:.1f} to {gmax:.1f} mm). "
+        f"- **Contact**: the robot lowers a held cube onto another and stops either in contact or hovering just above it (measured gaps {half_up(gmin, 1)} to {half_up(gmax, 1)} mm). "
         "The image is taken at that moment, gripper in view. Ground truth is the simulated gap (contact means under 0.5 mm).",
         "- **Placement**: the robot releases the cube on top of another, either centered (0 to 10 mm off) or 28 to 36 mm off along a face, "
         "so it tips off. The image is taken after the arm moves away. Ground truth is the simulator's `on` check.",
@@ -246,7 +251,7 @@ def checkpoints_summary(md: list[str]):
     md.append("")
 
     fig, axs = plt.subplots(1, 2, figsize=(8.4, 3.2), sharey=True)
-    for ax, kind, title in zip(axs, ("contact", "place"), (f"Contact: touching or hovering {gmin:.1f} to {gmax:.1f} mm", "Placement: stays on top or tips off")):
+    for ax, kind, title in zip(axs, ("contact", "place"), (f"Contact: touching or hovering {half_up(gmin, 1)} to {half_up(gmax, 1)} mm", "Placement: stays on top or tips off")):
         sub = [r for r in rows if r["kind"] == kind]
         for i, r in enumerate(sub):
             p, lo, hi = wilson(r["correct"], r["n"])
@@ -340,13 +345,13 @@ def perceived_summary(md: list[str]):
     ]
     for r in rows:
         md.append(f"| {LABEL[r['decider']]} | {FAIL_LABEL[r['failure']]} | {r['n']} | {fmt(r['perceived_success'], r['n'])} | {fmt(r['sim_success'], r['n'])} | "
-                  f"{fmt(r['perceived_false_success'], r['n'])} | {fmt(r['sim_false_success'], r['n'])} | {r['perceived_attempts']:.2f} / {r['sim_attempts']:.2f} | "
-                  f"{r['only_perceived']} / {r['only_sim']}, p {'< 0.001' if r['p'] < 0.001 else f'{r['p']:.3f}'} |")
+                  f"{fmt(r['perceived_false_success'], r['n'])} | {fmt(r['sim_false_success'], r['n'])} | {half_up(r['perceived_attempts'], 2)} / {half_up(r['sim_attempts'], 2)} | "
+                  f"{r['only_perceived']} / {r['only_sim']}, p {'< 0.001' if r['p'] < 0.001 else half_up(r['p'], 3)} |")
     md += [
         "",
         f"Perception error over {stats['attempts']} looks (sideways distance between estimated and true cube centre, averaged over the cubes in view):",
-        f"mean {stats['mean_mm']:.1f} mm, median {stats['median_mm']:.1f} mm, 90th percentile {stats['p90_mm']:.1f} mm. Worst cube per look: 90th percentile",
-        f"{stats['worst_p90_mm']:.1f} mm, largest {stats['worst_max_mm']:.1f} mm. Looks with a cube not found: {missing}.",
+        f"mean {half_up(stats['mean_mm'], 1)} mm, median {half_up(stats['median_mm'], 1)} mm, 90th percentile {half_up(stats['p90_mm'], 1)} mm. Worst cube per look: 90th percentile",
+        f"{half_up(stats['worst_p90_mm'], 1)} mm, largest {half_up(stats['worst_max_mm'], 1)} mm. Looks with a cube not found: {missing}.",
         f"First attempts (simulator decider) with every cube within 5 mm: {fmt(stats['first_ok_low'], stats['first_n_low'])} succeeded;",
         f"with a cube 5 mm or more off: {fmt(stats['first_ok_high'], stats['first_n_high'])}.",
         "",
@@ -397,7 +402,7 @@ def probes_summary(md: list[str]):
         sub = [r for r in rows if r["failure"] == f]
         md += [f"### {FAIL_LABEL[f]}", "", "| Strategy | Episodes | True success | False success | Avg attempts | Sim s / episode | Camera checks / episode | Probes / episode |", "|---|---|---|---|---|---|---|---|"]
         for r in sub:
-            md.append(f"| {STRAT_LABEL[r['strategy']]} | {r['n']} | {fmt(r['success'], r['n'])} | {fmt(r['false_success'], r['n'])} | {r['attempts']:.2f} | {r['sim_s']:.1f} | {r['camera_per_ep']:.2f} | {r['probes_per_ep']:.2f} |")
+            md.append(f"| {STRAT_LABEL[r['strategy']]} | {r['n']} | {fmt(r['success'], r['n'])} | {fmt(r['false_success'], r['n'])} | {half_up(r['attempts'], 2)} | {half_up(r['sim_s'], 1)} | {half_up(r['camera_per_ep'], 2)} | {half_up(r['probes_per_ep'], 2)} |")
         md.append("")
     tot = {d: [r for r in rows if r["strategy"] == d] for d in STRATS}
     md += ["### All failure types together", "", "| Strategy | Episodes | True success | False success | Sim s / episode | Camera checks / episode | Probes / episode |", "|---|---|---|---|---|---|---|"]
@@ -406,7 +411,7 @@ def probes_summary(md: list[str]):
         if not n:
             continue
         md.append(f"| {STRAT_LABEL[d]} | {n} | {fmt(sum(r['success'] for r in rs), n)} | {fmt(sum(r['false_success'] for r in rs), n)} | "
-                  f"{sum(r['sim_s'] * r['n'] for r in rs) / n:.1f} | {sum(r['camera_per_ep'] * r['n'] for r in rs) / n:.2f} | {sum(r['probes_per_ep'] * r['n'] for r in rs) / n:.2f} |")
+                  f"{half_up(sum(r['sim_s'] * r['n'] for r in rs) / n, 1)} | {half_up(sum(r['camera_per_ep'] * r['n'] for r in rs) / n, 2)} | {half_up(sum(r['probes_per_ep'] * r['n'] for r in rs) / n, 2)} |")
     md.append("")
     v1 = read("probe_v1_trials.csv")
     if v1:
