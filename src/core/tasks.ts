@@ -1,4 +1,4 @@
-import { randomScene } from './scene.ts';
+import { mulberry32, randomScene, ZONES } from './scene.ts';
 import type { Color, Goal, Task } from './types.ts';
 
 const on = (a: string, b: string): Goal => ({ pred: 'on', a, b });
@@ -54,3 +54,34 @@ export const BENCHMARK: Task[] = [
   { id: 'stack-09', kind: 'stack', instruction: 'Stack the green cube on the red cube.', scene: randomScene(51, ['red', 'green', 'blue']), goal: [on('green', 'red')] },
   { id: 'zone-05', kind: 'zone', instruction: 'Put the blue cube in the blue zone and the red cube in the red zone.', scene: randomScene(52, ['red', 'blue', 'yellow']), goal: [inZone('blue', 'blue_zone'), inZone('red', 'red_zone')] },
 ];
+
+/**
+ * Seeded task generator for large experiments. Same seed, same tasks.
+ * Kinds: stack (2 goals cubes), tower (3), sort (3 zones), zone (1 cube, any zone).
+ */
+export function generateTasks(perKind: number, seed = 1000): Task[] {
+  const all: Color[] = ['red', 'green', 'blue', 'yellow'];
+  const tasks: Task[] = [];
+  for (let i = 0; i < perKind; i++) {
+    const s = seed + i * 17;
+    const rand = mulberry32(s);
+    const pick = () => {
+      const c = [...all];
+      for (let k = c.length - 1; k > 0; k--) {
+        const j = Math.floor(rand() * (k + 1));
+        [c[k], c[j]] = [c[j], c[k]];
+      }
+      return c;
+    };
+    const n = String(i + 1).padStart(3, '0');
+    let c = pick();
+    tasks.push(stack(`g-stack-${n}`, s, c[0], c[1], c.slice(2, 2 + Math.floor(rand() * 3)), `Stack the ${c[0]} cube on the ${c[1]} cube.`));
+    c = pick();
+    tasks.push(tower(`g-tower-${n}`, s + 1, c[0], c[1], c[2], `Build a tower: ${c[2]} at the bottom, then ${c[1]}, then ${c[0]} on top.`, rand() < 0.5 ? [c[3]] : []));
+    tasks.push(sort(`g-sort-${n}`, s + 2, 'Sort the cubes by color into their matching zones.'));
+    c = pick();
+    const z = ZONES[Math.floor(rand() * ZONES.length)].name;
+    tasks.push(zone(`g-zone-${n}`, s + 3, c[0], z, c.slice(1, 1 + Math.floor(rand() * 3)), `Put the ${c[0]} cube in the ${z.replace('_', ' ')}.`));
+  }
+  return tasks;
+}

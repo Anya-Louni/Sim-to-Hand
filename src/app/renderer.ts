@@ -203,6 +203,17 @@ export class Renderer {
     this.renderer.render(this.scene, this.camera);
   }
 
+  /** Verification camera matrices (column-major, as three.js stores them) for the image detector. */
+  snapCamera() {
+    this.snapCam.updateMatrixWorld();
+    return {
+      view: Array.from(this.snapCam.matrixWorldInverse.elements),
+      proj: Array.from(this.snapCam.projectionMatrix.elements),
+      width: this.snapTarget.width,
+      height: this.snapTarget.height,
+    };
+  }
+
   /** Fixed verification camera, returned as base64 JPEG for the vision check. */
   snapshot(): string {
     const r = this.renderer;

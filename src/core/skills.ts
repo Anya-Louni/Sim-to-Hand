@@ -19,6 +19,14 @@ export interface ChaosOptions {
 
 export const DEFAULT_CHAOS: ChaosOptions = { enabled: false, seed: 1, slipProb: 0.2, nudgeProb: 0.12, maxEvents: 2 };
 
+/**
+ * Scripted failures for controlled experiments. Each fires once, in the first attempt.
+ *   slip      the gripper opens for 0.3 s while carrying, so the cube drops
+ *   displace  the target cube is moved 8 cm just before the held cube is lowered onto it
+ *   knock     the cube just released is moved 9 cm away (a disturbance after placement)
+ */
+export type Injection = 'none' | 'slip' | 'displace' | 'knock';
+
 export type ExecEvent = { type: 'chaos'; message: string } | { type: 'note'; message: string };
 
 export interface StepResult {
@@ -43,6 +51,10 @@ export class Executor {
   /** Cheap, noisy sensors the agent uses to check its own grasps and placements. */
   private sensors: CheapSensors;
   sensorEvents: SensorEvent[] = [];
+  /** With sensing off the robot runs open loop: no touch, effort or wrist-force checks. Finger width still counts. */
+  sensing = true;
+  inject: Injection = 'none';
+  injected: string | null = null;
 
   constructor(sim: Sim, clock: Clock, chaos: ChaosOptions, emit: (e: ExecEvent) => void = () => {}, cancelled: () => boolean = () => false) {
     this.sim = sim;
@@ -196,8 +208,25 @@ export class Executor {
     return null;
   }
 
+  /** A free spot d meters from (x, y), away from other cubes. */
+  private clearSpot(x: number, y: number, skip: string[], d: number): [number, number] {
+    let best: [number, number] = [x + d, y];
+    let bestGap = -1;
+    for (let k = 0; k < 8; k++) {
+      const a = (k * Math.PI) / 4;
+      const p: [number, number] = [x + Math.cos(a) * d, y + Math.sin(a) * d];
+      if (p[0] < 0.3 || p[0] > 0.6 || Math.abs(p[1]) > 0.3) continue;
+      const gap = Math.min(1, ...this.sim.cubes().filter((c) => !skip.includes(c.name)).map((c) => Math.hypot(c.pos[0] - p[0], c.pos[1] - p[1])));
+      if (gap > bestGap) {
+        bestGap = gap;
+        best = p;
+      }
+    }
+    return best;
+  }
+
   private async checkDrop(skill: string, context: string): Promise<StepResult> {
-    if (!this.holding) return { ok: true };
+    if (!this.holding || !this.sensing) return { ok: true };
     const { held, r } = await this.sensedHold();
     if (!held) {
       const name = this.holding;
@@ -234,6 +263,10 @@ export class Executor {
         if (this.sim.gripWidth() < 0.03) {
           return { ok: false, error: `Grasp missed the ${skill.object} cube: the gripper closed on nothing.` };
         }
+        if (!this.sensing) {
+          this.holding = skill.object;
+          return { ok: true };
+        }
         const { held, r } = await this.sensedHold();
         const ok = held && Math.abs(r.effort) > 5;
         this.sensorEvents.push({ skill: `grasp(${skill.object})`, check: 'grasp', ok, detail: `switches ${r.switchLeft.toFixed(1)}/${r.switchRight.toFixed(1)}, effort ${r.effort.toFixed(1)} N` });
@@ -258,12 +291,27 @@ export class Executor {
         if (!r) return { ok: false, error: `Unknown place target "${skill.on}".` };
         const yaw = r.isCube ? this.alignYaw(r.yaw) : this.sim.target.yaw;
         this.maybeScheduleSlip(2.0);
+        if (this.inject === 'slip' && !this.injected) {
+          this.pendingSlip = this.sim.time + 0.35;
+          this.injected = `slip while carrying ${this.holding}`;
+        }
         await this.moveTo([r.x, r.y, HOVER_Z], yaw);
         let res = await this.checkDrop('place', `while carrying it to ${skill.on}`);
         if (!res.ok) return res;
         const r2 = this.resolve(skill.on)!;
         // Lower until contact: stop on a rise in tool-axis force, then confirm contact with the cheap sensor.
         await this.moveTo([r2.x, r2.y, r2.topZ + CUBE_HALF + 0.015], yaw, 1.0);
+        if (this.inject === 'displace' && !this.injected && r2.isCube) {
+          const t = this.sim.cube(skill.on);
+          const [x, y] = this.clearSpot(t.pos[0], t.pos[1], [skill.on, this.holding], 0.08);
+          this.sim.teleport(skill.on, x, y, CUBE_HALF);
+          this.injected = `moved ${skill.on} before lowering`;
+        }
+        if (!this.sensing) {
+          // Open loop: lower to where contact should be and trust it.
+          await this.moveTo([r2.x, r2.y, r2.topZ + CUBE_HALF + 0.001], yaw, 0.8);
+          return { ok: true };
+        }
         const rise = await this.guardedLower(r2.topZ + CUBE_HALF - 0.004, 4);
         const contact = rise > 2;
         this.sensorEvents.push({ skill: `place(${skill.on})`, check: 'contact', ok: contact, detail: `peak wrist force change ${rise.toFixed(1)} N` });
@@ -274,16 +322,24 @@ export class Executor {
       }
       case 'release': {
         const g = this.sim.gripPos();
+        const was = this.holding;
         await this.setGrip(true, 0.4);
         this.holding = null;
         await this.moveTo([g[0], g[1], Math.min(HOVER_Z, g[2] + 0.12)], this.sim.target.yaw, 0.7);
+        if (this.inject === 'knock' && !this.injected && was) {
+          const c = this.sim.cube(was);
+          const [x, y] = this.clearSpot(c.pos[0], c.pos[1], [was], 0.09);
+          this.sim.teleport(was, x, y, CUBE_HALF);
+          this.injected = `moved ${was} after release`;
+          await this.advance(0.3);
+        }
         return { ok: true };
       }
     }
   }
 
   /** Lower the gripper toward z, stopping early when the raw tool-axis force changes by more than guard N. */
-  private async guardedLower(z: number, guard: number): Promise<number> {
+  async guardedLower(z: number, guard: number): Promise<number> {
     const tare = (await this.sense()).force;
     const start = [...this.sim.target.pos] as [number, number, number];
     const f0 = this.sim.rawSensors().forceTool;
@@ -308,7 +364,9 @@ export class Executor {
 
   /** Move out of the camera's way and let the scene settle. */
   async retreat() {
-    if (!this.holding) this.sim.grip = 1;
+    // Anything still in the hand after a failed step is put down here, so the next attempt starts with an empty gripper.
+    this.sim.grip = 1;
+    this.holding = null;
     await this.moveTo([0.28, 0, 0.42], this.sim.homeYaw);
     await this.advance(0.6);
   }

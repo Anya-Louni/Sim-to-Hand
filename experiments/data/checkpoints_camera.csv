@@ -1,0 +1,241 @@
+id,camera,estGapMm,detail
+contact-5002,True,-1.5,estimated gap -1.5 mm
+contact-5000,False,5.0,estimated gap 5.0 mm
+place-7001,False,,"camera sees blue at level 0, red at level 0, 4.3 cm apart"
+place-7000,True,,camera sees every goal met
+contact-5001,True,0.0,estimated gap 0.0 mm
+place-7002,True,,camera sees every goal met
+contact-5005,False,9.5,estimated gap 9.5 mm
+contact-5004,True,-1.5,estimated gap -1.5 mm
+contact-5003,True,-1.5,estimated gap -1.5 mm
+place-7004,True,,camera sees every goal met
+place-7003,False,,"camera sees red at level 0, green at level 0, 8.2 cm apart"
+place-7005,False,,"camera sees red at level 0, yellow at level 0, 5.6 cm apart"
+contact-5006,False,7.0,estimated gap 7.0 mm
+contact-5007,False,6.0,estimated gap 6.0 mm
+place-7006,True,,camera sees every goal met
+contact-5008,False,1.5,estimated gap 1.5 mm
+place-7007,True,,camera sees every goal met
+place-7008,True,,camera sees every goal met
+contact-5009,False,9.5,estimated gap 9.5 mm
+contact-5010,True,-3.0,estimated gap -3.0 mm
+place-7009,False,,"camera sees green at level 0, red at level 0, 6.8 cm apart"
+contact-5011,True,-0.5,estimated gap -0.5 mm
+place-7010,True,,camera sees every goal met
+place-7011,True,,camera sees every goal met
+contact-5012,True,-1.5,estimated gap -1.5 mm
+contact-5013,True,-0.5,estimated gap -0.5 mm
+place-7012,True,,camera sees every goal met
+contact-5014,True,-3.0,estimated gap -3.0 mm
+place-7013,False,,"camera sees yellow at level 0, red at level 0, 8.2 cm apart"
+contact-5015,True,-3.0,estimated gap -3.0 mm
+place-7014,True,,camera sees every goal met
+contact-5016,True,-2.5,estimated gap -2.5 mm
+place-7015,False,,"camera sees yellow at level 0, green at level 0, 4.9 cm apart"
+contact-5017,True,-2.5,estimated gap -2.5 mm
+place-7016,False,,"camera sees blue at level 0, red at level 0, 4.3 cm apart"
+place-7017,False,,"camera sees red at level 0, yellow at level 0, 5.8 cm apart"
+contact-5018,True,0.0,estimated gap 0.0 mm
+contact-5019,True,-2.0,estimated gap -2.0 mm
+place-7018,True,,camera sees every goal met
+contact-5020,True,-2.5,estimated gap -2.5 mm
+place-7019,False,,"camera sees green at level 0, yellow at level 0, 5.5 cm apart"
+contact-5021,True,-2.5,estimated gap -2.5 mm
+place-7020,True,,camera sees every goal met
+contact-5022,True,0.0,estimated gap 0.0 mm
+contact-5023,True,0.5,estimated gap 0.5 mm
+place-7021,False,,"camera sees red at level 0, green at level 0, 6.1 cm apart"
+place-7022,True,,camera sees every goal met
+place-7023,False,,"camera sees yellow at level 0, red at level 0, 7.6 cm apart"
+contact-5024,True,-2.0,estimated gap -2.0 mm
+contact-5025,False,6.5,estimated gap 6.5 mm
+place-7024,True,,camera sees every goal met
+contact-5026,True,0.0,estimated gap 0.0 mm
+place-7025,True,,camera sees every goal met
+contact-5027,True,0.0,estimated gap 0.0 mm
+place-7026,True,,camera sees every goal met
+contact-5028,True,-0.5,estimated gap -0.5 mm
+contact-5029,False,8.0,estimated gap 8.0 mm
+place-7027,False,,"camera sees red at level 0, yellow at level 0, 5.2 cm apart"
+place-7028,True,,camera sees every goal met
+contact-5030,True,-2.5,estimated gap -2.5 mm
+place-7029,False,,"camera sees red at level 0, green at level 0, 5.5 cm apart"
+contact-5031,True,-1.5,estimated gap -1.5 mm
+contact-5032,False,1.0,estimated gap 1.0 mm
+place-7030,True,,camera sees every goal met
+place-7031,False,,"camera sees yellow at level 0, blue at level 0, 7.6 cm apart"
+contact-5033,False,6.5,estimated gap 6.5 mm
+place-7032,True,,camera sees every goal met
+contact-5034,False,1.5,estimated gap 1.5 mm
+place-7033,True,,camera sees every goal met
+contact-5035,True,0.0,estimated gap 0.0 mm
+place-7034,True,,camera sees every goal met
+contact-5036,True,-0.5,estimated gap -0.5 mm
+place-7035,False,,"camera sees blue at level 0, green at level 0, 5.8 cm apart"
+contact-5037,False,1.5,estimated gap 1.5 mm
+contact-5038,True,-3.0,estimated gap -3.0 mm
+place-7037,False,,"camera sees green at level 0, yellow at level 0, 7.0 cm apart"
+place-7036,True,,camera sees every goal met
+contact-5039,False,4.0,estimated gap 4.0 mm
+place-7038,True,,camera sees every goal met
+contact-5040,False,1.0,estimated gap 1.0 mm
+contact-5041,True,-0.5,estimated gap -0.5 mm
+place-7039,False,,"camera sees red at level 0, blue at level 0, 5.7 cm apart"
+place-7040,True,,camera sees every goal met
+contact-5042,True,-3.0,estimated gap -3.0 mm
+place-7041,False,,"camera sees yellow at level 0, blue at level 1, 2.5 cm apart"
+contact-5043,False,4.0,estimated gap 4.0 mm
+place-7042,True,,camera sees every goal met
+place-7043,False,,"camera sees green at level 0, yellow at level 0, 6.4 cm apart"
+contact-5044,True,-3.0,estimated gap -3.0 mm
+contact-5045,True,-3.0,estimated gap -3.0 mm
+place-7044,True,,camera sees every goal met
+contact-5046,True,-2.5,estimated gap -2.5 mm
+contact-5047,True,-1.0,estimated gap -1.0 mm
+place-7045,False,,"camera sees yellow at level 0, green at level 0, 5.9 cm apart"
+contact-5048,True,-2.5,estimated gap -2.5 mm
+place-7046,True,,camera sees every goal met
+place-7047,False,,"camera sees green at level 0, yellow at level 0, 5.2 cm apart"
+contact-5049,False,3.0,estimated gap 3.0 mm
+place-7048,True,,camera sees every goal met
+contact-5050,True,0.0,estimated gap 0.0 mm
+place-7049,False,,"camera sees yellow at level 0, green at level 0, 6.1 cm apart"
+contact-5051,True,-2.0,estimated gap -2.0 mm
+place-7050,True,,camera sees every goal met
+contact-5052,True,-3.0,estimated gap -3.0 mm
+place-7051,False,,"camera sees green at level 0, red at level 0, 5.9 cm apart"
+contact-5053,True,-2.5,estimated gap -2.5 mm
+place-7052,True,,camera sees every goal met
+place-7053,False,,"camera sees red at level 0, yellow at level 0, 5.6 cm apart"
+contact-5054,True,0.5,estimated gap 0.5 mm
+contact-5055,False,3.0,estimated gap 3.0 mm
+place-7054,True,,camera sees every goal met
+contact-5057,False,2.0,estimated gap 2.0 mm
+contact-5056,False,2.0,estimated gap 2.0 mm
+place-7055,False,,"camera sees yellow at level 0, blue at level 0, 6.1 cm apart"
+place-7056,True,,camera sees every goal met
+contact-5058,True,-2.5,estimated gap -2.5 mm
+place-7057,False,,"camera sees red at level 0, yellow at level 0, 6.8 cm apart"
+contact-5059,True,-3.0,estimated gap -3.0 mm
+contact-5060,False,1.0,estimated gap 1.0 mm
+place-7058,True,,camera sees every goal met
+place-7059,False,,"camera sees yellow at level 0, red at level 0, 6.8 cm apart"
+contact-5061,False,1.5,estimated gap 1.5 mm
+contact-5062,True,-0.5,estimated gap -0.5 mm
+place-7060,False,,"camera sees blue at level 0, yellow at level 0, 4.0 cm apart"
+place-7061,False,,"camera sees blue at level 0, green at level 0, 6.0 cm apart"
+contact-5063,True,-1.5,estimated gap -1.5 mm
+place-7062,True,,camera sees every goal met
+contact-5065,True,-1.0,estimated gap -1.0 mm
+contact-5064,True,-2.0,estimated gap -2.0 mm
+place-7063,False,,"camera sees blue at level 0, red at level 0, 7.0 cm apart"
+place-7064,True,,camera sees every goal met
+contact-5066,True,-3.0,estimated gap -3.0 mm
+place-7065,False,,"camera sees yellow at level 0, blue at level 0, 5.4 cm apart"
+contact-5067,True,-0.5,estimated gap -0.5 mm
+place-7066,True,,camera sees every goal met
+contact-5069,True,-1.0,estimated gap -1.0 mm
+contact-5068,True,-2.0,estimated gap -2.0 mm
+place-7067,False,,"camera sees red at level 0, blue at level 0, 8.0 cm apart"
+place-7068,True,,camera sees every goal met
+contact-5071,False,5.0,estimated gap 5.0 mm
+place-7069,False,,"camera sees yellow at level 0, green at level 0, 5.8 cm apart"
+contact-5070,True,0.0,estimated gap 0.0 mm
+contact-5072,True,-0.5,estimated gap -0.5 mm
+place-7070,True,,camera sees every goal met
+place-7071,False,,"camera sees green at level 0, red at level 0, 5.7 cm apart"
+contact-5073,False,1.5,estimated gap 1.5 mm
+contact-5075,True,-2.0,estimated gap -2.0 mm
+contact-5074,True,-3.0,estimated gap -3.0 mm
+place-7072,False,,"camera sees green at level 0, blue at level 0, 6.4 cm apart"
+place-7073,False,,"camera sees yellow at level 0, green at level 0, 6.5 cm apart"
+place-7074,False,,"camera sees green at level 0, blue at level 0, 4.7 cm apart"
+contact-5077,False,2.0,estimated gap 2.0 mm
+contact-5076,False,1.5,estimated gap 1.5 mm
+place-7075,False,,"camera sees red at level 0, green at level 0, 5.2 cm apart"
+place-7076,True,,camera sees every goal met
+place-7077,False,,"camera sees red at level 0, green at level 0, 4.6 cm apart"
+contact-5078,False,6.0,estimated gap 6.0 mm
+contact-5079,True,-2.5,estimated gap -2.5 mm
+contact-5080,True,-2.5,estimated gap -2.5 mm
+place-7078,True,,camera sees every goal met
+contact-5081,True,-3.0,estimated gap -3.0 mm
+place-7079,False,,"camera sees red at level 0, green at level 0, 5.8 cm apart"
+place-7080,True,,camera sees every goal met
+contact-5082,True,-3.0,estimated gap -3.0 mm
+place-7081,False,,"camera sees red at level 0, yellow at level 0, 5.8 cm apart"
+contact-5083,False,10.0,estimated gap 10.0 mm
+place-7082,True,,camera sees every goal met
+place-7083,False,,"camera sees green at level 0, yellow at level 0, 6.1 cm apart"
+contact-5084,False,1.5,estimated gap 1.5 mm
+contact-5085,True,-0.5,estimated gap -0.5 mm
+contact-5086,True,-2.5,estimated gap -2.5 mm
+place-7084,True,,camera sees every goal met
+place-7085,False,,"camera sees yellow at level 0, blue at level 0, 3.8 cm apart"
+contact-5087,True,-1.5,estimated gap -1.5 mm
+place-7086,False,,"camera sees yellow at level 1, red at level 0, 3.0 cm apart"
+contact-5088,True,-1.0,estimated gap -1.0 mm
+place-7087,True,,camera sees every goal met
+contact-5089,True,-3.0,estimated gap -3.0 mm
+contact-5090,True,-0.5,estimated gap -0.5 mm
+place-7088,True,,camera sees every goal met
+place-7089,False,,"camera sees green at level 0, blue at level 0, 5.2 cm apart"
+contact-5091,False,2.5,estimated gap 2.5 mm
+place-7091,False,,"camera sees red at level 0, yellow at level 0, 5.9 cm apart"
+place-7090,True,,camera sees every goal met
+contact-5093,True,-1.0,estimated gap -1.0 mm
+contact-5092,True,-3.0,estimated gap -3.0 mm
+place-7092,True,,camera sees every goal met
+place-7093,False,,"camera sees blue at level 0, yellow at level 0, 6.1 cm apart"
+contact-5094,True,-2.5,estimated gap -2.5 mm
+contact-5095,True,-2.0,estimated gap -2.0 mm
+place-7094,True,,camera sees every goal met
+place-7095,False,,"camera sees yellow at level 0, red at level 0, 6.6 cm apart"
+contact-5096,True,0.0,estimated gap 0.0 mm
+contact-5097,True,-1.5,estimated gap -1.5 mm
+place-7096,True,,camera sees every goal met
+contact-5098,True,-3.0,estimated gap -3.0 mm
+place-7097,True,,camera sees every goal met
+contact-5099,True,-1.5,estimated gap -1.5 mm
+place-7098,True,,camera sees every goal met
+contact-5100,True,0.0,estimated gap 0.0 mm
+place-7099,False,,"camera sees red at level 0, green at level 0, 5.4 cm apart"
+contact-5101,True,-2.5,estimated gap -2.5 mm
+place-7100,True,,camera sees every goal met
+place-7101,False,,"camera sees yellow at level 0, green at level 0, 6.3 cm apart"
+contact-5102,True,-2.5,estimated gap -2.5 mm
+contact-5103,True,-3.0,estimated gap -3.0 mm
+place-7102,True,,camera sees every goal met
+contact-5104,False,3.5,estimated gap 3.5 mm
+place-7103,False,,"camera sees green at level 0, yellow at level 0, 5.7 cm apart"
+contact-5105,False,3.0,estimated gap 3.0 mm
+place-7104,True,,camera sees every goal met
+contact-5106,False,1.5,estimated gap 1.5 mm
+place-7105,False,,"camera sees yellow at level 0, blue at level 0, 7.0 cm apart"
+contact-5107,False,5.0,estimated gap 5.0 mm
+place-7106,True,,camera sees every goal met
+contact-5108,True,-2.0,estimated gap -2.0 mm
+place-7107,False,,"camera sees blue at level 0, green at level 0, 4.9 cm apart"
+contact-5109,True,-1.0,estimated gap -1.0 mm
+place-7108,True,,camera sees every goal met
+contact-5110,True,-1.0,estimated gap -1.0 mm
+place-7109,False,,"camera sees red at level 0, green at level 0, 6.0 cm apart"
+place-7110,True,,camera sees every goal met
+contact-5111,True,-2.0,estimated gap -2.0 mm
+place-7111,False,,"camera sees yellow at level 0, green at level 0, 6.1 cm apart"
+contact-5112,True,-3.0,estimated gap -3.0 mm
+contact-5113,True,-1.0,estimated gap -1.0 mm
+place-7112,True,,camera sees every goal met
+place-7113,False,,"camera sees red at level 0, yellow at level 0, 6.5 cm apart"
+contact-5114,True,-3.0,estimated gap -3.0 mm
+contact-5115,True,-3.0,estimated gap -3.0 mm
+place-7114,False,,"camera sees yellow at level 1, red at level 0, 3.1 cm apart"
+contact-5116,True,-2.5,estimated gap -2.5 mm
+contact-5117,False,2.5,estimated gap 2.5 mm
+place-7115,False,,"camera sees red at level 0, green at level 0, 6.4 cm apart"
+place-7116,True,,camera sees every goal met
+contact-5118,True,-1.0,estimated gap -1.0 mm
+place-7117,False,,"camera sees red at level 0, blue at level 0, 6.5 cm apart"
+contact-5119,False,6.0,estimated gap 6.0 mm
+place-7118,True,,camera sees every goal met
+place-7119,False,,"camera sees yellow at level 0, green at level 0, 5.7 cm apart"

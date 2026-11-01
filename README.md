@@ -84,6 +84,56 @@ Reading:
 
 Raw per-task data: [bench/results.json](bench/results.json). Summary and failure list: [bench/RESULTS.md](bench/RESULTS.md). Reproduce with `npm run bench` (needs keys in `.env`; free-tier rate limits make the LLM rows take about an hour).
 
+## Do the touch sensors add value? 1,600 seeded episodes
+
+The 24-task benchmark is small, so I ran a controlled experiment: 80 generated tasks (`generateTasks(20, 1000)`), the scripted planner (no LLM calls, so runs are free and repeatable), and up to 3 replans. Each task ran under 20 conditions: 4 decision rules times 5 failure types. Every episode and every attempt is saved to CSV. Every rate below has a 95% Wilson confidence interval.
+
+**Decision rules**, meaning what the agent trusts to say "done":
+
+- **Camera only:** an OpenCV detector ([research/vcf/detect.py](research/vcf/detect.py)) finds each cube by color, fits its 3D pose by matching projected silhouettes, and checks the goal geometry. The robot runs open loop, with no touch or force sensing.
+- **Sensors only:** the cheap fingertip switches, gripper effort and wrist force.
+- **Camera + sensors:** done only when both agree.
+- **Simulator:** the reference. It reads true cube poses, which a real robot cannot do.
+
+Scoring always uses true simulator state.
+
+**Failures**, injected deterministically in the first attempt: the cube slips while carried, the target cube moves just before placing, or the cube is knocked away right after release. Seeded random chaos and a no-failure baseline are also included.
+
+| Failure | Camera only | Sensors only | Camera + sensors | Simulator |
+|---|---|---|---|---|
+| None (80) | 98% | 99% | 99% | 100% |
+| Slip while carrying (80) | 76% | 99% | 99% | 99% |
+| Target moved (40, stack and tower only) | 50% | 98% | 98% | 100% |
+| Knocked after release (80) | 75% | **0%, all 80 falsely declared done** | 79% | 79% |
+| Random chaos (80) | 92% | 95% | 94% | 96% |
+
+The table shows the true success rate. Takeaways:
+
+- **Sensors catch failures during the task.** A dropped cube is noticed 5.4 s into the attempt, vs 15.4 s for the camera-only agent, which only looks at the end. Without touch, the open-loop robot also gets stuck more often: it recovered from 69% of real slips vs 99% with sensors.
+- **The camera catches what sensors cannot feel.** After a release, the hand feels nothing, so sensors alone declared all 80 knocked-off episodes a success.
+- **Camera + sensors never stopped early on a failure.** It had 0 false successes in all 360 of its episodes, and matched the simulator reference on true success in every failure type, within the confidence intervals. The cost is extra replans when the camera rejects a good attempt: 2.2 attempts on average vs 2.0 for sensors alone on slips.
+
+![True success by decision rule and failure type](experiments/figures/trials_success.png)
+
+### Cases built so the camera cannot tell
+
+Minimal pairs from the agent's own robot and cubes: 120 per type, half success and half failure by construction.
+
+| Checkpoint | Camera (OpenCV) | Vision-language model (Gemini 3.1 Flash-Lite) | Sensors | Camera + sensors |
+|---|---|---|---|---|
+| **Contact:** held cube touching vs hovering 1.7 to 5.5 mm | 57% [48, 65] | 48% [40, 57] | **98%** [94, 100] | 88% [80, 92] |
+| **Placement:** cube stays on top vs tips off after release | 95% [90, 98] | 99% [95, 100] | 58% [49, 67] | 93% [87, 97] |
+
+Accuracy with 95% intervals; chance is 50%.
+
+- Millimeter contact is invisible to both camera methods. They are near chance and pass 64% (OpenCV) and 79% (Gemini) of the hovering cases as touching. The wrist force sensor gets 98%.
+- The opposite holds after the hand lets go: sensors cannot see a cube tip off, and both camera methods can.
+- Combining them keeps false successes at 3% (contact) and 0% (placement).
+
+![Checkpoint accuracy](experiments/figures/checkpoints_accuracy.png)
+
+All tables, plus recovery rates, time to detect and the per-gap contact curve: [experiments/RESULTS.md](experiments/RESULTS.md). Raw logs: [experiments/data](experiments/data). The plots are drawn only from those CSVs, by `research/scripts/analyze_experiments.py`.
+
 ## Why the sensor check: the research behind it
 
 The agent's vision check agreed with the simulator on all 69 checks above, because those failures were centimeters apart. [research/](research/) asks what happens at the millimeter scale where contact decides success. It builds minimal pairs in MuJoCo, the same scene captured as a success and as a failure a few millimeters off, across five contact tasks (stack, grasp, button, peg, push). It then compares free vision models with a tiny classifier on the same cheap sensors the agent uses.
@@ -119,7 +169,10 @@ Picked MuJoCo. The npm README calls Windows support experimental; it ran without
 - Free LLM tiers have daily limits. When the shared key runs out, add your own key or come back tomorrow.
 - The agent's sensors are simulated and degraded with a simple noise model. Real touch and force sensors are messier.
 - The sensor check cannot see what happens after a release, such as a cube knocked off a stack. Sim state still decides success.
-- The agent still perceives cube positions from the simulator (no camera-based state estimation).
+- The planner still reads cube positions from the simulator. The OpenCV detector is used to verify results in the experiments, not to plan.
+- The camera-only rule in the experiments uses one fixed, calibrated camera, known cube sizes and distinct colors. Its contact result is a property of this camera and resolution: a closer or second camera could see some of the gaps it misses here.
+- The experiments use a scripted planner, so they measure checking and recovery, not LLM planning. The simulator rule still uses touch and force sensing during skills; only its final verdict reads true poses.
+- Failures are injected by teleporting cubes or briefly opening the gripper, not by modeled physical causes. Hover gaps came out 1.3 mm larger than commanded because the arm sags; the tables use the measured gaps.
 - The research study's vision numbers come from free tiers with partial coverage for several models; see [research/README.md](research/README.md).
 
 ## Run locally
@@ -139,7 +192,9 @@ Other scripts:
 
 ```bash
 npm run test:sim      # headless scripted episodes in Node
-npm run bench         # full benchmark in headless Edge or Chrome, writes bench/
+npm run bench         # full benchmark in headless Edge or Chrome, writes bench/ (LLM answers cached in bench/llm-cache)
+npm run trials -- checkpoints 60   # minimal pairs, writes experiments/data
+npm run trials -- trials 20        # 1,600 seeded episodes, about 30 min on 6 headless pages; resumes if stopped
 npm run model         # rebuild public/models from MuJoCo Menagerie (clone franka_emika_panda into vendor/panda first)
 ```
 
@@ -150,6 +205,14 @@ cd research
 pip install -r requirements.txt
 cp .env.example .env    # free GEMINI_API_KEY and GROQ_API_KEY; Ollama for local models
 sh reproduce.sh         # regenerates data, runs judges and attacker, rebuilds the site data in public/benchmark
+```
+
+Experiment analysis (needs `opencv-python-headless`, CPU only):
+
+```bash
+python research/scripts/judge_checkpoints.py                              # OpenCV camera check on every checkpoint image
+python research/scripts/judge_checkpoints.py gemini/gemini-3.1-flash-lite # optional VLM, cached, free tier
+python research/scripts/analyze_experiments.py                            # tables, confidence intervals, plots
 ```
 
 ## Credits

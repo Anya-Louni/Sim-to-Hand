@@ -11,7 +11,8 @@
     "preview": "vite preview",
     "model": "node scripts/build-model.mjs",
     "test:sim": "node --experimental-strip-types --no-warnings scripts/sim-test.ts",
-    "bench": "node --experimental-strip-types --no-warnings scripts/bench.ts"
+    "bench": "node --experimental-strip-types --no-warnings scripts/bench.ts",
+    "trials": "node --experimental-strip-types --no-warnings scripts/trials.ts"
   },
   "dependencies": {
     "@mujoco/mujoco": "^3.17.0",

@@ -1,5 +1,5 @@
 import { describeScene, verifyGoals } from './verify.ts';
-import { Executor, type ChaosOptions, type Clock } from './skills.ts';
+import { Executor, type ChaosOptions, type Clock, type Injection } from './skills.ts';
 import type { Sim } from './sim.ts';
 import type { Goal, Judgement, Plan, Skill, Verification } from './types.ts';
 import type { SensorEvent } from './sensors.ts';
@@ -16,6 +16,31 @@ export interface PlanRequest {
 export interface Planner {
   name: string;
   plan(req: PlanRequest): Promise<{ plan: Plan; provider: string; calls: number }>;
+}
+
+/** Classical camera check: finds the cubes in the verification image and tests the goal geometry. */
+export type Detector = (image: string, goal: Goal[]) => Promise<{ ok: boolean; detail: string }>;
+
+/**
+ * Which check the agent trusts to decide that it is done.
+ *   oracle    simulator state (only possible in simulation; the reference)
+ *   camera    the image detector alone, robot runs open loop without touch or force sensing
+ *   sensors   the cheap sensors alone
+ *   combined  done only when both the sensors and the camera say so
+ */
+export type Decider = 'oracle' | 'camera' | 'sensors' | 'combined';
+
+export interface AttemptLog {
+  attempt: number;
+  truth: boolean;
+  sensors: boolean | null;
+  camera: boolean | null;
+  cameraDetail?: string;
+  vision: boolean | null;
+  declared: boolean;
+  stepError?: string;
+  /** Simulated seconds from attempt start to the moment the attempt ended (failed step or final check). */
+  seconds: number;
 }
 
 export interface Judge {
@@ -63,6 +88,11 @@ export interface EpisodeResult {
   failure?: string;
   planner: string;
   providers: string[];
+  /** The agent said it was done (the decider accepted an attempt). */
+  declared?: boolean;
+  decider?: Decider;
+  injected?: string | null;
+  log?: AttemptLog[];
 }
 
 export interface EpisodeOptions {
@@ -71,6 +101,8 @@ export interface EpisodeOptions {
   goal?: Goal[];
   maxReplans: number;
   chaos: ChaosOptions;
+  decide?: Decider;
+  inject?: Injection;
 }
 
 export interface AgentDeps {
@@ -80,6 +112,7 @@ export interface AgentDeps {
   judge: Judge | null;
   snapshot: (() => Promise<string>) | null;
   emit: (e: AgentEvent) => void;
+  detector?: Detector;
   cancelled?: () => boolean;
   speed?: number;
 }
@@ -107,6 +140,9 @@ export async function runEpisode(deps: AgentDeps, opts: EpisodeOptions): Promise
     } else emit({ type: 'status', message: e.message });
   }, deps.cancelled);
   ex.speed = deps.speed ?? 1;
+  const decide: Decider = opts.decide ?? 'oracle';
+  ex.sensing = decide !== 'camera';
+  ex.inject = opts.inject ?? 'none';
   const result: EpisodeResult = {
     success: false,
     attempts: 0,
@@ -121,6 +157,9 @@ export async function runEpisode(deps: AgentDeps, opts: EpisodeOptions): Promise
     simSeconds: 0,
     planner: deps.planner.name,
     providers: [],
+    declared: false,
+    decider: decide,
+    log: [],
   };
   const history: Attempt[] = [];
   let lastImage: string | undefined;
@@ -128,6 +167,7 @@ export async function runEpisode(deps: AgentDeps, opts: EpisodeOptions): Promise
   for (let attempt = 0; attempt <= opts.maxReplans; attempt++) {
     result.attempts = attempt + 1;
     ex.newAttempt();
+    const t0 = sim.time;
     emit({ type: 'attempt', attempt });
     emit({ type: 'status', message: attempt === 0 ? 'Planning' : 'Replanning' });
 
@@ -153,6 +193,7 @@ export async function runEpisode(deps: AgentDeps, opts: EpisodeOptions): Promise
 
     const goal = opts.goal ?? plan.goal;
     let stepError: string | undefined;
+    let tEnd = 0;
     for (let i = 0; i < plan.steps.length; i++) {
       if (i > 0) ex.maybeNudge();
       const skill = plan.steps[i];
@@ -164,6 +205,7 @@ export async function runEpisode(deps: AgentDeps, opts: EpisodeOptions): Promise
         break;
       }
     }
+    tEnd = sim.time - t0;
     emit({ type: 'status', message: 'Verifying' });
     await ex.retreat();
 
@@ -203,6 +245,10 @@ export async function runEpisode(deps: AgentDeps, opts: EpisodeOptions): Promise
         }
       }
     }
+    let camera: { ok: boolean; detail: string } | null = null;
+    if (deps.detector && image && decide !== 'oracle' && decide !== 'sensors') {
+      camera = await deps.detector(image, goal);
+    }
     const agree = vision ? vision.success === ground.ok : null;
     if (vision) {
       result.visionChecks++;
@@ -211,12 +257,28 @@ export async function runEpisode(deps: AgentDeps, opts: EpisodeOptions): Promise
     }
     emit({ type: 'verify', attempt, ground, vision, visionError, image, agree, sensors });
 
-    if (ground.ok) {
-      result.success = true;
-      result.failure = undefined;
+    const sensing = ex.sensing ? sensorOk : null;
+    const declared =
+      decide === 'oracle' ? ground.ok : decide === 'sensors' ? sensorOk : decide === 'camera' ? !stepError && !!camera?.ok : sensorOk && !!camera?.ok;
+    result.log!.push({
+      attempt,
+      truth: ground.ok,
+      sensors: sensing,
+      camera: camera ? camera.ok : null,
+      cameraDetail: camera?.detail,
+      vision: vision ? vision.success : null,
+      declared,
+      stepError,
+      seconds: +tEnd.toFixed(2),
+    });
+    result.success = ground.ok;
+    if (declared) {
+      result.declared = true;
+      result.failure = ground.ok ? undefined : `agent declared success but ${ground.summary}`;
       break;
     }
-    const failure = stepError ? `${stepError} Goal check: ${ground.summary}` : `Plan finished but goal not met: ${ground.summary}`;
+    const why = decide === 'oracle' ? ground.summary : stepError ?? (camera && !camera.ok ? camera.detail : sensors.summary);
+    const failure = stepError ? `${stepError} Goal check: ${why}` : `Plan finished but goal not met: ${why}`;
     result.failure = failure;
     history.push({ attempt, steps: plan.steps.map(stepText).join(', '), failure, vision: vision ? `${vision.success ? 'success' : 'failure'}: ${vision.reason}` : undefined });
     if (attempt < opts.maxReplans) {
@@ -225,6 +287,7 @@ export async function runEpisode(deps: AgentDeps, opts: EpisodeOptions): Promise
     }
   }
   result.simSeconds = sim.time;
+  result.injected = ex.injected;
   emit({ type: 'done', result });
   return result;
 }

@@ -164,6 +164,18 @@ export class Sim {
     this.d.qvel[v + 1] += vy;
   }
 
+  /** Moves a cube to a resting pose on a surface at height z (center), keeping its yaw. Used for scripted failures. */
+  teleport(name: string, x: number, y: number, z: number) {
+    const a = this.cubeQ.get(name)!;
+    const v = this.cubeV.get(name)!;
+    const q = this.d.qpos;
+    q[a] = x;
+    q[a + 1] = y;
+    q[a + 2] = z;
+    for (let i = 0; i < 6; i++) this.d.qvel[v + i] = 0;
+    this.mj.mj_forward(this.m, this.d);
+  }
+
   /** Damped least squares IK toward the Cartesian target, warm started from ikQ. */
   solveIK(target: Pose, iters = 6) {
     const { mj, m, ikd } = this;

@@ -1,6 +1,7 @@
 // Seeded benchmark. Starts Vite, runs the bench page in headless Edge or Chrome, writes bench/results.json and bench/RESULTS.md.
 // Usage: npm run bench -- [conditions] [task ids]
 //   conditions: comma list of scripted, scripted-chaos, llm, llm-chaos (default: all four)
+import { createHash } from 'node:crypto';
 import fs from 'node:fs';
 import { chromium } from 'playwright-core';
 import { createServer } from 'vite';
@@ -21,6 +22,24 @@ await server.listen();
 const browser = await chromium.launch({ channel: fs.existsSync('C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe') ? 'msedge' : 'chrome', headless: true, args: ['--use-angle=swiftshader', '--enable-unsafe-swiftshader'] });
 const page = await browser.newPage({ viewport: { width: 700, height: 600 } });
 page.on('console', (m) => m.type() === 'error' && console.error('[page]', m.text()));
+// Every LLM call is cached on disk, keyed by the exact request. A rerun replays the saved answers and costs nothing.
+const CACHE = 'bench/llm-cache';
+fs.mkdirSync(CACHE, { recursive: true });
+let hits = 0;
+let misses = 0;
+await page.route('**/api/llm', async (route) => {
+  const key = createHash('sha256').update(route.request().postData() ?? '').digest('hex');
+  const file = `${CACHE}/${key}.json`;
+  if (fs.existsSync(file)) {
+    hits++;
+    return route.fulfill({ status: 200, contentType: 'application/json', body: fs.readFileSync(file, 'utf8') });
+  }
+  misses++;
+  const res = await route.fetch();
+  const body = await res.text();
+  if (res.ok()) fs.writeFileSync(file, body);
+  return route.fulfill({ response: res, body });
+});
 await page.goto('http://localhost:5299/bench.html');
 await page.waitForFunction(() => 'runBench' in window);
 
@@ -43,6 +62,7 @@ for (const cond of ALL.filter((c) => want.includes(c.name))) {
   all[cond.name] = rows;
   fs.writeFileSync(outFile, JSON.stringify({ date: new Date().toISOString(), maxReplans: MAX_REPLANS, conditions: all }, null, 2));
 }
+console.log(`LLM cache: ${hits} hits, ${misses} new calls`);
 await browser.close();
 await server.close();
 
