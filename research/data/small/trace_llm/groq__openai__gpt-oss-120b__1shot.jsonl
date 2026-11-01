@@ -1,0 +1,96 @@
+{"id": "button-s0-0000-failure", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": false, "confidence": null, "label": 0, "raw": "{\"success\": false, \"confidence\": 0. nine}"}
+{"id": "button-s0-0000-success", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": true, "confidence": 0.85, "label": 1, "raw": "{\"success\": true, \"confidence\": 0.85}"}
+{"id": "grasp-s0-0000-failure", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": false, "confidence": 0.96, "label": 0, "raw": "{\"success\": false, \"confidence\": 0.96}"}
+{"id": "grasp-s0-0000-success", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": true, "confidence": 0.97, "label": 1, "raw": "{\"success\": true, \"confidence\": 0.97}"}
+{"id": "peg-s0-0000-failure", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": false, "confidence": 0.86, "label": 0, "raw": "{\"success\": false, \"confidence\": 0.86}"}
+{"id": "peg-s0-0000-success", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": true, "confidence": 0.78, "label": 1, "raw": "{\"success\": true, \"confidence\": 0.78}"}
+{"id": "push-s0-0000-failure", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": true, "confidence": 0.78, "label": 0, "raw": "{\"success\": true, \"confidence\": 0.78}"}
+{"id": "push-s0-0000-success", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": false, "confidence": 0.71, "label": 1, "raw": "{\n  \"success\": false,\n  \"confidence\": 0.71\n}"}
+{"id": "stack-s0-0000-failure", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": false, "confidence": 0.82, "label": 0, "raw": "{\"success\": false, \"confidence\": 0.82}"}
+{"id": "stack-s0-0000-success", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": true, "confidence": 0.85, "label": 1, "raw": "{\n  \"success\": true,\n  \"confidence\": 0.85\n}"}
+{"id": "button-s0-0001-failure", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": false, "confidence": 0.95, "label": 0, "raw": "{\"success\": false, \"confidence\": 0.95}"}
+{"id": "button-s0-0001-success", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": true, "confidence": null, "label": 1, "raw": "{\n  \"success\": true,\n  \"confidence\": 0. nine\n}"}
+{"id": "grasp-s0-0001-failure", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": false, "confidence": 0.96, "label": 0, "raw": "{\"success\": false, \"confidence\": 0.96}"}
+{"id": "grasp-s0-0001-success", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": true, "confidence": 0.85, "label": 1, "raw": "{\"success\": true, \"confidence\": 0.85}"}
+{"id": "peg-s0-0001-failure", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": false, "confidence": 0.86, "label": 0, "raw": "{\"success\": false, \"confidence\": 0.86}"}
+{"id": "peg-s0-0001-success", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": true, "confidence": 0.85, "label": 1, "raw": "{\"success\": true, \"confidence\": 0.85}"}
+{"id": "push-s0-0001-failure", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": false, "confidence": 0.86, "label": 0, "raw": "{\n  \"success\": false,\n  \"confidence\": 0.86\n}"}
+{"id": "push-s0-0001-success", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": true, "confidence": 0.73, "label": 1, "raw": "{\"success\": true, \"confidence\": 0.73}"}
+{"id": "stack-s0-0001-failure", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": false, "confidence": 0.82, "label": 0, "raw": "{\n  \"success\": false,\n  \"confidence\": 0.82\n}"}
+{"id": "stack-s0-0001-success", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": true, "confidence": 0.86, "label": 1, "raw": "{\"success\": true, \"confidence\": 0.86}"}
+{"id": "button-s0-0002-failure", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": false, "confidence": 0.95, "label": 0, "raw": "{\"success\": false, \"confidence\": 0.95}"}
+{"id": "button-s0-0002-success", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": true, "confidence": 0.93, "label": 1, "raw": "{\"success\": true, \"confidence\": 0.93}"}
+{"id": "grasp-s0-0002-failure", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": false, "confidence": 0.96, "label": 0, "raw": "{\n  \"success\": false,\n  \"confidence\": 0.96\n}"}
+{"id": "grasp-s0-0002-success", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": true, "confidence": 0.96, "label": 1, "raw": "{\n  \"success\": true,\n  \"confidence\": 0.96\n}"}
+{"id": "peg-s0-0002-failure", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": false, "confidence": 0.82, "label": 0, "raw": "{\"success\": false, \"confidence\": 0.82}"}
+{"id": "peg-s0-0002-success", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": true, "confidence": 0.85, "label": 1, "raw": "{\"success\": true, \"confidence\": 0.85}"}
+{"id": "push-s0-0002-failure", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": true, "confidence": 0.6, "label": 0, "raw": "{\n  \"success\": true,\n  \"confidence\": 0.6\n}"}
+{"id": "push-s0-0002-success", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": false, "confidence": 0.82, "label": 1, "raw": "{\"success\": false, \"confidence\": 0.82}"}
+{"id": "stack-s0-0002-failure", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": false, "confidence": 0.86, "label": 0, "raw": "{\"success\": false, \"confidence\": 0.86}"}
+{"id": "stack-s0-0002-success", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": true, "confidence": 0.85, "label": 1, "raw": "{\"success\": true, \"confidence\": 0.85}"}
+{"id": "button-s0-0003-failure", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": false, "confidence": 0.85, "label": 0, "raw": "{\"success\": false, \"confidence\": 0.85}"}
+{"id": "button-s0-0003-success", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": true, "confidence": 0.85, "label": 1, "raw": "{\"success\": true, \"confidence\": 0.85}"}
+{"id": "grasp-s0-0003-failure", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": false, "confidence": 0.97, "label": 0, "raw": "{\"success\": false, \"confidence\": 0.97}"}
+{"id": "grasp-s0-0003-success", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": true, "confidence": 0.97, "label": 1, "raw": "{\"success\": true, \"confidence\": 0.97}"}
+{"id": "peg-s0-0003-failure", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": false, "confidence": 0.8, "label": 0, "raw": "{\"success\": false, \"confidence\": 0.8}"}
+{"id": "peg-s0-0003-success", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": true, "confidence": 0.65, "label": 1, "raw": "{\"success\": true, \"confidence\": 0.65}"}
+{"id": "push-s0-0003-failure", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": true, "confidence": 0.71, "label": 0, "raw": "{\n  \"success\": true,\n  \"confidence\": 0.71\n}"}
+{"id": "push-s0-0003-success", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": true, "confidence": 0.73, "label": 1, "raw": "{\"success\": true, \"confidence\": 0.73}"}
+{"id": "stack-s0-0003-failure", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": true, "confidence": 0.86, "label": 0, "raw": "{\"success\": true, \"confidence\": 0.86}"}
+{"id": "stack-s0-0003-success", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": true, "confidence": 0.86, "label": 1, "raw": "{\"success\": true, \"confidence\": 0.86}"}
+{"id": "button-s0-0004-failure", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": false, "confidence": 0.97, "label": 0, "raw": "{\"success\": false, \"confidence\": 0.97}"}
+{"id": "button-s0-0004-success", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": true, "confidence": 0.85, "label": 1, "raw": "{\"success\": true, \"confidence\": 0.85}"}
+{"id": "grasp-s0-0004-failure", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": false, "confidence": 0.96, "label": 0, "raw": "{\"success\": false, \"confidence\": 0.96}"}
+{"id": "grasp-s0-0004-success", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": true, "confidence": 0.95, "label": 1, "raw": "{\"success\": true, \"confidence\": 0.95}"}
+{"id": "peg-s0-0004-failure", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": false, "confidence": 0.71, "label": 0, "raw": "{\n  \"success\": false,\n  \"confidence\": 0.71\n}"}
+{"id": "peg-s0-0004-success", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": true, "confidence": 0.78, "label": 1, "raw": "{\n  \"success\": true,\n  \"confidence\": 0.78\n}"}
+{"id": "push-s0-0004-failure", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": false, "confidence": 0.65, "label": 0, "raw": "{\"success\": false, \"confidence\": 0.65}"}
+{"id": "push-s0-0004-success", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": true, "confidence": 0.86, "label": 1, "raw": "{\"success\": true, \"confidence\": 0.86}"}
+{"id": "stack-s0-0004-failure", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": false, "confidence": 0.85, "label": 0, "raw": "{\"success\": false, \"confidence\": 0.85}"}
+{"id": "stack-s0-0004-success", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": true, "confidence": 0.86, "label": 1, "raw": "{\n  \"success\": true,\n  \"confidence\": 0.86\n}"}
+{"id": "button-s0-0005-failure", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": false, "confidence": 0.99, "label": 0, "raw": "{\"success\": false, \"confidence\": 0.99}"}
+{"id": "button-s0-0005-success", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": true, "confidence": 0.9, "label": 1, "raw": "{\"success\": true, \"confidence\": 0.9}"}
+{"id": "grasp-s0-0005-failure", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": false, "confidence": 0.97, "label": 0, "raw": "{\n  \"success\": false,\n  \"confidence\": 0.97\n}"}
+{"id": "grasp-s0-0005-success", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": true, "confidence": 0.97, "label": 1, "raw": "{\"success\": true, \"confidence\": 0.97}"}
+{"id": "peg-s0-0005-failure", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": false, "confidence": 0.8, "label": 0, "raw": "{\"success\": false, \"confidence\": 0.8}"}
+{"id": "peg-s0-0005-success", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": true, "confidence": 0.85, "label": 1, "raw": "{\"success\": true, \"confidence\": 0.85}"}
+{"id": "push-s0-0005-failure", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": false, "confidence": 0.82, "label": 0, "raw": "{\n  \"success\": false,\n  \"confidence\": 0.82\n}"}
+{"id": "push-s0-0005-success", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": true, "confidence": 0.85, "label": 1, "raw": "{\"success\": true, \"confidence\": 0.85}"}
+{"id": "stack-s0-0005-failure", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": false, "confidence": 0.78, "label": 0, "raw": "{\"success\": false, \"confidence\": 0.78}"}
+{"id": "stack-s0-0005-success", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": true, "confidence": 0.82, "label": 1, "raw": "{\n  \"success\": true,\n  \"confidence\": 0.82\n}"}
+{"id": "button-s0-0006-failure", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": false, "confidence": 0.95, "label": 0, "raw": "{\"success\": false, \"confidence\": 0.95}"}
+{"id": "button-s0-0006-success", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": true, "confidence": 0.93, "label": 1, "raw": "{\"success\": true, \"confidence\": 0.93}"}
+{"id": "grasp-s0-0006-failure", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": false, "confidence": 0.97, "label": 0, "raw": "{\"success\": false, \"confidence\": 0.97}"}
+{"id": "grasp-s0-0006-success", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": true, "confidence": 0.93, "label": 1, "raw": "{\"success\": true, \"confidence\": 0.93}"}
+{"id": "peg-s0-0006-failure", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": false, "confidence": 0.75, "label": 0, "raw": "{\n  \"success\": false,\n  \"confidence\": 0.75\n}"}
+{"id": "peg-s0-0006-success", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": true, "confidence": 0.78, "label": 1, "raw": "{\"success\": true, \"confidence\": 0.78}"}
+{"id": "push-s0-0006-failure", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": false, "confidence": 0.75, "label": 0, "raw": "{\"success\": false, \"confidence\": 0.75}"}
+{"id": "push-s0-0006-success", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": false, "confidence": 0.92, "label": 1, "raw": "{\"success\": false, \"confidence\": 0.92}"}
+{"id": "stack-s0-0006-failure", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": false, "confidence": null, "label": 0, "raw": "{\n  \"success\": false,\n  \"confidence\": 0. nine\n}"}
+{"id": "stack-s0-0006-success", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": true, "confidence": 0.82, "label": 1, "raw": "{\n  \"success\": true,\n  \"confidence\": 0.82\n}"}
+{"id": "button-s0-0007-failure", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": false, "confidence": 0.99, "label": 0, "raw": "{\"success\": false, \"confidence\": 0.99}"}
+{"id": "button-s0-0007-success", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": true, "confidence": 0.85, "label": 1, "raw": "{\"success\": true, \"confidence\": 0.85}"}
+{"id": "grasp-s0-0007-failure", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": false, "confidence": 0.96, "label": 0, "raw": "{\"success\": false, \"confidence\": 0.96}"}
+{"id": "grasp-s0-0007-success", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": true, "confidence": 0.97, "label": 1, "raw": "{\"success\": true, \"confidence\": 0.97}"}
+{"id": "peg-s0-0007-failure", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": true, "confidence": 0.78, "label": 0, "raw": "{\"success\": true, \"confidence\": 0.78}"}
+{"id": "peg-s0-0007-success", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": true, "confidence": 0.86, "label": 1, "raw": "{\n  \"success\": true,\n  \"confidence\": 0.86\n}"}
+{"id": "push-s0-0007-failure", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": false, "confidence": 0.65, "label": 0, "raw": "{\"success\": false, \"confidence\": 0.65}"}
+{"id": "push-s0-0007-success", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": true, "confidence": 0.71, "label": 1, "raw": "{\"success\": true, \"confidence\": 0.71}"}
+{"id": "stack-s0-0007-failure", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": false, "confidence": 0.86, "label": 0, "raw": "{\"success\": false, \"confidence\": 0.86}"}
+{"id": "stack-s0-0007-success", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": true, "confidence": 0.86, "label": 1, "raw": "{\"success\": true, \"confidence\": 0.86}"}
+{"id": "button-s0-0008-failure", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": false, "confidence": 0.96, "label": 0, "raw": "{\n  \"success\": false,\n  \"confidence\": 0.96\n}"}
+{"id": "button-s0-0008-success", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": true, "confidence": 0.85, "label": 1, "raw": "{\"success\": true, \"confidence\": 0.85}"}
+{"id": "grasp-s0-0008-failure", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": false, "confidence": 0.98, "label": 0, "raw": "{\n  \"success\": false,\n  \"confidence\": 0.98\n}"}
+{"id": "grasp-s0-0008-success", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": true, "confidence": 0.97, "label": 1, "raw": "{\n  \"success\": true,\n  \"confidence\": 0.97\n}"}
+{"id": "peg-s0-0008-failure", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": false, "confidence": 0.78, "label": 0, "raw": "{\"success\": false, \"confidence\": 0.78}"}
+{"id": "peg-s0-0008-success", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": true, "confidence": 0.86, "label": 1, "raw": "{\"success\": true, \"confidence\": 0.86}"}
+{"id": "push-s0-0008-failure", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": false, "confidence": 0.71, "label": 0, "raw": "{\n  \"success\": false,\n  \"confidence\": 0.71\n}"}
+{"id": "push-s0-0008-success", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": false, "confidence": null, "label": 1, "raw": "{\"success\": false, \"confidence\": 0. nine}"}
+{"id": "stack-s0-0008-failure", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": false, "confidence": 0.75, "label": 0, "raw": "{\n  \"success\": false,\n  \"confidence\": 0.75\n}"}
+{"id": "stack-s0-0008-success", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": true, "confidence": 0.75, "label": 1, "raw": "{\"success\": true, \"confidence\": 0.75}"}
+{"id": "button-s0-0009-failure", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": false, "confidence": 0.95, "label": 0, "raw": "{\"success\": false, \"confidence\": 0.95}"}
+{"id": "button-s0-0009-success", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": true, "confidence": 0.86, "label": 1, "raw": "{\"success\": true, \"confidence\": 0.86}"}
+{"id": "grasp-s0-0009-failure", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": false, "confidence": 0.95, "label": 0, "raw": "{\n  \"success\": false,\n  \"confidence\": 0.95\n}"}
+{"id": "grasp-s0-0009-success", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": true, "confidence": 0.93, "label": 1, "raw": "{\"success\": true, \"confidence\": 0.93}"}
+{"id": "peg-s0-0009-failure", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": false, "confidence": 0.82, "label": 0, "raw": "{\"success\": false, \"confidence\": 0.82}"}
+{"id": "peg-s0-0009-success", "model": "groq/openai/gpt-oss-120b", "shots": 1, "success": true, "confidence": 0.85, "label": 1, "raw": "{\"success\": true, \"confidence\": 0.85}"}
