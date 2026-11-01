@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-29T16:11:14.174Z",
+  "date": "2026-11-01T12:56:27.451Z",
   "maxReplans": 3,
   "conditions": {
     "scripted": [
@@ -8,384 +8,504 @@
         "attempts": 1,
         "replans": 0,
         "visionChecks": 0,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
         "visionAgreements": 0,
         "disagreements": [],
         "llmCalls": 0,
         "chaosEvents": 0,
-        "simSeconds": 8.949999999999658,
+        "simSeconds": 10.252000000000093,
         "planner": "scripted",
+        "providers": [
+          "scripted"
+        ],
         "id": "stack-01",
         "kind": "stack",
         "chaos": false,
-        "wallSeconds": 3.9542999999970196
+        "wallSeconds": 3.0245
       },
       {
         "success": true,
         "attempts": 1,
         "replans": 0,
         "visionChecks": 0,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
         "visionAgreements": 0,
         "disagreements": [],
         "llmCalls": 0,
         "chaosEvents": 0,
-        "simSeconds": 9.653999999999893,
+        "simSeconds": 10.958000000000329,
         "planner": "scripted",
+        "providers": [
+          "scripted"
+        ],
         "id": "stack-02",
         "kind": "stack",
         "chaos": false,
-        "wallSeconds": 2.14620000000298
+        "wallSeconds": 1.755399999976158
       },
       {
         "success": true,
         "attempts": 1,
         "replans": 0,
         "visionChecks": 0,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
         "visionAgreements": 0,
         "disagreements": [],
         "llmCalls": 0,
         "chaosEvents": 0,
-        "simSeconds": 9.219999999999748,
+        "simSeconds": 10.524000000000184,
         "planner": "scripted",
+        "providers": [
+          "scripted"
+        ],
         "id": "stack-03",
         "kind": "stack",
         "chaos": false,
-        "wallSeconds": 2.3156999999955294
+        "wallSeconds": 1.7041000000238418
       },
       {
         "success": true,
         "attempts": 1,
         "replans": 0,
         "visionChecks": 0,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
         "visionAgreements": 0,
         "disagreements": [],
         "llmCalls": 0,
         "chaosEvents": 0,
-        "simSeconds": 8.767999999999597,
+        "simSeconds": 10.072000000000033,
         "planner": "scripted",
+        "providers": [
+          "scripted"
+        ],
         "id": "stack-04",
         "kind": "stack",
         "chaos": false,
-        "wallSeconds": 1.9616000000014902
+        "wallSeconds": 1.5157999999523162
       },
       {
         "success": true,
         "attempts": 1,
         "replans": 0,
         "visionChecks": 0,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
         "visionAgreements": 0,
         "disagreements": [],
         "llmCalls": 0,
         "chaosEvents": 0,
-        "simSeconds": 9.527999999999851,
+        "simSeconds": 10.830000000000286,
         "planner": "scripted",
+        "providers": [
+          "scripted"
+        ],
         "id": "stack-05",
         "kind": "stack",
         "chaos": false,
-        "wallSeconds": 1.962
+        "wallSeconds": 1.518699999988079
       },
       {
         "success": true,
         "attempts": 1,
         "replans": 0,
         "visionChecks": 0,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
         "visionAgreements": 0,
         "disagreements": [],
         "llmCalls": 0,
         "chaosEvents": 0,
-        "simSeconds": 10.070000000000032,
+        "simSeconds": 11.374000000000468,
         "planner": "scripted",
+        "providers": [
+          "scripted"
+        ],
         "id": "stack-06",
         "kind": "stack",
         "chaos": false,
-        "wallSeconds": 2.41360000000149
+        "wallSeconds": 1.8285
       },
       {
         "success": true,
         "attempts": 1,
         "replans": 0,
         "visionChecks": 0,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
         "visionAgreements": 0,
         "disagreements": [],
         "llmCalls": 0,
         "chaosEvents": 0,
-        "simSeconds": 9.659999999999895,
+        "simSeconds": 10.96200000000033,
         "planner": "scripted",
+        "providers": [
+          "scripted"
+        ],
         "id": "stack-07",
         "kind": "stack",
         "chaos": false,
-        "wallSeconds": 2.0411999999955297
+        "wallSeconds": 1.620800000011921
       },
       {
         "success": true,
         "attempts": 1,
         "replans": 0,
         "visionChecks": 0,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
         "visionAgreements": 0,
         "disagreements": [],
         "llmCalls": 0,
         "chaosEvents": 0,
-        "simSeconds": 9.0759999999997,
+        "simSeconds": 10.380000000000136,
         "planner": "scripted",
+        "providers": [
+          "scripted"
+        ],
         "id": "stack-08",
         "kind": "stack",
         "chaos": false,
-        "wallSeconds": 1.9032000000029803
+        "wallSeconds": 1.6379000000357629
       },
       {
         "success": true,
         "attempts": 1,
         "replans": 0,
         "visionChecks": 0,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
         "visionAgreements": 0,
         "disagreements": [],
         "llmCalls": 0,
         "chaosEvents": 0,
-        "simSeconds": 16.78000000000158,
+        "simSeconds": 19.388000000000133,
         "planner": "scripted",
+        "providers": [
+          "scripted"
+        ],
         "id": "tower-01",
         "kind": "tower",
         "chaos": false,
-        "wallSeconds": 3.4846000000014903
+        "wallSeconds": 3.045199999988079
       },
       {
         "success": true,
         "attempts": 1,
         "replans": 0,
         "visionChecks": 0,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
         "visionAgreements": 0,
         "disagreements": [],
         "llmCalls": 0,
         "chaosEvents": 0,
-        "simSeconds": 15.716000000001918,
+        "simSeconds": 18.32800000000072,
         "planner": "scripted",
+        "providers": [
+          "scripted"
+        ],
         "id": "tower-02",
         "kind": "tower",
         "chaos": false,
-        "wallSeconds": 3.503
+        "wallSeconds": 2.872
       },
       {
         "success": true,
         "attempts": 1,
         "replans": 0,
         "visionChecks": 0,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
         "visionAgreements": 0,
         "disagreements": [],
         "llmCalls": 0,
         "chaosEvents": 0,
-        "simSeconds": 19.040000000000326,
+        "simSeconds": 21.65199999999888,
         "planner": "scripted",
+        "providers": [
+          "scripted"
+        ],
         "id": "tower-03",
         "kind": "tower",
         "chaos": false,
-        "wallSeconds": 4.02529999999702
+        "wallSeconds": 3.506599999964237
       },
       {
         "success": true,
         "attempts": 1,
         "replans": 0,
         "visionChecks": 0,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
         "visionAgreements": 0,
         "disagreements": [],
         "llmCalls": 0,
         "chaosEvents": 0,
-        "simSeconds": 16.50600000000173,
+        "simSeconds": 19.12400000000028,
         "planner": "scripted",
+        "providers": [
+          "scripted"
+        ],
         "id": "tower-04",
         "kind": "tower",
         "chaos": false,
-        "wallSeconds": 3.25989999999851
+        "wallSeconds": 2.979400000035763
       },
       {
         "success": true,
         "attempts": 1,
         "replans": 0,
         "visionChecks": 0,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
         "visionAgreements": 0,
         "disagreements": [],
         "llmCalls": 0,
         "chaosEvents": 0,
-        "simSeconds": 17.78600000000102,
+        "simSeconds": 20.377999999999584,
         "planner": "scripted",
+        "providers": [
+          "scripted"
+        ],
         "id": "tower-05",
         "kind": "tower",
         "chaos": false,
-        "wallSeconds": 3.588
+        "wallSeconds": 3.287199999988079
       },
       {
         "success": true,
         "attempts": 1,
         "replans": 0,
         "visionChecks": 0,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
         "visionAgreements": 0,
         "disagreements": [],
         "llmCalls": 0,
         "chaosEvents": 0,
-        "simSeconds": 18.956000000000373,
+        "simSeconds": 21.569999999998924,
         "planner": "scripted",
+        "providers": [
+          "scripted"
+        ],
         "id": "tower-06",
         "kind": "tower",
         "chaos": false,
-        "wallSeconds": 3.49839999999851
+        "wallSeconds": 3.2015
       },
       {
         "success": true,
         "attempts": 1,
         "replans": 0,
         "visionChecks": 0,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
         "visionAgreements": 0,
         "disagreements": [],
         "llmCalls": 0,
         "chaosEvents": 0,
-        "simSeconds": 27.669999999995543,
+        "simSeconds": 31.581999999993375,
         "planner": "scripted",
+        "providers": [
+          "scripted"
+        ],
         "id": "sort-01",
         "kind": "sort",
         "chaos": false,
-        "wallSeconds": 5.644899999998509
+        "wallSeconds": 4.551800000011921
       },
       {
         "success": true,
         "attempts": 1,
         "replans": 0,
         "visionChecks": 0,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
         "visionAgreements": 0,
         "disagreements": [],
         "llmCalls": 0,
         "chaosEvents": 0,
-        "simSeconds": 26.86199999999599,
+        "simSeconds": 30.773999999993823,
         "planner": "scripted",
+        "providers": [
+          "scripted"
+        ],
         "id": "sort-02",
         "kind": "sort",
         "chaos": false,
-        "wallSeconds": 5.03789999999851
+        "wallSeconds": 4.452699999988079
       },
       {
         "success": true,
         "attempts": 1,
         "replans": 0,
         "visionChecks": 0,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
         "visionAgreements": 0,
         "disagreements": [],
         "llmCalls": 0,
         "chaosEvents": 0,
-        "simSeconds": 26.587999999996143,
+        "simSeconds": 30.497999999993976,
         "planner": "scripted",
+        "providers": [
+          "scripted"
+        ],
         "id": "sort-03",
         "kind": "sort",
         "chaos": false,
-        "wallSeconds": 5.510700000002981
+        "wallSeconds": 4.393199999988079
       },
       {
         "success": true,
         "attempts": 1,
         "replans": 0,
         "visionChecks": 0,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
         "visionAgreements": 0,
         "disagreements": [],
         "llmCalls": 0,
         "chaosEvents": 0,
-        "simSeconds": 27.197999999995805,
+        "simSeconds": 31.10599999999364,
         "planner": "scripted",
+        "providers": [
+          "scripted"
+        ],
         "id": "sort-04",
         "kind": "sort",
         "chaos": false,
-        "wallSeconds": 5.94040000000596
+        "wallSeconds": 4.5
       },
       {
         "success": true,
         "attempts": 1,
         "replans": 0,
         "visionChecks": 0,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
         "visionAgreements": 0,
         "disagreements": [],
         "llmCalls": 0,
         "chaosEvents": 0,
-        "simSeconds": 10.00400000000001,
+        "simSeconds": 11.308000000000446,
         "planner": "scripted",
+        "providers": [
+          "scripted"
+        ],
         "id": "zone-01",
         "kind": "zone",
         "chaos": false,
-        "wallSeconds": 2.11039999999851
+        "wallSeconds": 1.6446999999880791
       },
       {
         "success": true,
         "attempts": 1,
         "replans": 0,
         "visionChecks": 0,
-        "visionAgreements": 0,
-        "disagreements": [],
-        "llmCalls": 0,
-        "chaosEvents": 0,
-        "simSeconds": 9.64199999999989,
-        "planner": "scripted",
-        "id": "zone-02",
-        "kind": "zone",
-        "chaos": false,
-        "wallSeconds": 1.88
-      },
-      {
-        "success": true,
-        "attempts": 1,
-        "replans": 0,
-        "visionChecks": 0,
-        "visionAgreements": 0,
-        "disagreements": [],
-        "llmCalls": 0,
-        "chaosEvents": 0,
-        "simSeconds": 9.661999999999896,
-        "planner": "scripted",
-        "id": "zone-03",
-        "kind": "zone",
-        "chaos": false,
-        "wallSeconds": 1.9551999999955296
-      },
-      {
-        "success": true,
-        "attempts": 1,
-        "replans": 0,
-        "visionChecks": 0,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
         "visionAgreements": 0,
         "disagreements": [],
         "llmCalls": 0,
         "chaosEvents": 0,
         "simSeconds": 10.946000000000325,
         "planner": "scripted",
+        "providers": [
+          "scripted"
+        ],
+        "id": "zone-02",
+        "kind": "zone",
+        "chaos": false,
+        "wallSeconds": 1.4512999999523162
+      },
+      {
+        "success": true,
+        "attempts": 1,
+        "replans": 0,
+        "visionChecks": 0,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
+        "visionAgreements": 0,
+        "disagreements": [],
+        "llmCalls": 0,
+        "chaosEvents": 0,
+        "simSeconds": 10.96400000000033,
+        "planner": "scripted",
+        "providers": [
+          "scripted"
+        ],
+        "id": "zone-03",
+        "kind": "zone",
+        "chaos": false,
+        "wallSeconds": 1.576
+      },
+      {
+        "success": true,
+        "attempts": 1,
+        "replans": 0,
+        "visionChecks": 0,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
+        "visionAgreements": 0,
+        "disagreements": [],
+        "llmCalls": 0,
+        "chaosEvents": 0,
+        "simSeconds": 12.24800000000076,
+        "planner": "scripted",
+        "providers": [
+          "scripted"
+        ],
         "id": "zone-04",
         "kind": "zone",
         "chaos": false,
-        "wallSeconds": 2.4954000000059606
+        "wallSeconds": 1.7730999999642372
       },
       {
         "success": true,
         "attempts": 1,
         "replans": 0,
         "visionChecks": 0,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
         "visionAgreements": 0,
         "disagreements": [],
         "llmCalls": 0,
         "chaosEvents": 0,
-        "simSeconds": 9.055999999999694,
+        "simSeconds": 10.360000000000129,
         "planner": "scripted",
+        "providers": [
+          "scripted"
+        ],
         "id": "stack-09",
         "kind": "stack",
         "chaos": false,
-        "wallSeconds": 1.9413999999985099
+        "wallSeconds": 1.556300000011921
       },
       {
         "success": true,
         "attempts": 1,
         "replans": 0,
         "visionChecks": 0,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
         "visionAgreements": 0,
         "disagreements": [],
         "llmCalls": 0,
         "chaosEvents": 0,
-        "simSeconds": 18.70800000000051,
+        "simSeconds": 21.313999999999066,
         "planner": "scripted",
+        "providers": [
+          "scripted"
+        ],
         "id": "zone-05",
         "kind": "zone",
         "chaos": false,
-        "wallSeconds": 3.6642000000029804
+        "wallSeconds": 3.012699999988079
       }
     ],
     "scripted-chaos": [
@@ -394,387 +514,528 @@
         "attempts": 1,
         "replans": 0,
         "visionChecks": 0,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
         "visionAgreements": 0,
         "disagreements": [],
         "llmCalls": 0,
         "chaosEvents": 1,
-        "simSeconds": 8.92799999999965,
+        "simSeconds": 10.232000000000086,
         "planner": "scripted",
+        "providers": [
+          "scripted"
+        ],
         "id": "stack-01",
         "kind": "stack",
         "chaos": true,
-        "wallSeconds": 1.78310000000149
+        "wallSeconds": 1.5044000000357627
       },
       {
         "success": true,
         "attempts": 2,
         "replans": 1,
         "visionChecks": 0,
+        "sensorChecks": 2,
+        "sensorAgreements": 2,
         "visionAgreements": 0,
         "disagreements": [],
         "llmCalls": 0,
         "chaosEvents": 2,
-        "simSeconds": 15.796000000001944,
+        "simSeconds": 17.23000000000133,
         "planner": "scripted",
+        "providers": [
+          "scripted",
+          "scripted"
+        ],
         "id": "stack-02",
         "kind": "stack",
         "chaos": true,
-        "wallSeconds": 3.02029999999702
+        "wallSeconds": 2.2918999999761582
       },
       {
         "success": true,
         "attempts": 1,
         "replans": 0,
         "visionChecks": 0,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
         "visionAgreements": 0,
         "disagreements": [],
         "llmCalls": 0,
         "chaosEvents": 2,
-        "simSeconds": 9.219999999999748,
+        "simSeconds": 10.524000000000184,
         "planner": "scripted",
+        "providers": [
+          "scripted"
+        ],
         "id": "stack-03",
         "kind": "stack",
         "chaos": true,
-        "wallSeconds": 1.986
+        "wallSeconds": 1.658300000011921
       },
       {
         "success": true,
         "attempts": 2,
         "replans": 1,
         "visionChecks": 0,
+        "sensorChecks": 2,
+        "sensorAgreements": 2,
         "visionAgreements": 0,
         "disagreements": [],
         "llmCalls": 0,
         "chaosEvents": 2,
-        "simSeconds": 14.458000000001498,
+        "simSeconds": 15.922000000001987,
         "planner": "scripted",
+        "providers": [
+          "scripted",
+          "scripted"
+        ],
         "id": "stack-04",
         "kind": "stack",
         "chaos": true,
-        "wallSeconds": 2.8638999999985097
+        "wallSeconds": 2.205899999976158
       },
       {
         "success": true,
         "attempts": 3,
         "replans": 2,
         "visionChecks": 0,
+        "sensorChecks": 3,
+        "sensorAgreements": 2,
         "visionAgreements": 0,
         "disagreements": [],
         "llmCalls": 0,
         "chaosEvents": 4,
-        "simSeconds": 25.643999999996666,
+        "simSeconds": 28.567999999995045,
         "planner": "scripted",
+        "providers": [
+          "scripted",
+          "scripted",
+          "scripted"
+        ],
         "id": "stack-05",
         "kind": "stack",
         "chaos": true,
-        "wallSeconds": 4.36
+        "wallSeconds": 3.6096000000238417
       },
       {
         "success": true,
         "attempts": 1,
         "replans": 0,
         "visionChecks": 0,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
         "visionAgreements": 0,
         "disagreements": [],
         "llmCalls": 0,
         "chaosEvents": 1,
-        "simSeconds": 10.070000000000032,
+        "simSeconds": 11.374000000000468,
         "planner": "scripted",
+        "providers": [
+          "scripted"
+        ],
         "id": "stack-06",
         "kind": "stack",
         "chaos": true,
-        "wallSeconds": 2.09289999999851
+        "wallSeconds": 1.796
       },
       {
         "success": true,
         "attempts": 1,
         "replans": 0,
         "visionChecks": 0,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
         "visionAgreements": 0,
         "disagreements": [],
         "llmCalls": 0,
         "chaosEvents": 1,
-        "simSeconds": 9.629999999999885,
+        "simSeconds": 10.93200000000032,
         "planner": "scripted",
+        "providers": [
+          "scripted"
+        ],
         "id": "stack-07",
         "kind": "stack",
         "chaos": true,
-        "wallSeconds": 1.92010000000149
+        "wallSeconds": 1.5606000000238418
       },
       {
         "success": true,
         "attempts": 1,
         "replans": 0,
         "visionChecks": 0,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
         "visionAgreements": 0,
         "disagreements": [],
         "llmCalls": 0,
         "chaosEvents": 1,
-        "simSeconds": 9.0759999999997,
+        "simSeconds": 10.380000000000136,
         "planner": "scripted",
+        "providers": [
+          "scripted"
+        ],
         "id": "stack-08",
         "kind": "stack",
         "chaos": true,
-        "wallSeconds": 1.96810000000149
+        "wallSeconds": 1.5615
       },
       {
         "success": true,
         "attempts": 1,
         "replans": 0,
         "visionChecks": 0,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
         "visionAgreements": 0,
         "disagreements": [],
         "llmCalls": 0,
         "chaosEvents": 1,
-        "simSeconds": 16.79600000000157,
+        "simSeconds": 19.400000000000126,
         "planner": "scripted",
+        "providers": [
+          "scripted"
+        ],
         "id": "tower-01",
         "kind": "tower",
         "chaos": true,
-        "wallSeconds": 3.26089999999851
+        "wallSeconds": 2.933800000011921
       },
       {
         "success": false,
         "attempts": 4,
         "replans": 3,
         "visionChecks": 0,
+        "sensorChecks": 4,
+        "sensorAgreements": 3,
         "visionAgreements": 0,
         "disagreements": [],
         "llmCalls": 0,
         "chaosEvents": 5,
-        "simSeconds": 36.681999999998865,
+        "simSeconds": 37.97200000000044,
         "planner": "scripted",
-        "failure": "Plan finished but goal not met: red is not on green (offset 5.5 cm, height diff -0.0 cm)",
+        "providers": [
+          "scripted",
+          "scripted",
+          "scripted",
+          "scripted"
+        ],
+        "failure": "Plan finished but goal not met: red is not on green (offset 5.4 cm, height diff -0.0 cm)",
         "id": "tower-02",
         "kind": "tower",
         "chaos": true,
-        "wallSeconds": 7.10470000000298
+        "wallSeconds": 5.469699999988079
       },
       {
         "success": false,
         "attempts": 4,
         "replans": 3,
         "visionChecks": 0,
+        "sensorChecks": 4,
+        "sensorAgreements": 4,
         "visionAgreements": 0,
         "disagreements": [],
         "llmCalls": 0,
         "chaosEvents": 4,
-        "simSeconds": 23.431999999997892,
+        "simSeconds": 24.071999999997537,
         "planner": "scripted",
-        "failure": "step 3 lift() failed: The yellow cube slipped out of the gripper during lift. Goal check: yellow is not on red (offset 31.4 cm, height diff 0.0 cm); blue is not on yellow (offset 14.6 cm, height diff -0.0 cm)",
+        "providers": [
+          "scripted",
+          "scripted",
+          "scripted",
+          "scripted"
+        ],
+        "failure": "step 3 lift() failed: Sensors lost the yellow cube during lift: fingertip switches went off. Goal check: yellow is not on red (offset 31.4 cm, height diff 0.0 cm); blue is not on yellow (offset 14.6 cm, height diff 0.0 cm)",
         "id": "tower-03",
         "kind": "tower",
         "chaos": true,
-        "wallSeconds": 4.7212999999970195
+        "wallSeconds": 3.333899999976158
       },
       {
         "success": true,
         "attempts": 3,
         "replans": 2,
         "visionChecks": 0,
+        "sensorChecks": 3,
+        "sensorAgreements": 3,
         "visionAgreements": 0,
         "disagreements": [],
         "llmCalls": 0,
         "chaosEvents": 4,
-        "simSeconds": 27.937999999995395,
+        "simSeconds": 30.875999999993766,
         "planner": "scripted",
+        "providers": [
+          "scripted",
+          "scripted",
+          "scripted"
+        ],
         "id": "tower-04",
         "kind": "tower",
         "chaos": true,
-        "wallSeconds": 5.52210000000149
+        "wallSeconds": 4.556699999988079
       },
       {
         "success": true,
         "attempts": 1,
         "replans": 0,
         "visionChecks": 0,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
         "visionAgreements": 0,
         "disagreements": [],
         "llmCalls": 0,
         "chaosEvents": 1,
-        "simSeconds": 17.780000000001024,
+        "simSeconds": 20.36999999999959,
         "planner": "scripted",
+        "providers": [
+          "scripted"
+        ],
         "id": "tower-05",
         "kind": "tower",
         "chaos": true,
-        "wallSeconds": 3.51970000000298
+        "wallSeconds": 3.359299999952316
       },
       {
         "success": false,
         "attempts": 4,
         "replans": 3,
         "visionChecks": 0,
+        "sensorChecks": 4,
+        "sensorAgreements": 4,
         "visionAgreements": 0,
         "disagreements": [],
         "llmCalls": 0,
         "chaosEvents": 5,
-        "simSeconds": 28.059999999995327,
+        "simSeconds": 28.779999999994928,
         "planner": "scripted",
-        "failure": "step 4 place(green) failed: The red cube slipped out of the gripper while carrying it to green. Goal check: red is not on green (offset 6.3 cm, height diff 0.0 cm); blue is not on red (offset 27.8 cm, height diff 0.0 cm)",
+        "providers": [
+          "scripted",
+          "scripted",
+          "scripted",
+          "scripted"
+        ],
+        "failure": "step 4 place(green) failed: Sensors lost the red cube while carrying it to green: fingertip switches went off. Goal check: red is not on green (offset 6.3 cm, height diff -0.0 cm); blue is not on red (offset 27.8 cm, height diff 0.0 cm)",
         "id": "tower-06",
         "kind": "tower",
         "chaos": true,
-        "wallSeconds": 5.41440000000596
+        "wallSeconds": 4.272199999988079
       },
       {
         "success": true,
         "attempts": 1,
         "replans": 0,
         "visionChecks": 0,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
         "visionAgreements": 0,
         "disagreements": [],
         "llmCalls": 0,
         "chaosEvents": 2,
-        "simSeconds": 27.721999999995514,
+        "simSeconds": 31.633999999993346,
         "planner": "scripted",
+        "providers": [
+          "scripted"
+        ],
         "id": "sort-01",
         "kind": "sort",
         "chaos": true,
-        "wallSeconds": 5.50970000000298
+        "wallSeconds": 4.714300000011921
       },
       {
         "success": true,
         "attempts": 3,
         "replans": 2,
         "visionChecks": 0,
+        "sensorChecks": 3,
+        "sensorAgreements": 3,
         "visionAgreements": 0,
         "disagreements": [],
         "llmCalls": 0,
         "chaosEvents": 4,
-        "simSeconds": 57.3280000000241,
+        "simSeconds": 64.23800000003169,
         "planner": "scripted",
+        "providers": [
+          "scripted",
+          "scripted",
+          "scripted"
+        ],
         "id": "sort-02",
         "kind": "sort",
         "chaos": true,
-        "wallSeconds": 11.40070000000298
+        "wallSeconds": 9.329299999952315
       },
       {
         "success": true,
         "attempts": 2,
         "replans": 1,
         "visionChecks": 0,
+        "sensorChecks": 2,
+        "sensorAgreements": 2,
         "visionAgreements": 0,
         "disagreements": [],
         "llmCalls": 0,
         "chaosEvents": 3,
-        "simSeconds": 32.6179999999939,
+        "simSeconds": 36.68599999999887,
         "planner": "scripted",
+        "providers": [
+          "scripted",
+          "scripted"
+        ],
         "id": "sort-03",
         "kind": "sort",
         "chaos": true,
-        "wallSeconds": 7.189
+        "wallSeconds": 5.278200000047684
       },
       {
         "success": true,
         "attempts": 1,
         "replans": 0,
         "visionChecks": 0,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
         "visionAgreements": 0,
         "disagreements": [],
         "llmCalls": 0,
         "chaosEvents": 2,
-        "simSeconds": 27.051999999995886,
+        "simSeconds": 30.95799999999372,
         "planner": "scripted",
+        "providers": [
+          "scripted"
+        ],
         "id": "sort-04",
         "kind": "sort",
         "chaos": true,
-        "wallSeconds": 6.458400000005961
+        "wallSeconds": 4.5285999999642375
       },
       {
         "success": true,
         "attempts": 1,
         "replans": 0,
         "visionChecks": 0,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
         "visionAgreements": 0,
         "disagreements": [],
         "llmCalls": 0,
         "chaosEvents": 0,
-        "simSeconds": 10.00400000000001,
+        "simSeconds": 11.308000000000446,
         "planner": "scripted",
+        "providers": [
+          "scripted"
+        ],
         "id": "zone-01",
         "kind": "zone",
         "chaos": true,
-        "wallSeconds": 2.3671999999955298
+        "wallSeconds": 1.664
       },
       {
         "success": true,
         "attempts": 2,
         "replans": 1,
         "visionChecks": 0,
+        "sensorChecks": 2,
+        "sensorAgreements": 2,
         "visionAgreements": 0,
         "disagreements": [],
         "llmCalls": 0,
         "chaosEvents": 1,
-        "simSeconds": 15.702000000001913,
+        "simSeconds": 17.166000000001365,
         "planner": "scripted",
+        "providers": [
+          "scripted",
+          "scripted"
+        ],
         "id": "zone-02",
         "kind": "zone",
         "chaos": true,
-        "wallSeconds": 3.2016999999955296
+        "wallSeconds": 2.122699999988079
       },
       {
         "success": true,
         "attempts": 1,
         "replans": 0,
         "visionChecks": 0,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
         "visionAgreements": 0,
         "disagreements": [],
         "llmCalls": 0,
         "chaosEvents": 1,
-        "simSeconds": 9.659999999999895,
+        "simSeconds": 10.938000000000322,
         "planner": "scripted",
+        "providers": [
+          "scripted"
+        ],
         "id": "zone-03",
         "kind": "zone",
         "chaos": true,
-        "wallSeconds": 2.24639999999851
+        "wallSeconds": 1.5488999999761581
       },
       {
         "success": true,
         "attempts": 2,
         "replans": 1,
         "visionChecks": 0,
+        "sensorChecks": 2,
+        "sensorAgreements": 2,
         "visionAgreements": 0,
         "disagreements": [],
         "llmCalls": 0,
         "chaosEvents": 3,
-        "simSeconds": 17.614000000001116,
+        "simSeconds": 19.078000000000305,
         "planner": "scripted",
+        "providers": [
+          "scripted",
+          "scripted"
+        ],
         "id": "zone-04",
         "kind": "zone",
         "chaos": true,
-        "wallSeconds": 3.6659000000059603
+        "wallSeconds": 2.5699000000357626
       },
       {
         "success": true,
         "attempts": 1,
         "replans": 0,
         "visionChecks": 0,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
         "visionAgreements": 0,
         "disagreements": [],
         "llmCalls": 0,
         "chaosEvents": 1,
-        "simSeconds": 9.057999999999694,
+        "simSeconds": 10.36200000000013,
         "planner": "scripted",
+        "providers": [
+          "scripted"
+        ],
         "id": "stack-09",
         "kind": "stack",
         "chaos": true,
-        "wallSeconds": 1.9401999999955297
+        "wallSeconds": 1.6101999999880792
       },
       {
         "success": true,
         "attempts": 2,
         "replans": 1,
         "visionChecks": 0,
+        "sensorChecks": 2,
+        "sensorAgreements": 2,
         "visionAgreements": 0,
         "disagreements": [],
         "llmCalls": 0,
         "chaosEvents": 1,
-        "simSeconds": 33.947999999995524,
+        "simSeconds": 38.016000000000496,
         "planner": "scripted",
+        "providers": [
+          "scripted",
+          "scripted"
+        ],
         "id": "zone-05",
         "kind": "zone",
         "chaos": true,
-        "wallSeconds": 8.35930000000447
+        "wallSeconds": 5.071900000035763
       }
     ],
     "llm": [

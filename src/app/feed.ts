@@ -99,13 +99,14 @@ export class Feed {
         const vVerdict = v ? (v.success ? '<div class="verdict ok">Success</div>' : '<div class="verdict bad">Failure</div>') : '<div class="verdict na">Unavailable</div>';
         const vWhy = v ? esc(v.reason) : esc(e.visionError ?? 'No vision model configured');
         const agree =
-          e.agree === null ? '' : e.agree ? '<div class="agree yes">Checks agree</div>' : '<div class="agree no">Checks disagree. Logged. Sim state decides.</div>';
+          [e.agree === false ? 'vision' : '', e.sensors.ok !== g.ok ? 'sensors' : ''].filter(Boolean).length === 0 ? '<div class="agree yes">All checks agree</div>' : `<div class="agree no">${[e.agree === false ? 'Vision' : '', e.sensors.ok !== g.ok ? 'Sensors' : ''].filter(Boolean).join(' and ')} disagree with sim state. Logged. Sim state decides.</div>`;
         this.card(
           'verify',
           `<h3><span>Verify ${e.attempt + 1}</span>${v ? `<span class="src">${esc(v.provider)}</span>` : ''}</h3>
            <div class="checks">
              <div class="check"><div class="label">Sim state</div><div class="verdict ${g.ok ? 'ok' : 'bad'}">${g.ok ? 'Success' : 'Failure'}</div><div class="why">${esc(g.summary)}</div></div>
              <div class="check"><div class="label">Vision</div>${vVerdict}<div class="why">${vWhy}</div></div>
+             <div class="check"><div class="label">Sensors</div><div class="verdict ${e.sensors.ok ? 'ok' : 'bad'}">${e.sensors.ok ? 'Success' : 'Failure'}</div><div class="why">${esc(e.sensors.summary)}</div></div>
            </div>
            ${e.image ? `<img class="snap" alt="Verification camera view" src="data:image/jpeg;base64,${e.image}">` : ''}
            ${agree}`,

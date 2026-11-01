@@ -129,7 +129,7 @@ button, input, select { font: inherit; color: inherit; }
 .step-err { grid-column: 2 / 4; font: 12px var(--sans); color: var(--bad); }
 .swatch { display: inline-block; width: 9px; height: 9px; border-radius: 2px; margin-right: 5px; vertical-align: 0; }
 
-.checks { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.checks { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; }
 .check { border-radius: 9px; padding: 9px 10px; background: rgba(0, 0, 0, 0.25); border: 1px solid var(--line); min-width: 0; }
 .check .label { font: 500 11px var(--mono); color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
 .check .verdict { font-weight: 600; margin: 3px 0 4px; }

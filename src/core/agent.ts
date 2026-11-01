@@ -2,6 +2,7 @@ import { describeScene, verifyGoals } from './verify.ts';
 import { Executor, type ChaosOptions, type Clock } from './skills.ts';
 import type { Sim } from './sim.ts';
 import type { Goal, Judgement, Plan, Skill, Verification } from './types.ts';
+import type { SensorEvent } from './sensors.ts';
 import type { Attempt } from '../llm/prompts.ts';
 
 export interface PlanRequest {
@@ -36,15 +37,24 @@ export type AgentEvent =
       visionError?: string;
       image?: string;
       agree: boolean | null;
+      sensors: SensorVerdict;
     }
   | { type: 'replan'; attempt: number; reason: string }
   | { type: 'done'; result: EpisodeResult };
+
+export interface SensorVerdict {
+  ok: boolean;
+  events: SensorEvent[];
+  summary: string;
+}
 
 export interface EpisodeResult {
   success: boolean;
   attempts: number;
   replans: number;
   visionChecks: number;
+  sensorChecks: number;
+  sensorAgreements: number;
   visionAgreements: number;
   disagreements: { attempt: number; ground: boolean; vision: boolean; reason: string }[];
   llmCalls: number;
@@ -102,6 +112,8 @@ export async function runEpisode(deps: AgentDeps, opts: EpisodeOptions): Promise
     attempts: 0,
     replans: 0,
     visionChecks: 0,
+    sensorChecks: 0,
+    sensorAgreements: 0,
     visionAgreements: 0,
     disagreements: [],
     llmCalls: 0,
@@ -156,6 +168,25 @@ export async function runEpisode(deps: AgentDeps, opts: EpisodeOptions): Promise
     await ex.retreat();
 
     const ground = verifyGoals(sim, goal);
+    // Third check: the agent's own cheap sensors. Success needs every grasp felt, every placement felt as contact,
+    // no hold lost, and the plan run to the end. Sensors cannot see where a cube ends up after release.
+    const evs = ex.sensorEvents;
+    const places = plan.steps.filter((st) => st.skill === 'place').length;
+    const contacts = evs.filter((e) => e.check === 'contact' && e.ok).length;
+    const sensorOk = !stepError && evs.every((e) => e.ok) && contacts >= places;
+    const sensors: SensorVerdict = {
+      ok: sensorOk,
+      events: [...evs],
+      summary: sensorOk
+        ? `Felt ${evs.filter((e) => e.check === 'grasp').length} grasp(s) and ${contacts} placement contact(s)`
+        : evs.find((e) => !e.ok)
+          ? `${evs.find((e) => !e.ok)!.skill}: ${evs.find((e) => !e.ok)!.detail}`
+          : stepError
+            ? 'Plan stopped before finishing'
+            : `Only ${contacts} of ${places} placements felt contact`,
+    };
+    result.sensorChecks++;
+    if (sensorOk === ground.ok) result.sensorAgreements++;
     let vision: (Judgement & { provider: string }) | null = null;
     let visionError: string | undefined;
     let image: string | undefined;
@@ -178,7 +209,7 @@ export async function runEpisode(deps: AgentDeps, opts: EpisodeOptions): Promise
       if (agree) result.visionAgreements++;
       else result.disagreements.push({ attempt, ground: ground.ok, vision: vision.success, reason: vision.reason });
     }
-    emit({ type: 'verify', attempt, ground, vision, visionError, image, agree });
+    emit({ type: 'verify', attempt, ground, vision, visionError, image, agree, sensors });
 
     if (ground.ok) {
       result.success = true;

@@ -48,7 +48,7 @@ await server.close();
 
 // Summary table.
 const pct = (a: number, b: number) => (b ? `${((100 * a) / b).toFixed(0)}%` : 'n/a');
-let md = `| Condition | Tasks | Success | Avg replans | Avg chaos events | Vision agrees with sim | LLM calls |\n|---|---|---|---|---|---|---|\n`;
+let md = `| Condition | Tasks | Success | Avg replans | Avg chaos events | Vision agrees with sim | Sensors agree with sim | LLM calls |\n|---|---|---|---|---|---|---|---|\n`;
 for (const c of ALL) {
   const rows = all[c.name];
   if (!rows) continue;
@@ -57,7 +57,9 @@ for (const c of ALL) {
   const avg = (k: string) => (rows.reduce((s, r) => s + r[k], 0) / n).toFixed(2);
   const vc = rows.reduce((s, r) => s + r.visionChecks, 0);
   const va = rows.reduce((s, r) => s + r.visionAgreements, 0);
-  md += `| ${c.name} | ${n} | ${ok}/${n} (${pct(ok, n)}) | ${avg('replans')} | ${avg('chaosEvents')} | ${vc ? `${va}/${vc} (${pct(va, vc)})` : 'not run'} | ${rows.reduce((s, r) => s + r.llmCalls, 0)} |\n`;
+  const sc = rows.reduce((s, r) => s + (r.sensorChecks ?? 0), 0);
+  const sa = rows.reduce((s, r) => s + (r.sensorAgreements ?? 0), 0);
+  md += `| ${c.name} | ${n} | ${ok}/${n} (${pct(ok, n)}) | ${avg('replans')} | ${avg('chaosEvents')} | ${vc ? `${va}/${vc} (${pct(va, vc)})` : 'not run'} | ${sc ? `${sa}/${sc} (${pct(sa, sc)})` : 'not run'} | ${rows.reduce((s, r) => s + r.llmCalls, 0)} |\n`;
 }
 md += `\nPer-kind success:\n\n| Condition | stack | tower | sort | zone |\n|---|---|---|---|---|\n`;
 for (const c of ALL) {
