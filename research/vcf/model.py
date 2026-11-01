@@ -42,6 +42,7 @@ def _patched_panda() -> Path:
     <touch name="touch_left" site="left_finger_tip"/>
     <touch name="touch_right" site="right_finger_tip"/>
     <force name="wrist_force" site="wrist"/>
+    <torque name="wrist_torque" site="wrist"/>
   </sensor>
   <keyframe>""",
     )

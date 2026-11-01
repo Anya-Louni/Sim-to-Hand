@@ -32,7 +32,7 @@ class Robot:
         self.target_rot = down_rot(0.0)
         self.log: list[np.ndarray] = []
         self.logging = False
-        self._sid = {n: mujoco.mj_name2id(model, mujoco.mjtObj.mjOBJ_SENSOR, n) for n in ("touch_left", "touch_right", "wrist_force")}
+        self._sid = {n: mujoco.mj_name2id(model, mujoco.mjtObj.mjOBJ_SENSOR, n) for n in ("touch_left", "touch_right", "wrist_force", "wrist_torque")}
         self._jacp = np.zeros((3, model.nv))
         self._jacr = np.zeros((3, model.nv))
 
@@ -113,10 +113,13 @@ class Robot:
 
     # ---- sensors ----------------------------------------------------------
     def read_sensors(self) -> np.ndarray:
-        """Raw signals: time, touch left, touch right (N), gripper actuator force (N), wrist force along tool z (N)."""
+        """Raw signals: time, touch left, touch right (N), gripper actuator force (N), wrist force along tool z (N),
+        then the full wrist force/torque in the wrist frame: fx, fy, fz (N), tx, ty, tz (N m). generate.py stores
+        the first five in sensors.npz and the last six in sensors_ft.npz."""
         d, m = self.d, self.m
         adr = m.sensor_adr
         tl = d.sensordata[adr[self._sid["touch_left"]]]
         tr = d.sensordata[adr[self._sid["touch_right"]]]
         f = d.sensordata[adr[self._sid["wrist_force"]] : adr[self._sid["wrist_force"]] + 3]
-        return np.array([d.time, tl, tr, d.actuator_force[7], f[2]])
+        a = adr[self._sid["wrist_torque"]]
+        return np.array([d.time, tl, tr, d.actuator_force[7], f[2], *f, *d.sensordata[a : a + 3]])

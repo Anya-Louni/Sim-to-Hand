@@ -1,0 +1,1532 @@
+{
+  "small": {
+    "n_test": 100,
+    "sets": {
+      "single": {
+        "judges": {
+          "sensor_logreg": {
+            "overall": {
+              "n": 100,
+              "balanced_accuracy": 0.86,
+              "false_success_rate": 0.14,
+              "false_failure_rate": 0.14,
+              "no_answer_rate": 0.0,
+              "ece": 0.0562
+            },
+            "ci": {
+              "balanced_accuracy": [
+                0.78,
+                0.93
+              ],
+              "false_success_rate": [
+                0.06,
+                0.24
+              ],
+              "n_pairs": 50,
+              "n_boot": 2000,
+              "seed": 0
+            },
+            "by_task": {
+              "stack": {
+                "n": 20,
+                "balanced_accuracy": 1.0,
+                "false_success_rate": 0.0,
+                "false_failure_rate": 0.0,
+                "no_answer_rate": 0.0
+              },
+              "grasp": {
+                "n": 20,
+                "balanced_accuracy": 1.0,
+                "false_success_rate": 0.0,
+                "false_failure_rate": 0.0,
+                "no_answer_rate": 0.0
+              },
+              "button": {
+                "n": 20,
+                "balanced_accuracy": 0.95,
+                "false_success_rate": 0.1,
+                "false_failure_rate": 0.0,
+                "no_answer_rate": 0.0
+              },
+              "peg": {
+                "n": 20,
+                "balanced_accuracy": 0.95,
+                "false_success_rate": 0.1,
+                "false_failure_rate": 0.0,
+                "no_answer_rate": 0.0
+              },
+              "push": {
+                "n": 20,
+                "balanced_accuracy": 0.4,
+                "false_success_rate": 0.5,
+                "false_failure_rate": 0.7,
+                "no_answer_rate": 0.0
+              }
+            }
+          },
+          "sensor_gboost": {
+            "overall": {
+              "n": 100,
+              "balanced_accuracy": 0.86,
+              "false_success_rate": 0.12,
+              "false_failure_rate": 0.16,
+              "no_answer_rate": 0.0,
+              "ece": 0.1007
+            },
+            "ci": {
+              "balanced_accuracy": [
+                0.78,
+                0.93
+              ],
+              "false_success_rate": [
+                0.04,
+                0.22
+              ],
+              "n_pairs": 50,
+              "n_boot": 2000,
+              "seed": 0
+            },
+            "by_task": {
+              "stack": {
+                "n": 20,
+                "balanced_accuracy": 1.0,
+                "false_success_rate": 0.0,
+                "false_failure_rate": 0.0,
+                "no_answer_rate": 0.0
+              },
+              "grasp": {
+                "n": 20,
+                "balanced_accuracy": 1.0,
+                "false_success_rate": 0.0,
+                "false_failure_rate": 0.0,
+                "no_answer_rate": 0.0
+              },
+              "button": {
+                "n": 20,
+                "balanced_accuracy": 0.95,
+                "false_success_rate": 0.1,
+                "false_failure_rate": 0.0,
+                "no_answer_rate": 0.0
+              },
+              "peg": {
+                "n": 20,
+                "balanced_accuracy": 0.95,
+                "false_success_rate": 0.1,
+                "false_failure_rate": 0.0,
+                "no_answer_rate": 0.0
+              },
+              "push": {
+                "n": 20,
+                "balanced_accuracy": 0.4,
+                "false_success_rate": 0.4,
+                "false_failure_rate": 0.8,
+                "no_answer_rate": 0.0
+              }
+            }
+          }
+        },
+        "loto": {
+          "stack": {
+            "n": 20,
+            "balanced_accuracy": 0.5,
+            "false_success_rate": 1.0,
+            "false_failure_rate": 0.0,
+            "no_answer_rate": 0.0,
+            "ci": {
+              "balanced_accuracy": [
+                0.5,
+                0.5
+              ],
+              "false_success_rate": [
+                1.0,
+                1.0
+              ],
+              "n_pairs": 10,
+              "n_boot": 2000,
+              "seed": 0
+            }
+          },
+          "grasp": {
+            "n": 20,
+            "balanced_accuracy": 1.0,
+            "false_success_rate": 0.0,
+            "false_failure_rate": 0.0,
+            "no_answer_rate": 0.0,
+            "ci": {
+              "balanced_accuracy": [
+                1.0,
+                1.0
+              ],
+              "false_success_rate": [
+                0.0,
+                0.0
+              ],
+              "n_pairs": 10,
+              "n_boot": 2000,
+              "seed": 0
+            }
+          },
+          "button": {
+            "n": 20,
+            "balanced_accuracy": 0.5,
+            "false_success_rate": 0.8,
+            "false_failure_rate": 0.2,
+            "no_answer_rate": 0.0,
+            "ci": {
+              "balanced_accuracy": [
+                0.35,
+                0.65
+              ],
+              "false_success_rate": [
+                0.5,
+                1.0
+              ],
+              "n_pairs": 10,
+              "n_boot": 2000,
+              "seed": 0
+            }
+          },
+          "peg": {
+            "n": 20,
+            "balanced_accuracy": 0.5,
+            "false_success_rate": 1.0,
+            "false_failure_rate": 0.0,
+            "no_answer_rate": 0.0,
+            "ci": {
+              "balanced_accuracy": [
+                0.5,
+                0.5
+              ],
+              "false_success_rate": [
+                1.0,
+                1.0
+              ],
+              "n_pairs": 10,
+              "n_boot": 2000,
+              "seed": 0
+            }
+          },
+          "push": {
+            "n": 20,
+            "balanced_accuracy": 0.5,
+            "false_success_rate": 0.0,
+            "false_failure_rate": 1.0,
+            "no_answer_rate": 0.0,
+            "ci": {
+              "balanced_accuracy": [
+                0.5,
+                0.5
+              ],
+              "false_success_rate": [
+                0.0,
+                0.0
+              ],
+              "n_pairs": 10,
+              "n_boot": 2000,
+              "seed": 0
+            }
+          }
+        },
+        "sweep": [
+          {
+            "strength": 0,
+            "balanced_accuracy": 0.99,
+            "false_success_rate": 0.0,
+            "ci": {
+              "balanced_accuracy": [
+                0.97,
+                1.0
+              ],
+              "false_success_rate": [
+                0.0,
+                0.0
+              ],
+              "n_pairs": 50,
+              "n_boot": 2000,
+              "seed": 0
+            }
+          },
+          {
+            "strength": 0.5,
+            "balanced_accuracy": 0.9,
+            "false_success_rate": 0.06,
+            "ci": {
+              "balanced_accuracy": [
+                0.83,
+                0.96
+              ],
+              "false_success_rate": [
+                0.0,
+                0.14
+              ],
+              "n_pairs": 50,
+              "n_boot": 2000,
+              "seed": 0
+            }
+          },
+          {
+            "strength": 1,
+            "balanced_accuracy": 0.86,
+            "false_success_rate": 0.14,
+            "ci": {
+              "balanced_accuracy": [
+                0.78,
+                0.93
+              ],
+              "false_success_rate": [
+                0.06,
+                0.24
+              ],
+              "n_pairs": 50,
+              "n_boot": 2000,
+              "seed": 0
+            }
+          },
+          {
+            "strength": 2,
+            "balanced_accuracy": 0.79,
+            "false_success_rate": 0.2,
+            "ci": {
+              "balanced_accuracy": [
+                0.71,
+                0.87
+              ],
+              "false_success_rate": [
+                0.1,
+                0.32
+              ],
+              "n_pairs": 50,
+              "n_boot": 2000,
+              "seed": 0
+            }
+          },
+          {
+            "strength": 4,
+            "balanced_accuracy": 0.78,
+            "false_success_rate": 0.22,
+            "ci": {
+              "balanced_accuracy": [
+                0.7,
+                0.85
+              ],
+              "false_success_rate": [
+                0.12,
+                0.34
+              ],
+              "n_pairs": 50,
+              "n_boot": 2000,
+              "seed": 0
+            }
+          },
+          {
+            "strength": 8,
+            "balanced_accuracy": 0.67,
+            "false_success_rate": 0.26,
+            "ci": {
+              "balanced_accuracy": [
+                0.57,
+                0.76
+              ],
+              "false_success_rate": [
+                0.14,
+                0.38
+              ],
+              "n_pairs": 50,
+              "n_boot": 2000,
+              "seed": 0
+            }
+          },
+          {
+            "strength": 16,
+            "balanced_accuracy": 0.56,
+            "false_success_rate": 0.4,
+            "ci": {
+              "balanced_accuracy": [
+                0.46,
+                0.66
+              ],
+              "false_success_rate": [
+                0.26,
+                0.54
+              ],
+              "n_pairs": 50,
+              "n_boot": 2000,
+              "seed": 0
+            }
+          },
+          {
+            "strength": 32,
+            "balanced_accuracy": 0.54,
+            "false_success_rate": 0.5,
+            "ci": {
+              "balanced_accuracy": [
+                0.44,
+                0.63
+              ],
+              "false_success_rate": [
+                0.36,
+                0.6205
+              ],
+              "n_pairs": 50,
+              "n_boot": 2000,
+              "seed": 0
+            }
+          }
+        ]
+      },
+      "ft6": {
+        "judges": {
+          "sensor_logreg": {
+            "overall": {
+              "n": 100,
+              "balanced_accuracy": 0.9,
+              "false_success_rate": 0.04,
+              "false_failure_rate": 0.16,
+              "no_answer_rate": 0.0,
+              "ece": 0.0618
+            },
+            "ci": {
+              "balanced_accuracy": [
+                0.84,
+                0.96
+              ],
+              "false_success_rate": [
+                0.0,
+                0.1
+              ],
+              "n_pairs": 50,
+              "n_boot": 2000,
+              "seed": 0
+            },
+            "by_task": {
+              "stack": {
+                "n": 20,
+                "balanced_accuracy": 0.85,
+                "false_success_rate": 0.0,
+                "false_failure_rate": 0.3,
+                "no_answer_rate": 0.0
+              },
+              "grasp": {
+                "n": 20,
+                "balanced_accuracy": 1.0,
+                "false_success_rate": 0.0,
+                "false_failure_rate": 0.0,
+                "no_answer_rate": 0.0
+              },
+              "button": {
+                "n": 20,
+                "balanced_accuracy": 1.0,
+                "false_success_rate": 0.0,
+                "false_failure_rate": 0.0,
+                "no_answer_rate": 0.0
+              },
+              "peg": {
+                "n": 20,
+                "balanced_accuracy": 1.0,
+                "false_success_rate": 0.0,
+                "false_failure_rate": 0.0,
+                "no_answer_rate": 0.0
+              },
+              "push": {
+                "n": 20,
+                "balanced_accuracy": 0.65,
+                "false_success_rate": 0.2,
+                "false_failure_rate": 0.5,
+                "no_answer_rate": 0.0
+              }
+            }
+          },
+          "sensor_gboost": {
+            "overall": {
+              "n": 100,
+              "balanced_accuracy": 0.95,
+              "false_success_rate": 0.06,
+              "false_failure_rate": 0.04,
+              "no_answer_rate": 0.0,
+              "ece": 0.0406
+            },
+            "ci": {
+              "balanced_accuracy": [
+                0.89,
+                1.0
+              ],
+              "false_success_rate": [
+                0.0,
+                0.14
+              ],
+              "n_pairs": 50,
+              "n_boot": 2000,
+              "seed": 0
+            },
+            "by_task": {
+              "stack": {
+                "n": 20,
+                "balanced_accuracy": 1.0,
+                "false_success_rate": 0.0,
+                "false_failure_rate": 0.0,
+                "no_answer_rate": 0.0
+              },
+              "grasp": {
+                "n": 20,
+                "balanced_accuracy": 1.0,
+                "false_success_rate": 0.0,
+                "false_failure_rate": 0.0,
+                "no_answer_rate": 0.0
+              },
+              "button": {
+                "n": 20,
+                "balanced_accuracy": 1.0,
+                "false_success_rate": 0.0,
+                "false_failure_rate": 0.0,
+                "no_answer_rate": 0.0
+              },
+              "peg": {
+                "n": 20,
+                "balanced_accuracy": 1.0,
+                "false_success_rate": 0.0,
+                "false_failure_rate": 0.0,
+                "no_answer_rate": 0.0
+              },
+              "push": {
+                "n": 20,
+                "balanced_accuracy": 0.75,
+                "false_success_rate": 0.3,
+                "false_failure_rate": 0.2,
+                "no_answer_rate": 0.0
+              }
+            }
+          }
+        },
+        "loto": {
+          "stack": {
+            "n": 20,
+            "balanced_accuracy": 0.75,
+            "false_success_rate": 0.0,
+            "false_failure_rate": 0.5,
+            "no_answer_rate": 0.0,
+            "ci": {
+              "balanced_accuracy": [
+                0.6,
+                0.9
+              ],
+              "false_success_rate": [
+                0.0,
+                0.0
+              ],
+              "n_pairs": 10,
+              "n_boot": 2000,
+              "seed": 0
+            }
+          },
+          "grasp": {
+            "n": 20,
+            "balanced_accuracy": 1.0,
+            "false_success_rate": 0.0,
+            "false_failure_rate": 0.0,
+            "no_answer_rate": 0.0,
+            "ci": {
+              "balanced_accuracy": [
+                1.0,
+                1.0
+              ],
+              "false_success_rate": [
+                0.0,
+                0.0
+              ],
+              "n_pairs": 10,
+              "n_boot": 2000,
+              "seed": 0
+            }
+          },
+          "button": {
+            "n": 20,
+            "balanced_accuracy": 0.45,
+            "false_success_rate": 0.1,
+            "false_failure_rate": 1.0,
+            "no_answer_rate": 0.0,
+            "ci": {
+              "balanced_accuracy": [
+                0.35,
+                0.5
+              ],
+              "false_success_rate": [
+                0.0,
+                0.3
+              ],
+              "n_pairs": 10,
+              "n_boot": 2000,
+              "seed": 0
+            }
+          },
+          "peg": {
+            "n": 20,
+            "balanced_accuracy": 0.75,
+            "false_success_rate": 0.5,
+            "false_failure_rate": 0.0,
+            "no_answer_rate": 0.0,
+            "ci": {
+              "balanced_accuracy": [
+                0.6,
+                0.9
+              ],
+              "false_success_rate": [
+                0.2,
+                0.8
+              ],
+              "n_pairs": 10,
+              "n_boot": 2000,
+              "seed": 0
+            }
+          },
+          "push": {
+            "n": 20,
+            "balanced_accuracy": 0.5,
+            "false_success_rate": 0.0,
+            "false_failure_rate": 1.0,
+            "no_answer_rate": 0.0,
+            "ci": {
+              "balanced_accuracy": [
+                0.5,
+                0.5
+              ],
+              "false_success_rate": [
+                0.0,
+                0.0
+              ],
+              "n_pairs": 10,
+              "n_boot": 2000,
+              "seed": 0
+            }
+          }
+        },
+        "sweep": [
+          {
+            "strength": 0,
+            "balanced_accuracy": 0.99,
+            "false_success_rate": 0.0,
+            "ci": {
+              "balanced_accuracy": [
+                0.97,
+                1.0
+              ],
+              "false_success_rate": [
+                0.0,
+                0.0
+              ],
+              "n_pairs": 50,
+              "n_boot": 2000,
+              "seed": 0
+            }
+          },
+          {
+            "strength": 0.5,
+            "balanced_accuracy": 0.97,
+            "false_success_rate": 0.02,
+            "ci": {
+              "balanced_accuracy": [
+                0.92,
+                1.0
+              ],
+              "false_success_rate": [
+                0.0,
+                0.06
+              ],
+              "n_pairs": 50,
+              "n_boot": 2000,
+              "seed": 0
+            }
+          },
+          {
+            "strength": 1,
+            "balanced_accuracy": 0.9,
+            "false_success_rate": 0.04,
+            "ci": {
+              "balanced_accuracy": [
+                0.84,
+                0.96
+              ],
+              "false_success_rate": [
+                0.0,
+                0.1
+              ],
+              "n_pairs": 50,
+              "n_boot": 2000,
+              "seed": 0
+            }
+          },
+          {
+            "strength": 2,
+            "balanced_accuracy": 0.8,
+            "false_success_rate": 0.2,
+            "ci": {
+              "balanced_accuracy": [
+                0.72,
+                0.87
+              ],
+              "false_success_rate": [
+                0.1,
+                0.32
+              ],
+              "n_pairs": 50,
+              "n_boot": 2000,
+              "seed": 0
+            }
+          },
+          {
+            "strength": 4,
+            "balanced_accuracy": 0.72,
+            "false_success_rate": 0.16,
+            "ci": {
+              "balanced_accuracy": [
+                0.64,
+                0.8
+              ],
+              "false_success_rate": [
+                0.06,
+                0.26
+              ],
+              "n_pairs": 50,
+              "n_boot": 2000,
+              "seed": 0
+            }
+          },
+          {
+            "strength": 8,
+            "balanced_accuracy": 0.57,
+            "false_success_rate": 0.34,
+            "ci": {
+              "balanced_accuracy": [
+                0.48,
+                0.66
+              ],
+              "false_success_rate": [
+                0.22,
+                0.46
+              ],
+              "n_pairs": 50,
+              "n_boot": 2000,
+              "seed": 0
+            }
+          },
+          {
+            "strength": 16,
+            "balanced_accuracy": 0.56,
+            "false_success_rate": 0.38,
+            "ci": {
+              "balanced_accuracy": [
+                0.46,
+                0.66
+              ],
+              "false_success_rate": [
+                0.26,
+                0.52
+              ],
+              "n_pairs": 50,
+              "n_boot": 2000,
+              "seed": 0
+            }
+          },
+          {
+            "strength": 32,
+            "balanced_accuracy": 0.53,
+            "false_success_rate": 0.52,
+            "ci": {
+              "balanced_accuracy": [
+                0.43,
+                0.6202
+              ],
+              "false_success_rate": [
+                0.38,
+                0.66
+              ],
+              "n_pairs": 50,
+              "n_boot": 2000,
+              "seed": 0
+            }
+          }
+        ]
+      }
+    },
+    "mcnemar_ft6_vs_single": {
+      "sensor_logreg": {
+        "n_shared": 100,
+        "only_a_correct": 11,
+        "only_b_correct": 7,
+        "p": 0.480682373046875,
+        "method": "exact"
+      },
+      "sensor_gboost": {
+        "n_shared": 100,
+        "only_a_correct": 11,
+        "only_b_correct": 2,
+        "p": 0.0224609375,
+        "method": "exact"
+      }
+    }
+  },
+  "large": {
+    "n_test": 400,
+    "sets": {
+      "single": {
+        "judges": {
+          "sensor_logreg": {
+            "overall": {
+              "n": 400,
+              "balanced_accuracy": 0.885,
+              "false_success_rate": 0.11,
+              "false_failure_rate": 0.12,
+              "no_answer_rate": 0.0,
+              "ece": 0.0432
+            },
+            "ci": {
+              "balanced_accuracy": [
+                0.85,
+                0.9175
+              ],
+              "false_success_rate": [
+                0.07,
+                0.155
+              ],
+              "n_pairs": 200,
+              "n_boot": 2000,
+              "seed": 0
+            },
+            "by_task": {
+              "stack": {
+                "n": 80,
+                "balanced_accuracy": 0.9375,
+                "false_success_rate": 0.025,
+                "false_failure_rate": 0.1,
+                "no_answer_rate": 0.0
+              },
+              "grasp": {
+                "n": 80,
+                "balanced_accuracy": 1.0,
+                "false_success_rate": 0.0,
+                "false_failure_rate": 0.0,
+                "no_answer_rate": 0.0
+              },
+              "button": {
+                "n": 80,
+                "balanced_accuracy": 1.0,
+                "false_success_rate": 0.0,
+                "false_failure_rate": 0.0,
+                "no_answer_rate": 0.0
+              },
+              "peg": {
+                "n": 80,
+                "balanced_accuracy": 0.9875,
+                "false_success_rate": 0.025,
+                "false_failure_rate": 0.0,
+                "no_answer_rate": 0.0
+              },
+              "push": {
+                "n": 80,
+                "balanced_accuracy": 0.5,
+                "false_success_rate": 0.5,
+                "false_failure_rate": 0.5,
+                "no_answer_rate": 0.0
+              }
+            }
+          },
+          "sensor_gboost": {
+            "overall": {
+              "n": 400,
+              "balanced_accuracy": 0.8875,
+              "false_success_rate": 0.125,
+              "false_failure_rate": 0.1,
+              "no_answer_rate": 0.0,
+              "ece": 0.0626
+            },
+            "ci": {
+              "balanced_accuracy": [
+                0.8525,
+                0.9225
+              ],
+              "false_success_rate": [
+                0.08,
+                0.17
+              ],
+              "n_pairs": 200,
+              "n_boot": 2000,
+              "seed": 0
+            },
+            "by_task": {
+              "stack": {
+                "n": 80,
+                "balanced_accuracy": 1.0,
+                "false_success_rate": 0.0,
+                "false_failure_rate": 0.0,
+                "no_answer_rate": 0.0
+              },
+              "grasp": {
+                "n": 80,
+                "balanced_accuracy": 1.0,
+                "false_success_rate": 0.0,
+                "false_failure_rate": 0.0,
+                "no_answer_rate": 0.0
+              },
+              "button": {
+                "n": 80,
+                "balanced_accuracy": 0.975,
+                "false_success_rate": 0.05,
+                "false_failure_rate": 0.0,
+                "no_answer_rate": 0.0
+              },
+              "peg": {
+                "n": 80,
+                "balanced_accuracy": 1.0,
+                "false_success_rate": 0.0,
+                "false_failure_rate": 0.0,
+                "no_answer_rate": 0.0
+              },
+              "push": {
+                "n": 80,
+                "balanced_accuracy": 0.4625,
+                "false_success_rate": 0.575,
+                "false_failure_rate": 0.5,
+                "no_answer_rate": 0.0
+              }
+            }
+          }
+        },
+        "loto": {
+          "stack": {
+            "n": 80,
+            "balanced_accuracy": 0.5,
+            "false_success_rate": 1.0,
+            "false_failure_rate": 0.0,
+            "no_answer_rate": 0.0,
+            "ci": {
+              "balanced_accuracy": [
+                0.5,
+                0.5
+              ],
+              "false_success_rate": [
+                1.0,
+                1.0
+              ],
+              "n_pairs": 40,
+              "n_boot": 2000,
+              "seed": 0
+            }
+          },
+          "grasp": {
+            "n": 80,
+            "balanced_accuracy": 1.0,
+            "false_success_rate": 0.0,
+            "false_failure_rate": 0.0,
+            "no_answer_rate": 0.0,
+            "ci": {
+              "balanced_accuracy": [
+                1.0,
+                1.0
+              ],
+              "false_success_rate": [
+                0.0,
+                0.0
+              ],
+              "n_pairs": 40,
+              "n_boot": 2000,
+              "seed": 0
+            }
+          },
+          "button": {
+            "n": 80,
+            "balanced_accuracy": 0.6625,
+            "false_success_rate": 0.675,
+            "false_failure_rate": 0.0,
+            "no_answer_rate": 0.0,
+            "ci": {
+              "balanced_accuracy": [
+                0.5875,
+                0.7375
+              ],
+              "false_success_rate": [
+                0.525,
+                0.825
+              ],
+              "n_pairs": 40,
+              "n_boot": 2000,
+              "seed": 0
+            }
+          },
+          "peg": {
+            "n": 80,
+            "balanced_accuracy": 0.5,
+            "false_success_rate": 1.0,
+            "false_failure_rate": 0.0,
+            "no_answer_rate": 0.0,
+            "ci": {
+              "balanced_accuracy": [
+                0.5,
+                0.5
+              ],
+              "false_success_rate": [
+                1.0,
+                1.0
+              ],
+              "n_pairs": 40,
+              "n_boot": 2000,
+              "seed": 0
+            }
+          },
+          "push": {
+            "n": 80,
+            "balanced_accuracy": 0.5,
+            "false_success_rate": 0.0,
+            "false_failure_rate": 1.0,
+            "no_answer_rate": 0.0,
+            "ci": {
+              "balanced_accuracy": [
+                0.5,
+                0.5
+              ],
+              "false_success_rate": [
+                0.0,
+                0.0
+              ],
+              "n_pairs": 40,
+              "n_boot": 2000,
+              "seed": 0
+            }
+          }
+        },
+        "sweep": [
+          {
+            "strength": 0,
+            "balanced_accuracy": 0.9725,
+            "false_success_rate": 0.025,
+            "ci": {
+              "balanced_accuracy": [
+                0.955,
+                0.9875
+              ],
+              "false_success_rate": [
+                0.005,
+                0.05
+              ],
+              "n_pairs": 200,
+              "n_boot": 2000,
+              "seed": 0
+            }
+          },
+          {
+            "strength": 0.5,
+            "balanced_accuracy": 0.8975,
+            "false_success_rate": 0.095,
+            "ci": {
+              "balanced_accuracy": [
+                0.8675,
+                0.9275
+              ],
+              "false_success_rate": [
+                0.055,
+                0.135
+              ],
+              "n_pairs": 200,
+              "n_boot": 2000,
+              "seed": 0
+            }
+          },
+          {
+            "strength": 1,
+            "balanced_accuracy": 0.885,
+            "false_success_rate": 0.11,
+            "ci": {
+              "balanced_accuracy": [
+                0.85,
+                0.9175
+              ],
+              "false_success_rate": [
+                0.07,
+                0.155
+              ],
+              "n_pairs": 200,
+              "n_boot": 2000,
+              "seed": 0
+            }
+          },
+          {
+            "strength": 2,
+            "balanced_accuracy": 0.82,
+            "false_success_rate": 0.18,
+            "ci": {
+              "balanced_accuracy": [
+                0.78,
+                0.8575
+              ],
+              "false_success_rate": [
+                0.13,
+                0.235
+              ],
+              "n_pairs": 200,
+              "n_boot": 2000,
+              "seed": 0
+            }
+          },
+          {
+            "strength": 4,
+            "balanced_accuracy": 0.7425,
+            "false_success_rate": 0.195,
+            "ci": {
+              "balanced_accuracy": [
+                0.7,
+                0.7825
+              ],
+              "false_success_rate": [
+                0.14,
+                0.25
+              ],
+              "n_pairs": 200,
+              "n_boot": 2000,
+              "seed": 0
+            }
+          },
+          {
+            "strength": 8,
+            "balanced_accuracy": 0.6575,
+            "false_success_rate": 0.315,
+            "ci": {
+              "balanced_accuracy": [
+                0.6075,
+                0.705
+              ],
+              "false_success_rate": [
+                0.25,
+                0.38
+              ],
+              "n_pairs": 200,
+              "n_boot": 2000,
+              "seed": 0
+            }
+          },
+          {
+            "strength": 16,
+            "balanced_accuracy": 0.605,
+            "false_success_rate": 0.41,
+            "ci": {
+              "balanced_accuracy": [
+                0.5575,
+                0.6525
+              ],
+              "false_success_rate": [
+                0.3449,
+                0.48
+              ],
+              "n_pairs": 200,
+              "n_boot": 2000,
+              "seed": 0
+            }
+          },
+          {
+            "strength": 32,
+            "balanced_accuracy": 0.495,
+            "false_success_rate": 0.535,
+            "ci": {
+              "balanced_accuracy": [
+                0.4475,
+                0.54
+              ],
+              "false_success_rate": [
+                0.47,
+                0.605
+              ],
+              "n_pairs": 200,
+              "n_boot": 2000,
+              "seed": 0
+            }
+          }
+        ]
+      },
+      "ft6": {
+        "judges": {
+          "sensor_logreg": {
+            "overall": {
+              "n": 400,
+              "balanced_accuracy": 0.9575,
+              "false_success_rate": 0.025,
+              "false_failure_rate": 0.06,
+              "no_answer_rate": 0.0,
+              "ece": 0.0418
+            },
+            "ci": {
+              "balanced_accuracy": [
+                0.935,
+                0.975
+              ],
+              "false_success_rate": [
+                0.005,
+                0.05
+              ],
+              "n_pairs": 200,
+              "n_boot": 2000,
+              "seed": 0
+            },
+            "by_task": {
+              "stack": {
+                "n": 80,
+                "balanced_accuracy": 0.9625,
+                "false_success_rate": 0.0,
+                "false_failure_rate": 0.075,
+                "no_answer_rate": 0.0
+              },
+              "grasp": {
+                "n": 80,
+                "balanced_accuracy": 1.0,
+                "false_success_rate": 0.0,
+                "false_failure_rate": 0.0,
+                "no_answer_rate": 0.0
+              },
+              "button": {
+                "n": 80,
+                "balanced_accuracy": 1.0,
+                "false_success_rate": 0.0,
+                "false_failure_rate": 0.0,
+                "no_answer_rate": 0.0
+              },
+              "peg": {
+                "n": 80,
+                "balanced_accuracy": 1.0,
+                "false_success_rate": 0.0,
+                "false_failure_rate": 0.0,
+                "no_answer_rate": 0.0
+              },
+              "push": {
+                "n": 80,
+                "balanced_accuracy": 0.825,
+                "false_success_rate": 0.125,
+                "false_failure_rate": 0.225,
+                "no_answer_rate": 0.0
+              }
+            }
+          },
+          "sensor_gboost": {
+            "overall": {
+              "n": 400,
+              "balanced_accuracy": 0.9625,
+              "false_success_rate": 0.03,
+              "false_failure_rate": 0.045,
+              "no_answer_rate": 0.0,
+              "ece": 0.0182
+            },
+            "ci": {
+              "balanced_accuracy": [
+                0.9425,
+                0.98
+              ],
+              "false_success_rate": [
+                0.01,
+                0.055
+              ],
+              "n_pairs": 200,
+              "n_boot": 2000,
+              "seed": 0
+            },
+            "by_task": {
+              "stack": {
+                "n": 80,
+                "balanced_accuracy": 0.9875,
+                "false_success_rate": 0.0,
+                "false_failure_rate": 0.025,
+                "no_answer_rate": 0.0
+              },
+              "grasp": {
+                "n": 80,
+                "balanced_accuracy": 1.0,
+                "false_success_rate": 0.0,
+                "false_failure_rate": 0.0,
+                "no_answer_rate": 0.0
+              },
+              "button": {
+                "n": 80,
+                "balanced_accuracy": 1.0,
+                "false_success_rate": 0.0,
+                "false_failure_rate": 0.0,
+                "no_answer_rate": 0.0
+              },
+              "peg": {
+                "n": 80,
+                "balanced_accuracy": 1.0,
+                "false_success_rate": 0.0,
+                "false_failure_rate": 0.0,
+                "no_answer_rate": 0.0
+              },
+              "push": {
+                "n": 80,
+                "balanced_accuracy": 0.825,
+                "false_success_rate": 0.15,
+                "false_failure_rate": 0.2,
+                "no_answer_rate": 0.0
+              }
+            }
+          }
+        },
+        "loto": {
+          "stack": {
+            "n": 80,
+            "balanced_accuracy": 0.8875,
+            "false_success_rate": 0.0,
+            "false_failure_rate": 0.225,
+            "no_answer_rate": 0.0,
+            "ci": {
+              "balanced_accuracy": [
+                0.825,
+                0.95
+              ],
+              "false_success_rate": [
+                0.0,
+                0.0
+              ],
+              "n_pairs": 40,
+              "n_boot": 2000,
+              "seed": 0
+            }
+          },
+          "grasp": {
+            "n": 80,
+            "balanced_accuracy": 1.0,
+            "false_success_rate": 0.0,
+            "false_failure_rate": 0.0,
+            "no_answer_rate": 0.0,
+            "ci": {
+              "balanced_accuracy": [
+                1.0,
+                1.0
+              ],
+              "false_success_rate": [
+                0.0,
+                0.0
+              ],
+              "n_pairs": 40,
+              "n_boot": 2000,
+              "seed": 0
+            }
+          },
+          "button": {
+            "n": 80,
+            "balanced_accuracy": 0.5375,
+            "false_success_rate": 0.075,
+            "false_failure_rate": 0.85,
+            "no_answer_rate": 0.0,
+            "ci": {
+              "balanced_accuracy": [
+                0.4625,
+                0.6125
+              ],
+              "false_success_rate": [
+                0.0,
+                0.175
+              ],
+              "n_pairs": 40,
+              "n_boot": 2000,
+              "seed": 0
+            }
+          },
+          "peg": {
+            "n": 80,
+            "balanced_accuracy": 0.8625,
+            "false_success_rate": 0.275,
+            "false_failure_rate": 0.0,
+            "no_answer_rate": 0.0,
+            "ci": {
+              "balanced_accuracy": [
+                0.7875,
+                0.925
+              ],
+              "false_success_rate": [
+                0.15,
+                0.425
+              ],
+              "n_pairs": 40,
+              "n_boot": 2000,
+              "seed": 0
+            }
+          },
+          "push": {
+            "n": 80,
+            "balanced_accuracy": 0.5,
+            "false_success_rate": 0.0,
+            "false_failure_rate": 1.0,
+            "no_answer_rate": 0.0,
+            "ci": {
+              "balanced_accuracy": [
+                0.5,
+                0.5
+              ],
+              "false_success_rate": [
+                0.0,
+                0.0
+              ],
+              "n_pairs": 40,
+              "n_boot": 2000,
+              "seed": 0
+            }
+          }
+        },
+        "sweep": [
+          {
+            "strength": 0,
+            "balanced_accuracy": 0.9975,
+            "false_success_rate": 0.0,
+            "ci": {
+              "balanced_accuracy": [
+                0.9925,
+                1.0
+              ],
+              "false_success_rate": [
+                0.0,
+                0.0
+              ],
+              "n_pairs": 200,
+              "n_boot": 2000,
+              "seed": 0
+            }
+          },
+          {
+            "strength": 0.5,
+            "balanced_accuracy": 0.99,
+            "false_success_rate": 0.0,
+            "ci": {
+              "balanced_accuracy": [
+                0.9775,
+                0.9975
+              ],
+              "false_success_rate": [
+                0.0,
+                0.0
+              ],
+              "n_pairs": 200,
+              "n_boot": 2000,
+              "seed": 0
+            }
+          },
+          {
+            "strength": 1,
+            "balanced_accuracy": 0.9575,
+            "false_success_rate": 0.025,
+            "ci": {
+              "balanced_accuracy": [
+                0.935,
+                0.975
+              ],
+              "false_success_rate": [
+                0.005,
+                0.05
+              ],
+              "n_pairs": 200,
+              "n_boot": 2000,
+              "seed": 0
+            }
+          },
+          {
+            "strength": 2,
+            "balanced_accuracy": 0.8325,
+            "false_success_rate": 0.105,
+            "ci": {
+              "balanced_accuracy": [
+                0.7975,
+                0.87
+              ],
+              "false_success_rate": [
+                0.065,
+                0.15
+              ],
+              "n_pairs": 200,
+              "n_boot": 2000,
+              "seed": 0
+            }
+          },
+          {
+            "strength": 4,
+            "balanced_accuracy": 0.735,
+            "false_success_rate": 0.21,
+            "ci": {
+              "balanced_accuracy": [
+                0.69,
+                0.78
+              ],
+              "false_success_rate": [
+                0.155,
+                0.265
+              ],
+              "n_pairs": 200,
+              "n_boot": 2000,
+              "seed": 0
+            }
+          },
+          {
+            "strength": 8,
+            "balanced_accuracy": 0.5925,
+            "false_success_rate": 0.36,
+            "ci": {
+              "balanced_accuracy": [
+                0.54,
+                0.6425
+              ],
+              "false_success_rate": [
+                0.295,
+                0.43
+              ],
+              "n_pairs": 200,
+              "n_boot": 2000,
+              "seed": 0
+            }
+          },
+          {
+            "strength": 16,
+            "balanced_accuracy": 0.5775,
+            "false_success_rate": 0.45,
+            "ci": {
+              "balanced_accuracy": [
+                0.53,
+                0.625
+              ],
+              "false_success_rate": [
+                0.38,
+                0.515
+              ],
+              "n_pairs": 200,
+              "n_boot": 2000,
+              "seed": 0
+            }
+          },
+          {
+            "strength": 32,
+            "balanced_accuracy": 0.525,
+            "false_success_rate": 0.535,
+            "ci": {
+              "balanced_accuracy": [
+                0.4775,
+                0.57
+              ],
+              "false_success_rate": [
+                0.465,
+                0.6
+              ],
+              "n_pairs": 200,
+              "n_boot": 2000,
+              "seed": 0
+            }
+          }
+        ]
+      }
+    },
+    "mcnemar_ft6_vs_single": {
+      "sensor_logreg": {
+        "n_shared": 400,
+        "only_a_correct": 41,
+        "only_b_correct": 12,
+        "p": 0.00012001485901520004,
+        "method": "chi2_cc"
+      },
+      "sensor_gboost": {
+        "n_shared": 400,
+        "only_a_correct": 36,
+        "only_b_correct": 6,
+        "p": 7.64838907702739e-06,
+        "method": "chi2_cc"
+      }
+    }
+  }
+}

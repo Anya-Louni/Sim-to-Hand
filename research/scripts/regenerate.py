@@ -44,6 +44,7 @@ def main():
     env = {"PYTHONPATH": str(RESEARCH)}
     for split in ("small", "large"):
         run(f"research leaderboard ({split})", [PY, "-m", "vcf.evaluate", "--test", f"data/{split}", "--out", f"results/{split}"], cwd=RESEARCH, env=env)
+    run("6-axis wrist sensor ablation", [PY, "scripts/ft_ablation.py"], cwd=RESEARCH)
     run("report tables", [PY, "scripts/make_tables.py"], cwd=RESEARCH)
     if any((REPO / "experiments/images/checkpoints").glob("*.jpg")):
         run("OpenCV checkpoint verdicts", [PY, "research/scripts/judge_checkpoints.py"])

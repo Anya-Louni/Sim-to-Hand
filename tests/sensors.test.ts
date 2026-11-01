@@ -76,3 +76,24 @@ test('average is the per-channel mean', () => {
   ]);
   assert.deepEqual(r, { switchLeft: 0.5, switchRight: 0, effort: 3, force: 6 });
 });
+
+test('ft6 adds a 6-axis reading on its grids and leaves the single-axis reads unchanged', () => {
+  const ft = [1, -2, -5, 0.05, -0.1, 0.02];
+  const a = new CheapSensors(7);
+  const b = new CheapSensors(7, 'ft6');
+  const fz: number[] = [];
+  for (let i = 0; i < 2000; i++) {
+    const ra = a.read({ ...raw, ft });
+    const rb = b.read({ ...raw, ft });
+    assert.equal(ra.ft, undefined);
+    assert.equal(rb.ft!.length, 6);
+    rb.ft!.forEach((v, k) => {
+      const step = (2 * (k < 3 ? 30 : 3)) / 256;
+      assert.ok(Math.abs(v / step - Math.round(v / step)) < 1e-9, `axis ${k} off-grid ${v}`);
+    });
+    fz.push(rb.ft![2]);
+  }
+  assert.ok(Math.abs(mean(fz) - -5) < 1.6, `fz mean ${mean(fz)}`);
+  assert.ok(Math.abs(sd(fz) - 0.5) < 0.1, `fz sd ${sd(fz)}`);
+  assert.equal(average([new CheapSensors(1, 'ft6').read({ ...raw, ft })]).ft!.length, 6);
+});

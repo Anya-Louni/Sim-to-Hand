@@ -1,4 +1,5 @@
 import { sceneXml } from './scene.ts';
+import type { RawSensors } from './sensors.ts';
 import type { SceneSpec } from './types.ts';
 
 // The MuJoCo module is typed loosely; the bindings expose live typed-array views.
@@ -11,6 +12,9 @@ export interface Pose {
   pos: [number, number, number];
   yaw: number;
 }
+
+/** Where a cube is, as far as the robot is concerned. */
+export type CubePose = Pick<CubeState, 'pos' | 'yaw'>;
 
 export interface CubeState {
   name: string;
@@ -123,15 +127,16 @@ export class Sim {
     return [x[s], x[s + 1], x[s + 2]];
   }
 
-  /** Finger separation in meters. */
-  /** Raw sensor values: fingertip touch (N), gripper actuator force (N), wrist force along the tool axis (N). */
-  rawSensors(): { touchLeft: number; touchRight: number; effort: number; forceTool: number } {
+  /** Raw sensor values: fingertip touch (N), gripper actuator force (N), wrist force along the tool axis (N),
+   * and the full wrist force/torque (fx fy fz N, tx ty tz N m) for the 6-axis sensor set. */
+  rawSensors(): RawSensors {
     const { mj, m, d } = this;
     const adr = (name: string) => m.sensor_adr[mj.mj_name2id(m, mj.mjtObj.mjOBJ_SENSOR.value, name)];
     const s = d.sensordata;
-    return { touchLeft: s[adr('touch_left')], touchRight: s[adr('touch_right')], effort: d.actuator_force[7], forceTool: s[adr('wrist_force') + 2] };
+    return { touchLeft: s[adr('touch_left')], touchRight: s[adr('touch_right')], effort: d.actuator_force[7], forceTool: s[adr('wrist_force') + 2], ft: [...s.slice(adr('wrist_force'), adr('wrist_force') + 3), ...s.slice(adr('wrist_torque'), adr('wrist_torque') + 3)] };
   }
 
+  /** Finger separation in meters. */
   gripWidth(): number {
     return this.d.qpos[7] + this.d.qpos[8];
   }

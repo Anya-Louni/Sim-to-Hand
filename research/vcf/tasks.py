@@ -27,7 +27,7 @@ class Attempt:
     realized: float = 0.0  # measured value of the controlling quantity at capture time
     label: int = 0  # ground truth from sim state after the stability check
     rule: str = ""
-    sensors: np.ndarray = field(default_factory=lambda: np.zeros((0, 5)))
+    sensors: np.ndarray = field(default_factory=lambda: np.zeros((0, 11)))
     qpos: np.ndarray = field(default_factory=lambda: np.zeros(0))
     meta: dict = field(default_factory=dict)
 

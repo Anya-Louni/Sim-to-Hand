@@ -84,3 +84,16 @@ def test_ece_toy():
     y = np.array([1, 0, 1, 0])
     assert ece(y, y.astype(float))[0] == 0.0
     assert ece(y, np.ones(4))[0] == 0.5
+
+
+def test_ft_features_on_a_clean_step():
+    """Force steps up along the tool axis halfway through: onset at half, direction +z, no torque."""
+    from vcf.sensors import FT_FEATURES, ft_features
+
+    x = np.zeros((100, 6))
+    x[50:, 2] = 4.0
+    f = dict(zip(FT_FEATURES, ft_features(x)))
+    assert 0.45 < f["ft_onset_frac"] < 0.5
+    assert f["ft_peak_change"] == pytest.approx(4.0)
+    assert f["ft_peak_dir_z"] == pytest.approx(1.0, abs=1e-3)
+    assert f["ft_end_lateral"] == pytest.approx(0.0) and f["ft_torque_peak"] == pytest.approx(0.0)

@@ -69,3 +69,14 @@ def test_ground_truth_rules_reproduce_committed_labels(tmp_path):
         assert number.sub("#", s["rule"]) == number.sub("#", old[i]["rule"]), i
         a, b = [float(x) for x in number.findall(s["rule"])], [float(x) for x in number.findall(old[i]["rule"])]
         assert a == pytest.approx(b, abs=0.05), (i, s["rule"], old[i]["rule"])
+
+
+@pytest.mark.parametrize("split", SPLITS)
+def test_ft_traces_match_single_axis(split):
+    """sensors_ft.npz holds the full wrist force/torque of the same attempts: fz is the committed single axis."""
+    single = np.load(ROOT / "data" / split / "sensors.npz")
+    ft = np.load(ROOT / "data" / split / "sensors_ft.npz")
+    assert sorted(ft.files) == sorted(single.files)
+    for k in single.files:
+        assert ft[k].shape == (len(single[k]), 6), k
+        assert np.array_equal(ft[k][:, 2], single[k][:, 4]), k
