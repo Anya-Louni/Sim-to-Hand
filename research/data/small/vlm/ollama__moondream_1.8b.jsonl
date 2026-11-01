@@ -1,0 +1,100 @@
+{"id": "button-s0-0000-failure", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.67, "label": 0, "raw": "\n {\"success\": true, \"confidence\": 0.67}"}
+{"id": "button-s0-0000-success", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.67, "label": 1, "raw": "\n {\"success\": true, \"confidence\": 0.67}"}
+{"id": "grasp-s0-0000-failure", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.67, "label": 0, "raw": "\n {\"success\": true, \"confidence\": 0.67}"}
+{"id": "grasp-s0-0000-success", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": null, "label": 1, "raw": "\n Success: true"}
+{"id": "peg-s0-0000-failure", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.67, "label": 0, "raw": "\n {\"success\": true, \"confidence\": 0.67}"}
+{"id": "peg-s0-0000-success", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.67, "label": 1, "raw": "\n {\"success\": true, \"confidence\": 0.67}"}
+{"id": "push-s0-0000-failure", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.68, "label": 0, "raw": "\n {\"success\": true, \"confidence\": 0.68}"}
+{"id": "push-s0-0000-success", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.68, "label": 1, "raw": "\n {\"success\": true, \"confidence\": 0.68}"}
+{"id": "stack-s0-0000-failure", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.67, "label": 0, "raw": "\n {\"success\": true, \"confidence\": 0.67}"}
+{"id": "stack-s0-0000-success", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.67, "label": 1, "raw": "\n {\"success\": true, \"confidence\": 0.67}"}
+{"id": "button-s0-0001-failure", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.68, "label": 0, "raw": "\n {\"success\": true, \"confidence\": 0.68}"}
+{"id": "button-s0-0001-success", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.67, "label": 1, "raw": "\n {\"success\": true, \"confidence\": 0.67}"}
+{"id": "grasp-s0-0001-failure", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": null, "label": 0, "raw": "\n Success: true"}
+{"id": "grasp-s0-0001-success", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": null, "label": 1, "raw": "\n Success: true"}
+{"id": "peg-s0-0001-failure", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.67, "label": 0, "raw": "\n {\"success\": true, \"confidence\": 0.67}"}
+{"id": "peg-s0-0001-success", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.67, "label": 1, "raw": "\n {\"success\": true, \"confidence\": 0.67}"}
+{"id": "push-s0-0001-failure", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.68, "label": 0, "raw": "\n {\"success\": true, \"confidence\": 0.68}"}
+{"id": "push-s0-0001-success", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.68, "label": 1, "raw": "\n {\"success\": true, \"confidence\": 0.68}"}
+{"id": "stack-s0-0001-failure", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.67, "label": 0, "raw": "\n {\"success\": true, \"confidence\": 0.67}"}
+{"id": "stack-s0-0001-success", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.67, "label": 1, "raw": "\n {\"success\": true, \"confidence\": 0.67}"}
+{"id": "button-s0-0002-failure", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.67, "label": 0, "raw": "\n {\"success\": true, \"confidence\": 0.67}"}
+{"id": "button-s0-0002-success", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.67, "label": 1, "raw": "\n {\"success\": true, \"confidence\": 0.67}"}
+{"id": "grasp-s0-0002-failure", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.67, "label": 0, "raw": "\n {\"success\": true, \"confidence\": 0.67}"}
+{"id": "grasp-s0-0002-success", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.67, "label": 1, "raw": "\n {\"success\": true, \"confidence\": 0.67}"}
+{"id": "peg-s0-0002-failure", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.67, "label": 0, "raw": "\n {\"success\": true, \"confidence\": 0.67}"}
+{"id": "peg-s0-0002-success", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.67, "label": 1, "raw": "\n {\"success\": true, \"confidence\": 0.67}"}
+{"id": "push-s0-0002-failure", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.68, "label": 0, "raw": "\n {\"success\": true, \"confidence\": 0.68}"}
+{"id": "push-s0-0002-success", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.68, "label": 1, "raw": "\n {\"success\": true, \"confidence\": 0.68}"}
+{"id": "stack-s0-0002-failure", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.67, "label": 0, "raw": "\n {\"success\": true, \"confidence\": 0.67}"}
+{"id": "stack-s0-0002-success", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.67, "label": 1, "raw": "\n {\"success\": true, \"confidence\": 0.67}"}
+{"id": "button-s0-0003-failure", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.67, "label": 0, "raw": "\n {\"success\": true, \"confidence\": 0.67}"}
+{"id": "button-s0-0003-success", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": null, "label": 1, "raw": "\n Success: true"}
+{"id": "grasp-s0-0003-failure", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.67, "label": 0, "raw": "\n {\"success\": true, \"confidence\": 0.67}"}
+{"id": "grasp-s0-0003-success", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": null, "label": 1, "raw": "\n Success: true"}
+{"id": "peg-s0-0003-failure", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.67, "label": 0, "raw": "\n {\"success\": true, \"confidence\": 0.67}"}
+{"id": "peg-s0-0003-success", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.67, "label": 1, "raw": "\n {\"success\": true, \"confidence\": 0.67}"}
+{"id": "push-s0-0003-failure", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.68, "label": 0, "raw": "\n {\"success\": true, \"confidence\": 0.68}"}
+{"id": "push-s0-0003-success", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.68, "label": 1, "raw": "\n {\"success\": true, \"confidence\": 0.68}"}
+{"id": "stack-s0-0003-failure", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.67, "label": 0, "raw": "\n {\"success\": true, \"confidence\": 0.67}"}
+{"id": "stack-s0-0003-success", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.67, "label": 1, "raw": "\n {\"success\": true, \"confidence\": 0.67}"}
+{"id": "button-s0-0004-failure", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.67, "label": 0, "raw": "\n {\"success\": true, \"confidence\": 0.67}"}
+{"id": "button-s0-0004-success", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.67, "label": 1, "raw": "\n {\"success\": true, \"confidence\": 0.67}"}
+{"id": "grasp-s0-0004-failure", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": null, "label": 0, "raw": "\n Success: true"}
+{"id": "grasp-s0-0004-success", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.67, "label": 1, "raw": "\n {\"success\": true, \"confidence\": 0.67}"}
+{"id": "peg-s0-0004-failure", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.67, "label": 0, "raw": "\n {\"success\": true, \"confidence\": 0.67}"}
+{"id": "peg-s0-0004-success", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.67, "label": 1, "raw": "\n {\"success\": true, \"confidence\": 0.67}"}
+{"id": "push-s0-0004-failure", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.68, "label": 0, "raw": "\n {\"success\": true, \"confidence\": 0.68}"}
+{"id": "push-s0-0004-success", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.68, "label": 1, "raw": "\n {\"success\": true, \"confidence\": 0.68}"}
+{"id": "stack-s0-0004-failure", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.67, "label": 0, "raw": "\n {\"success\": true, \"confidence\": 0.67}"}
+{"id": "stack-s0-0004-success", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.67, "label": 1, "raw": "\n {\"success\": true, \"confidence\": 0.67}"}
+{"id": "button-s0-0005-failure", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.67, "label": 0, "raw": "\n {\"success\": true, \"confidence\": 0.67}"}
+{"id": "button-s0-0005-success", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.67, "label": 1, "raw": "\n {\"success\": true, \"confidence\": 0.67}"}
+{"id": "grasp-s0-0005-failure", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": null, "label": 0, "raw": "\n Success: true"}
+{"id": "grasp-s0-0005-success", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": null, "label": 1, "raw": "\n Success: true"}
+{"id": "peg-s0-0005-failure", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.67, "label": 0, "raw": "\n {\"success\": true, \"confidence\": 0.67}"}
+{"id": "peg-s0-0005-success", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.67, "label": 1, "raw": "\n {\"success\": true, \"confidence\": 0.67}"}
+{"id": "push-s0-0005-failure", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": null, "label": 0, "raw": "\n Success: true"}
+{"id": "push-s0-0005-success", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.67, "label": 1, "raw": "\n {\"success\": true, \"confidence\": 0.67}"}
+{"id": "stack-s0-0005-failure", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.67, "label": 0, "raw": "\n {\"success\": true, \"confidence\": 0.67}"}
+{"id": "stack-s0-0005-success", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.67, "label": 1, "raw": "\n {\"success\": true, \"confidence\": 0.67}"}
+{"id": "button-s0-0006-failure", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.67, "label": 0, "raw": "\n {\"success\": true, \"confidence\": 0.67}"}
+{"id": "button-s0-0006-success", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.67, "label": 1, "raw": "\n {\"success\": true, \"confidence\": 0.67}"}
+{"id": "grasp-s0-0006-failure", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.67, "label": 0, "raw": "\n {\"success\": true, \"confidence\": 0.67}"}
+{"id": "grasp-s0-0006-success", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": null, "label": 1, "raw": "\n Success: true"}
+{"id": "peg-s0-0006-failure", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.67, "label": 0, "raw": "\n {\"success\": true, \"confidence\": 0.67}"}
+{"id": "peg-s0-0006-success", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.67, "label": 1, "raw": "\n {\"success\": true, \"confidence\": 0.67}"}
+{"id": "push-s0-0006-failure", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.68, "label": 0, "raw": "\n {\"success\": true, \"confidence\": 0.68}"}
+{"id": "push-s0-0006-success", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.68, "label": 1, "raw": "\n {\"success\": true, \"confidence\": 0.68}"}
+{"id": "stack-s0-0006-failure", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.67, "label": 0, "raw": "\n {\"success\": true, \"confidence\": 0.67}"}
+{"id": "stack-s0-0006-success", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.67, "label": 1, "raw": "\n {\"success\": true, \"confidence\": 0.67}"}
+{"id": "button-s0-0007-failure", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.67, "label": 0, "raw": "\n {\"success\": true, \"confidence\": 0.67}"}
+{"id": "button-s0-0007-success", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.67, "label": 1, "raw": "\n {\"success\": true, \"confidence\": 0.67}"}
+{"id": "grasp-s0-0007-failure", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.67, "label": 0, "raw": "\n {\"success\": true, \"confidence\": 0.67}"}
+{"id": "grasp-s0-0007-success", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": null, "label": 1, "raw": "\n Success: true"}
+{"id": "peg-s0-0007-failure", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.67, "label": 0, "raw": "\n {\"success\": true, \"confidence\": 0.67}"}
+{"id": "peg-s0-0007-success", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.67, "label": 1, "raw": "\n {\"success\": true, \"confidence\": 0.67}"}
+{"id": "push-s0-0007-failure", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": null, "label": 0, "raw": "\n Success: true"}
+{"id": "push-s0-0007-success", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": null, "label": 1, "raw": "\n Success: true"}
+{"id": "stack-s0-0007-failure", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.67, "label": 0, "raw": "\n {\"success\": true, \"confidence\": 0.67}"}
+{"id": "stack-s0-0007-success", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.67, "label": 1, "raw": "\n {\"success\": true, \"confidence\": 0.67}"}
+{"id": "button-s0-0008-failure", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.67, "label": 0, "raw": "\n {\"success\": true, \"confidence\": 0.67}"}
+{"id": "button-s0-0008-success", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.68, "label": 1, "raw": "\n {\"success\": true, \"confidence\": 0.68}"}
+{"id": "grasp-s0-0008-failure", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": null, "label": 0, "raw": "\n Success: true"}
+{"id": "grasp-s0-0008-success", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": null, "label": 1, "raw": "\n Success: true"}
+{"id": "peg-s0-0008-failure", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.67, "label": 0, "raw": "\n {\"success\": true, \"confidence\": 0.67}"}
+{"id": "peg-s0-0008-success", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.68, "label": 1, "raw": "\n {\"success\": true, \"confidence\": 0.68}"}
+{"id": "push-s0-0008-failure", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": null, "label": 0, "raw": "\n Success: true"}
+{"id": "push-s0-0008-success", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.67, "label": 1, "raw": "\n {\"success\": true, \"confidence\": 0.67}"}
+{"id": "stack-s0-0008-failure", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.67, "label": 0, "raw": "\n {\"success\": true, \"confidence\": 0.67}"}
+{"id": "stack-s0-0008-success", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.67, "label": 1, "raw": "\n {\"success\": true, \"confidence\": 0.67}"}
+{"id": "button-s0-0009-failure", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.67, "label": 0, "raw": "\n {\"success\": true, \"confidence\": 0.67}"}
+{"id": "button-s0-0009-success", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.67, "label": 1, "raw": "\n {\"success\": true, \"confidence\": 0.67}"}
+{"id": "grasp-s0-0009-failure", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.67, "label": 0, "raw": "\n {\"success\": true, \"confidence\": 0.67}"}
+{"id": "grasp-s0-0009-success", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": null, "label": 1, "raw": "\n Success: true"}
+{"id": "peg-s0-0009-failure", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.67, "label": 0, "raw": "\n {\"success\": true, \"confidence\": 0.67}"}
+{"id": "peg-s0-0009-success", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.68, "label": 1, "raw": "\n {\"success\": true, \"confidence\": 0.68}"}
+{"id": "push-s0-0009-failure", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.68, "label": 0, "raw": "\n {\"success\": true, \"confidence\": 0.68}"}
+{"id": "push-s0-0009-success", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.68, "label": 1, "raw": "\n {\"success\": true, \"confidence\": 0.68}"}
+{"id": "stack-s0-0009-failure", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.67, "label": 0, "raw": "\n {\"success\": true, \"confidence\": 0.67}"}
+{"id": "stack-s0-0009-success", "mode": "single", "model": "ollama/moondream:1.8b", "success": true, "confidence": 0.67, "label": 1, "raw": "\n {\"success\": true, \"confidence\": 0.67}"}
