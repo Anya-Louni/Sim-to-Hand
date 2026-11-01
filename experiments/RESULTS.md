@@ -81,6 +81,26 @@ Sensors: the agent's rule (wrist force rises more than 2 N while lowering). Came
 | place | Camera + sensors | 120 | 112/120 = 93% [87, 97] | 54/54 = 100% [93, 100] | 58/66 = 88% [78, 94] | 0/54 = 0% [0, 7] |
 | place | VLM gemini-3.1-flash-lite | 120 | 119/120 = 99% [95, 100] | 53/54 = 98% [90, 100] | 66/66 = 100% [94, 100] | 1/54 = 2% [0, 10] |
 
+## 3. Perceived state: the robot aims where the camera says the cubes are
+
+Same tasks and conditions as section 1. Before every attempt the OpenCV detector (research/vcf/detect.py) fits each
+cube's pose in the verification image; moves and grasps aim at those estimates. Where the robot places a cube it
+assumes the cube is now there. The physics and the scoring still use the true state. McNemar compares true success
+on the same task between perceived and true state.
+
+| Decider | Failure | Episodes | True success, perceived | True success, sim state | False success, perceived | False success, sim state | Avg attempts (perceived / sim) | McNemar (only perceived / only sim, p) |
+|---|---|---|---|---|---|---|---|---|
+| Simulator (reference) | No failure | 80 | 80/80 = 100% [95, 100] | 80/80 = 100% [95, 100] | 0/80 = 0% [0, 5] | 0/80 = 0% [0, 5] | 1.01 / 1.02 | 0 / 0, p 1.000 |
+| Sensors only | No failure | 80 | 79/80 = 99% [93, 100] | 79/80 = 99% [93, 100] | 1/80 = 1% [0, 7] | 1/80 = 1% [0, 7] | 1.00 / 1.00 | 1 / 1, p 1.000 |
+| Camera + sensors | No failure | 80 | 74/80 = 92% [85, 97] | 79/80 = 99% [93, 100] | 0/80 = 0% [0, 5] | 0/80 = 0% [0, 5] | 1.36 / 1.29 | 0 / 5, p 0.062 |
+| Camera + sensors | Random chaos | 80 | 72/80 = 90% [81, 95] | 75/80 = 94% [86, 97] | 0/80 = 0% [0, 5] | 0/80 = 0% [0, 5] | 2.16 / 2.10 | 0 / 3, p 0.250 |
+
+Perception error over 443 looks (sideways distance between estimated and true cube centre, averaged over the cubes in view):
+mean 4.7 mm, median 2.4 mm, 90th percentile 5.4 mm. Worst cube per look: 90th percentile
+11.5 mm, largest 183.8 mm. Looks with a cube not found: 5.
+First attempts (simulator decider) with every cube within 5 mm: 65/66 = 98% [92, 100] succeeded;
+with a cube 5 mm or more off: 14/14 = 100% [78, 100].
+
 ## Figures
 
 ![checkpoints_accuracy](figures/checkpoints_accuracy.png)

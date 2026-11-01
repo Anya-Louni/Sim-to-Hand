@@ -1,0 +1,13 @@
+{
+  "attempts": 443,
+  "mean_mm": 4.707,
+  "median_mm": 2.37,
+  "p90_mm": 5.374,
+  "worst_p90_mm": 11.536,
+  "worst_max_mm": 183.82,
+  "attempts_with_missing": 5,
+  "first_ok_low": 65,
+  "first_n_low": 66,
+  "first_ok_high": 14,
+  "first_n_high": 14
+}

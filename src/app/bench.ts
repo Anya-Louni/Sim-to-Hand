@@ -2,6 +2,7 @@ import { runEpisode, type Decider, type Detector, type EpisodeResult } from '../
 import { CUBE_HALF, HOVER_Z, mulberry32, randomScene, ZONES } from '../core/scene.ts';
 import { DEFAULT_CHAOS, Executor, type Injection } from '../core/skills.ts';
 import { BENCHMARK, generateTasks } from '../core/tasks.ts';
+import type { CubePose } from '../core/sim.ts';
 import type { Color, Skill, Task } from '../core/types.ts';
 import { verifyGoals } from '../core/verify.ts';
 import { llmJudge, llmPlanner, scriptedPlanner } from '../llm/planner.ts';
@@ -80,10 +81,13 @@ export interface TrialConfig {
   inject: Injection;
   chaos: boolean;
   maxReplans: number;
+  /** 'perceived': the robot aims at the camera's cube estimates (A5). Default: true simulator poses. */
+  state?: 'sim' | 'perceived';
 }
 
 type CvDetect = (payload: unknown) => Promise<{ ok: boolean; detail: string }>;
 const cvDetect = () => (window as unknown as { cvDetect: CvDetect }).cvDetect;
+const cvPerceive = () => (window as unknown as { cvDetect: (p: unknown) => Promise<{ cubes: Record<string, CubePose | null> }> }).cvDetect;
 
 function detector(w: World, task: Task): Detector {
   return (image, goal) => cvDetect()({ image, goal, cam: w.renderer.snapCamera(), cubes: task.scene.cubes.map((c) => c.name), zones: ZONES });
@@ -97,7 +101,8 @@ async function runTrials(cfg: TrialConfig) {
   for (const task of tasks) {
     w.load(task.scene);
     const t0 = performance.now();
-    const useCam = cfg.decide === 'camera' || cfg.decide === 'combined';
+    const perceived = cfg.state === 'perceived';
+    const useCam = perceived || cfg.decide === 'camera' || cfg.decide === 'combined';
     const r = await runEpisode(
       {
         sim: w.sim,
@@ -111,6 +116,9 @@ async function runTrials(cfg: TrialConfig) {
             }
           : null,
         detector: useCam ? detector(w, task) : undefined,
+        perceive: perceived
+          ? async (image) => (await cvPerceive()({ op: 'perceive', image, cam: w.renderer.snapCamera(), cubes: task.scene.cubes.map((c) => c.name) })).cubes
+          : undefined,
         emit: () => {},
       },
       {

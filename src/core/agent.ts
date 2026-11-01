@@ -1,6 +1,6 @@
 import { describeScene, verifyGoals } from './verify.ts';
 import { Executor, type ChaosOptions, type Clock, type Injection } from './skills.ts';
-import type { Sim } from './sim.ts';
+import type { CubePose, Sim } from './sim.ts';
 import type { Goal, Judgement, Plan, Skill, Verification } from './types.ts';
 import type { SensorEvent } from './sensors.ts';
 import type { Attempt } from '../llm/prompts.ts';
@@ -20,6 +20,9 @@ export interface Planner {
 
 /** Classical camera check: finds the cubes in the verification image and tests the goal geometry. */
 export type Detector = (image: string, goal: Goal[]) => Promise<{ ok: boolean; detail: string }>;
+
+/** Camera state estimate: each cube's pose from the image, null when the camera cannot find it. */
+export type Perceive = (image: string) => Promise<Record<string, CubePose | null>>;
 
 /**
  * Which check the agent trusts to decide that it is done.
@@ -41,6 +44,10 @@ export interface AttemptLog {
   stepError?: string;
   /** Simulated seconds from attempt start to the moment the attempt ended (failed step or final check). */
   seconds: number;
+  /** Perceived-state mode: mean and largest sideways error of the camera's cube positions (mm), cubes not found. */
+  perceptionMm?: number;
+  perceptionMaxMm?: number;
+  perceptionMissing?: number;
 }
 
 export interface Judge {
@@ -113,6 +120,8 @@ export interface AgentDeps {
   snapshot: (() => Promise<string>) | null;
   emit: (e: AgentEvent) => void;
   detector?: Detector;
+  /** Set to run in perceived-state mode: the robot aims at camera estimates instead of true cube poses. */
+  perceive?: Perceive;
   cancelled?: () => boolean;
   speed?: number;
 }
@@ -169,6 +178,18 @@ export async function runEpisode(deps: AgentDeps, opts: EpisodeOptions): Promise
     ex.newAttempt();
     const t0 = sim.time;
     emit({ type: 'attempt', attempt });
+    let perception: Pick<AttemptLog, 'perceptionMm' | 'perceptionMaxMm' | 'perceptionMissing'> = {};
+    if (deps.perceive && deps.snapshot) {
+      emit({ type: 'status', message: 'Looking at the scene' });
+      ex.belief = await deps.perceive(await deps.snapshot());
+      const errs = sim.cubeNames.filter((n) => ex.belief![n]).map((n) => Math.hypot(ex.belief![n]!.pos[0] - sim.cube(n).pos[0], ex.belief![n]!.pos[1] - sim.cube(n).pos[1]) * 1000);
+      perception = {
+        perceptionMm: errs.length ? +(errs.reduce((a, b) => a + b, 0) / errs.length).toFixed(2) : undefined,
+        perceptionMaxMm: errs.length ? +Math.max(...errs).toFixed(2) : undefined,
+        perceptionMissing: sim.cubeNames.length - errs.length,
+      };
+      emit({ type: 'status', message: `Camera found ${errs.length} of ${sim.cubeNames.length} cubes, mean position error ${perception.perceptionMm ?? '-'} mm` });
+    }
     emit({ type: 'status', message: attempt === 0 ? 'Planning' : 'Replanning' });
 
     let plan: Plan;
@@ -270,6 +291,7 @@ export async function runEpisode(deps: AgentDeps, opts: EpisodeOptions): Promise
       declared,
       stepError,
       seconds: +tEnd.toFixed(2),
+      ...perception,
     });
     result.success = ground.ok;
     if (declared) {

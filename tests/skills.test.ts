@@ -98,3 +98,17 @@ test('the same seed gives the same final state', async () => {
   };
   assert.deepEqual(await end(), await end());
 });
+
+test('perceived state: a 4 mm camera error still stacks; a cube the camera missed is a clear error', async () => {
+  const { sim, ex } = await setup();
+  const pose = (n: string, dx: number) => ({ pos: [sim.cube(n).pos[0] + dx, sim.cube(n).pos[1], sim.cube(n).pos[2]] as [number, number, number], yaw: sim.cube(n).yaw });
+  ex.belief = { red: pose('red', 0.004), blue: pose('blue', -0.004), green: null };
+  for (const s of [{ skill: 'move_to', target: 'red' }, { skill: 'grasp', object: 'red' }, { skill: 'lift' }, { skill: 'place', on: 'blue' }, { skill: 'release' }] as const) {
+    const r = await ex.run(s);
+    assert.ok(r.ok, r.error ?? '');
+  }
+  await ex.retreat();
+  assert.equal(verifyGoals(sim, [{ pred: 'on', a: 'red', b: 'blue' }]).ok, true);
+  assert.match((await ex.run({ skill: 'move_to', target: 'green' })).error!, /camera cannot find the green cube/);
+  sim.dispose();
+});

@@ -1,6 +1,6 @@
 import { CUBE_HALF, HOVER_Z, mulberry32, zoneByName } from './scene.ts';
 import { average, CheapSensors, type Reading, type SensorEvent } from './sensors.ts';
-import type { Pose, Sim } from './sim.ts';
+import type { CubePose, Pose, Sim } from './sim.ts';
 import type { Skill } from './types.ts';
 
 export interface Clock {
@@ -55,6 +55,12 @@ export class Executor {
   sensing = true;
   inject: Injection = 'none';
   injected: string | null = null;
+  /**
+   * Perceived-state mode: cube poses the camera reported, used in place of the simulator's true poses when aiming
+   * moves and grasps. null cube = the camera could not find it. The robot updates a cube's entry itself when it
+   * places it there. The physics and the final goal check still use the true state.
+   */
+  belief: Record<string, CubePose | null> | null = null;
 
   constructor(sim: Sim, clock: Clock, chaos: ChaosOptions, emit: (e: ExecEvent) => void = () => {}, cancelled: () => boolean = () => false) {
     this.sim = sim;
@@ -197,10 +203,16 @@ export class Executor {
     return best;
   }
 
+  /** Where the robot thinks a cube is: the camera's estimate in perceived-state mode, otherwise the true pose. */
+  private pose(name: string): CubePose | null {
+    return this.belief ? this.belief[name] ?? null : this.sim.cube(name);
+  }
+
   /** Resolve a cube or zone name to a table position and alignment yaw. */
   private resolve(name: string): { x: number; y: number; topZ: number; yaw: number; isCube: boolean } | null {
     if (this.sim.cubeNames.includes(name)) {
-      const c = this.sim.cube(name);
+      const c = this.pose(name);
+      if (!c) return null;
       return { x: c.pos[0], y: c.pos[1], topZ: c.pos[2] + CUBE_HALF, yaw: c.yaw, isCube: true };
     }
     const z = zoneByName(name);
@@ -241,7 +253,7 @@ export class Executor {
     switch (skill.skill) {
       case 'move_to': {
         const r = this.resolve(skill.target);
-        if (!r) return { ok: false, error: `Unknown target "${skill.target}".` };
+        if (!r) return { ok: false, error: this.unseen(skill.target) ?? `Unknown target "${skill.target}".` };
         const yaw = r.isCube && !this.holding ? this.alignYaw(r.yaw) : this.sim.target.yaw;
         this.maybeScheduleSlip(1.5);
         await this.moveTo([r.x, r.y, HOVER_Z], yaw);
@@ -250,14 +262,15 @@ export class Executor {
       case 'grasp': {
         if (this.holding) return { ok: false, error: `Already holding the ${this.holding} cube.` };
         if (!this.sim.cubeNames.includes(skill.object)) return { ok: false, error: `Unknown object "${skill.object}".` };
+        if (!this.pose(skill.object)) return { ok: false, error: this.unseen(skill.object)! };
         await this.setGrip(true, 0.2);
-        let c = this.sim.cube(skill.object);
+        let c = this.pose(skill.object)!;
         const yaw = this.alignYaw(c.yaw);
         const g = this.sim.gripPos();
         if (Math.hypot(g[0] - c.pos[0], g[1] - c.pos[1]) > 0.01 || g[2] < c.pos[2] + 0.08) {
           await this.moveTo([c.pos[0], c.pos[1], Math.max(c.pos[2] + 0.12, Math.min(HOVER_Z, g[2]))], yaw);
         }
-        c = this.sim.cube(skill.object);
+        c = this.pose(skill.object)!;
         await this.moveTo([c.pos[0], c.pos[1], c.pos[2] + 0.004], this.alignYaw(c.yaw), 0.9);
         await this.setGrip(false, 0.6);
         if (this.sim.gripWidth() < 0.03) {
@@ -288,7 +301,7 @@ export class Executor {
         if (!this.holding) return { ok: false, error: 'Place called while not holding anything.' };
         if (skill.on === this.holding) return { ok: false, error: 'Cannot place a cube on itself.' };
         const r = this.resolve(skill.on);
-        if (!r) return { ok: false, error: `Unknown place target "${skill.on}".` };
+        if (!r) return { ok: false, error: this.unseen(skill.on) ?? `Unknown place target "${skill.on}".` };
         const yaw = r.isCube ? this.alignYaw(r.yaw) : this.sim.target.yaw;
         this.maybeScheduleSlip(2.0);
         if (this.inject === 'slip' && !this.injected) {
@@ -307,6 +320,8 @@ export class Executor {
           this.sim.teleport(skill.on, x, y, CUBE_HALF);
           this.injected = `moved ${skill.on} before lowering`;
         }
+        // In perceived-state mode the robot now believes the held cube sits where it is putting it.
+        if (this.belief) this.belief[this.holding] = { pos: [r2.x, r2.y, r2.topZ + CUBE_HALF], yaw };
         if (!this.sensing) {
           // Open loop: lower to where contact should be and trust it.
           await this.moveTo([r2.x, r2.y, r2.topZ + CUBE_HALF + 0.001], yaw, 0.8);
@@ -336,6 +351,10 @@ export class Executor {
         return { ok: true };
       }
     }
+  }
+
+  private unseen(name: string): string | null {
+    return this.belief && this.sim.cubeNames.includes(name) && !this.belief[name] ? `The camera cannot find the ${name} cube.` : null;
   }
 
   /** Lower the gripper toward z, stopping early when the raw tool-axis force changes by more than guard N. */

@@ -1,0 +1,5 @@
+decider,failure,n,perceived_success,sim_success,perceived_false_success,sim_false_success,perceived_attempts,sim_attempts,only_perceived,only_sim,p
+oracle,none,80,80,80,0,0,1.0125,1.025,0,0,1.0
+sensors,none,80,79,79,1,1,1.0,1.0,1,1,1.0
+combined,none,80,74,79,0,0,1.3625,1.2875,0,5,0.0625
+combined,chaos,80,72,75,0,0,2.1625,2.1,0,3,0.25

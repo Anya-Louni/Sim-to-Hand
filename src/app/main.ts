@@ -49,6 +49,21 @@ function loadPreset(name: keyof typeof PRESETS) {
   feed.note('', 'Ready', 'Press Run, or edit the instruction. Turn on Chaos to watch the agent recover.');
 }
 
+/** Perceived-state mode through the dev detector route (see vite.config.ts). */
+async function perceive(image: string) {
+  const r = await fetch('/api/detect', {
+    method: 'POST',
+    body: JSON.stringify({ op: 'perceive', image, cam: world.renderer.snapCamera(), cubes: world.sim.cubeNames }),
+  });
+  const j = await r.json();
+  if (!j.cubes) throw new Error(j.detail ?? 'camera detector failed');
+  return j.cubes;
+}
+
+fetch('/api/detect')
+  .then((r) => r.ok && r.headers.get('content-type')?.includes('json') && ($('perceived-wrap').hidden = false))
+  .catch(() => {});
+
 async function run() {
   const instruction = input.value.trim();
   if (!instruction || busy) return;
@@ -77,6 +92,7 @@ async function run() {
         planner,
         judge: llmJudge(transport),
         snapshot: async () => world.renderer.snapshot(),
+        perceive: $<HTMLInputElement>('perceived').checked ? perceive : undefined,
         emit: (e) => feed.handle(e),
         cancelled: () => cancel,
         speed: Number($<HTMLSelectElement>('speed').value),

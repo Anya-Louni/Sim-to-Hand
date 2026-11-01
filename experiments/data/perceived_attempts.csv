@@ -1,0 +1,444 @@
+key,decider,failure,id,kind,attempt,truth,sensors,camera,declared,stepError,seconds,cameraDetail,perceptionMm,perceptionMaxMm,perceptionMissing
+oracle/none/g-zone-001/0,oracle,none,g-zone-001,zone,0,true,true,,true,,8.79,,2.22,3.46,0
+oracle/none/g-tower-003/0,oracle,none,g-tower-003,tower,0,true,true,,true,,18.12,,2.54,2.88,0
+oracle/none/g-zone-004/0,oracle,none,g-zone-004,zone,0,true,true,,true,,8.31,,1.97,1.97,0
+oracle/none/g-tower-006/0,oracle,none,g-tower-006,tower,0,true,true,,true,,17.17,,2.1,4.48,0
+oracle/none/g-zone-007/0,oracle,none,g-zone-007,zone,0,true,true,,true,,8.52,,2.25,2.9,0
+oracle/none/g-tower-009/0,oracle,none,g-tower-009,tower,0,true,true,,true,,16.98,,2.72,4.54,0
+oracle/none/g-zone-010/0,oracle,none,g-zone-010,zone,0,true,true,,true,,9.45,,0.87,0.87,0
+oracle/none/g-tower-012/0,oracle,none,g-tower-012,tower,0,true,true,,true,,17.34,,3.08,4.85,0
+oracle/none/g-zone-013/0,oracle,none,g-zone-013,zone,0,true,true,,true,,8.95,,2.02,2.02,0
+oracle/none/g-tower-015/0,oracle,none,g-tower-015,tower,0,true,true,,true,,17.68,,2.77,4.72,0
+oracle/none/g-zone-016/0,oracle,none,g-zone-016,zone,0,true,true,,true,,8.85,,1.59,1.59,0
+oracle/none/g-tower-018/0,oracle,none,g-tower-018,tower,0,true,true,,true,,19.11,,2.8,5.5,0
+oracle/none/g-zone-019/0,oracle,none,g-zone-019,zone,0,true,true,,true,,8.56,,4.07,6.47,0
+oracle/none/g-tower-002/0,oracle,none,g-tower-002,tower,0,true,true,,true,,16.76,,4.05,8.56,0
+oracle/none/g-zone-003/0,oracle,none,g-zone-003,zone,0,true,true,,true,,8.46,,1.23,1.83,0
+oracle/none/g-tower-005/0,oracle,none,g-tower-005,tower,0,true,true,,true,,18.83,,1.63,2.28,0
+oracle/none/g-zone-006/0,oracle,none,g-zone-006,zone,0,true,true,,true,,8.84,,3.12,5.48,0
+oracle/none/g-tower-008/0,oracle,none,g-tower-008,tower,0,true,true,,true,,17.88,,2.56,4.2,0
+oracle/none/g-zone-009/0,oracle,none,g-zone-009,zone,0,true,true,,true,,9.07,,2.68,3.02,0
+oracle/none/g-tower-011/0,oracle,none,g-tower-011,tower,0,true,true,,true,,17.63,,3.14,4.79,0
+oracle/none/g-zone-012/0,oracle,none,g-zone-012,zone,0,true,true,,true,,8.64,,2.18,2.18,0
+oracle/none/g-tower-014/0,oracle,none,g-tower-014,tower,0,true,true,,true,,16.61,,2.23,3.53,0
+oracle/none/g-zone-015/0,oracle,none,g-zone-015,zone,0,true,true,,true,,9.1,,2.53,2.53,0
+oracle/none/g-tower-017/0,oracle,none,g-tower-017,tower,0,true,true,,true,,17.83,,3.04,4.53,0
+oracle/none/g-zone-018/0,oracle,none,g-zone-018,zone,0,true,true,,true,,8.95,,2.66,4.3,0
+oracle/none/g-tower-020/0,oracle,none,g-tower-020,tower,0,true,true,,true,,17.88,,2.6,4.66,0
+oracle/none/g-tower-001/0,oracle,none,g-tower-001,tower,0,false,true,,false,,18.58,,2.19,4.65,0
+oracle/none/g-tower-001/1,oracle,none,g-tower-001,tower,1,true,true,,true,,17.29,,4.95,12.37,0
+oracle/none/g-zone-002/0,oracle,none,g-zone-002,zone,0,true,true,,true,,9.2,,1.89,2.39,0
+oracle/none/g-tower-004/0,oracle,none,g-tower-004,tower,0,true,true,,true,,17.75,,4.32,6.72,0
+oracle/none/g-zone-005/0,oracle,none,g-zone-005,zone,0,true,true,,true,,8.74,,2.23,2.73,0
+oracle/none/g-tower-007/0,oracle,none,g-tower-007,tower,0,true,true,,true,,16.79,,2.26,4.07,0
+oracle/none/g-zone-008/0,oracle,none,g-zone-008,zone,0,true,true,,true,,8.57,,1.8,2.5,0
+oracle/none/g-tower-010/0,oracle,none,g-tower-010,tower,0,true,true,,true,,17.61,,1.48,2.95,0
+oracle/none/g-zone-011/0,oracle,none,g-zone-011,zone,0,true,true,,true,,8.28,,3.87,4.05,0
+oracle/none/g-tower-013/0,oracle,none,g-tower-013,tower,0,true,true,,true,,17.25,,1.94,2.8,0
+oracle/none/g-zone-014/0,oracle,none,g-zone-014,zone,0,true,true,,true,,9.16,,3.55,4.84,0
+oracle/none/g-tower-016/0,oracle,none,g-tower-016,tower,0,true,true,,true,,18.3,,3,6.08,0
+oracle/none/g-zone-017/0,oracle,none,g-zone-017,zone,0,true,true,,true,,9.57,,2.57,2.57,0
+oracle/none/g-tower-019/0,oracle,none,g-tower-019,tower,0,true,true,,true,,17.97,,1.65,2.98,0
+oracle/none/g-zone-020/0,oracle,none,g-zone-020,zone,0,true,true,,true,,8.9,,1.06,2.16,0
+oracle/none/g-stack-002/0,oracle,none,g-stack-002,stack,0,true,true,,true,,8.77,,1.36,1.73,0
+oracle/none/g-sort-003/0,oracle,none,g-sort-003,sort,0,true,true,,true,,28.49,,2.93,4.44,0
+oracle/none/g-stack-005/0,oracle,none,g-stack-005,stack,0,true,true,,true,,8.69,,1.89,2.77,0
+oracle/none/g-sort-006/0,oracle,none,g-sort-006,sort,0,true,true,,true,,28.64,,1.83,2.46,0
+oracle/none/g-stack-008/0,oracle,none,g-stack-008,stack,0,true,true,,true,,8.28,,3.51,9.71,0
+oracle/none/g-sort-009/0,oracle,none,g-sort-009,sort,0,true,true,,true,,26.64,,2,3.65,0
+oracle/none/g-stack-011/0,oracle,none,g-stack-011,stack,0,true,true,,true,,8.58,,4.4,5.81,0
+oracle/none/g-sort-012/0,oracle,none,g-sort-012,sort,0,true,true,,true,,27.35,,2.21,3.95,0
+oracle/none/g-stack-014/0,oracle,none,g-stack-014,stack,0,true,true,,true,,9.42,,2.31,4.65,0
+oracle/none/g-sort-015/0,oracle,none,g-sort-015,sort,0,true,true,,true,,29.06,,2.82,3.31,0
+oracle/none/g-stack-017/0,oracle,none,g-stack-017,stack,0,true,true,,true,,9.43,,1.29,2.35,0
+oracle/none/g-sort-018/0,oracle,none,g-sort-018,sort,0,true,true,,true,,28.12,,2.96,4.59,0
+oracle/none/g-stack-020/0,oracle,none,g-stack-020,stack,0,true,true,,true,,8.5,,3.69,6.14,0
+oracle/none/g-sort-001/0,oracle,none,g-sort-001,sort,0,true,true,,true,,29.74,,2.05,4.87,0
+oracle/none/g-stack-003/0,oracle,none,g-stack-003,stack,0,true,true,,true,,8.9,,1.68,3,0
+oracle/none/g-sort-004/0,oracle,none,g-sort-004,sort,0,true,true,,true,,28.01,,2.15,2.37,0
+oracle/none/g-stack-006/0,oracle,none,g-stack-006,stack,0,true,true,,true,,8.46,,4.4,9.06,0
+oracle/none/g-sort-007/0,oracle,none,g-sort-007,sort,0,true,true,,true,,27.92,,1.7,2.63,0
+oracle/none/g-stack-009/0,oracle,none,g-stack-009,stack,0,true,true,,true,,9.94,,2.37,3.34,0
+oracle/none/g-sort-010/0,oracle,none,g-sort-010,sort,0,true,true,,true,,28.66,,2.64,5.4,0
+oracle/none/g-stack-012/0,oracle,none,g-stack-012,stack,0,true,true,,true,,8.66,,3.26,3.91,0
+oracle/none/g-sort-013/0,oracle,none,g-sort-013,sort,0,true,true,,true,,29.53,,4.27,9.51,0
+oracle/none/g-stack-015/0,oracle,none,g-stack-015,stack,0,true,true,,true,,8.95,,1.85,2.74,0
+oracle/none/g-sort-016/0,oracle,none,g-sort-016,sort,0,true,true,,true,,27.01,,3.74,4.62,0
+oracle/none/g-stack-018/0,oracle,none,g-stack-018,stack,0,true,true,,true,,8.39,,0.93,1,0
+oracle/none/g-sort-019/0,oracle,none,g-sort-019,sort,0,true,true,,true,,27.4,,2.32,3.45,0
+oracle/none/g-stack-001/0,oracle,none,g-stack-001,stack,0,true,true,,true,,9.49,,1.2,1.82,0
+oracle/none/g-sort-002/0,oracle,none,g-sort-002,sort,0,true,true,,true,,29.15,,1.84,2.74,0
+oracle/none/g-stack-004/0,oracle,none,g-stack-004,stack,0,true,true,,true,,8.48,,2.57,2.97,0
+oracle/none/g-sort-005/0,oracle,none,g-sort-005,sort,0,true,true,,true,,28.45,,1.95,2.86,0
+oracle/none/g-stack-007/0,oracle,none,g-stack-007,stack,0,true,true,,true,,9.59,,1.52,2.01,0
+oracle/none/g-sort-008/0,oracle,none,g-sort-008,sort,0,true,true,,true,,28.02,,2.11,2.7,0
+oracle/none/g-stack-010/0,oracle,none,g-stack-010,stack,0,true,true,,true,,9.53,,1.87,2.74,0
+oracle/none/g-sort-011/0,oracle,none,g-sort-011,sort,0,true,true,,true,,27.84,,4.4,11.91,0
+oracle/none/g-stack-013/0,oracle,none,g-stack-013,stack,0,true,true,,true,,8.7,,3.17,5.2,0
+oracle/none/g-sort-014/0,oracle,none,g-sort-014,sort,0,true,true,,true,,29.29,,2.54,3.74,0
+oracle/none/g-stack-016/0,oracle,none,g-stack-016,stack,0,true,true,,true,,8.86,,1.61,2.1,0
+oracle/none/g-sort-017/0,oracle,none,g-sort-017,sort,0,true,true,,true,,28.68,,2.19,4.27,0
+oracle/none/g-stack-019/0,oracle,none,g-stack-019,stack,0,true,true,,true,,8.5,,1.85,2.42,0
+oracle/none/g-sort-020/0,oracle,none,g-sort-020,sort,0,true,true,,true,,27.84,,2.08,3.32,0
+sensors/none/g-zone-001/0,sensors,none,g-zone-001,zone,0,true,true,,true,,8.79,,2.22,3.46,0
+sensors/none/g-tower-003/0,sensors,none,g-tower-003,tower,0,true,true,,true,,18.12,,2.54,2.88,0
+sensors/none/g-zone-004/0,sensors,none,g-zone-004,zone,0,true,true,,true,,8.31,,1.97,1.97,0
+sensors/none/g-tower-006/0,sensors,none,g-tower-006,tower,0,true,true,,true,,17.17,,2.1,4.48,0
+sensors/none/g-zone-007/0,sensors,none,g-zone-007,zone,0,true,true,,true,,8.52,,2.25,2.9,0
+sensors/none/g-tower-009/0,sensors,none,g-tower-009,tower,0,true,true,,true,,16.98,,2.72,4.54,0
+sensors/none/g-zone-010/0,sensors,none,g-zone-010,zone,0,true,true,,true,,9.45,,0.87,0.87,0
+sensors/none/g-tower-012/0,sensors,none,g-tower-012,tower,0,true,true,,true,,17.34,,3.08,4.85,0
+sensors/none/g-zone-013/0,sensors,none,g-zone-013,zone,0,true,true,,true,,8.95,,2.02,2.02,0
+sensors/none/g-tower-015/0,sensors,none,g-tower-015,tower,0,true,true,,true,,17.68,,2.77,4.72,0
+sensors/none/g-zone-016/0,sensors,none,g-zone-016,zone,0,true,true,,true,,8.85,,1.59,1.59,0
+sensors/none/g-tower-018/0,sensors,none,g-tower-018,tower,0,true,true,,true,,19.11,,2.8,5.5,0
+sensors/none/g-zone-019/0,sensors,none,g-zone-019,zone,0,true,true,,true,,8.56,,4.07,6.47,0
+sensors/none/g-tower-002/0,sensors,none,g-tower-002,tower,0,true,true,,true,,16.76,,4.05,8.56,0
+sensors/none/g-zone-003/0,sensors,none,g-zone-003,zone,0,true,true,,true,,8.46,,1.23,1.83,0
+sensors/none/g-tower-005/0,sensors,none,g-tower-005,tower,0,true,true,,true,,18.83,,1.63,2.28,0
+sensors/none/g-zone-006/0,sensors,none,g-zone-006,zone,0,true,true,,true,,8.84,,3.12,5.48,0
+sensors/none/g-tower-008/0,sensors,none,g-tower-008,tower,0,true,true,,true,,17.88,,2.56,4.2,0
+sensors/none/g-zone-009/0,sensors,none,g-zone-009,zone,0,true,true,,true,,9.07,,2.68,3.02,0
+sensors/none/g-tower-011/0,sensors,none,g-tower-011,tower,0,true,true,,true,,17.63,,3.14,4.79,0
+sensors/none/g-zone-012/0,sensors,none,g-zone-012,zone,0,true,true,,true,,8.64,,2.18,2.18,0
+sensors/none/g-tower-014/0,sensors,none,g-tower-014,tower,0,true,true,,true,,16.61,,2.23,3.53,0
+sensors/none/g-zone-015/0,sensors,none,g-zone-015,zone,0,true,true,,true,,9.1,,2.53,2.53,0
+sensors/none/g-tower-017/0,sensors,none,g-tower-017,tower,0,true,true,,true,,17.83,,3.04,4.53,0
+sensors/none/g-zone-018/0,sensors,none,g-zone-018,zone,0,true,true,,true,,8.95,,2.66,4.3,0
+sensors/none/g-tower-020/0,sensors,none,g-tower-020,tower,0,true,true,,true,,17.88,,2.6,4.66,0
+sensors/none/g-tower-001/0,sensors,none,g-tower-001,tower,0,false,true,,true,,18.58,,2.19,4.65,0
+sensors/none/g-zone-002/0,sensors,none,g-zone-002,zone,0,true,true,,true,,9.2,,1.89,2.39,0
+sensors/none/g-tower-004/0,sensors,none,g-tower-004,tower,0,true,true,,true,,17.75,,4.32,6.72,0
+sensors/none/g-zone-005/0,sensors,none,g-zone-005,zone,0,true,true,,true,,8.74,,2.23,2.73,0
+sensors/none/g-tower-007/0,sensors,none,g-tower-007,tower,0,true,true,,true,,16.79,,2.26,4.07,0
+sensors/none/g-zone-008/0,sensors,none,g-zone-008,zone,0,true,true,,true,,8.57,,1.8,2.5,0
+sensors/none/g-tower-010/0,sensors,none,g-tower-010,tower,0,true,true,,true,,17.61,,1.48,2.95,0
+sensors/none/g-zone-011/0,sensors,none,g-zone-011,zone,0,true,true,,true,,8.28,,3.87,4.05,0
+sensors/none/g-tower-013/0,sensors,none,g-tower-013,tower,0,true,true,,true,,17.25,,1.94,2.8,0
+sensors/none/g-zone-014/0,sensors,none,g-zone-014,zone,0,true,true,,true,,9.16,,3.55,4.84,0
+sensors/none/g-tower-016/0,sensors,none,g-tower-016,tower,0,true,true,,true,,18.3,,3,6.08,0
+sensors/none/g-zone-017/0,sensors,none,g-zone-017,zone,0,true,true,,true,,9.57,,2.57,2.57,0
+sensors/none/g-tower-019/0,sensors,none,g-tower-019,tower,0,true,true,,true,,17.97,,1.65,2.98,0
+sensors/none/g-zone-020/0,sensors,none,g-zone-020,zone,0,true,true,,true,,8.9,,1.06,2.16,0
+sensors/none/g-stack-002/0,sensors,none,g-stack-002,stack,0,true,true,,true,,8.77,,1.36,1.73,0
+sensors/none/g-sort-003/0,sensors,none,g-sort-003,sort,0,true,true,,true,,28.49,,2.93,4.44,0
+sensors/none/g-stack-005/0,sensors,none,g-stack-005,stack,0,true,true,,true,,8.69,,1.89,2.77,0
+sensors/none/g-sort-006/0,sensors,none,g-sort-006,sort,0,true,true,,true,,28.64,,1.83,2.46,0
+sensors/none/g-stack-008/0,sensors,none,g-stack-008,stack,0,true,true,,true,,8.28,,3.51,9.71,0
+sensors/none/g-sort-009/0,sensors,none,g-sort-009,sort,0,true,true,,true,,26.64,,2,3.65,0
+sensors/none/g-stack-011/0,sensors,none,g-stack-011,stack,0,true,true,,true,,8.58,,4.4,5.81,0
+sensors/none/g-sort-012/0,sensors,none,g-sort-012,sort,0,true,true,,true,,27.35,,2.21,3.95,0
+sensors/none/g-stack-014/0,sensors,none,g-stack-014,stack,0,true,true,,true,,9.42,,2.31,4.65,0
+sensors/none/g-sort-015/0,sensors,none,g-sort-015,sort,0,true,true,,true,,29.06,,2.82,3.31,0
+sensors/none/g-stack-017/0,sensors,none,g-stack-017,stack,0,true,true,,true,,9.43,,1.29,2.35,0
+sensors/none/g-sort-018/0,sensors,none,g-sort-018,sort,0,true,true,,true,,28.12,,2.96,4.59,0
+sensors/none/g-stack-020/0,sensors,none,g-stack-020,stack,0,true,true,,true,,8.5,,3.69,6.14,0
+sensors/none/g-sort-001/0,sensors,none,g-sort-001,sort,0,true,true,,true,,29.74,,2.05,4.87,0
+sensors/none/g-stack-003/0,sensors,none,g-stack-003,stack,0,true,true,,true,,8.9,,1.68,3,0
+sensors/none/g-sort-004/0,sensors,none,g-sort-004,sort,0,true,true,,true,,28.01,,2.15,2.37,0
+sensors/none/g-stack-006/0,sensors,none,g-stack-006,stack,0,true,true,,true,,8.46,,4.4,9.06,0
+sensors/none/g-sort-007/0,sensors,none,g-sort-007,sort,0,true,true,,true,,27.92,,1.7,2.63,0
+sensors/none/g-stack-009/0,sensors,none,g-stack-009,stack,0,true,true,,true,,9.94,,2.37,3.34,0
+sensors/none/g-sort-010/0,sensors,none,g-sort-010,sort,0,true,true,,true,,28.66,,2.64,5.4,0
+sensors/none/g-stack-012/0,sensors,none,g-stack-012,stack,0,true,true,,true,,8.66,,3.26,3.91,0
+sensors/none/g-sort-013/0,sensors,none,g-sort-013,sort,0,true,true,,true,,29.53,,4.27,9.51,0
+sensors/none/g-stack-015/0,sensors,none,g-stack-015,stack,0,true,true,,true,,8.95,,1.85,2.74,0
+sensors/none/g-sort-016/0,sensors,none,g-sort-016,sort,0,true,true,,true,,27.01,,3.74,4.62,0
+sensors/none/g-stack-018/0,sensors,none,g-stack-018,stack,0,true,true,,true,,8.39,,0.93,1,0
+sensors/none/g-sort-019/0,sensors,none,g-sort-019,sort,0,true,true,,true,,27.4,,2.32,3.45,0
+sensors/none/g-stack-001/0,sensors,none,g-stack-001,stack,0,true,true,,true,,9.49,,1.2,1.82,0
+sensors/none/g-sort-002/0,sensors,none,g-sort-002,sort,0,true,true,,true,,29.15,,1.84,2.74,0
+sensors/none/g-stack-004/0,sensors,none,g-stack-004,stack,0,true,true,,true,,8.48,,2.57,2.97,0
+sensors/none/g-sort-005/0,sensors,none,g-sort-005,sort,0,true,true,,true,,28.45,,1.95,2.86,0
+sensors/none/g-stack-007/0,sensors,none,g-stack-007,stack,0,true,true,,true,,9.59,,1.52,2.01,0
+sensors/none/g-sort-008/0,sensors,none,g-sort-008,sort,0,true,true,,true,,28.02,,2.11,2.7,0
+sensors/none/g-stack-010/0,sensors,none,g-stack-010,stack,0,true,true,,true,,9.53,,1.87,2.74,0
+sensors/none/g-sort-011/0,sensors,none,g-sort-011,sort,0,true,true,,true,,27.84,,4.4,11.91,0
+sensors/none/g-stack-013/0,sensors,none,g-stack-013,stack,0,true,true,,true,,8.7,,3.17,5.2,0
+sensors/none/g-sort-014/0,sensors,none,g-sort-014,sort,0,true,true,,true,,29.29,,2.54,3.74,0
+sensors/none/g-stack-016/0,sensors,none,g-stack-016,stack,0,true,true,,true,,8.86,,1.61,2.1,0
+sensors/none/g-sort-017/0,sensors,none,g-sort-017,sort,0,true,true,,true,,28.68,,2.19,4.27,0
+sensors/none/g-stack-019/0,sensors,none,g-stack-019,stack,0,true,true,,true,,8.5,,1.85,2.42,0
+sensors/none/g-sort-020/0,sensors,none,g-sort-020,sort,0,true,true,,true,,27.84,,2.08,3.32,0
+combined/none/g-stack-002/0,combined,none,g-stack-002,stack,0,true,true,true,true,,8.77,camera sees every goal met,1.36,1.73,0
+combined/none/g-sort-003/0,combined,none,g-sort-003,sort,0,true,true,true,true,,28.49,camera sees every goal met,2.93,4.44,0
+combined/none/g-stack-005/0,combined,none,g-stack-005,stack,0,true,true,true,true,,8.69,camera sees every goal met,1.89,2.77,0
+combined/none/g-sort-006/0,combined,none,g-sort-006,sort,0,true,true,true,true,,28.64,camera sees every goal met,1.83,2.46,0
+combined/none/g-stack-008/0,combined,none,g-stack-008,stack,0,true,true,true,true,,8.28,camera sees every goal met,3.51,9.71,0
+combined/none/g-sort-009/0,combined,none,g-sort-009,sort,0,true,true,true,true,,26.64,camera sees every goal met,2,3.65,0
+combined/none/g-stack-011/0,combined,none,g-stack-011,stack,0,true,true,true,true,,8.58,camera sees every goal met,4.4,5.81,0
+combined/none/g-sort-012/0,combined,none,g-sort-012,sort,0,true,true,true,true,,27.35,camera sees every goal met,2.21,3.95,0
+combined/none/g-stack-014/0,combined,none,g-stack-014,stack,0,true,true,true,true,,9.42,camera sees every goal met,2.31,4.65,0
+combined/none/g-sort-015/0,combined,none,g-sort-015,sort,0,true,true,true,true,,29.06,camera sees every goal met,2.82,3.31,0
+combined/none/g-stack-017/0,combined,none,g-stack-017,stack,0,true,true,false,false,,9.43,"camera sees green at level 0, blue at level 0, 5.6 cm apart",1.29,2.35,0
+combined/none/g-stack-017/1,combined,none,g-stack-017,stack,1,false,false,false,false,step 2 grasp(green) failed: Grasp missed the green cube: the gripper closed on nothing.,3.01,"camera sees green at level 0, blue at level 0, 19.6 cm apart",31.97,61.9,0
+combined/none/g-stack-017/2,combined,none,g-stack-017,stack,2,true,true,true,true,,10.01,camera sees every goal met,4.17,4.73,0
+combined/none/g-sort-018/0,combined,none,g-sort-018,sort,0,true,true,true,true,,28.12,camera sees every goal met,2.96,4.59,0
+combined/none/g-stack-020/0,combined,none,g-stack-020,stack,0,true,true,true,true,,8.5,camera sees every goal met,3.69,6.14,0
+combined/none/g-zone-001/0,combined,none,g-zone-001,zone,0,true,true,true,true,,8.79,camera sees every goal met,2.22,3.46,0
+combined/none/g-tower-003/0,combined,none,g-tower-003,tower,0,true,true,true,true,,18.12,camera sees every goal met,2.54,2.88,0
+combined/none/g-zone-004/0,combined,none,g-zone-004,zone,0,true,true,true,true,,8.31,camera sees every goal met,1.97,1.97,0
+combined/none/g-tower-006/0,combined,none,g-tower-006,tower,0,true,true,true,true,,17.17,camera sees every goal met,2.1,4.48,0
+combined/none/g-zone-007/0,combined,none,g-zone-007,zone,0,true,true,true,true,,8.52,camera sees every goal met,2.25,2.9,0
+combined/none/g-tower-009/0,combined,none,g-tower-009,tower,0,true,true,false,false,,16.98,"camera sees blue at level 0, red at level 1, 19.2 cm apart",2.72,4.54,0
+combined/none/g-tower-009/1,combined,none,g-tower-009,tower,1,false,false,false,false,step 4 place(green) failed: No contact felt when lowering the red cube onto green.,7.26,"camera sees red at level 0, green at level 0, 6.3 cm apart; camera sees blue at level 1, red at level 0, 5.0 cm apart",45.91,176.52,0
+combined/none/g-tower-009/2,combined,none,g-tower-009,tower,2,false,false,false,false,step 9 place(red) failed: No contact felt when lowering the blue cube onto red.,15.59,"camera sees red at level 0, green at level 0, 10.0 cm apart; camera sees blue at level 0, red at level 0, 9.2 cm apart",8.99,28.69,0
+combined/none/g-tower-009/3,combined,none,g-tower-009,tower,3,false,false,false,false,step 7 grasp(blue) failed: Grasp missed the blue cube: the gripper closed on nothing.,11.26,"camera sees red at level 0, green at level 1, 0.7 cm apart; camera sees blue at level 0, red at level 0, 11.1 cm apart",7.37,28.09,0
+combined/none/g-zone-010/0,combined,none,g-zone-010,zone,0,true,true,true,true,,9.45,camera sees every goal met,0.87,0.87,0
+combined/none/g-tower-012/0,combined,none,g-tower-012,tower,0,true,true,false,false,,17.34,"camera sees green at level 0, blue at level 1, 15.7 cm apart",3.08,4.85,0
+combined/none/g-tower-012/1,combined,none,g-tower-012,tower,1,true,false,false,false,step 3 lift() failed: Sensors lost the blue cube during lift: fingertip switches went off.,4.49,"camera sees green at level 0, blue at level 1, 15.6 cm apart",42.58,156.3,0
+combined/none/g-tower-012/2,combined,none,g-tower-012,tower,2,false,false,false,false,step 3 lift() failed: Sensors lost the blue cube during lift: fingertip switches went off.,4.49,"camera sees blue at level 0, red at level 0, 5.5 cm apart; camera sees green at level 0, blue at level 0, 7.0 cm apart",44.14,155.11,0
+combined/none/g-tower-012/3,combined,none,g-tower-012,tower,3,true,true,false,false,,17.07,"camera sees green at level 0, blue at level 1, 18.1 cm apart",7.3,17.65,0
+combined/none/g-zone-013/0,combined,none,g-zone-013,zone,0,true,true,true,true,,8.95,camera sees every goal met,2.02,2.02,0
+combined/none/g-tower-015/0,combined,none,g-tower-015,tower,0,true,true,true,true,,17.68,camera sees every goal met,2.77,4.72,0
+combined/none/g-zone-016/0,combined,none,g-zone-016,zone,0,true,true,true,true,,8.85,camera sees every goal met,1.59,1.59,0
+combined/none/g-tower-018/0,combined,none,g-tower-018,tower,0,true,true,true,true,,19.11,camera sees every goal met,2.8,5.5,0
+combined/none/g-zone-019/0,combined,none,g-zone-019,zone,0,true,true,true,true,,8.56,camera sees every goal met,4.07,6.47,0
+combined/none/g-tower-002/0,combined,none,g-tower-002,tower,0,true,true,true,true,,16.76,camera sees every goal met,4.05,8.56,0
+combined/none/g-zone-003/0,combined,none,g-zone-003,zone,0,true,true,true,true,,8.46,camera sees every goal met,1.23,1.83,0
+combined/none/g-tower-005/0,combined,none,g-tower-005,tower,0,true,true,true,true,,18.83,camera sees every goal met,1.63,2.28,0
+combined/none/g-zone-006/0,combined,none,g-zone-006,zone,0,true,true,true,true,,8.84,camera sees every goal met,3.12,5.48,0
+combined/none/g-tower-008/0,combined,none,g-tower-008,tower,0,true,true,true,true,,17.88,camera sees every goal met,2.56,4.2,0
+combined/none/g-zone-009/0,combined,none,g-zone-009,zone,0,true,true,true,true,,9.07,camera sees every goal met,2.68,3.02,0
+combined/none/g-tower-011/0,combined,none,g-tower-011,tower,0,true,true,false,false,,17.63,"camera sees yellow at level 1, blue at level 0, 3.2 cm apart; camera sees green at level 0, yellow at level 1, 23.0 cm apart",3.14,4.79,0
+combined/none/g-tower-011/1,combined,none,g-tower-011,tower,1,false,false,false,false,step 7 grasp(green) failed: Grasp missed the green cube: the gripper closed on nothing.,11.93,"camera sees yellow at level 0, blue at level 0, 34.5 cm apart; camera sees green at level 0, yellow at level 0, 41.7 cm apart",53.68,183.82,0
+combined/none/g-tower-011/2,combined,none,g-tower-011,tower,2,false,false,false,false,step 7 grasp(green) failed: Grasp missed the green cube: the gripper closed on nothing.,12.96,"camera sees yellow at level 0, blue at level 0, 27.3 cm apart; camera sees green at level 0, yellow at level 0, 31.9 cm apart",3.22,6.05,0
+combined/none/g-tower-011/3,combined,none,g-tower-011,tower,3,false,true,false,false,,17.43,"camera sees green at level 0, yellow at level 1, 9.7 cm apart",1.23,2.39,0
+combined/none/g-zone-012/0,combined,none,g-zone-012,zone,0,true,true,true,true,,8.64,camera sees every goal met,2.18,2.18,0
+combined/none/g-tower-014/0,combined,none,g-tower-014,tower,0,true,true,true,true,,16.61,camera sees every goal met,2.23,3.53,0
+combined/none/g-zone-015/0,combined,none,g-zone-015,zone,0,true,true,true,true,,9.1,camera sees every goal met,2.53,2.53,0
+combined/none/g-tower-017/0,combined,none,g-tower-017,tower,0,true,true,false,false,,17.83,"camera sees red at level 0, green at level 1, 15.7 cm apart",3.04,4.53,0
+combined/none/g-tower-017/1,combined,none,g-tower-017,tower,1,false,false,false,false,step 3 lift() failed: Sensors lost the green cube during lift: fingertip switches went off.,4.24,"camera cannot find the blue cube; camera sees red at level 0, green at level 0, 7.0 cm apart",58.07,161.23,0
+combined/none/g-tower-017/2,combined,none,g-tower-017,tower,2,false,false,false,false,step 4 place(blue) failed: The camera cannot find the blue cube.,4.64,"camera sees green at level 0, blue at level 0, 11.7 cm apart; camera sees red at level 0, green at level 0, 9.3 cm apart",5.51,9.32,1
+combined/none/g-tower-017/3,combined,none,g-tower-017,tower,3,false,false,false,false,step 7 grasp(red) failed: Grasp missed the red cube: the gripper closed on nothing.,11.52,"camera sees green at level 0, blue at level 0, 5.7 cm apart; camera sees red at level 0, green at level 0, 8.9 cm apart",9.3,23,0
+combined/none/g-zone-018/0,combined,none,g-zone-018,zone,0,true,true,true,true,,8.95,camera sees every goal met,2.66,4.3,0
+combined/none/g-tower-020/0,combined,none,g-tower-020,tower,0,true,true,true,true,,17.88,camera sees every goal met,2.6,4.66,0
+combined/none/g-sort-001/0,combined,none,g-sort-001,sort,0,true,true,true,true,,29.74,camera sees every goal met,2.05,4.87,0
+combined/none/g-stack-003/0,combined,none,g-stack-003,stack,0,true,true,true,true,,8.9,camera sees every goal met,1.68,3,0
+combined/none/g-sort-004/0,combined,none,g-sort-004,sort,0,true,true,true,true,,28.01,camera sees every goal met,2.15,2.37,0
+combined/none/g-stack-006/0,combined,none,g-stack-006,stack,0,true,true,false,false,,8.46,"camera sees red at level 1, blue at level 0, 3.4 cm apart",4.4,9.06,0
+combined/none/g-stack-006/1,combined,none,g-stack-006,stack,1,true,false,true,false,step 2 grasp(red) failed: Grasp missed the red cube: the gripper closed on nothing.,3.25,camera sees every goal met,13.44,26.71,0
+combined/none/g-stack-006/2,combined,none,g-stack-006,stack,2,true,true,true,true,,8.71,camera sees every goal met,10.34,19.42,0
+combined/none/g-sort-007/0,combined,none,g-sort-007,sort,0,true,true,true,true,,27.92,camera sees every goal met,1.7,2.63,0
+combined/none/g-stack-009/0,combined,none,g-stack-009,stack,0,true,true,true,true,,9.94,camera sees every goal met,2.37,3.34,0
+combined/none/g-sort-010/0,combined,none,g-sort-010,sort,0,true,true,true,true,,28.66,camera sees every goal met,2.64,5.4,0
+combined/none/g-stack-012/0,combined,none,g-stack-012,stack,0,true,true,false,false,,8.66,"camera sees blue at level 0, yellow at level 0, 4.4 cm apart",3.26,3.91,0
+combined/none/g-stack-012/1,combined,none,g-stack-012,stack,1,true,false,false,false,step 2 grasp(blue) failed: Grasp missed the blue cube: the gripper closed on nothing.,3.21,"camera sees blue at level 0, yellow at level 0, 4.1 cm apart",27.92,50,0
+combined/none/g-stack-012/2,combined,none,g-stack-012,stack,2,true,false,false,false,step 2 grasp(blue) failed: Grasp missed the blue cube: the gripper closed on nothing.,3.17,"camera sees blue at level 0, yellow at level 0, 4.0 cm apart",29.4,50.23,0
+combined/none/g-stack-012/3,combined,none,g-stack-012,stack,3,false,false,false,false,step 3 lift() failed: Sensors lost the blue cube during lift: fingertip switches went off.,4.63,"camera sees blue at level 0, yellow at level 0, 7.3 cm apart",28.87,48.21,0
+combined/none/g-sort-013/0,combined,none,g-sort-013,sort,0,true,true,true,true,,29.53,camera sees every goal met,4.27,9.51,0
+combined/none/g-stack-015/0,combined,none,g-stack-015,stack,0,true,true,true,true,,8.95,camera sees every goal met,1.85,2.74,0
+combined/none/g-sort-016/0,combined,none,g-sort-016,sort,0,true,true,true,true,,27.01,camera sees every goal met,3.74,4.62,0
+combined/none/g-stack-018/0,combined,none,g-stack-018,stack,0,true,true,true,true,,8.39,camera sees every goal met,0.93,1,0
+combined/none/g-sort-019/0,combined,none,g-sort-019,sort,0,true,true,true,true,,27.4,camera sees every goal met,2.32,3.45,0
+combined/none/g-stack-001/0,combined,none,g-stack-001,stack,0,true,true,true,true,,9.49,camera sees every goal met,1.2,1.82,0
+combined/none/g-sort-002/0,combined,none,g-sort-002,sort,0,true,true,true,true,,29.15,camera sees every goal met,1.84,2.74,0
+combined/none/g-stack-004/0,combined,none,g-stack-004,stack,0,true,true,true,true,,8.48,camera sees every goal met,2.57,2.97,0
+combined/none/g-sort-005/0,combined,none,g-sort-005,sort,0,true,true,true,true,,28.45,camera sees every goal met,1.95,2.86,0
+combined/none/g-stack-007/0,combined,none,g-stack-007,stack,0,true,true,true,true,,9.59,camera sees every goal met,1.52,2.01,0
+combined/none/g-sort-008/0,combined,none,g-sort-008,sort,0,true,true,true,true,,28.02,camera sees every goal met,2.11,2.7,0
+combined/none/g-stack-010/0,combined,none,g-stack-010,stack,0,true,true,false,false,,9.53,"camera sees green at level 0, blue at level 0, 4.5 cm apart",1.87,2.74,0
+combined/none/g-stack-010/1,combined,none,g-stack-010,stack,1,false,false,false,false,step 2 grasp(green) failed: Grasp missed the green cube: the gripper closed on nothing.,3.13,"camera sees green at level 0, blue at level 0, 16.5 cm apart",28.82,53.7,0
+combined/none/g-stack-010/2,combined,none,g-stack-010,stack,2,true,true,false,false,,9.39,"camera sees green at level 0, blue at level 0, 3.8 cm apart",5.94,10.14,0
+combined/none/g-stack-010/3,combined,none,g-stack-010,stack,3,true,false,false,false,step 2 grasp(green) failed: Grasp missed the green cube: the gripper closed on nothing.,3.12,"camera sees green at level 0, blue at level 0, 3.3 cm apart",24.11,42.96,0
+combined/none/g-sort-011/0,combined,none,g-sort-011,sort,0,true,true,true,true,,27.84,camera sees every goal met,4.4,11.91,0
+combined/none/g-stack-013/0,combined,none,g-stack-013,stack,0,true,true,true,true,,8.7,camera sees every goal met,3.17,5.2,0
+combined/none/g-sort-014/0,combined,none,g-sort-014,sort,0,true,true,true,true,,29.29,camera sees every goal met,2.54,3.74,0
+combined/none/g-stack-016/0,combined,none,g-stack-016,stack,0,true,true,true,true,,8.86,camera sees every goal met,1.61,2.1,0
+combined/none/g-sort-017/0,combined,none,g-sort-017,sort,0,true,true,true,true,,28.68,camera sees every goal met,2.19,4.27,0
+combined/none/g-stack-019/0,combined,none,g-stack-019,stack,0,true,true,true,true,,8.5,camera sees every goal met,1.85,2.42,0
+combined/none/g-sort-020/0,combined,none,g-sort-020,sort,0,true,true,true,true,,27.84,camera sees every goal met,2.08,3.32,0
+combined/none/g-tower-001/0,combined,none,g-tower-001,tower,0,false,true,false,false,,18.58,"camera sees blue at level 0, yellow at level 1, 7.5 cm apart",2.19,4.65,0
+combined/none/g-tower-001/1,combined,none,g-tower-001,tower,1,true,true,true,true,,17.29,camera sees every goal met,4.95,12.37,0
+combined/none/g-zone-002/0,combined,none,g-zone-002,zone,0,true,true,true,true,,9.2,camera sees every goal met,1.89,2.39,0
+combined/none/g-tower-004/0,combined,none,g-tower-004,tower,0,true,true,false,false,,17.75,"camera sees green at level 0, yellow at level 1, 16.9 cm apart",4.32,6.72,0
+combined/none/g-tower-004/1,combined,none,g-tower-004,tower,1,false,false,false,false,step 4 place(blue) failed: No contact felt when lowering the yellow cube onto blue.,7.73,"camera sees yellow at level 0, blue at level 0, 7.7 cm apart; camera sees green at level 0, yellow at level 0, 13.2 cm apart",59.24,168.08,0
+combined/none/g-tower-004/2,combined,none,g-tower-004,tower,2,false,false,false,false,step 9 place(yellow) failed: No contact felt when lowering the green cube onto yellow.,16.12,"camera cannot find the blue cube; camera sees green at level 0, yellow at level 0, 7.9 cm apart",13.71,34.61,0
+combined/none/g-tower-004/3,combined,none,g-tower-004,tower,3,false,false,false,false,step 4 place(blue) failed: The camera cannot find the blue cube.,4.83,"camera sees yellow at level 0, blue at level 0, 5.8 cm apart; camera sees green at level 0, yellow at level 0, 13.4 cm apart",29.59,52.63,1
+combined/none/g-zone-005/0,combined,none,g-zone-005,zone,0,true,true,true,true,,8.74,camera sees every goal met,2.23,2.73,0
+combined/none/g-tower-007/0,combined,none,g-tower-007,tower,0,true,true,true,true,,16.79,camera sees every goal met,2.26,4.07,0
+combined/none/g-zone-008/0,combined,none,g-zone-008,zone,0,true,true,true,true,,8.57,camera sees every goal met,1.8,2.5,0
+combined/none/g-tower-010/0,combined,none,g-tower-010,tower,0,true,true,true,true,,17.61,camera sees every goal met,1.48,2.95,0
+combined/none/g-zone-011/0,combined,none,g-zone-011,zone,0,true,true,true,true,,8.28,camera sees every goal met,3.87,4.05,0
+combined/none/g-tower-013/0,combined,none,g-tower-013,tower,0,true,true,true,true,,17.25,camera sees every goal met,1.94,2.8,0
+combined/none/g-zone-014/0,combined,none,g-zone-014,zone,0,true,true,true,true,,9.16,camera sees every goal met,3.55,4.84,0
+combined/none/g-tower-016/0,combined,none,g-tower-016,tower,0,true,true,true,true,,18.3,camera sees every goal met,3,6.08,0
+combined/none/g-zone-017/0,combined,none,g-zone-017,zone,0,true,true,true,true,,9.57,camera sees every goal met,2.57,2.57,0
+combined/none/g-tower-019/0,combined,none,g-tower-019,tower,0,true,true,false,false,,17.97,"camera sees yellow at level 0, blue at level 0, 6.3 cm apart; camera sees red at level 0, yellow at level 0, 11.3 cm apart",1.65,2.98,0
+combined/none/g-tower-019/1,combined,none,g-tower-019,tower,1,false,false,false,false,step 2 grasp(yellow) failed: Grasp missed the yellow cube: the gripper closed on nothing.,2.93,"camera sees yellow at level 0, blue at level 0, 5.6 cm apart; camera sees red at level 0, yellow at level 0, 11.2 cm apart",63.13,175.22,0
+combined/none/g-tower-019/2,combined,none,g-tower-019,tower,2,false,false,false,false,step 9 place(yellow) failed: No contact felt when lowering the red cube onto yellow.,15.85,"camera sees yellow at level 0, blue at level 0, 5.0 cm apart; camera sees red at level 0, yellow at level 0, 11.4 cm apart",7.27,13.89,0
+combined/none/g-tower-019/3,combined,none,g-tower-019,tower,3,false,false,false,false,step 9 place(yellow) failed: No contact felt when lowering the red cube onto yellow.,15.85,"camera sees yellow at level 0, blue at level 0, 4.6 cm apart; camera sees red at level 0, yellow at level 0, 8.9 cm apart",4.99,11.04,0
+combined/none/g-zone-020/0,combined,none,g-zone-020,zone,0,true,true,true,true,,8.9,camera sees every goal met,1.06,2.16,0
+combined/chaos/g-tower-002/0,combined,chaos,g-tower-002,tower,0,true,true,true,true,,16.77,camera sees every goal met,4.05,8.56,0
+combined/chaos/g-zone-003/0,combined,chaos,g-zone-003,zone,0,true,true,true,true,,8.46,camera sees every goal met,1.23,1.83,0
+combined/chaos/g-tower-005/0,combined,chaos,g-tower-005,tower,0,false,false,false,false,step 4 place(blue) failed: Sensors lost the red cube while carrying it to blue: fingertip switches went off.,6.18,"camera sees red at level 0, blue at level 0, 10.9 cm apart; camera sees yellow at level 0, red at level 0, 23.9 cm apart",1.63,2.28,0
+combined/chaos/g-tower-005/1,combined,chaos,g-tower-005,tower,1,false,false,false,false,step 3 lift() failed: Sensors lost the red cube during lift: fingertip switches went off.,4.37,"camera sees red at level 0, blue at level 0, 9.4 cm apart; camera sees yellow at level 0, red at level 0, 23.3 cm apart",2.06,2.73,0
+combined/chaos/g-tower-005/2,combined,chaos,g-tower-005,tower,2,true,true,true,true,,17.67,camera sees every goal met,2.76,4.65,0
+combined/chaos/g-zone-006/0,combined,chaos,g-zone-006,zone,0,true,true,true,true,,8.84,camera sees every goal met,3.12,5.48,0
+combined/chaos/g-tower-008/0,combined,chaos,g-tower-008,tower,0,false,false,false,false,step 4 place(green) failed: Sensors lost the blue cube while carrying it to green: fingertip switches went off.,4.67,"camera sees yellow at level 0, blue at level 1, 28.1 cm apart",2.56,4.2,0
+combined/chaos/g-tower-008/1,combined,chaos,g-tower-008,tower,1,false,false,false,false,step 2 grasp(blue) failed: Grasp missed the blue cube: the gripper closed on nothing.,3.19,"camera sees blue at level 0, green at level 0, 5.0 cm apart; camera sees yellow at level 0, blue at level 0, 32.5 cm apart",2.8,3.4,0
+combined/chaos/g-tower-008/2,combined,chaos,g-tower-008,tower,2,true,true,true,true,,19,camera sees every goal met,1.8,3.31,0
+combined/chaos/g-zone-009/0,combined,chaos,g-zone-009,zone,0,true,true,true,true,,9.07,camera sees every goal met,2.68,3.02,0
+combined/chaos/g-tower-011/0,combined,chaos,g-tower-011,tower,0,true,true,true,true,,17.63,camera sees every goal met,3.14,4.79,0
+combined/chaos/g-zone-012/0,combined,chaos,g-zone-012,zone,0,true,true,true,true,,8.64,camera sees every goal met,2.18,2.18,0
+combined/chaos/g-tower-014/0,combined,chaos,g-tower-014,tower,0,true,true,true,true,,16.61,camera sees every goal met,2.23,3.53,0
+combined/chaos/g-zone-015/0,combined,chaos,g-zone-015,zone,0,true,true,true,true,,9.1,camera sees every goal met,2.53,2.53,0
+combined/chaos/g-tower-017/0,combined,chaos,g-tower-017,tower,0,false,false,false,false,step 3 lift() failed: Sensors lost the green cube during lift: fingertip switches went off.,4.49,"camera sees green at level 0, blue at level 0, 14.6 cm apart; camera sees red at level 0, green at level 0, 35.8 cm apart",3.04,4.53,0
+combined/chaos/g-tower-017/1,combined,chaos,g-tower-017,tower,1,false,false,false,false,step 3 lift() failed: Sensors lost the green cube during lift: fingertip switches went off.,4.86,"camera sees green at level 0, blue at level 0, 15.2 cm apart; camera sees red at level 0, green at level 0, 36.3 cm apart",3.21,3.47,0
+combined/chaos/g-tower-017/2,combined,chaos,g-tower-017,tower,2,true,true,false,false,,18.28,"camera sees red at level 2, green at level 1, 3.2 cm apart",3.03,3.47,0
+combined/chaos/g-tower-017/3,combined,chaos,g-tower-017,tower,3,true,false,false,false,step 4 place(blue) failed: No contact felt when lowering the green cube onto blue.,7.3,"camera sees red at level 2, green at level 1, 3.0 cm apart",15.5,29.48,0
+combined/chaos/g-zone-018/0,combined,chaos,g-zone-018,zone,0,true,true,true,true,,8.95,camera sees every goal met,2.66,4.3,0
+combined/chaos/g-tower-020/0,combined,chaos,g-tower-020,tower,0,true,true,true,true,,17.88,camera sees every goal met,2.6,4.66,0
+combined/chaos/g-zone-001/0,combined,chaos,g-zone-001,zone,0,false,false,false,false,step 3 lift() failed: Sensors lost the red cube during lift: fingertip switches went off.,4.09,camera sees red outside red_zone,2.22,3.46,0
+combined/chaos/g-zone-001/1,combined,chaos,g-zone-001,zone,1,true,false,true,false,step 4 place(red_zone) failed: Sensors lost the red cube while carrying it to red_zone: fingertip switches went off.,5.5,camera sees every goal met,1.41,1.97,0
+combined/chaos/g-zone-001/2,combined,chaos,g-zone-001,zone,2,true,true,true,true,,9.48,camera sees every goal met,1.07,1.41,0
+combined/chaos/g-tower-003/0,combined,chaos,g-tower-003,tower,0,true,true,true,true,,18.12,camera sees every goal met,2.54,2.88,0
+combined/chaos/g-zone-004/0,combined,chaos,g-zone-004,zone,0,false,false,false,false,step 3 lift() failed: Sensors lost the yellow cube during lift: fingertip switches went off.,3.94,camera sees yellow outside green_zone,1.97,1.97,0
+combined/chaos/g-zone-004/1,combined,chaos,g-zone-004,zone,1,true,true,true,true,,8.96,camera sees every goal met,2.05,2.05,0
+combined/chaos/g-tower-006/0,combined,chaos,g-tower-006,tower,0,true,true,true,true,,17.17,camera sees every goal met,2.1,4.48,0
+combined/chaos/g-zone-007/0,combined,chaos,g-zone-007,zone,0,false,false,false,false,step 3 lift() failed: Sensors lost the green cube during lift: fingertip switches went off.,3.94,camera sees green outside green_zone,2.25,2.9,0
+combined/chaos/g-zone-007/1,combined,chaos,g-zone-007,zone,1,true,false,true,false,step 4 place(green_zone) failed: Sensors lost the green cube while lowering it onto green_zone: fingertip switches went off.,7.61,camera sees every goal met,2.46,2.92,0
+combined/chaos/g-zone-007/2,combined,chaos,g-zone-007,zone,2,true,false,true,false,step 4 place(green_zone) failed: Sensors lost the green cube while lowering it onto green_zone: fingertip switches went off.,8.02,camera sees every goal met,3.15,4.3,0
+combined/chaos/g-zone-007/3,combined,chaos,g-zone-007,zone,3,true,false,true,false,step 4 place(green_zone) failed: Sensors lost the green cube while carrying it to green_zone: fingertip switches went off.,5.7,camera sees every goal met,1.54,2,0
+combined/chaos/g-tower-009/0,combined,chaos,g-tower-009,tower,0,false,false,false,false,step 4 place(green) failed: Sensors lost the red cube while lowering it onto green: fingertip switches went off.,7.17,"camera sees red at level 0, green at level 0, 7.3 cm apart; camera sees blue at level 0, red at level 0, 15.5 cm apart",2.72,4.54,0
+combined/chaos/g-tower-009/1,combined,chaos,g-tower-009,tower,1,false,false,false,false,step 2 grasp(red) failed: Grasp missed the red cube: the gripper closed on nothing.,2.9,"camera sees red at level 0, green at level 0, 7.4 cm apart; camera sees blue at level 0, red at level 0, 15.5 cm apart",21.82,83.23,0
+combined/chaos/g-tower-009/2,combined,chaos,g-tower-009,tower,2,false,false,false,false,step 2 grasp(red) failed: Grasp missed the red cube: the gripper closed on nothing.,2.9,"camera sees red at level 0, green at level 0, 7.4 cm apart; camera sees blue at level 0, red at level 0, 15.5 cm apart",21.68,83.32,0
+combined/chaos/g-tower-009/3,combined,chaos,g-tower-009,tower,3,false,false,false,false,step 2 grasp(red) failed: Grasp missed the red cube: the gripper closed on nothing.,2.9,"camera sees red at level 1, green at level 0, 3.3 cm apart; camera sees blue at level 0, red at level 1, 11.5 cm apart",21.74,83.57,0
+combined/chaos/g-zone-010/0,combined,chaos,g-zone-010,zone,0,false,false,false,false,step 3 lift() failed: Sensors lost the red cube during lift: fingertip switches went off.,4.12,camera sees red outside blue_zone,0.87,0.87,0
+combined/chaos/g-zone-010/1,combined,chaos,g-zone-010,zone,1,false,false,false,false,step 3 lift() failed: Sensors lost the red cube during lift: fingertip switches went off.,4.48,camera sees red outside blue_zone,0.85,0.85,0
+combined/chaos/g-zone-010/2,combined,chaos,g-zone-010,zone,2,true,true,true,true,,9.78,camera sees every goal met,3.85,3.85,0
+combined/chaos/g-tower-012/0,combined,chaos,g-tower-012,tower,0,true,true,false,false,,17.34,"camera sees green at level 0, blue at level 1, 15.4 cm apart",3.08,4.85,0
+combined/chaos/g-tower-012/1,combined,chaos,g-tower-012,tower,1,true,false,false,false,step 3 lift() failed: Sensors lost the blue cube during lift: fingertip switches went off.,4.49,"camera sees green at level 0, blue at level 1, 15.3 cm apart",41.69,157.13,0
+combined/chaos/g-tower-012/2,combined,chaos,g-tower-012,tower,2,false,false,false,false,step 3 lift() failed: Sensors lost the blue cube during lift: fingertip switches went off.,4.49,"camera sees blue at level 0, red at level 0, 6.9 cm apart; camera sees green at level 0, blue at level 0, 6.1 cm apart",42.99,153.82,0
+combined/chaos/g-tower-012/3,combined,chaos,g-tower-012,tower,3,false,false,false,false,step 8 lift() failed: Sensors lost the green cube during lift: fingertip switches went off.,12.92,"camera sees blue at level 0, red at level 0, 6.0 cm apart; camera sees green at level 0, blue at level 0, 17.7 cm apart",7.16,17.73,0
+combined/chaos/g-zone-013/0,combined,chaos,g-zone-013,zone,0,true,true,true,true,,8.95,camera sees every goal met,2.02,2.02,0
+combined/chaos/g-tower-015/0,combined,chaos,g-tower-015,tower,0,true,true,true,true,,17.68,camera sees every goal met,2.77,4.72,0
+combined/chaos/g-zone-016/0,combined,chaos,g-zone-016,zone,0,true,true,true,true,,8.85,camera sees every goal met,1.59,1.59,0
+combined/chaos/g-tower-018/0,combined,chaos,g-tower-018,tower,0,false,false,false,false,step 3 lift() failed: Sensors lost the red cube during lift: fingertip switches went off.,4.08,"camera sees red at level 0, green at level 0, 23.9 cm apart; camera sees blue at level 0, red at level 0, 22.3 cm apart",2.8,5.5,0
+combined/chaos/g-tower-018/1,combined,chaos,g-tower-018,tower,1,true,true,true,true,,19.27,camera sees every goal met,3.57,5.91,0
+combined/chaos/g-zone-019/0,combined,chaos,g-zone-019,zone,0,false,false,false,false,step 3 lift() failed: Sensors lost the red cube during lift: fingertip switches went off.,3.99,camera sees red outside red_zone,4.07,6.47,0
+combined/chaos/g-zone-019/1,combined,chaos,g-zone-019,zone,1,true,true,true,true,,9.09,camera sees every goal met,2.21,3.34,0
+combined/chaos/g-tower-001/0,combined,chaos,g-tower-001,tower,0,false,false,false,false,step 3 lift() failed: Sensors lost the yellow cube during lift: fingertip switches went off.,4.07,"camera sees yellow at level 0, green at level 0, 17.2 cm apart; camera sees blue at level 0, yellow at level 0, 19.1 cm apart",2.19,4.65,0
+combined/chaos/g-tower-001/1,combined,chaos,g-tower-001,tower,1,false,true,false,false,,18.95,"camera sees blue at level 0, yellow at level 1, 7.5 cm apart",3.65,5.37,0
+combined/chaos/g-tower-001/2,combined,chaos,g-tower-001,tower,2,true,true,true,true,,17.29,camera sees every goal met,7.13,12.68,0
+combined/chaos/g-zone-002/0,combined,chaos,g-zone-002,zone,0,false,false,false,false,step 3 lift() failed: Sensors lost the yellow cube during lift: fingertip switches went off.,4.43,camera sees yellow outside blue_zone,1.89,2.39,0
+combined/chaos/g-zone-002/1,combined,chaos,g-zone-002,zone,1,true,false,true,false,step 4 place(blue_zone) failed: Sensors lost the yellow cube while carrying it to blue_zone: fingertip switches went off.,5.81,camera sees every goal met,2.46,3.62,0
+combined/chaos/g-zone-002/2,combined,chaos,g-zone-002,zone,2,true,true,true,true,,9.61,camera sees every goal met,1.82,2.34,0
+combined/chaos/g-tower-004/0,combined,chaos,g-tower-004,tower,0,true,true,false,false,,17.75,"camera sees green at level 0, yellow at level 1, 17.1 cm apart",4.32,6.72,0
+combined/chaos/g-tower-004/1,combined,chaos,g-tower-004,tower,1,false,false,false,false,step 4 place(blue) failed: Sensors lost the yellow cube while lowering it onto blue: fingertip switches went off.,7.73,"camera sees yellow at level 0, blue at level 0, 11.2 cm apart; camera sees green at level 0, yellow at level 0, 14.9 cm apart",61.82,173.24,0
+combined/chaos/g-tower-004/2,combined,chaos,g-tower-004,tower,2,false,false,false,false,step 7 grasp(green) failed: Grasp missed the green cube: the gripper closed on nothing.,11.76,"camera sees yellow at level 0, blue at level 0, 18.6 cm apart; camera sees green at level 0, yellow at level 0, 11.2 cm apart",5.77,9.15,0
+combined/chaos/g-tower-004/3,combined,chaos,g-tower-004,tower,3,false,false,false,false,step 7 grasp(green) failed: Grasp missed the green cube: the gripper closed on nothing.,11.39,"camera sees yellow at level 0, blue at level 0, 22.2 cm apart; camera sees green at level 0, yellow at level 0, 13.7 cm apart",5.4,7.93,0
+combined/chaos/g-zone-005/0,combined,chaos,g-zone-005,zone,0,false,false,false,false,step 3 lift() failed: Sensors lost the green cube during lift: fingertip switches went off.,3.94,camera sees green outside red_zone,2.23,2.73,0
+combined/chaos/g-zone-005/1,combined,chaos,g-zone-005,zone,1,true,true,true,true,,9.32,camera sees every goal met,2.35,3.06,0
+combined/chaos/g-tower-007/0,combined,chaos,g-tower-007,tower,0,true,true,true,true,,16.77,camera sees every goal met,2.26,4.07,0
+combined/chaos/g-zone-008/0,combined,chaos,g-zone-008,zone,0,false,false,false,false,step 3 lift() failed: Sensors lost the yellow cube during lift: fingertip switches went off.,3.96,camera sees yellow outside green_zone,1.8,2.5,0
+combined/chaos/g-zone-008/1,combined,chaos,g-zone-008,zone,1,true,true,true,true,,9.02,camera sees every goal met,2.32,3.52,0
+combined/chaos/g-tower-010/0,combined,chaos,g-tower-010,tower,0,false,false,false,false,step 4 place(blue) failed: Sensors lost the green cube while carrying it to blue: fingertip switches went off.,5.5,"camera sees red at level 0, green at level 1, 12.2 cm apart",1.48,2.95,0
+combined/chaos/g-tower-010/1,combined,chaos,g-tower-010,tower,1,true,true,true,true,,17.5,camera sees every goal met,3.04,5.3,0
+combined/chaos/g-zone-011/0,combined,chaos,g-zone-011,zone,0,true,true,true,true,,8.28,camera sees every goal met,3.87,4.05,0
+combined/chaos/g-tower-013/0,combined,chaos,g-tower-013,tower,0,true,false,true,false,step 9 place(blue) failed: Sensors lost the red cube while carrying it to blue: fingertip switches went off.,13.69,camera sees every goal met,1.94,2.8,0
+combined/chaos/g-tower-013/1,combined,chaos,g-tower-013,tower,1,false,false,false,false,step 4 place(green) failed: Sensors lost the blue cube while carrying it to green: fingertip switches went off.,5.06,"camera sees blue at level 0, green at level 0, 10.4 cm apart; camera sees red at level 1, blue at level 0, 10.6 cm apart",3.31,6.38,0
+combined/chaos/g-tower-013/2,combined,chaos,g-tower-013,tower,2,false,false,false,false,step 4 place(green) failed: Sensors lost the blue cube while lowering it onto green: fingertip switches went off.,7.72,"camera sees blue at level 0, green at level 0, 9.1 cm apart; camera sees red at level 0, blue at level 0, 16.7 cm apart",3.38,4.18,0
+combined/chaos/g-tower-013/3,combined,chaos,g-tower-013,tower,3,false,false,false,false,step 3 lift() failed: Sensors lost the blue cube during lift: fingertip switches went off.,4.6,"camera sees blue at level 0, green at level 0, 11.2 cm apart; camera sees red at level 0, blue at level 0, 17.6 cm apart",4.51,7.73,0
+combined/chaos/g-zone-014/0,combined,chaos,g-zone-014,zone,0,true,true,true,true,,9.16,camera sees every goal met,3.55,4.84,0
+combined/chaos/g-tower-016/0,combined,chaos,g-tower-016,tower,0,true,true,true,true,,18.3,camera sees every goal met,3,6.08,0
+combined/chaos/g-zone-017/0,combined,chaos,g-zone-017,zone,0,true,false,true,false,step 4 place(red_zone) failed: Sensors lost the yellow cube while carrying it to red_zone: fingertip switches went off.,6.01,camera sees every goal met,2.57,2.57,0
+combined/chaos/g-zone-017/1,combined,chaos,g-zone-017,zone,1,true,false,true,false,step 3 lift() failed: Sensors lost the yellow cube during lift: fingertip switches went off.,5.15,camera sees every goal met,0.95,0.95,0
+combined/chaos/g-zone-017/2,combined,chaos,g-zone-017,zone,2,true,true,true,true,,9.42,camera sees every goal met,0.82,0.82,0
+combined/chaos/g-tower-019/0,combined,chaos,g-tower-019,tower,0,true,false,false,false,step 9 place(yellow) failed: Sensors lost the red cube while carrying it to yellow: fingertip switches went off.,14.41,"camera sees yellow at level 0, blue at level 0, 5.7 cm apart; camera sees red at level 0, yellow at level 0, 12.5 cm apart",1.65,2.98,0
+combined/chaos/g-tower-019/1,combined,chaos,g-tower-019,tower,1,false,false,false,false,step 2 grasp(yellow) failed: Grasp missed the yellow cube: the gripper closed on nothing.,3,"camera sees yellow at level 0, blue at level 0, 24.4 cm apart; camera sees red at level 0, yellow at level 0, 11.7 cm apart",62.61,178.35,0
+combined/chaos/g-tower-019/2,combined,chaos,g-tower-019,tower,2,true,true,true,true,,18.49,camera sees every goal met,1.57,2.81,0
+combined/chaos/g-zone-020/0,combined,chaos,g-zone-020,zone,0,true,true,true,true,,8.9,camera sees every goal met,1.06,2.16,0
+combined/chaos/g-stack-002/0,combined,chaos,g-stack-002,stack,0,false,false,false,false,step 3 lift() failed: Sensors lost the green cube during lift: fingertip switches went off.,4.24,"camera sees green at level 0, blue at level 0, 16.6 cm apart",1.36,1.73,0
+combined/chaos/g-stack-002/1,combined,chaos,g-stack-002,stack,1,true,false,true,false,step 4 place(blue) failed: Sensors lost the green cube while lowering it onto blue: fingertip switches went off.,7.76,camera sees every goal met,1.97,2.72,0
+combined/chaos/g-stack-002/2,combined,chaos,g-stack-002,stack,2,true,false,true,false,step 3 lift() failed: Sensors lost the green cube during lift: fingertip switches went off.,4.56,camera sees every goal met,2.65,3.69,0
+combined/chaos/g-stack-002/3,combined,chaos,g-stack-002,stack,3,true,true,true,true,,8.85,camera sees every goal met,3.17,4.26,0
+combined/chaos/g-sort-003/0,combined,chaos,g-sort-003,sort,0,false,false,false,false,step 3 lift() failed: Sensors lost the red cube during lift: fingertip switches went off.,4.24,camera sees red outside red_zone; camera sees green outside green_zone; camera sees blue outside blue_zone,2.93,4.44,0
+combined/chaos/g-sort-003/1,combined,chaos,g-sort-003,sort,1,false,false,false,false,step 3 lift() failed: Sensors lost the red cube during lift: fingertip switches went off.,4.74,camera sees red outside red_zone; camera sees green outside green_zone; camera sees blue outside blue_zone,2.05,3.93,0
+combined/chaos/g-sort-003/2,combined,chaos,g-sort-003,sort,2,false,false,false,false,step 3 lift() failed: Sensors lost the red cube during lift: fingertip switches went off.,4.77,camera sees red outside red_zone; camera sees green outside green_zone; camera sees blue outside blue_zone,2.63,3.93,0
+combined/chaos/g-sort-003/3,combined,chaos,g-sort-003,sort,3,true,true,true,true,,28.97,camera sees every goal met,2.32,3.93,0
+combined/chaos/g-stack-005/0,combined,chaos,g-stack-005,stack,0,true,true,true,true,,8.69,camera sees every goal met,1.89,2.77,0
+combined/chaos/g-sort-006/0,combined,chaos,g-sort-006,sort,0,false,false,false,false,step 4 place(red_zone) failed: Sensors lost the red cube while carrying it to red_zone: fingertip switches went off.,5.98,camera sees red outside red_zone; camera sees green outside green_zone; camera sees blue outside blue_zone,1.83,2.46,0
+combined/chaos/g-sort-006/1,combined,chaos,g-sort-006,sort,1,false,false,false,false,step 13 lift() failed: Sensors lost the blue cube during lift: fingertip switches went off.,23.32,camera sees blue outside blue_zone,1.69,2.37,0
+combined/chaos/g-sort-006/2,combined,chaos,g-sort-006,sort,2,true,true,true,true,,27.83,camera sees every goal met,1.64,2.79,0
+combined/chaos/g-stack-008/0,combined,chaos,g-stack-008,stack,0,true,true,true,true,,8.28,camera sees every goal met,3.51,9.71,0
+combined/chaos/g-sort-009/0,combined,chaos,g-sort-009,sort,0,true,true,true,true,,26.64,camera sees every goal met,2,3.65,0
+combined/chaos/g-stack-011/0,combined,chaos,g-stack-011,stack,0,false,false,false,false,step 3 lift() failed: Sensors lost the blue cube during lift: fingertip switches went off.,3.96,"camera sees blue at level 0, red at level 0, 17.7 cm apart",4.4,5.81,0
+combined/chaos/g-stack-011/1,combined,chaos,g-stack-011,stack,1,true,true,true,true,,9.05,camera sees every goal met,2.55,3.8,0
+combined/chaos/g-sort-012/0,combined,chaos,g-sort-012,sort,0,false,false,false,false,step 8 lift() failed: Sensors lost the green cube during lift: fingertip switches went off.,13.58,camera sees green outside green_zone; camera sees blue outside blue_zone,2.21,3.95,0
+combined/chaos/g-sort-012/1,combined,chaos,g-sort-012,sort,1,false,false,false,false,step 4 place(red_zone) failed: Sensors lost the red cube while lowering it onto red_zone: fingertip switches went off.,8.17,camera sees green outside green_zone; camera sees blue outside blue_zone,1.55,1.68,0
+combined/chaos/g-sort-012/2,combined,chaos,g-sort-012,sort,2,true,true,true,true,,28.04,camera sees every goal met,1.81,2.72,0
+combined/chaos/g-stack-014/0,combined,chaos,g-stack-014,stack,0,true,false,true,false,step 4 place(yellow) failed: Sensors lost the green cube while carrying it to yellow: fingertip switches went off.,5.86,camera sees every goal met,2.31,4.65,0
+combined/chaos/g-stack-014/1,combined,chaos,g-stack-014,stack,1,true,true,true,true,,8.84,camera sees every goal met,4.4,6.96,0
+combined/chaos/g-sort-015/0,combined,chaos,g-sort-015,sort,0,false,false,false,false,step 4 place(red_zone) failed: Sensors lost the red cube while carrying it to red_zone: fingertip switches went off.,5.89,camera sees green outside green_zone; camera sees blue outside blue_zone,2.82,3.31,0
+combined/chaos/g-sort-015/1,combined,chaos,g-sort-015,sort,1,false,false,false,false,step 3 lift() failed: Sensors lost the red cube during lift: fingertip switches went off.,5.25,camera sees green outside green_zone; camera sees blue outside blue_zone,1.93,2.13,0
+combined/chaos/g-sort-015/2,combined,chaos,g-sort-015,sort,2,false,false,false,false,step 4 place(red_zone) failed: Sensors lost the red cube while lowering it onto red_zone: fingertip switches went off.,8.32,camera sees green outside green_zone; camera sees blue outside blue_zone,2.18,2.34,0
+combined/chaos/g-sort-015/3,combined,chaos,g-sort-015,sort,3,false,false,false,false,step 9 place(green_zone) failed: Sensors lost the green cube while carrying it to green_zone: fingertip switches went off.,15.58,camera sees blue outside blue_zone,1.99,3.68,0
+combined/chaos/g-stack-017/0,combined,chaos,g-stack-017,stack,0,false,false,false,false,step 3 lift() failed: Sensors lost the green cube during lift: fingertip switches went off.,4.29,"camera sees green at level 0, blue at level 0, 32.4 cm apart",1.29,2.35,0
+combined/chaos/g-stack-017/1,combined,chaos,g-stack-017,stack,1,true,true,false,false,,9.48,"camera sees green at level 0, blue at level 0, 3.6 cm apart",1.36,1.53,0
+combined/chaos/g-stack-017/2,combined,chaos,g-stack-017,stack,2,false,false,false,false,step 2 grasp(green) failed: Grasp missed the green cube: the gripper closed on nothing.,3.04,"camera sees green at level 0, blue at level 0, 5.3 cm apart",25.42,48.08,0
+combined/chaos/g-stack-017/3,combined,chaos,g-stack-017,stack,3,false,false,false,false,step 3 lift() failed: Sensors lost the green cube during lift: fingertip switches went off.,4.63,"camera sees green at level 0, blue at level 0, 5.7 cm apart",9.11,11.66,0
+combined/chaos/g-sort-018/0,combined,chaos,g-sort-018,sort,0,true,true,true,true,,28.12,camera sees every goal met,2.96,4.59,0
+combined/chaos/g-stack-020/0,combined,chaos,g-stack-020,stack,0,false,false,false,false,step 3 lift() failed: Sensors lost the red cube during lift: fingertip switches went off.,4.01,"camera sees red at level 0, yellow at level 0, 14.3 cm apart",3.69,6.14,0
+combined/chaos/g-stack-020/1,combined,chaos,g-stack-020,stack,1,false,false,false,false,step 3 lift() failed: Sensors lost the red cube during lift: fingertip switches went off.,4.53,"camera sees red at level 0, yellow at level 0, 14.1 cm apart",2.44,4.1,0
+combined/chaos/g-stack-020/2,combined,chaos,g-stack-020,stack,2,true,true,true,true,,9.08,camera sees every goal met,1.78,3,0
+combined/chaos/g-stack-001/0,combined,chaos,g-stack-001,stack,0,false,false,false,false,step 3 lift() failed: Sensors lost the red cube during lift: fingertip switches went off.,4.18,"camera sees red at level 0, green at level 0, 38.9 cm apart",1.2,1.82,0
+combined/chaos/g-stack-001/1,combined,chaos,g-stack-001,stack,1,true,true,true,true,,10.02,camera sees every goal met,1.3,2.1,0
+combined/chaos/g-sort-002/0,combined,chaos,g-sort-002,sort,0,true,true,true,true,,29.15,camera sees every goal met,1.84,2.74,0
+combined/chaos/g-stack-004/0,combined,chaos,g-stack-004,stack,0,true,true,true,true,,8.48,camera sees every goal met,2.57,2.97,0
+combined/chaos/g-sort-005/0,combined,chaos,g-sort-005,sort,0,true,false,true,false,step 14 place(blue_zone) failed: Sensors lost the blue cube while carrying it to blue_zone: fingertip switches went off.,24.89,camera sees every goal met,1.95,2.86,0
+combined/chaos/g-sort-005/1,combined,chaos,g-sort-005,sort,1,true,true,true,true,,27.1,camera sees every goal met,1.51,1.98,0
+combined/chaos/g-stack-007/0,combined,chaos,g-stack-007,stack,0,false,false,false,false,step 4 place(yellow) failed: Sensors lost the red cube while carrying it to yellow: fingertip switches went off.,6.03,"camera sees red at level 0, yellow at level 0, 5.7 cm apart",1.52,2.01,0
+combined/chaos/g-stack-007/1,combined,chaos,g-stack-007,stack,1,true,false,true,false,step 4 place(yellow) failed: Sensors lost the red cube while lowering it onto yellow: fingertip switches went off.,7.68,camera sees every goal met,1.48,2.07,0
+combined/chaos/g-stack-007/2,combined,chaos,g-stack-007,stack,2,true,false,true,false,step 3 lift() failed: Sensors lost the red cube during lift: fingertip switches went off.,4.55,camera sees every goal met,1.84,4.57,0
+combined/chaos/g-stack-007/3,combined,chaos,g-stack-007,stack,3,true,true,true,true,,8.86,camera sees every goal met,2.71,4.69,0
+combined/chaos/g-sort-008/0,combined,chaos,g-sort-008,sort,0,true,true,true,true,,28.02,camera sees every goal met,2.11,2.7,0
+combined/chaos/g-stack-010/0,combined,chaos,g-stack-010,stack,0,true,true,false,false,,9.53,"camera sees green at level 0, blue at level 0, 4.5 cm apart",1.87,2.74,0
+combined/chaos/g-stack-010/1,combined,chaos,g-stack-010,stack,1,false,false,false,false,step 2 grasp(green) failed: Grasp missed the green cube: the gripper closed on nothing.,3.13,"camera sees green at level 0, blue at level 0, 16.5 cm apart",28.82,53.7,0
+combined/chaos/g-stack-010/2,combined,chaos,g-stack-010,stack,2,true,true,false,false,,9.39,"camera sees green at level 0, blue at level 0, 4.1 cm apart",5.94,10.14,0
+combined/chaos/g-stack-010/3,combined,chaos,g-stack-010,stack,3,true,false,false,false,step 2 grasp(green) failed: Grasp missed the green cube: the gripper closed on nothing.,3.13,"camera sees green at level 0, blue at level 0, 3.7 cm apart",23.21,43.36,0
+combined/chaos/g-sort-011/0,combined,chaos,g-sort-011,sort,0,false,false,false,false,step 9 place(green_zone) failed: Sensors lost the green cube while lowering it onto green_zone: fingertip switches went off.,17.82,camera sees blue outside blue_zone,4.4,11.91,0
+combined/chaos/g-sort-011/1,combined,chaos,g-sort-011,sort,1,false,false,false,false,step 4 place(red_zone) failed: Sensors lost the red cube while lowering it onto red_zone: fingertip switches went off.,8.17,camera sees blue outside blue_zone,2.42,3.84,0
+combined/chaos/g-sort-011/2,combined,chaos,g-sort-011,sort,2,false,false,false,false,step 13 lift() failed: Sensors lost the blue cube during lift: fingertip switches went off.,22.1,camera sees blue outside blue_zone,2.42,3.84,0
+combined/chaos/g-sort-011/3,combined,chaos,g-sort-011,sort,3,false,false,false,false,step 13 lift() failed: Sensors lost the blue cube during lift: fingertip switches went off.,22.15,camera sees blue outside blue_zone,2.05,3.85,0
+combined/chaos/g-stack-013/0,combined,chaos,g-stack-013,stack,0,true,true,true,true,,8.7,camera sees every goal met,3.17,5.2,0
+combined/chaos/g-sort-014/0,combined,chaos,g-sort-014,sort,0,false,false,false,false,step 3 lift() failed: Sensors lost the red cube during lift: fingertip switches went off.,3.94,camera sees red outside red_zone; camera sees green outside green_zone; camera sees blue outside blue_zone,2.54,3.74,0
+combined/chaos/g-sort-014/1,combined,chaos,g-sort-014,sort,1,true,true,true,true,,29.53,camera sees every goal met,3.24,6.53,0
+combined/chaos/g-stack-016/0,combined,chaos,g-stack-016,stack,0,true,true,true,true,,8.86,camera sees every goal met,1.61,2.1,0
+combined/chaos/g-sort-017/0,combined,chaos,g-sort-017,sort,0,true,false,true,false,step 14 place(blue_zone) failed: Sensors lost the blue cube while carrying it to blue_zone: fingertip switches went off.,25.12,camera sees every goal met,2.19,4.27,0
+combined/chaos/g-sort-017/1,combined,chaos,g-sort-017,sort,1,true,false,true,false,step 3 lift() failed: Sensors lost the red cube during lift: fingertip switches went off.,5.28,camera sees every goal met,2.29,2.93,0
+combined/chaos/g-sort-017/2,combined,chaos,g-sort-017,sort,2,true,true,true,true,,26.78,camera sees every goal met,2.28,2.93,0
+combined/chaos/g-stack-019/0,combined,chaos,g-stack-019,stack,0,true,true,true,true,,8.5,camera sees every goal met,1.85,2.42,0
+combined/chaos/g-sort-020/0,combined,chaos,g-sort-020,sort,0,true,true,true,true,,27.84,camera sees every goal met,2.08,3.32,0
+combined/chaos/g-sort-001/0,combined,chaos,g-sort-001,sort,0,false,false,false,false,step 3 lift() failed: Sensors lost the red cube during lift: fingertip switches went off.,3.94,camera sees red outside red_zone; camera sees green outside green_zone; camera sees blue outside blue_zone,2.05,4.87,0
+combined/chaos/g-sort-001/1,combined,chaos,g-sort-001,sort,1,false,false,false,false,step 4 place(red_zone) failed: Sensors lost the red cube while carrying it to red_zone: fingertip switches went off.,5.72,camera sees green outside green_zone; camera sees blue outside blue_zone,3.19,6.18,0
+combined/chaos/g-sort-001/2,combined,chaos,g-sort-001,sort,2,true,true,true,true,,30.38,camera sees every goal met,2.81,6.18,0
+combined/chaos/g-stack-003/0,combined,chaos,g-stack-003,stack,0,true,false,true,false,step 4 place(green) failed: Sensors lost the red cube while lowering it onto green: fingertip switches went off.,7.65,camera sees every goal met,1.68,3,0
+combined/chaos/g-stack-003/1,combined,chaos,g-stack-003,stack,1,true,true,true,true,,8.57,camera sees every goal met,3.91,8.63,0
+combined/chaos/g-sort-004/0,combined,chaos,g-sort-004,sort,0,false,false,false,false,step 3 lift() failed: Sensors lost the red cube during lift: fingertip switches went off.,3.94,camera sees red outside red_zone; camera sees green outside green_zone; camera sees blue outside blue_zone,2.15,2.37,0
+combined/chaos/g-sort-004/1,combined,chaos,g-sort-004,sort,1,false,false,false,false,step 8 lift() failed: Sensors lost the green cube during lift: fingertip switches went off.,13.84,camera sees green outside green_zone; camera sees blue outside blue_zone,2.97,4.05,0
+combined/chaos/g-sort-004/2,combined,chaos,g-sort-004,sort,2,true,true,true,true,,28.41,camera sees every goal met,2.58,3.24,0
+combined/chaos/g-stack-006/0,combined,chaos,g-stack-006,stack,0,true,true,false,false,,8.46,"camera sees red at level 1, blue at level 0, 3.4 cm apart",4.4,9.06,0
+combined/chaos/g-stack-006/1,combined,chaos,g-stack-006,stack,1,true,false,true,false,step 2 grasp(red) failed: Grasp missed the red cube: the gripper closed on nothing.,3.25,camera sees every goal met,13.44,26.71,0
+combined/chaos/g-stack-006/2,combined,chaos,g-stack-006,stack,2,true,false,true,false,step 4 place(blue) failed: Sensors lost the red cube while carrying it to blue: fingertip switches went off.,5.15,camera sees every goal met,10.34,19.42,0
+combined/chaos/g-stack-006/3,combined,chaos,g-stack-006,stack,3,true,false,true,false,step 2 grasp(red) failed: Grasp missed the red cube: the gripper closed on nothing.,3.24,camera sees every goal met,14.13,34.7,0
+combined/chaos/g-sort-007/0,combined,chaos,g-sort-007,sort,0,false,false,false,false,step 3 lift() failed: Sensors lost the red cube during lift: fingertip switches went off.,4.36,camera sees red outside red_zone; camera sees green outside green_zone; camera sees blue outside blue_zone,1.7,2.63,0
+combined/chaos/g-sort-007/1,combined,chaos,g-sort-007,sort,1,false,false,false,false,step 3 lift() failed: Sensors lost the red cube during lift: fingertip switches went off.,4.5,camera sees red outside red_zone; camera sees green outside green_zone; camera sees blue outside blue_zone,1.95,3.16,0
+combined/chaos/g-sort-007/2,combined,chaos,g-sort-007,sort,2,false,false,false,false,step 9 place(green_zone) failed: Sensors lost the green cube while lowering it onto green_zone: fingertip switches went off.,17.61,camera sees blue outside blue_zone,1.99,3.16,0
+combined/chaos/g-sort-007/3,combined,chaos,g-sort-007,sort,3,true,true,true,true,,27.18,camera sees every goal met,2.02,3.58,0
+combined/chaos/g-stack-009/0,combined,chaos,g-stack-009,stack,0,true,true,true,true,,9.94,camera sees every goal met,2.37,3.34,0
+combined/chaos/g-sort-010/0,combined,chaos,g-sort-010,sort,0,false,false,false,false,step 4 place(red_zone) failed: Sensors lost the red cube while lowering it onto red_zone: fingertip switches went off.,7.42,camera sees green outside green_zone; camera sees blue outside blue_zone,2.64,5.4,0
+combined/chaos/g-sort-010/1,combined,chaos,g-sort-010,sort,1,false,false,false,false,step 14 place(blue_zone) failed: Sensors lost the blue cube while carrying it to blue_zone: fingertip switches went off.,25.96,camera sees blue outside blue_zone,3.03,5.11,0
+combined/chaos/g-sort-010/2,combined,chaos,g-sort-010,sort,2,true,true,true,true,,26.74,camera sees every goal met,1.73,2.89,0
+combined/chaos/g-stack-012/0,combined,chaos,g-stack-012,stack,0,false,true,false,false,,8.66,camera cannot find the yellow cube,3.26,3.91,0
+combined/chaos/g-stack-012/1,combined,chaos,g-stack-012,stack,1,false,false,false,false,step 4 place(yellow) failed: The camera cannot find the yellow cube.,4.65,camera cannot find the yellow cube,5.27,5.27,1
+combined/chaos/g-stack-012/2,combined,chaos,g-stack-012,stack,2,false,false,false,false,step 4 place(yellow) failed: The camera cannot find the yellow cube.,4.65,camera cannot find the yellow cube,6,6,1
+combined/chaos/g-stack-012/3,combined,chaos,g-stack-012,stack,3,false,false,false,false,step 4 place(yellow) failed: The camera cannot find the yellow cube.,4.64,camera cannot find the yellow cube,2.03,2.03,1
+combined/chaos/g-sort-013/0,combined,chaos,g-sort-013,sort,0,true,true,true,true,,29.53,camera sees every goal met,4.27,9.51,0
+combined/chaos/g-stack-015/0,combined,chaos,g-stack-015,stack,0,true,true,true,true,,8.95,camera sees every goal met,1.85,2.74,0
+combined/chaos/g-sort-016/0,combined,chaos,g-sort-016,sort,0,true,true,true,true,,27.01,camera sees every goal met,3.74,4.62,0
+combined/chaos/g-stack-018/0,combined,chaos,g-stack-018,stack,0,true,true,true,true,,8.39,camera sees every goal met,0.93,1,0
+combined/chaos/g-sort-019/0,combined,chaos,g-sort-019,sort,0,true,false,true,false,step 14 place(blue_zone) failed: Sensors lost the blue cube while lowering it onto blue_zone: fingertip switches went off.,26.15,camera sees every goal met,2.32,3.45,0
+combined/chaos/g-sort-019/1,combined,chaos,g-sort-019,sort,1,true,false,true,false,step 3 lift() failed: Sensors lost the red cube during lift: fingertip switches went off.,5.32,camera sees every goal met,1.17,1.78,0
+combined/chaos/g-sort-019/2,combined,chaos,g-sort-019,sort,2,true,false,true,false,step 8 lift() failed: Sensors lost the green cube during lift: fingertip switches went off.,13.93,camera sees every goal met,1.18,1.81,0
+combined/chaos/g-sort-019/3,combined,chaos,g-sort-019,sort,3,true,false,true,false,step 13 lift() failed: Sensors lost the blue cube during lift: fingertip switches went off.,22.64,camera sees every goal met,2.17,3.72,0

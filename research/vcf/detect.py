@@ -9,7 +9,8 @@ No learning. Steps:
      inside the zone square. A cube the camera cannot find fails its goals.
 
 The camera matrices come from the renderer (three.js, column-major), so projection is exact.
-`--serve` reads one JSON request per line on stdin and writes one JSON answer per line.
+`--serve` reads one JSON request per line on stdin and writes one JSON answer per line. A request with
+"op": "perceive" returns the fitted cube poses (perceived-state mode) instead of a goal check.
 """
 from __future__ import annotations
 
@@ -263,10 +264,21 @@ def contact_gap(img: np.ndarray, cam: Camera, a: str, b: str, names: list[str]) 
     return {"gapMm": float(best[1]), "iou": round(float(best[0]), 3)}
 
 
+def perceive(req: dict) -> dict:
+    """Cube poses from one image: {name: {"pos": [x, y, z], "yaw": yaw} or None}."""
+    cubes = find_cubes(decode(req["image"]), Camera(req["cam"]), req["cubes"])
+    return {"cubes": {n: None if c is None else {"pos": [c["x"], c["y"], c["z"]], "yaw": c["yaw"]} for n, c in cubes.items()}}
+
+
 def serve():
     for line in sys.stdin:
         try:
-            out = check_goals(json.loads(line))
+            req = json.loads(line)
+            if req.get("op") == "perceive":
+                sys.stdout.write(json.dumps(perceive(req)) + "\n")
+                sys.stdout.flush()
+                continue
+            out = check_goals(req)
             out.pop("cubes", None)
         except Exception as e:  # keep the run going; an unreadable image is a failed check
             out = {"ok": False, "detail": f"camera check error: {e}"}
