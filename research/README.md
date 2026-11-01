@@ -8,41 +8,44 @@ The study behind the agent's sensor check. A benchmark of minimal pairs that tes
 
 ## Headline
 
-On 400 simulated contact attempts (200 minimal pairs), the best free vision model we could run at scale, gemini/gemini-3.1-flash-lite (single) (150/400 answered), reached 55% balanced accuracy and called 53% of failures a success. A logistic regression on three cheap, noisy sensor signals reached 88% with a 11% false-success rate. The sensors are not a full fix: on the push task they score 50%, they do not transfer to unseen tasks, and vision catches up once sensor noise reaches 32x the default.
+<!-- BEGIN:headline -->
+On 400 simulated contact attempts (200 minimal pairs), the best free vision model we could run at scale, gemini/gemini-3.1-flash-lite (single) (150/400 answered), reached 55% balanced accuracy (95% CI [51, 60]) and called 53% [41, 64] of failures a success. A logistic regression on three cheap, noisy sensor signals reached 89% [85, 92] with a 11% [7, 16] false-success rate. On the 150 samples both answered, the sensors were right where the VLM was wrong 60 times and the reverse 6 times (McNemar p < 0.001). The sensors are not a full fix: on the push task they score 50%, they do not transfer to unseen tasks, and vision's interval overlaps the sensors' from noise strength 16x the default and its point estimate is higher from 32x.
+<!-- END:headline -->
 
 ## Leaderboard
 
-| Judge | Kind | Coverage | Balanced acc. | False-success | ECE |
+<!-- BEGIN:leaderboard -->
+| Judge | Kind | Coverage | Balanced acc. [95% CI] | False-success [95% CI] | ECE |
 |---|---|---|---|---|---|
-| sensor_gboost | sensor | all | 0.89 | 12% | 0.06 |
-| sensor_logreg | sensor | all | 0.89 | 11% | 0.04 |
-| fusion: gemini/gemini-3.1-flash-lite (single) + sensors | fusion | 150/400 | 0.88 | 11% | 0.06 |
-| gemini/gemini-3.1-flash-lite (single) | vlm | 150/400 | 0.55 | 53% | 0.45 |
-| ollama/moondream:1.8b (single) | vlm | 8/400 | 0.50 | 100% | 0.17 |
+| sensor_gboost | sensor | all | 0.89 [0.85, 0.92] | 13% [8, 17] | 0.06 |
+| sensor_logreg | sensor | all | 0.89 [0.85, 0.92] | 11% [7, 16] | 0.04 |
+| fusion: gemini/gemini-3.1-flash-lite (single) + sensors | fusion | 150/400 | 0.88 [0.82, 0.93] | 11% [4, 19] | 0.06 |
+| gemini/gemini-3.1-flash-lite (single) | vlm | 150/400 | 0.55 [0.51, 0.60] | 53% [41, 64] | 0.45 |
+| ollama/moondream:1.8b (single) | vlm | 8/400 | 0.50 [0.50, 0.50] | 100% [100, 100] | 0.17 |
 
-Scaled set, 400 samples. Chance is 0.50. Coverage below 400 is due to free-tier daily quotas; metrics use answered samples only.
+Scaled set, 400 samples. Chance is 0.50. Intervals are pair bootstraps. Coverage below 400 is due to free-tier daily quotas; metrics use answered samples only.
 
 Small set, all models (100 samples):
 
-| Judge | Coverage | Balanced acc. | False-success |
+| Judge | Coverage | Balanced acc. [95% CI] | False-success [95% CI] |
 |---|---|---|---|
-| fusion: gemini/gemma-4-31b-it (single) + sensors | 83/100 | 0.87 | 8% |
-| sensor_logreg | all | 0.86 | 14% |
-| sensor_gboost | all | 0.86 | 12% |
-| fusion: ollama/moondream:1.8b (single) + sensors | 100/100 | 0.86 | 8% |
-| fusion: gemini/gemini-3.1-flash-lite (multi) + sensors | 57/100 | 0.86 | 10% |
-| fusion: gemini/gemini-3.1-flash-lite (single) + sensors | 100/100 | 0.85 | 8% |
-| fusion: ollama/qwen2.5vl:3b (single) + sensors | 100/100 | 0.85 | 10% |
-| fusion: groq/qwen/qwen3.8-27b (single) + sensors | 93/100 | 0.84 | 11% |
-| fusion: gemini/gemini-3.5-flash (single) + sensors | 41/100 | 0.78 | 24% |
-| gemini/gemini-3.1-flash-lite (multi) | 57/100 | 0.65 | 45% |
-| gemini/gemini-3.5-flash (single) | 41/100 | 0.61 | 52% |
-| gemini/gemini-3.1-flash-lite (single) | 100/100 | 0.60 | 46% |
-| groq/qwen/qwen3.8-27b (single) | 93/100 | 0.57 | 43% |
-| gemini/gemma-4-31b-it (single) | 83/100 | 0.56 | 38% |
-| gemini/gemma-4-31b-it (multi) | 9/100 | 0.55 | 40% |
-| ollama/moondream:1.8b (single) | 100/100 | 0.50 | 100% |
-| ollama/qwen2.5vl:3b (single) | 100/100 | 0.50 | 100% |
+| fusion: gemini/gemma-4-31b-it (single) + sensors | 83/100 | 0.87 [0.79, 0.94] | 8% [0, 17] |
+| sensor_logreg | all | 0.86 [0.78, 0.93] | 14% [6, 24] |
+| sensor_gboost | all | 0.86 [0.78, 0.93] | 12% [4, 22] |
+| fusion: ollama/moondream:1.8b (single) + sensors | 100/100 | 0.86 [0.79, 0.93] | 8% [2, 16] |
+| fusion: gemini/gemini-3.1-flash-lite (multi) + sensors | 57/100 | 0.86 [0.76, 0.95] | 10% [0, 21] |
+| fusion: gemini/gemini-3.1-flash-lite (single) + sensors | 100/100 | 0.85 [0.77, 0.92] | 8% [2, 16] |
+| fusion: ollama/qwen2.5vl:3b (single) + sensors | 100/100 | 0.85 [0.77, 0.92] | 10% [2, 18] |
+| fusion: groq/qwen/qwen3.8-27b (single) + sensors | 93/100 | 0.84 [0.75, 0.91] | 11% [2, 19] |
+| fusion: gemini/gemini-3.5-flash (single) + sensors | 41/100 | 0.78 [0.65, 0.90] | 24% [10, 43] |
+| gemini/gemini-3.1-flash-lite (multi) | 57/100 | 0.65 [0.55, 0.74] | 45% [28, 62] |
+| gemini/gemini-3.5-flash (single) | 41/100 | 0.61 [0.48, 0.74] | 52% [29, 76] |
+| gemini/gemini-3.1-flash-lite (single) | 100/100 | 0.60 [0.54, 0.66] | 46% [32, 60] |
+| groq/qwen/qwen3.8-27b (single) | 93/100 | 0.57 [0.49, 0.65] | 43% [28, 57] |
+| gemini/gemma-4-31b-it (single) | 83/100 | 0.56 [0.48, 0.64] | 38% [23, 53] |
+| gemini/gemma-4-31b-it (multi) | 9/100 | 0.55 [0.30, 0.80] | 40% [0, 80] |
+| ollama/moondream:1.8b (single) | 100/100 | 0.50 [0.50, 0.50] | 100% [100, 100] |
+| ollama/qwen2.5vl:3b (single) | 100/100 | 0.50 [0.50, 0.50] | 100% [100, 100] |
 
 Millimeters to fool (largest failure still judged a success, mean over scenes):
 
@@ -52,6 +55,7 @@ Millimeters to fool (largest failure still judged a success, mean over scenes):
 | ollama/moondream:1.8b | 16.0 | 16.0 | 3.7 | 16.0 | 16.0 |
 
 Of 115 scenes that fooled a model, the sensor classifier also called 6 a success.
+<!-- END:leaderboard -->
 
 Notes: the Flash-Lite attack covered only stack and grasp before its daily quota ran out (`-` = not run). Moondream and Qwen2.5-VL 3B answered "success" to every image, which is why they sit at exactly 0.50 with a 100% false-success rate. Their fusion rows are high because the fusion model leans on the sensor features.
 

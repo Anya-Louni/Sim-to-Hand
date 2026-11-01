@@ -52,19 +52,25 @@ Keys never reach the browser bundle. Without a visitor key, the browser calls `/
 
 ## Benchmark
 
-24 seeded tasks: 9 stack, 6 tower, 4 sort, 5 zone. Instructions use varied phrasing. Each task runs in four conditions. Max 3 replans. Chaos: slip probability 0.2 per transport skill, nudge probability 0.12 between steps, at most 2 events per attempt. Chaos is seeded per task, so both chaos rows see the same events on their first attempt.
+<!-- BEGIN:bench_intro -->
+24 seeded tasks: 9 stack, 6 tower, 4 sort, 5 zone. Instructions use varied phrasing. Each task runs in four conditions. Max 3 replans.
+<!-- END:bench_intro -->
+Chaos: slip probability 0.2 per transport skill, nudge probability 0.12 between steps, at most 2 events per attempt. Chaos is seeded per task, so both chaos rows see the same events on their first attempt.
 
 - `scripted`: no LLM. Plans come straight from the task's goal predicates. Isolates executor reliability. On retry it repeats the full sequence, with no reasoning about the new state.
 - `llm`: LLM planner plus vision judge. Ground truth for success always comes from sim state.
 
+<!-- BEGIN:bench -->
+Brackets are 95% Wilson confidence intervals.
+
 | Condition | Tasks | Success | Avg replans | Avg chaos events | Vision agrees with sim | Sensors agree with sim | LLM calls |
 |---|---|---|---|---|---|---|---|
-| scripted | 24 | 24/24 (100%) | 0.00 | 0.00 | not run | 24/24 (100%) | 0 |
-| scripted-chaos | 24 | 21/24 (88%) | 0.88 | 2.17 | not run | 43/45 (96%) | 0 |
-| llm | 24 | 24/24 (100%) | 0.00 | 0.00 | 24/24 (100%) | not run* | 48 |
-| llm-chaos | 24 | 22/24 (92%) | 0.88 | 2.17 | 45/45 (100%) | not run* | 90 |
+| scripted | 24 | 24/24 = 100% [86, 100] | 0.00 | 0.00 | not run | 24/24 = 100% [86, 100] | 0 |
+| scripted-chaos | 24 | 21/24 = 88% [69, 96] | 0.88 | 2.17 | not run | 43/45 = 96% [85, 99] | 0 |
+| llm | 24 | 24/24 = 100% [86, 100] | 0.00 | 0.00 | 24/24 = 100% [86, 100] | not run | 48 |
+| llm-chaos | 24 | 22/24 = 92% [74, 98] | 0.88 | 2.17 | 45/45 = 100% [92, 100] | not run | 90 |
 
-*The LLM rows come from a run made before the sensor check existed (raw data kept in [bench/results-llm-before-sensors.json](bench/results-llm-before-sensors.json)); the scripted rows were rerun with sensors and still pass at the same rates, so the sensor-driven executor kept the same reliability. The two sensor disagreements under chaos are cases sensors cannot see: a cube knocked off after it was released.
+Per-kind success:
 
 | Condition | stack | tower | sort | zone |
 |---|---|---|---|---|
@@ -73,20 +79,22 @@ Keys never reach the browser bundle. Without a visitor key, the browser calls `/
 | llm | 9/9 | 6/6 | 4/4 | 5/5 |
 | llm-chaos | 9/9 | 4/6 | 4/4 | 5/5 |
 
-Calls by provider: gemini-3.1-flash-lite 117, gemini-3.5-flash-lite 20 (fallback), groq gpt-oss-120b 1 (fallback).
+Calls by provider: gemini/gemini-3.1-flash-lite 117, gemini/gemini-3.5-flash-lite 20, groq/openai/gpt-oss-120b 1
 
-Reading:
+- Without chaos: scripted 24/24 (24 on the first attempt), LLM 24/24 (24 on the first attempt).
+- With chaos: scripted 21/24, LLM 22/24. Failed kinds: scripted tower; LLM tower. The intervals overlap, so this benchmark does not separate the planners.
+- The vision check agreed with sim state on 69 of 69 checks. The camera is fixed and the failures here are centimeters apart, which is the easy case for vision.
+<!-- END:bench -->
 
-- Without chaos, every plan was valid and every task succeeded on the first attempt, in both conditions.
-- With chaos, all failures are towers. The LLM planner recovered one tower the scripted baseline did not (22/24 vs 21/24). That is one task; the difference is small.
-- The two LLM failures (tower-03, tower-06) used all 4 attempts and still lost a cube to an injected slip on the last one.
-- The vision check agreed with sim state on all 69 checks. No disagreements were logged, so this benchmark does not show where vision fails. The camera is fixed and the failures here are large (cubes centimeters apart), which is the easy case for vision.
+The LLM rows come from a run made before the sensor check existed (raw data kept in [bench/results-llm-before-sensors.json](bench/results-llm-before-sensors.json)); the scripted rows were rerun with sensors and still pass at the same rates, so the sensor-driven executor kept the same reliability. The two sensor disagreements under chaos are cases sensors cannot see: a cube knocked off after it was released.
 
 Raw per-task data: [bench/results.json](bench/results.json). Summary and failure list: [bench/RESULTS.md](bench/RESULTS.md). Reproduce with `npm run bench` (needs keys in `.env`; free-tier rate limits make the LLM rows take about an hour).
 
 ## Do the touch sensors add value? 1,600 seeded episodes
 
+<!-- BEGIN:trials_intro -->
 The 24-task benchmark is small, so I ran a controlled experiment: 80 generated tasks (`generateTasks(20, 1000)`), the scripted planner (no LLM calls, so runs are free and repeatable), and up to 3 replans. Each task ran under 20 conditions: 4 decision rules times 5 failure types. Every episode and every attempt is saved to CSV. Every rate below has a 95% Wilson confidence interval.
+<!-- END:trials_intro -->
 
 **Decision rules**, meaning what the agent trusts to say "done":
 
@@ -99,36 +107,40 @@ Scoring always uses true simulator state.
 
 **Failures**, injected deterministically in the first attempt: the cube slips while carried, the target cube moves just before placing, or the cube is knocked away right after release. Seeded random chaos and a no-failure baseline are also included.
 
+<!-- BEGIN:trials -->
 | Failure | Camera only | Sensors only | Camera + sensors | Simulator |
 |---|---|---|---|---|
-| None (80) | 98% | 99% | 99% | 100% |
-| Slip while carrying (80) | 76% | 99% | 99% | 99% |
-| Target moved (40, stack and tower only) | 50% | 98% | 98% | 100% |
-| Knocked after release (80) | 75% | **0%, all 80 falsely declared done** | 79% | 79% |
-| Random chaos (80) | 92% | 95% | 94% | 96% |
+| None (80) | 98% [91, 99] | 99% [93, 100] | 99% [93, 100] | 100% [95, 100] |
+| Slip while carrying (80) | 76% [66, 84] | 99% [93, 100] | 99% [93, 100] | 99% [93, 100] |
+| Target moved (40, stack and tower only) | 50% [35, 65] | 98% [87, 100] | 98% [87, 100] | 100% [91, 100] |
+| Knocked after release (80) | 75% [65, 83] | **0% [0, 5], all 80 falsely declared done** | 79% [69, 86] | 79% [69, 86] |
+| Random chaos (80) | 93% [85, 97] | 95% [88, 98] | 94% [86, 97] | 96% [90, 99] |
 
 The table shows the true success rate. Takeaways:
 
-- **Sensors catch failures during the task.** A dropped cube is noticed 5.4 s into the attempt, vs 15.4 s for the camera-only agent, which only looks at the end. Without touch, the open-loop robot also gets stuck more often: it recovered from 69% of real slips vs 99% with sensors.
-- **The camera catches what sensors cannot feel.** After a release, the hand feels nothing, so sensors alone declared all 80 knocked-off episodes a success.
-- **Camera + sensors never stopped early on a failure.** It had 0 false successes in all 360 of its episodes, and matched the simulator reference on true success in every failure type, within the confidence intervals. The cost is extra replans when the camera rejects a good attempt: 2.2 attempts on average vs 2.0 for sensors alone on slips.
+- **Sensors catch failures during the task.** A dropped cube is noticed 5.4 s into the attempt, vs 15.4 s for the camera-only agent, which only looks at the end. Without touch, the open-loop robot also gets stuck more often: it recovered from 69% [58, 79] of real slips vs 99% [93, 100] with sensors.
+- **The camera catches what sensors cannot feel.** After a release, the hand feels nothing, so sensors alone declared 80 of 80 knocked-off episodes a success.
+- **Camera + sensors never stopped early on a failure.** It had 0 false successes in 360 episodes (0% [0, 1]), and its true success overlapped the simulator reference within 95% intervals in every failure type. The cost is extra replans when the camera rejects a good attempt: 2.2 attempts on average vs 2.0 for sensors alone on slips.
+<!-- END:trials -->
 
 ![True success by decision rule and failure type](experiments/figures/trials_success.png)
 
 ### Cases built so the camera cannot tell
 
+<!-- BEGIN:checkpoints -->
 Minimal pairs from the agent's own robot and cubes: 120 per type, half success and half failure by construction.
 
-| Checkpoint | Camera (OpenCV) | Vision-language model (Gemini 3.1 Flash-Lite) | Sensors | Camera + sensors |
+| Checkpoint | Camera (OpenCV) | Vision-language model (gemini-3.1-flash-lite) | Sensors | Camera + sensors |
 |---|---|---|---|---|
-| **Contact:** held cube touching vs hovering 1.7 to 5.5 mm | 57% [48, 65] | 48% [40, 57] | **98%** [94, 100] | 88% [80, 92] |
+| **Contact:** held cube touching vs hovering 1.7 to 5.5 mm | 57% [48, 65] | 48% [40, 57] | **98% [94, 100]** | 88% [80, 92] |
 | **Placement:** cube stays on top vs tips off after release | 95% [90, 98] | 99% [95, 100] | 58% [49, 67] | 93% [87, 97] |
 
-Accuracy with 95% intervals; chance is 50%.
+Accuracy with 95% Wilson intervals; chance is 50%.
 
-- Millimeter contact is invisible to both camera methods. They are near chance and pass 64% (OpenCV) and 79% (Gemini) of the hovering cases as touching. The wrist force sensor gets 98%.
-- The opposite holds after the hand lets go: sensors cannot see a cube tip off, and both camera methods can.
-- Combining them keeps false successes at 3% (contact) and 0% (placement).
+- Millimeter contact is hard for both camera methods. They pass 64% [51, 75] (OpenCV) and 79% [67, 87] (VLM) of the hovering cases as touching. The wrist force sensor is right on 98% [94, 100] of contact checkpoints.
+- The opposite holds after the hand lets go: sensors pass 87% [76, 94] of tipped cubes as placed, the camera 0% [0, 7].
+- Combining them keeps false successes at 3% [1, 11] (contact) and 0% [0, 7] (placement).
+<!-- END:checkpoints -->
 
 ![Checkpoint accuracy](experiments/figures/checkpoints_accuracy.png)
 
@@ -136,16 +148,20 @@ All tables, plus recovery rates, time to detect and the per-gap contact curve: [
 
 ## Why the sensor check: the research behind it
 
-The agent's vision check agreed with the simulator on all 69 checks above, because those failures were centimeters apart. [research/](research/) asks what happens at the millimeter scale where contact decides success. It builds minimal pairs in MuJoCo, the same scene captured as a success and as a failure a few millimeters off, across five contact tasks (stack, grasp, button, peg, push). It then compares free vision models with a tiny classifier on the same cheap sensors the agent uses.
+<!-- BEGIN:research -->
+The agent's vision check agreed with the simulator on 69 of 69 checks above, because those failures were centimeters apart. [research/](research/) asks what happens at the millimeter scale where contact decides success. It builds minimal pairs in MuJoCo, the same scene captured as a success and as a failure a few millimeters off, across five contact tasks (stack, grasp, button, peg, push). It then compares free vision models with a tiny classifier on the same cheap sensors the agent uses.
 
-| Judge (400 samples, 200 pairs) | Balanced accuracy | Failures called a success |
+| Judge (400 samples, 200 pairs) | Balanced accuracy [95% CI] | Failures called a success [95% CI] |
 |---|---|---|
-| Cheap-sensor classifier (logistic regression) | 0.89 | 11% |
-| Gemini 3.1 Flash-Lite, image only (150/400 answered, free quota) | 0.55 | 53% |
+| Cheap-sensor classifier (logistic regression) | 0.89 [0.85, 0.92] | 11% [7, 16] |
+| gemini-3.1-flash-lite, image only (150/400 answered, free quota) | 0.55 [0.51, 0.60] | 53% [41, 64] |
+
+Intervals resample minimal pairs (2,000 bootstrap resamples). A paired McNemar test on the 150 shared samples gives p < 0.001.
 
 - Some vision models still call a stack a success with the cube hovering 7 to 16 mm above it.
-- Sensors are not a full fix. A single-axis wrist force cannot feel a sideways push (the push task stays at chance), the classifier does not transfer to unseen tasks, and vision catches up at 32x the default sensor noise.
+- Sensors are not a full fix. A single-axis wrist force cannot feel a sideways push (the push task scores 0.50), the classifier does not transfer to unseen tasks, and vision's interval overlaps the sensors' from noise strength 16x the default and its point estimate is higher from 32x.
 - That is why the agent uses sensors for per-skill checks (grasp, slip, contact) rather than a learned success classifier, and keeps all three verdicts visible.
+<!-- END:research -->
 
 Play "Can you tell?" and see every model's answers at https://sim-to-hand.vercel.app/benchmark/. Full results, attacker, limitations and reproduction: [research/README.md](research/README.md). Related work: [research/RELATED_WORK.md](research/RELATED_WORK.md).
 
