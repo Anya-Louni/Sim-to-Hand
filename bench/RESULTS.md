@@ -1,9 +1,11 @@
+Brackets are 95% Wilson confidence intervals.
+
 | Condition | Tasks | Success | Avg replans | Avg chaos events | Vision agrees with sim | Sensors agree with sim | LLM calls |
 |---|---|---|---|---|---|---|---|
-| scripted | 24 | 24/24 (100%) | 0.00 | 0.00 | not run | 24/24 (100%) | 0 |
-| scripted-chaos | 24 | 21/24 (88%) | 0.88 | 2.17 | not run | 43/45 (96%) | 0 |
-| llm | 24 | 24/24 (100%) | 0.00 | 0.00 | 24/24 (100%) | not run | 48 |
-| llm-chaos | 24 | 22/24 (92%) | 0.88 | 2.17 | 45/45 (100%) | not run | 90 |
+| scripted | 24 | 24/24 = 100% [86, 100] | 0.00 | 0.00 | not run | 24/24 = 100% [86, 100] | 0 |
+| scripted-chaos | 24 | 21/24 = 88% [69, 96] | 0.88 | 2.17 | not run | 43/45 = 96% [85, 99] | 0 |
+| llm | 24 | 24/24 = 100% [86, 100] | 0.00 | 0.00 | 24/24 = 100% [86, 100] | not run | 48 |
+| llm-chaos | 24 | 22/24 = 92% [74, 98] | 0.88 | 2.17 | 45/45 = 100% [92, 100] | not run | 90 |
 
 Per-kind success:
 
@@ -14,7 +16,7 @@ Per-kind success:
 | llm | 9/9 | 6/6 | 4/4 | 5/5 |
 | llm-chaos | 9/9 | 4/6 | 4/4 | 5/5 |
 
-Calls by provider: scripted 69, gemini/gemini-3.1-flash-lite 117, gemini/gemini-3.5-flash-lite 20, groq/openai/gpt-oss-120b 1
+Calls by provider: gemini/gemini-3.1-flash-lite 117, gemini/gemini-3.5-flash-lite 20, groq/openai/gpt-oss-120b 1
 
 Vision disagreements (0):
 

@@ -23,6 +23,7 @@ from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler
 
 from .sensors import FEATURES, feature_matrix
+from .stats import half_up, mcnemar, pair_bootstrap
 
 TASKS = ["stack", "grasp", "button", "peg", "push"]
 
@@ -106,7 +107,9 @@ def main():
     ids = [s["id"] for s in test]
     y = np.array([s["label"] for s in test])
     ytr = np.array([s["label"] for s in train])
-    report: dict = {"test": str(a.test), "n_test": len(test), "n_train_sensor": len(train), "sensor_strength": a.strength, "judges": {}}
+    report: dict = {"test": a.test.as_posix(), "n_test": len(test), "n_train_sensor": len(train), "sensor_strength": a.strength, "judges": {}}
+    pairs = np.array([s["pair"] for s in test])
+    preds: dict[str, np.ndarray] = {}  # per-sample verdicts: 1, 0, -1 no answer, -2 not judged
 
     # --- Sensor classifiers -------------------------------------------------------------
     Xtr = feature_matrix(train_tr, [s["id"] for s in train], a.strength, seed=1)
@@ -117,7 +120,8 @@ def main():
         p = clf.predict_proba(Xte)[:, 1]
         sensor_p[name] = p
         pred = (p >= 0.5).astype(int)
-        report["judges"][name] = {"overall": metrics(y, pred, p), "by_task": by_task(test, y, pred, p), "kind": "sensor"}
+        report["judges"][name] = {"overall": metrics(y, pred, p), "ci": pair_bootstrap(y, pred, pairs), "by_task": by_task(test, y, pred, p), "kind": "sensor"}
+        preds[name] = pred
 
     # Leave-one-task-out: train on four tasks, test on the held-out one.
     loto = {}
@@ -126,7 +130,9 @@ def main():
         tem = np.array([s["task"] == t for s in test])
         clf = sensor_models()["sensor_logreg"].fit(Xtr[trm], ytr[trm])
         p = clf.predict_proba(Xte[tem])[:, 1]
-        loto[t] = metrics(y[tem], (p >= 0.5).astype(int))
+        pl = (p >= 0.5).astype(int)
+        loto[t] = metrics(y[tem], pl)
+        loto[t]["ci"] = pair_bootstrap(y[tem], pl, pairs[tem])
     report["sensor_logreg_leave_one_task_out"] = loto
 
     # --- VLM judges ---------------------------------------------------------------------
@@ -143,12 +149,17 @@ def main():
         m = np.array([i in rows for i in ids])
         pred = np.array([(-1 if rows[i]["success"] is None else int(rows[i]["success"])) if i in rows else -1 for i in ids])
         ps = np.array([p_success(rows[i]) if i in rows else np.nan for i in ids])
+        answered = m & (pred != -1)
         report["judges"][f"{model} ({mode})"] = {
             "overall": metrics(y[m], pred[m], ps[m]),
+            "ci": pair_bootstrap(y[m], pred[m], pairs[m]),
+            # Paired test against the sensor classifier on the samples this model answered.
+            "mcnemar_vs_sensor_logreg": mcnemar(pred[answered] == y[answered], preds["sensor_logreg"][answered] == y[answered]),
             "by_task": by_task([s for s, k in zip(test, m) if k], y[m], pred[m], ps[m]),
             "coverage": f"{int(m.sum())}/{len(ids)}",
             "kind": "vlm",
         }
+        preds[f"{model} ({mode})"] = np.where(m, pred, -2)
 
         # Fusion: VLM p(success) + sensor features, cross-validated on answered test samples.
         ok = m & ~np.isnan(ps)
@@ -162,8 +173,11 @@ def main():
             predf = (pf >= 0.5).astype(int)
             sub = [s for s, k in zip(test, ok) if k]
             report["judges"][f"fusion: {model} ({mode}) + sensors"] = {
-                "overall": metrics(y[ok], predf, pf), "by_task": by_task(sub, y[ok], predf, pf), "coverage": f"{int(ok.sum())}/{len(ids)}", "kind": "fusion",
+                "overall": metrics(y[ok], predf, pf), "ci": pair_bootstrap(y[ok], predf, pairs[ok]), "by_task": by_task(sub, y[ok], predf, pf), "coverage": f"{int(ok.sum())}/{len(ids)}", "kind": "fusion",
             }
+            full = np.full(len(ids), -2)
+            full[ok] = predf
+            preds[f"fusion: {model} ({mode}) + sensors"] = full
 
     # --- Robustness: sensor noise sweep -------------------------------------------------
     sweep = []
@@ -173,17 +187,36 @@ def main():
         clf = sensor_models()["sensor_logreg"].fit(Xa, ytr)
         pred = (clf.predict_proba(Xb)[:, 1] >= 0.5).astype(int)
         mm = metrics(y, pred)
-        sweep.append({"strength": st, "balanced_accuracy": mm["balanced_accuracy"], "false_success_rate": mm["false_success_rate"]})
+        sweep.append({"strength": st, "balanced_accuracy": mm["balanced_accuracy"], "false_success_rate": mm["false_success_rate"], "ci": pair_bootstrap(y, pred, pairs)})
     report["noise_sweep_sensor_logreg"] = sweep
 
-    (a.out / "metrics.json").write_text(json.dumps(report, indent=2))
+    (a.out / "metrics.json").write_text(json.dumps(report, indent=2), newline="\n")
+    write_predictions(test, y, preds, a.out)
     write_tables(report, a.out)
     plot(report, a.out)
     print((a.out / "leaderboard.md").read_text())
 
 
+def write_predictions(test, y, preds: dict, out: Path):
+    """One row per test sample, one column per judge. Blank means the judge did not see the sample."""
+    names = list(preds)
+    lines = ["id,pair,task,label," + ",".join(f'"{n}"' for n in names)]
+    for i, s in enumerate(test):
+        cells = ["" if preds[n][i] == -2 else str(int(preds[n][i])) for n in names]
+        lines.append(f"{s['id']},{s['pair']},{s['task']},{int(y[i])}," + ",".join(cells))
+    (out / "predictions.csv").write_text("\n".join(lines) + "\n", newline="\n")
+
+
 def _n(x) -> str:
-    return "-" if x is None or x != x else f"{x:.3f}"
+    return "-" if x is None or x != x else half_up(x, 3)
+
+
+def _ci(c) -> str:
+    return "" if not c or c[0] is None else f"[{half_up(c[0], 2)}, {half_up(c[1], 2)}]"
+
+
+def _p(p: float) -> str:
+    return "<0.001" if p < 0.001 else f"{p:.3f}"
 
 
 def write_tables(r: dict, out: Path):
@@ -191,8 +224,16 @@ def write_tables(r: dict, out: Path):
     md = f"Test set: {r['test']} ({r['n_test']} samples). Sensor classifiers trained on {r['n_train_sensor']} samples from other seeds, noise strength {r['sensor_strength']}.\n\n"
     md += "| Judge | Kind | Coverage | Balanced acc. | False-success | False-failure | No answer | ECE |\n|---|---|---|---|---|---|---|---|\n"
     for name, j in rows:
-        o = j["overall"]
-        md += f"| {name} | {j['kind']} | {j.get('coverage', 'all')} | {_n(o['balanced_accuracy'])} | {_n(o['false_success_rate'])} | {_n(o['false_failure_rate'])} | {_n(o['no_answer_rate'])} | {_n(o.get('ece'))} |\n"
+        o, ci = j["overall"], j["ci"]
+        md += (f"| {name} | {j['kind']} | {j.get('coverage', 'all')} | {_n(o['balanced_accuracy'])} {_ci(ci['balanced_accuracy'])} | "
+               f"{_n(o['false_success_rate'])} {_ci(ci['false_success_rate'])} | {_n(o['false_failure_rate'])} | {_n(o['no_answer_rate'])} | {_n(o.get('ece'))} |\n")
+    md += "\nBrackets: 95% bootstrap intervals, resampling minimal pairs (2,000 resamples, seed 0).\n"
+    md += "\nPaired test, each VLM vs sensor_logreg on the samples the VLM answered (McNemar; exact below 25 discordant samples):\n\n"
+    md += "| VLM | Shared samples | Only VLM right | Only sensors right | p | Test |\n|---|---|---|---|---|---|\n"
+    for name, j in rows:
+        t = j.get("mcnemar_vs_sensor_logreg")
+        if t:
+            md += f"| {name} | {t['n_shared']} | {t['only_a_correct']} | {t['only_b_correct']} | {_p(t['p'])} | {t['method']} |\n"
     md += "\nBalanced accuracy by task:\n\n| Judge | " + " | ".join(TASKS) + " |\n|---|" + "---|" * len(TASKS) + "\n"
     for name, j in rows:
         md += f"| {name} | " + " | ".join(_n(j['by_task'][t]['balanced_accuracy']) if t in j["by_task"] else "-" for t in TASKS) + " |\n"
@@ -201,11 +242,11 @@ def write_tables(r: dict, out: Path):
         md += f"| {name} | " + " | ".join(_n(j['by_task'][t]['false_success_rate']) if t in j["by_task"] else "-" for t in TASKS) + " |\n"
     md += "\nSensor classifier, leave one task out (logistic regression):\n\n| Held-out task | Balanced acc. | False-success |\n|---|---|---|\n"
     for t, m in r["sensor_logreg_leave_one_task_out"].items():
-        md += f"| {t} | {m['balanced_accuracy']:.3f} | {m['false_success_rate']:.3f} |\n"
+        md += f"| {t} | {_n(m['balanced_accuracy'])} {_ci(m['ci']['balanced_accuracy'])} | {_n(m['false_success_rate'])} {_ci(m['ci']['false_success_rate'])} |\n"
     md += "\nSensor noise sweep (logistic regression, trained and tested at the same strength):\n\n| Strength | Balanced acc. | False-success |\n|---|---|---|\n"
     for s in r["noise_sweep_sensor_logreg"]:
-        md += f"| {s['strength']} | {s['balanced_accuracy']:.3f} | {s['false_success_rate']:.3f} |\n"
-    (out / "leaderboard.md").write_text(md)
+        md += f"| {s['strength']} | {_n(s['balanced_accuracy'])} {_ci(s['ci']['balanced_accuracy'])} | {_n(s['false_success_rate'])} {_ci(s['ci']['false_success_rate'])} |\n"
+    (out / "leaderboard.md").write_text(md, newline="\n")
 
 
 def plot(r: dict, out: Path):

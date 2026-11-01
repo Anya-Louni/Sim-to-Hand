@@ -1,12 +1,21 @@
-Test set: data\large (400 samples). Sensor classifiers trained on 600 samples from other seeds, noise strength 1.0.
+Test set: data/large (400 samples). Sensor classifiers trained on 600 samples from other seeds, noise strength 1.0.
 
 | Judge | Kind | Coverage | Balanced acc. | False-success | False-failure | No answer | ECE |
 |---|---|---|---|---|---|---|---|
-| sensor_gboost | sensor | all | 0.887 | 0.125 | 0.100 | 0.000 | 0.063 |
-| sensor_logreg | sensor | all | 0.885 | 0.110 | 0.120 | 0.000 | 0.043 |
-| fusion: gemini/gemini-3.1-flash-lite (single) + sensors | fusion | 150/400 | 0.880 | 0.107 | 0.133 | 0.000 | 0.055 |
-| gemini/gemini-3.1-flash-lite (single) | vlm | 150/400 | 0.553 | 0.533 | 0.360 | 0.000 | 0.446 |
-| ollama/moondream:1.8b (single) | vlm | 8/400 | 0.500 | 1.000 | 0.000 | 0.000 | 0.172 |
+| sensor_gboost | sensor | all | 0.888 [0.85, 0.92] | 0.125 [0.08, 0.17] | 0.100 | 0.000 | 0.063 |
+| sensor_logreg | sensor | all | 0.885 [0.85, 0.92] | 0.110 [0.07, 0.16] | 0.120 | 0.000 | 0.043 |
+| fusion: gemini/gemini-3.1-flash-lite (single) + sensors | fusion | 150/400 | 0.880 [0.82, 0.93] | 0.107 [0.04, 0.19] | 0.133 | 0.000 | 0.055 |
+| gemini/gemini-3.1-flash-lite (single) | vlm | 150/400 | 0.553 [0.51, 0.60] | 0.533 [0.41, 0.64] | 0.360 | 0.000 | 0.446 |
+| ollama/moondream:1.8b (single) | vlm | 8/400 | 0.500 [0.50, 0.50] | 1.000 [1.00, 1.00] | 0.000 | 0.000 | 0.173 |
+
+Brackets: 95% bootstrap intervals, resampling minimal pairs (2,000 resamples, seed 0).
+
+Paired test, each VLM vs sensor_logreg on the samples the VLM answered (McNemar; exact below 25 discordant samples):
+
+| VLM | Shared samples | Only VLM right | Only sensors right | p | Test |
+|---|---|---|---|---|---|
+| gemini/gemini-3.1-flash-lite (single) | 150 | 6 | 60 | <0.001 | chi2_cc |
+| ollama/moondream:1.8b (single) | 8 | 0 | 3 | 0.250 | exact |
 
 Balanced accuracy by task:
 
@@ -32,21 +41,21 @@ Sensor classifier, leave one task out (logistic regression):
 
 | Held-out task | Balanced acc. | False-success |
 |---|---|---|
-| stack | 0.500 | 1.000 |
-| grasp | 1.000 | 0.000 |
-| button | 0.662 | 0.675 |
-| peg | 0.500 | 1.000 |
-| push | 0.500 | 0.000 |
+| stack | 0.500 [0.50, 0.50] | 1.000 [1.00, 1.00] |
+| grasp | 1.000 [1.00, 1.00] | 0.000 [0.00, 0.00] |
+| button | 0.663 [0.59, 0.74] | 0.675 [0.53, 0.83] |
+| peg | 0.500 [0.50, 0.50] | 1.000 [1.00, 1.00] |
+| push | 0.500 [0.50, 0.50] | 0.000 [0.00, 0.00] |
 
 Sensor noise sweep (logistic regression, trained and tested at the same strength):
 
 | Strength | Balanced acc. | False-success |
 |---|---|---|
-| 0 | 0.973 | 0.025 |
-| 0.5 | 0.897 | 0.095 |
-| 1 | 0.885 | 0.110 |
-| 2 | 0.820 | 0.180 |
-| 4 | 0.743 | 0.195 |
-| 8 | 0.657 | 0.315 |
-| 16 | 0.605 | 0.410 |
-| 32 | 0.495 | 0.535 |
+| 0 | 0.973 [0.96, 0.99] | 0.025 [0.01, 0.05] |
+| 0.5 | 0.898 [0.87, 0.93] | 0.095 [0.06, 0.14] |
+| 1 | 0.885 [0.85, 0.92] | 0.110 [0.07, 0.16] |
+| 2 | 0.820 [0.78, 0.86] | 0.180 [0.13, 0.24] |
+| 4 | 0.743 [0.70, 0.78] | 0.195 [0.14, 0.25] |
+| 8 | 0.658 [0.61, 0.71] | 0.315 [0.25, 0.38] |
+| 16 | 0.605 [0.56, 0.65] | 0.410 [0.34, 0.48] |
+| 32 | 0.495 [0.45, 0.54] | 0.535 [0.47, 0.61] |

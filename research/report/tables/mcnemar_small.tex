@@ -1,0 +1,14 @@
+\begin{tabular}{lrrrrl}
+\toprule
+VLM & Shared & Only VLM right & Only sensors right & $p$ & Test \\
+\midrule
+gemini/gemini-3.1-flash-lite (multi) & 57 & 4 & 16 & 0.012 & exact \\
+gemini/gemini-3.5-flash (single) & 41 & 3 & 12 & 0.035 & exact \\
+gemini/gemini-3.1-flash-lite (single) & 100 & 8 & 34 & $<$0.001 & chi2\_cc \\
+groq/qwen/qwen3.8-27b (single) & 93 & 5 & 32 & $<$0.001 & chi2\_cc \\
+gemini/gemma-4-31b-it (single) & 83 & 7 & 33 & $<$0.001 & chi2\_cc \\
+gemini/gemma-4-31b-it (multi) & 9 & 1 & 3 & 0.625 & exact \\
+ollama/moondream:1.8b (single) & 100 & 7 & 43 & $<$0.001 & chi2\_cc \\
+ollama/qwen2.5vl:3b (single) & 100 & 7 & 43 & $<$0.001 & chi2\_cc \\
+\bottomrule
+\end{tabular}

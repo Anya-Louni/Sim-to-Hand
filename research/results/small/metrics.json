@@ -1,5 +1,5 @@
 {
-  "test": "data\\small",
+  "test": "data/small",
   "n_test": 100,
   "n_train_sensor": 600,
   "sensor_strength": 1.0,
@@ -104,6 +104,19 @@
             "frac_success": 0.971
           }
         ]
+      },
+      "ci": {
+        "balanced_accuracy": [
+          0.78,
+          0.93
+        ],
+        "false_success_rate": [
+          0.06,
+          0.24
+        ],
+        "n_pairs": 50,
+        "n_boot": 2000,
+        "seed": 0
       },
       "by_task": {
         "stack": {
@@ -232,6 +245,19 @@
           }
         ]
       },
+      "ci": {
+        "balanced_accuracy": [
+          0.78,
+          0.93
+        ],
+        "false_success_rate": [
+          0.04,
+          0.22
+        ],
+        "n_pairs": 50,
+        "n_boot": 2000,
+        "seed": 0
+      },
       "by_task": {
         "stack": {
           "n": 20,
@@ -304,6 +330,26 @@
             "frac_success": 0.589
           }
         ]
+      },
+      "ci": {
+        "balanced_accuracy": [
+          0.54,
+          0.66
+        ],
+        "false_success_rate": [
+          0.32,
+          0.6
+        ],
+        "n_pairs": 50,
+        "n_boot": 2000,
+        "seed": 0
+      },
+      "mcnemar_vs_sensor_logreg": {
+        "n_shared": 100,
+        "only_a_correct": 8,
+        "only_b_correct": 34,
+        "p": 0.00011451344802160634,
+        "method": "chi2_cc"
       },
       "by_task": {
         "stack": {
@@ -451,6 +497,19 @@
           }
         ]
       },
+      "ci": {
+        "balanced_accuracy": [
+          0.77,
+          0.92
+        ],
+        "false_success_rate": [
+          0.02,
+          0.16
+        ],
+        "n_pairs": 50,
+        "n_boot": 2000,
+        "seed": 0
+      },
       "by_task": {
         "stack": {
           "n": 20,
@@ -524,6 +583,26 @@
             "frac_success": 0.618
           }
         ]
+      },
+      "ci": {
+        "balanced_accuracy": [
+          0.5517,
+          0.7414
+        ],
+        "false_success_rate": [
+          0.2759,
+          0.6207
+        ],
+        "n_pairs": 29,
+        "n_boot": 2000,
+        "seed": 0
+      },
+      "mcnemar_vs_sensor_logreg": {
+        "n_shared": 57,
+        "only_a_correct": 4,
+        "only_b_correct": 16,
+        "p": 0.01181793212890625,
+        "method": "exact"
       },
       "by_task": {
         "stack": {
@@ -671,6 +750,19 @@
           }
         ]
       },
+      "ci": {
+        "balanced_accuracy": [
+          0.7586,
+          0.9477
+        ],
+        "false_success_rate": [
+          0.0,
+          0.2069
+        ],
+        "n_pairs": 29,
+        "n_boot": 2000,
+        "seed": 0
+      },
       "by_task": {
         "stack": {
           "n": 10,
@@ -744,6 +836,26 @@
             "frac_success": 0.577
           }
         ]
+      },
+      "ci": {
+        "balanced_accuracy": [
+          0.4762,
+          0.7381
+        ],
+        "false_success_rate": [
+          0.2857,
+          0.7619
+        ],
+        "n_pairs": 21,
+        "n_boot": 2000,
+        "seed": 0
+      },
+      "mcnemar_vs_sensor_logreg": {
+        "n_shared": 41,
+        "only_a_correct": 3,
+        "only_b_correct": 12,
+        "p": 0.03515625,
+        "method": "exact"
       },
       "by_task": {
         "stack": {
@@ -891,6 +1003,19 @@
           }
         ]
       },
+      "ci": {
+        "balanced_accuracy": [
+          0.6516,
+          0.9048
+        ],
+        "false_success_rate": [
+          0.0952,
+          0.4286
+        ],
+        "n_pairs": 21,
+        "n_boot": 2000,
+        "seed": 0
+      },
       "by_task": {
         "stack": {
           "n": 8,
@@ -973,6 +1098,26 @@
             "frac_success": 0.583
           }
         ]
+      },
+      "ci": {
+        "balanced_accuracy": [
+          0.477,
+          0.6364
+        ],
+        "false_success_rate": [
+          0.2308,
+          0.525
+        ],
+        "n_pairs": 46,
+        "n_boot": 2000,
+        "seed": 0
+      },
+      "mcnemar_vs_sensor_logreg": {
+        "n_shared": 83,
+        "only_a_correct": 7,
+        "only_b_correct": 33,
+        "p": 7.722679550543405e-05,
+        "method": "chi2_cc"
       },
       "by_task": {
         "stack": {
@@ -1120,6 +1265,19 @@
           }
         ]
       },
+      "ci": {
+        "balanced_accuracy": [
+          0.7905,
+          0.9386
+        ],
+        "false_success_rate": [
+          0.0,
+          0.1707
+        ],
+        "n_pairs": 46,
+        "n_boot": 2000,
+        "seed": 0
+      },
       "by_task": {
         "stack": {
           "n": 19,
@@ -1193,6 +1351,26 @@
             "frac_success": 0.5
           }
         ]
+      },
+      "ci": {
+        "balanced_accuracy": [
+          0.3,
+          0.8
+        ],
+        "false_success_rate": [
+          0.0,
+          0.8
+        ],
+        "n_pairs": 5,
+        "n_boot": 2000,
+        "seed": 0
+      },
+      "mcnemar_vs_sensor_logreg": {
+        "n_shared": 9,
+        "only_a_correct": 1,
+        "only_b_correct": 3,
+        "p": 0.625,
+        "method": "exact"
       },
       "by_task": {
         "stack": {
@@ -1276,6 +1454,26 @@
             "frac_success": 0.581
           }
         ]
+      },
+      "ci": {
+        "balanced_accuracy": [
+          0.4894,
+          0.6516
+        ],
+        "false_success_rate": [
+          0.2766,
+          0.5745
+        ],
+        "n_pairs": 47,
+        "n_boot": 2000,
+        "seed": 0
+      },
+      "mcnemar_vs_sensor_logreg": {
+        "n_shared": 93,
+        "only_a_correct": 5,
+        "only_b_correct": 32,
+        "p": 1.916753455669746e-05,
+        "method": "chi2_cc"
       },
       "by_task": {
         "stack": {
@@ -1423,6 +1621,19 @@
           }
         ]
       },
+      "ci": {
+        "balanced_accuracy": [
+          0.7521,
+          0.9137
+        ],
+        "false_success_rate": [
+          0.0213,
+          0.1915
+        ],
+        "n_pairs": 47,
+        "n_boot": 2000,
+        "seed": 0
+      },
       "by_task": {
         "stack": {
           "n": 18,
@@ -1496,6 +1707,26 @@
             "frac_success": 0.588
           }
         ]
+      },
+      "ci": {
+        "balanced_accuracy": [
+          0.5,
+          0.5
+        ],
+        "false_success_rate": [
+          1.0,
+          1.0
+        ],
+        "n_pairs": 50,
+        "n_boot": 2000,
+        "seed": 0
+      },
+      "mcnemar_vs_sensor_logreg": {
+        "n_shared": 100,
+        "only_a_correct": 7,
+        "only_b_correct": 43,
+        "p": 7.430983723414125e-07,
+        "method": "chi2_cc"
       },
       "by_task": {
         "stack": {
@@ -1643,6 +1874,19 @@
           }
         ]
       },
+      "ci": {
+        "balanced_accuracy": [
+          0.7898,
+          0.93
+        ],
+        "false_success_rate": [
+          0.02,
+          0.16
+        ],
+        "n_pairs": 50,
+        "n_boot": 2000,
+        "seed": 0
+      },
       "by_task": {
         "stack": {
           "n": 20,
@@ -1707,6 +1951,26 @@
             "frac_success": 0.5
           }
         ]
+      },
+      "ci": {
+        "balanced_accuracy": [
+          0.5,
+          0.5
+        ],
+        "false_success_rate": [
+          1.0,
+          1.0
+        ],
+        "n_pairs": 50,
+        "n_boot": 2000,
+        "seed": 0
+      },
+      "mcnemar_vs_sensor_logreg": {
+        "n_shared": 100,
+        "only_a_correct": 7,
+        "only_b_correct": 43,
+        "p": 7.430983723414125e-07,
+        "method": "chi2_cc"
       },
       "by_task": {
         "stack": {
@@ -1854,6 +2118,19 @@
           }
         ]
       },
+      "ci": {
+        "balanced_accuracy": [
+          0.77,
+          0.92
+        ],
+        "false_success_rate": [
+          0.02,
+          0.18
+        ],
+        "n_pairs": 50,
+        "n_boot": 2000,
+        "seed": 0
+      },
       "by_task": {
         "stack": {
           "n": 20,
@@ -1906,77 +2183,246 @@
       "balanced_accuracy": 0.5,
       "false_success_rate": 1.0,
       "false_failure_rate": 0.0,
-      "no_answer_rate": 0.0
+      "no_answer_rate": 0.0,
+      "ci": {
+        "balanced_accuracy": [
+          0.5,
+          0.5
+        ],
+        "false_success_rate": [
+          1.0,
+          1.0
+        ],
+        "n_pairs": 10,
+        "n_boot": 2000,
+        "seed": 0
+      }
     },
     "grasp": {
       "n": 20,
       "balanced_accuracy": 1.0,
       "false_success_rate": 0.0,
       "false_failure_rate": 0.0,
-      "no_answer_rate": 0.0
+      "no_answer_rate": 0.0,
+      "ci": {
+        "balanced_accuracy": [
+          1.0,
+          1.0
+        ],
+        "false_success_rate": [
+          0.0,
+          0.0
+        ],
+        "n_pairs": 10,
+        "n_boot": 2000,
+        "seed": 0
+      }
     },
     "button": {
       "n": 20,
       "balanced_accuracy": 0.5,
       "false_success_rate": 0.8,
       "false_failure_rate": 0.2,
-      "no_answer_rate": 0.0
+      "no_answer_rate": 0.0,
+      "ci": {
+        "balanced_accuracy": [
+          0.35,
+          0.65
+        ],
+        "false_success_rate": [
+          0.5,
+          1.0
+        ],
+        "n_pairs": 10,
+        "n_boot": 2000,
+        "seed": 0
+      }
     },
     "peg": {
       "n": 20,
       "balanced_accuracy": 0.5,
       "false_success_rate": 1.0,
       "false_failure_rate": 0.0,
-      "no_answer_rate": 0.0
+      "no_answer_rate": 0.0,
+      "ci": {
+        "balanced_accuracy": [
+          0.5,
+          0.5
+        ],
+        "false_success_rate": [
+          1.0,
+          1.0
+        ],
+        "n_pairs": 10,
+        "n_boot": 2000,
+        "seed": 0
+      }
     },
     "push": {
       "n": 20,
       "balanced_accuracy": 0.5,
       "false_success_rate": 0.0,
       "false_failure_rate": 1.0,
-      "no_answer_rate": 0.0
+      "no_answer_rate": 0.0,
+      "ci": {
+        "balanced_accuracy": [
+          0.5,
+          0.5
+        ],
+        "false_success_rate": [
+          0.0,
+          0.0
+        ],
+        "n_pairs": 10,
+        "n_boot": 2000,
+        "seed": 0
+      }
     }
   },
   "noise_sweep_sensor_logreg": [
     {
       "strength": 0,
       "balanced_accuracy": 0.99,
-      "false_success_rate": 0.0
+      "false_success_rate": 0.0,
+      "ci": {
+        "balanced_accuracy": [
+          0.97,
+          1.0
+        ],
+        "false_success_rate": [
+          0.0,
+          0.0
+        ],
+        "n_pairs": 50,
+        "n_boot": 2000,
+        "seed": 0
+      }
     },
     {
       "strength": 0.5,
       "balanced_accuracy": 0.9,
-      "false_success_rate": 0.06
+      "false_success_rate": 0.06,
+      "ci": {
+        "balanced_accuracy": [
+          0.83,
+          0.96
+        ],
+        "false_success_rate": [
+          0.0,
+          0.14
+        ],
+        "n_pairs": 50,
+        "n_boot": 2000,
+        "seed": 0
+      }
     },
     {
       "strength": 1,
       "balanced_accuracy": 0.86,
-      "false_success_rate": 0.14
+      "false_success_rate": 0.14,
+      "ci": {
+        "balanced_accuracy": [
+          0.78,
+          0.93
+        ],
+        "false_success_rate": [
+          0.06,
+          0.24
+        ],
+        "n_pairs": 50,
+        "n_boot": 2000,
+        "seed": 0
+      }
     },
     {
       "strength": 2,
       "balanced_accuracy": 0.79,
-      "false_success_rate": 0.2
+      "false_success_rate": 0.2,
+      "ci": {
+        "balanced_accuracy": [
+          0.71,
+          0.87
+        ],
+        "false_success_rate": [
+          0.1,
+          0.32
+        ],
+        "n_pairs": 50,
+        "n_boot": 2000,
+        "seed": 0
+      }
     },
     {
       "strength": 4,
       "balanced_accuracy": 0.78,
-      "false_success_rate": 0.22
+      "false_success_rate": 0.22,
+      "ci": {
+        "balanced_accuracy": [
+          0.7,
+          0.85
+        ],
+        "false_success_rate": [
+          0.12,
+          0.34
+        ],
+        "n_pairs": 50,
+        "n_boot": 2000,
+        "seed": 0
+      }
     },
     {
       "strength": 8,
       "balanced_accuracy": 0.67,
-      "false_success_rate": 0.26
+      "false_success_rate": 0.26,
+      "ci": {
+        "balanced_accuracy": [
+          0.57,
+          0.76
+        ],
+        "false_success_rate": [
+          0.14,
+          0.38
+        ],
+        "n_pairs": 50,
+        "n_boot": 2000,
+        "seed": 0
+      }
     },
     {
       "strength": 16,
       "balanced_accuracy": 0.56,
-      "false_success_rate": 0.4
+      "false_success_rate": 0.4,
+      "ci": {
+        "balanced_accuracy": [
+          0.46,
+          0.66
+        ],
+        "false_success_rate": [
+          0.26,
+          0.54
+        ],
+        "n_pairs": 50,
+        "n_boot": 2000,
+        "seed": 0
+      }
     },
     {
       "strength": 32,
       "balanced_accuracy": 0.54,
-      "false_success_rate": 0.5
+      "false_success_rate": 0.5,
+      "ci": {
+        "balanced_accuracy": [
+          0.44,
+          0.63
+        ],
+        "false_success_rate": [
+          0.36,
+          0.6205
+        ],
+        "n_pairs": 50,
+        "n_boot": 2000,
+        "seed": 0
+      }
     }
   ]
 }

@@ -1,5 +1,5 @@
 {
-  "test": "data\\large",
+  "test": "data/large",
   "n_test": 400,
   "n_train_sensor": 600,
   "sensor_strength": 1.0,
@@ -104,6 +104,19 @@
             "frac_success": 0.992
           }
         ]
+      },
+      "ci": {
+        "balanced_accuracy": [
+          0.85,
+          0.9175
+        ],
+        "false_success_rate": [
+          0.07,
+          0.155
+        ],
+        "n_pairs": 200,
+        "n_boot": 2000,
+        "seed": 0
       },
       "by_task": {
         "stack": {
@@ -250,6 +263,19 @@
           }
         ]
       },
+      "ci": {
+        "balanced_accuracy": [
+          0.8525,
+          0.9225
+        ],
+        "false_success_rate": [
+          0.08,
+          0.17
+        ],
+        "n_pairs": 200,
+        "n_boot": 2000,
+        "seed": 0
+      },
       "by_task": {
         "stack": {
           "n": 80,
@@ -322,6 +348,26 @@
             "frac_success": 0.545
           }
         ]
+      },
+      "ci": {
+        "balanced_accuracy": [
+          0.5067,
+          0.6
+        ],
+        "false_success_rate": [
+          0.4133,
+          0.64
+        ],
+        "n_pairs": 75,
+        "n_boot": 2000,
+        "seed": 0
+      },
+      "mcnemar_vs_sensor_logreg": {
+        "n_shared": 150,
+        "only_a_correct": 6,
+        "only_b_correct": 60,
+        "p": 6.852568869796436e-11,
+        "method": "chi2_cc"
       },
       "by_task": {
         "stack": {
@@ -469,6 +515,19 @@
           }
         ]
       },
+      "ci": {
+        "balanced_accuracy": [
+          0.82,
+          0.9333
+        ],
+        "false_success_rate": [
+          0.04,
+          0.1867
+        ],
+        "n_pairs": 75,
+        "n_boot": 2000,
+        "seed": 0
+      },
       "by_task": {
         "stack": {
           "n": 30,
@@ -534,6 +593,26 @@
           }
         ]
       },
+      "ci": {
+        "balanced_accuracy": [
+          0.5,
+          0.5
+        ],
+        "false_success_rate": [
+          1.0,
+          1.0
+        ],
+        "n_pairs": 4,
+        "n_boot": 2000,
+        "seed": 0
+      },
+      "mcnemar_vs_sensor_logreg": {
+        "n_shared": 8,
+        "only_a_correct": 0,
+        "only_b_correct": 3,
+        "p": 0.25,
+        "method": "exact"
+      },
       "by_task": {
         "grasp": {
           "n": 2,
@@ -578,77 +657,246 @@
       "balanced_accuracy": 0.5,
       "false_success_rate": 1.0,
       "false_failure_rate": 0.0,
-      "no_answer_rate": 0.0
+      "no_answer_rate": 0.0,
+      "ci": {
+        "balanced_accuracy": [
+          0.5,
+          0.5
+        ],
+        "false_success_rate": [
+          1.0,
+          1.0
+        ],
+        "n_pairs": 40,
+        "n_boot": 2000,
+        "seed": 0
+      }
     },
     "grasp": {
       "n": 80,
       "balanced_accuracy": 1.0,
       "false_success_rate": 0.0,
       "false_failure_rate": 0.0,
-      "no_answer_rate": 0.0
+      "no_answer_rate": 0.0,
+      "ci": {
+        "balanced_accuracy": [
+          1.0,
+          1.0
+        ],
+        "false_success_rate": [
+          0.0,
+          0.0
+        ],
+        "n_pairs": 40,
+        "n_boot": 2000,
+        "seed": 0
+      }
     },
     "button": {
       "n": 80,
       "balanced_accuracy": 0.6625,
       "false_success_rate": 0.675,
       "false_failure_rate": 0.0,
-      "no_answer_rate": 0.0
+      "no_answer_rate": 0.0,
+      "ci": {
+        "balanced_accuracy": [
+          0.5875,
+          0.7375
+        ],
+        "false_success_rate": [
+          0.525,
+          0.825
+        ],
+        "n_pairs": 40,
+        "n_boot": 2000,
+        "seed": 0
+      }
     },
     "peg": {
       "n": 80,
       "balanced_accuracy": 0.5,
       "false_success_rate": 1.0,
       "false_failure_rate": 0.0,
-      "no_answer_rate": 0.0
+      "no_answer_rate": 0.0,
+      "ci": {
+        "balanced_accuracy": [
+          0.5,
+          0.5
+        ],
+        "false_success_rate": [
+          1.0,
+          1.0
+        ],
+        "n_pairs": 40,
+        "n_boot": 2000,
+        "seed": 0
+      }
     },
     "push": {
       "n": 80,
       "balanced_accuracy": 0.5,
       "false_success_rate": 0.0,
       "false_failure_rate": 1.0,
-      "no_answer_rate": 0.0
+      "no_answer_rate": 0.0,
+      "ci": {
+        "balanced_accuracy": [
+          0.5,
+          0.5
+        ],
+        "false_success_rate": [
+          0.0,
+          0.0
+        ],
+        "n_pairs": 40,
+        "n_boot": 2000,
+        "seed": 0
+      }
     }
   },
   "noise_sweep_sensor_logreg": [
     {
       "strength": 0,
       "balanced_accuracy": 0.9725,
-      "false_success_rate": 0.025
+      "false_success_rate": 0.025,
+      "ci": {
+        "balanced_accuracy": [
+          0.955,
+          0.9875
+        ],
+        "false_success_rate": [
+          0.005,
+          0.05
+        ],
+        "n_pairs": 200,
+        "n_boot": 2000,
+        "seed": 0
+      }
     },
     {
       "strength": 0.5,
       "balanced_accuracy": 0.8975,
-      "false_success_rate": 0.095
+      "false_success_rate": 0.095,
+      "ci": {
+        "balanced_accuracy": [
+          0.8675,
+          0.9275
+        ],
+        "false_success_rate": [
+          0.055,
+          0.135
+        ],
+        "n_pairs": 200,
+        "n_boot": 2000,
+        "seed": 0
+      }
     },
     {
       "strength": 1,
       "balanced_accuracy": 0.885,
-      "false_success_rate": 0.11
+      "false_success_rate": 0.11,
+      "ci": {
+        "balanced_accuracy": [
+          0.85,
+          0.9175
+        ],
+        "false_success_rate": [
+          0.07,
+          0.155
+        ],
+        "n_pairs": 200,
+        "n_boot": 2000,
+        "seed": 0
+      }
     },
     {
       "strength": 2,
       "balanced_accuracy": 0.82,
-      "false_success_rate": 0.18
+      "false_success_rate": 0.18,
+      "ci": {
+        "balanced_accuracy": [
+          0.78,
+          0.8575
+        ],
+        "false_success_rate": [
+          0.13,
+          0.235
+        ],
+        "n_pairs": 200,
+        "n_boot": 2000,
+        "seed": 0
+      }
     },
     {
       "strength": 4,
       "balanced_accuracy": 0.7425,
-      "false_success_rate": 0.195
+      "false_success_rate": 0.195,
+      "ci": {
+        "balanced_accuracy": [
+          0.7,
+          0.7825
+        ],
+        "false_success_rate": [
+          0.14,
+          0.25
+        ],
+        "n_pairs": 200,
+        "n_boot": 2000,
+        "seed": 0
+      }
     },
     {
       "strength": 8,
       "balanced_accuracy": 0.6575,
-      "false_success_rate": 0.315
+      "false_success_rate": 0.315,
+      "ci": {
+        "balanced_accuracy": [
+          0.6075,
+          0.705
+        ],
+        "false_success_rate": [
+          0.25,
+          0.38
+        ],
+        "n_pairs": 200,
+        "n_boot": 2000,
+        "seed": 0
+      }
     },
     {
       "strength": 16,
       "balanced_accuracy": 0.605,
-      "false_success_rate": 0.41
+      "false_success_rate": 0.41,
+      "ci": {
+        "balanced_accuracy": [
+          0.5575,
+          0.6525
+        ],
+        "false_success_rate": [
+          0.3449,
+          0.48
+        ],
+        "n_pairs": 200,
+        "n_boot": 2000,
+        "seed": 0
+      }
     },
     {
       "strength": 32,
       "balanced_accuracy": 0.495,
-      "false_success_rate": 0.535
+      "false_success_rate": 0.535,
+      "ci": {
+        "balanced_accuracy": [
+          0.4475,
+          0.54
+        ],
+        "false_success_rate": [
+          0.47,
+          0.605
+        ],
+        "n_pairs": 200,
+        "n_boot": 2000,
+        "seed": 0
+      }
     }
   ]
 }

@@ -1,24 +1,39 @@
-Test set: data\small (100 samples). Sensor classifiers trained on 600 samples from other seeds, noise strength 1.0.
+Test set: data/small (100 samples). Sensor classifiers trained on 600 samples from other seeds, noise strength 1.0.
 
 | Judge | Kind | Coverage | Balanced acc. | False-success | False-failure | No answer | ECE |
 |---|---|---|---|---|---|---|---|
-| fusion: gemini/gemma-4-31b-it (single) + sensors | fusion | 83/100 | 0.870 | 0.075 | 0.186 | 0.000 | 0.102 |
-| sensor_logreg | sensor | all | 0.860 | 0.140 | 0.140 | 0.000 | 0.056 |
-| sensor_gboost | sensor | all | 0.860 | 0.120 | 0.160 | 0.000 | 0.101 |
-| fusion: ollama/moondream:1.8b (single) + sensors | fusion | 100/100 | 0.860 | 0.080 | 0.200 | 0.000 | 0.096 |
-| fusion: gemini/gemini-3.1-flash-lite (multi) + sensors | fusion | 57/100 | 0.859 | 0.103 | 0.179 | 0.000 | 0.120 |
-| fusion: gemini/gemini-3.1-flash-lite (single) + sensors | fusion | 100/100 | 0.850 | 0.080 | 0.220 | 0.000 | 0.131 |
-| fusion: ollama/qwen2.5vl:3b (single) + sensors | fusion | 100/100 | 0.850 | 0.100 | 0.200 | 0.000 | 0.099 |
-| fusion: groq/qwen/qwen3.8-27b (single) + sensors | fusion | 93/100 | 0.838 | 0.106 | 0.217 | 0.000 | 0.109 |
-| fusion: gemini/gemini-3.5-flash (single) + sensors | fusion | 41/100 | 0.781 | 0.238 | 0.200 | 0.000 | 0.176 |
-| gemini/gemini-3.1-flash-lite (multi) | vlm | 57/100 | 0.651 | 0.448 | 0.250 | 0.000 | 0.351 |
-| gemini/gemini-3.5-flash (single) | vlm | 41/100 | 0.613 | 0.524 | 0.250 | 0.000 | 0.343 |
-| gemini/gemini-3.1-flash-lite (single) | vlm | 100/100 | 0.600 | 0.460 | 0.340 | 0.000 | 0.400 |
-| groq/qwen/qwen3.8-27b (single) | vlm | 93/100 | 0.570 | 0.425 | 0.435 | 0.000 | 0.362 |
-| gemini/gemma-4-31b-it (single) | vlm | 83/100 | 0.557 | 0.375 | 0.512 | 0.000 | 0.419 |
-| gemini/gemma-4-31b-it (multi) | vlm | 9/100 | 0.550 | 0.400 | 0.500 | 0.000 | 0.428 |
-| ollama/moondream:1.8b (single) | vlm | 100/100 | 0.500 | 1.000 | 0.000 | 0.000 | 0.228 |
-| ollama/qwen2.5vl:3b (single) | vlm | 100/100 | 0.500 | 1.000 | 0.000 | 0.000 | 0.444 |
+| fusion: gemini/gemma-4-31b-it (single) + sensors | fusion | 83/100 | 0.870 [0.79, 0.94] | 0.075 [0.00, 0.17] | 0.186 | 0.000 | 0.102 |
+| sensor_logreg | sensor | all | 0.860 [0.78, 0.93] | 0.140 [0.06, 0.24] | 0.140 | 0.000 | 0.056 |
+| sensor_gboost | sensor | all | 0.860 [0.78, 0.93] | 0.120 [0.04, 0.22] | 0.160 | 0.000 | 0.101 |
+| fusion: ollama/moondream:1.8b (single) + sensors | fusion | 100/100 | 0.860 [0.79, 0.93] | 0.080 [0.02, 0.16] | 0.200 | 0.000 | 0.096 |
+| fusion: gemini/gemini-3.1-flash-lite (multi) + sensors | fusion | 57/100 | 0.859 [0.76, 0.95] | 0.103 [0.00, 0.21] | 0.179 | 0.000 | 0.120 |
+| fusion: gemini/gemini-3.1-flash-lite (single) + sensors | fusion | 100/100 | 0.850 [0.77, 0.92] | 0.080 [0.02, 0.16] | 0.220 | 0.000 | 0.131 |
+| fusion: ollama/qwen2.5vl:3b (single) + sensors | fusion | 100/100 | 0.850 [0.77, 0.92] | 0.100 [0.02, 0.18] | 0.200 | 0.000 | 0.099 |
+| fusion: groq/qwen/qwen3.8-27b (single) + sensors | fusion | 93/100 | 0.838 [0.75, 0.91] | 0.106 [0.02, 0.19] | 0.217 | 0.000 | 0.109 |
+| fusion: gemini/gemini-3.5-flash (single) + sensors | fusion | 41/100 | 0.781 [0.65, 0.90] | 0.238 [0.10, 0.43] | 0.200 | 0.000 | 0.176 |
+| gemini/gemini-3.1-flash-lite (multi) | vlm | 57/100 | 0.651 [0.55, 0.74] | 0.448 [0.28, 0.62] | 0.250 | 0.000 | 0.351 |
+| gemini/gemini-3.5-flash (single) | vlm | 41/100 | 0.613 [0.48, 0.74] | 0.524 [0.29, 0.76] | 0.250 | 0.000 | 0.343 |
+| gemini/gemini-3.1-flash-lite (single) | vlm | 100/100 | 0.600 [0.54, 0.66] | 0.460 [0.32, 0.60] | 0.340 | 0.000 | 0.400 |
+| groq/qwen/qwen3.8-27b (single) | vlm | 93/100 | 0.570 [0.49, 0.65] | 0.426 [0.28, 0.57] | 0.435 | 0.000 | 0.362 |
+| gemini/gemma-4-31b-it (single) | vlm | 83/100 | 0.557 [0.48, 0.64] | 0.375 [0.23, 0.53] | 0.512 | 0.000 | 0.419 |
+| gemini/gemma-4-31b-it (multi) | vlm | 9/100 | 0.550 [0.30, 0.80] | 0.400 [0.00, 0.80] | 0.500 | 0.000 | 0.428 |
+| ollama/moondream:1.8b (single) | vlm | 100/100 | 0.500 [0.50, 0.50] | 1.000 [1.00, 1.00] | 0.000 | 0.000 | 0.228 |
+| ollama/qwen2.5vl:3b (single) | vlm | 100/100 | 0.500 [0.50, 0.50] | 1.000 [1.00, 1.00] | 0.000 | 0.000 | 0.444 |
+
+Brackets: 95% bootstrap intervals, resampling minimal pairs (2,000 resamples, seed 0).
+
+Paired test, each VLM vs sensor_logreg on the samples the VLM answered (McNemar; exact below 25 discordant samples):
+
+| VLM | Shared samples | Only VLM right | Only sensors right | p | Test |
+|---|---|---|---|---|---|
+| gemini/gemini-3.1-flash-lite (multi) | 57 | 4 | 16 | 0.012 | exact |
+| gemini/gemini-3.5-flash (single) | 41 | 3 | 12 | 0.035 | exact |
+| gemini/gemini-3.1-flash-lite (single) | 100 | 8 | 34 | <0.001 | chi2_cc |
+| groq/qwen/qwen3.8-27b (single) | 93 | 5 | 32 | <0.001 | chi2_cc |
+| gemini/gemma-4-31b-it (single) | 83 | 7 | 33 | <0.001 | chi2_cc |
+| gemini/gemma-4-31b-it (multi) | 9 | 1 | 3 | 0.625 | exact |
+| ollama/moondream:1.8b (single) | 100 | 7 | 43 | <0.001 | chi2_cc |
+| ollama/qwen2.5vl:3b (single) | 100 | 7 | 43 | <0.001 | chi2_cc |
 
 Balanced accuracy by task:
 
@@ -68,21 +83,21 @@ Sensor classifier, leave one task out (logistic regression):
 
 | Held-out task | Balanced acc. | False-success |
 |---|---|---|
-| stack | 0.500 | 1.000 |
-| grasp | 1.000 | 0.000 |
-| button | 0.500 | 0.800 |
-| peg | 0.500 | 1.000 |
-| push | 0.500 | 0.000 |
+| stack | 0.500 [0.50, 0.50] | 1.000 [1.00, 1.00] |
+| grasp | 1.000 [1.00, 1.00] | 0.000 [0.00, 0.00] |
+| button | 0.500 [0.35, 0.65] | 0.800 [0.50, 1.00] |
+| peg | 0.500 [0.50, 0.50] | 1.000 [1.00, 1.00] |
+| push | 0.500 [0.50, 0.50] | 0.000 [0.00, 0.00] |
 
 Sensor noise sweep (logistic regression, trained and tested at the same strength):
 
 | Strength | Balanced acc. | False-success |
 |---|---|---|
-| 0 | 0.990 | 0.000 |
-| 0.5 | 0.900 | 0.060 |
-| 1 | 0.860 | 0.140 |
-| 2 | 0.790 | 0.200 |
-| 4 | 0.780 | 0.220 |
-| 8 | 0.670 | 0.260 |
-| 16 | 0.560 | 0.400 |
-| 32 | 0.540 | 0.500 |
+| 0 | 0.990 [0.97, 1.00] | 0.000 [0.00, 0.00] |
+| 0.5 | 0.900 [0.83, 0.96] | 0.060 [0.00, 0.14] |
+| 1 | 0.860 [0.78, 0.93] | 0.140 [0.06, 0.24] |
+| 2 | 0.790 [0.71, 0.87] | 0.200 [0.10, 0.32] |
+| 4 | 0.780 [0.70, 0.85] | 0.220 [0.12, 0.34] |
+| 8 | 0.670 [0.57, 0.76] | 0.260 [0.14, 0.38] |
+| 16 | 0.560 [0.46, 0.66] | 0.400 [0.26, 0.54] |
+| 32 | 0.540 [0.44, 0.63] | 0.500 [0.36, 0.62] |
