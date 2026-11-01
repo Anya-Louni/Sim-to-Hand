@@ -4,7 +4,16 @@
 
 An AI agent for robot manipulation. Type a tabletop task in plain English: an LLM plans it, MuJoCo runs it in your browser, three independent checks verify it (simulator state, a vision model, and cheap touch and force sensors), and the agent replans when it fails. A built-in study shows why the sensor check is there: free vision models miss millimeter-scale contact failures.
 
-**Live demo:** https://sim-to-hand.vercel.app · **Research benchmark and game:** https://sim-to-hand.vercel.app/benchmark/ · **Report:** [research/report/report.pdf](research/report/report.pdf) · **Dataset:** https://huggingface.co/datasets/lilizzz4444/vision-cant-feel
+**Live demo:** https://sim-to-hand.vercel.app · **Research benchmark and games:** https://sim-to-hand.vercel.app/benchmark/ · **Report:** [research/report/report.pdf](research/report/report.pdf) · **Dataset:** https://huggingface.co/datasets/lilizzz4444/vision-cant-feel · **Runbook:** [docs/RUNBOOK.md](docs/RUNBOOK.md) · **Changes:** [CHANGELOG.md](CHANGELOG.md)
+
+## Contents
+
+- [What it does](#what-it-does), [architecture](#architecture), [agent loop](#agent-loop)
+- [Benchmark](#benchmark) and the [harder suite](#harder-suite-relational-reorder-impossible-and-distractor-tasks)
+- Experiments, all seeded and free to rerun: [who decides "done"](#do-the-touch-sensors-add-value-1600-seeded-episodes), [cases built for the camera to miss](#cases-built-so-the-camera-cannot-tell), [planning from what the camera sees](#planning-from-what-the-camera-sees), [touching the result before saying done](#active-verification-touch-the-result-before-saying-done), [a 6-axis wrist sensor](#does-a-6-axis-wrist-sensor-help), [can a language model read a touch trace](#can-a-language-model-read-a-touch-trace)
+- [The research behind the sensor check](#why-the-sensor-check-the-research-behind-it), [limitations](#limitations), [reproduce](#reproduce-every-number), [run locally](#run-locally), [cite](#cite)
+
+Every number in this README, the report and the website is written by a script from raw data in the repo (`npm run results`); CI fails if a committed number no longer matches its data.
 
 ![Demo: the agent builds a 3-cube tower while chaos mode makes grasps slip](docs/demo.gif)
 
@@ -69,8 +78,8 @@ Brackets are 95% Wilson confidence intervals.
 |---|---|---|---|---|---|---|---|
 | scripted | 24 | 24/24 = 100% [86, 100] | 0.00 | 0.00 | not run | 24/24 = 100% [86, 100] | 0 |
 | scripted-chaos | 24 | 21/24 = 88% [69, 96] | 0.88 | 2.17 | not run | 43/45 = 96% [85, 99] | 0 |
-| llm | 24 | 24/24 = 100% [86, 100] | 0.00 | 0.00 | 24/24 = 100% [86, 100] | not run | 48 |
-| llm-chaos | 24 | 22/24 = 92% [74, 98] | 0.88 | 2.17 | 45/45 = 100% [92, 100] | not run | 90 |
+| llm | 24 | 24/24 = 100% [86, 100] | 0.00 | 0.00 | 24/24 = 100% [86, 100] | 24/24 = 100% [86, 100] | 48 |
+| llm-chaos | 24 | 22/24 = 92% [74, 98] | 0.88 | 2.13 | 45/45 = 100% [92, 100] | 44/45 = 98% [88, 100] | 90 |
 
 Per-kind success:
 
@@ -81,16 +90,33 @@ Per-kind success:
 | llm | 9/9 | 6/6 | 4/4 | 5/5 |
 | llm-chaos | 9/9 | 4/6 | 4/4 | 5/5 |
 
-Calls by provider: gemini/gemini-3.1-flash-lite 117, gemini/gemini-3.5-flash-lite 20, groq/openai/gpt-oss-120b 1
+Calls by provider: gemini/gemini-3.1-flash-lite 15, gemini/gemini-3.5-flash-lite 123
 
 - Without chaos: scripted 24/24 (24 on the first attempt), LLM 24/24 (24 on the first attempt).
 - With chaos: scripted 21/24, LLM 22/24. Failed kinds: scripted tower; LLM tower. The intervals overlap, so this benchmark does not separate the planners.
 - The vision check agreed with sim state on 69 of 69 checks. The camera is fixed and the failures here are centimeters apart, which is the easy case for vision.
 <!-- END:bench -->
 
-The LLM rows come from a run made before the sensor check existed (raw data kept in [bench/results-llm-before-sensors.json](bench/results-llm-before-sensors.json)); the scripted rows were rerun with sensors and still pass at the same rates, so the sensor-driven executor kept the same reliability. The two sensor disagreements under chaos are cases sensors cannot see: a cube knocked off after it was released.
+All four rows were run with the current executor (sensor checks during skills) and the current planner prompt. Earlier runs are kept: [bench/results-before-a3.json](bench/results-before-a3.json) and [bench/results-llm-before-sensors.json](bench/results-llm-before-sensors.json). The LLM calls of every run are cached in `bench/llm-cache`, keyed by the request and the system prompts, so rerunning replays them for free.
 
 Raw per-task data: [bench/results.json](bench/results.json). Summary and failure list: [bench/RESULTS.md](bench/RESULTS.md). Reproduce with `npm run bench` (needs keys in `.env`; free-tier rate limits make the LLM rows take about an hour).
+
+### Harder suite: relational, reorder, impossible and distractor tasks
+
+20 hand-written tasks in four families, five each: the target is named by where it is ("the cube closest to the robot base"); cubes start stacked and must be reordered; the task cannot be done (a purple cube, an orange zone, a cube on itself, contradictory goals), where the right answer is a structured refusal (`{"refuse": "<why>"}` in the plan schema); and instructions with corrections or negations ("Not the red cube, I mean the green one"). Goals are written by hand. Correct means the goal holds at the end, or the planner refused an impossible task.
+
+<!-- BEGIN:hard -->
+| Condition | relational | reorder | impossible | distractor | Correct [95% CI] | Refused a possible task | Tried an impossible task |
+|---|---|---|---|---|---|---|---|
+| scripted | 5/5 | 4/5 | 5/5 | 5/5 | 19/20 = 95% [76, 99] | 0/15 | 0/5 |
+| scripted-chaos | 5/5 | 4/5 | 5/5 | 5/5 | 19/20 = 95% [76, 99] | 0/15 | 0/5 |
+| llm | 5/5 | 4/5 | 5/5 | 5/5 | 19/20 = 95% [76, 99] | 0/15 | 0/5 |
+| llm-chaos | 4/5 | 4/5 | 5/5 | 5/5 | 18/20 = 90% [70, 97] | 0/15 | 0/5 |
+
+The scripted rows plan from the hand-written goal, so they read the answer key: they refuse impossible tasks because the goal is empty, and they never plan an unstack. They pass reorder tasks that start stacked only when the first grasp lifts the whole stack, the placement feels no contact, the top cube falls off, and the retry works.
+<!-- END:hard -->
+
+These tasks turned out easier for the LLM planner than intended: it refused every impossible task with the right reason and never refused a possible one. Its remaining failures are execution failures on the reverse-tower task and one empty replan under chaos. Raw data: [bench/results_hard.json](bench/results_hard.json); failures and refusal texts: [bench/RESULTS_HARD.md](bench/RESULTS_HARD.md). Run with `SUITE=hard npm run bench`.
 
 ## Do the touch sensors add value? 1,600 seeded episodes
 
@@ -146,6 +172,72 @@ Accuracy with 95% Wilson intervals; chance is 50%.
 
 ![Checkpoint accuracy](experiments/figures/checkpoints_accuracy.png)
 
+### Planning from what the camera sees
+
+In every experiment above the robot aims its moves at the simulator's true cube poses, which a real robot does not have. In perceived-state mode it aims at the poses the OpenCV detector fits in the camera image instead, looked up again before every attempt. Where it puts a cube down, it assumes the cube is now there. Same 80 tasks; scoring still uses true state.
+
+<!-- BEGIN:perceived -->
+| Decider | Failure | True success, perceived state | True success, true state | McNemar p |
+|---|---|---|---|---|
+| Simulator | no failure | 100% [95, 100] | 100% [95, 100] | 1.000 |
+| Sensors only | no failure | 99% [93, 100] | 99% [93, 100] | 1.000 |
+| Camera + sensors | no failure | 93% [85, 97] | 99% [93, 100] | 0.063 |
+| Camera + sensors | random chaos | 90% [81, 95] | 94% [86, 97] | 0.250 |
+
+Camera position error over 443 looks: median 2.4 mm, mean 4.7 mm, worst cube in a look up to 184 mm. Looks where a cube was not found: 5.
+<!-- END:perceived -->
+
+The executor tolerates a few millimeters of camera error because grasps close on the cube and placements stop on contact. None of the differences above are significant at 0.05, though camera + sensors loses a few episodes it won with true state. Try it locally with the "Camera state" toggle in `npm run dev`. The deployed site has no Python detector, so the toggle is hidden there.
+
+### Active verification: touch the result before saying done
+
+Sensors go blind at release, which is why sensors alone declared every knocked-off cube a success. The press probe ([design note](docs/design/active_verification.md)) lowers the closed gripper onto where the robot put each top cube and checks with the cheap force reading and the arm's own height that the top face is there. The router runs the checks from cheapest to dearest: the sensors; the camera, only if the sensors pass; the probe, only if the camera then disagrees.
+
+<!-- BEGIN:probes -->
+| Strategy | True success | False success | False success, knocked after release | Sim s / episode | Camera checks / episode | Probes / episode |
+|---|---|---|---|---|---|---|
+| Sensors only | 76% [71, 80] | 23% [19, 28] | 100% [95, 100] | 22.6 | 0.00 | 0.00 |
+| Sensors + press probe | 95% [92, 97] | 1% [0, 2] | 3% [1, 9] | 41.5 | 0.00 | 1.92 |
+| Camera + sensors | 93% [90, 95] | 0% [0, 1] | 0% [0, 5] | 30.4 | 2.07 | 0.00 |
+| Router | 95% [92, 97] | 1% [0, 2] | 3% [1, 9] | 30.7 | 1.19 | 0.45 |
+
+All five failure types pooled (360 episodes per strategy). Per failure type: [experiments/RESULTS.md](experiments/RESULTS.md), section 4.
+<!-- END:probes -->
+
+- The probe closes the blind spot after release: on knocked-off cubes false success falls from every episode with sensors alone to the few in the table. The remaining misses are towers with the cubes at the right height in the wrong order; a press cannot tell which cube is underneath, a camera can.
+- The router matches sensors + probe on true and false success, and costs about as much time as camera + sensors, with fewer camera checks. Camera + sensors still has the fewest false successes.
+- The first probe design missed towers rebuilt on a knocked-off middle cube; that run is kept and reported in [experiments/RESULTS.md](experiments/RESULTS.md).
+
+![False success against time per strategy](experiments/figures/probes_tradeoff.png)
+
+### Does a 6-axis wrist sensor help?
+
+The research classifier uses one wrist force axis. A cheap 6-axis force/torque sensor (same noise model on every axis) was added to the simulator and to the dataset by replaying every committed attempt; the replayed single-axis traces matched the committed ones exactly. The features are task-agnostic: contact onset time, peak change, direction relative to the approach, steadiness after onset, and torque.
+
+<!-- BEGIN:ft -->
+| Test set | Classifier | Single axis [95% CI] | 6-axis F/T [95% CI] | McNemar (6-axis better / single better, p) |
+|---|---|---|---|---|
+| small (100) | sensor_logreg | 0.86 [0.78, 0.93] | 0.90 [0.84, 0.96] | 11 / 7, p 0.481 |
+| small (100) | sensor_gboost | 0.86 [0.78, 0.93] | 0.95 [0.89, 1.00] | 11 / 2, p 0.022 |
+| large (400) | sensor_logreg | 0.89 [0.85, 0.92] | 0.96 [0.94, 0.98] | 41 / 12, p < 0.001 |
+| large (400) | sensor_gboost | 0.89 [0.85, 0.92] | 0.96 [0.94, 0.98] | 36 / 6, p < 0.001 |
+
+Held-out task (large set, logistic regression), single axis to 6-axis: stack 0.50 to 0.89, grasp 1.00 to 1.00, button 0.66 to 0.54, peg 0.50 to 0.86, push 0.50 to 0.50. The 6-axis advantage is gone from noise strength 2x: the intervals overlap from there on. Full tables: [research/results/ft_ablation.md](research/results/ft_ablation.md).
+<!-- END:ft -->
+
+### Can a language model read a touch trace?
+
+Each small-set sample's cheap-sensor trace (the same noisy signals the classifier sees, printed at 10 Hz) goes to a text-only model with the task description. One-shot adds one labelled success and failure of the same task from the training seeds. The "Can you feel it?" game on the [benchmark site](https://sim-to-hand.vercel.app/benchmark/#feel) asks people the same question.
+
+<!-- BEGIN:trace_llm -->
+| Reader (small set) | Answered | Balanced acc. [95% CI] | False-success [95% CI] | vs sensor classifier (only LLM / only classifier right, p) |
+|---|---|---|---|---|
+| groq/openai/gpt-oss-120b (0-shot) | 100 | 0.68 [0.58, 0.78] | 18% [8, 30] | 9 / 27, p 0.005 |
+| groq/openai/gpt-oss-120b (1-shot) | 96 | 0.91 [0.83, 0.97] | 10% [2, 19] | 6 / 2, p 0.289 |
+<!-- END:trace_llm -->
+
+Without an example the model is worse than the classifier. With one labelled pair of the same task it is not significantly different from the classifier, and on the same samples it beats the camera VLM by a wide margin: [research/results/trace_llm.md](research/results/trace_llm.md). The one-shot run stopped a few samples short (Answered column) on the free tier's daily token limit.
+
 All tables, plus recovery rates, time to detect and the per-gap contact curve: [experiments/RESULTS.md](experiments/RESULTS.md). Raw logs: [experiments/data](experiments/data). The plots are drawn only from those CSVs, by `research/scripts/analyze_experiments.py`.
 
 ## Why the sensor check: the research behind it
@@ -156,9 +248,9 @@ The agent's vision check agreed with the simulator on 69 of 69 checks above, bec
 | Judge (400 samples, 200 pairs) | Balanced accuracy [95% CI] | Failures called a success [95% CI] |
 |---|---|---|
 | Cheap-sensor classifier (logistic regression) | 0.89 [0.85, 0.92] | 11% [7, 16] |
-| gemini-3.1-flash-lite, image only (150/400 answered, free quota) | 0.55 [0.51, 0.60] | 53% [41, 64] |
+| gemini-3.1-flash-lite, image only (164/400 answered, free quota) | 0.55 [0.50, 0.60] | 54% [43, 65] |
 
-Intervals resample minimal pairs (2,000 bootstrap resamples). A paired McNemar test on the 150 shared samples gives p < 0.001.
+Intervals resample minimal pairs (2,000 bootstrap resamples). A paired McNemar test on the 164 shared samples gives p < 0.001.
 
 - Some vision models still call a stack a success with the cube hovering 7 to 16 mm above it.
 - Sensors are not a full fix. A single-axis wrist force cannot feel a sideways push (the push task scores 0.50), the classifier does not transfer to unseen tasks, and vision's interval overlaps the sensors' from noise strength 16x the default and its point estimate is higher from 32x.
@@ -186,12 +278,22 @@ Picked MuJoCo. The npm README calls Windows support experimental; it ran without
 - The proxy's rate limit lives in function memory, so it is per instance and resets on cold starts. It is basic abuse protection, not a quota system.
 - Free LLM tiers have daily limits. When the shared key runs out, add your own key or come back tomorrow.
 - The agent's sensors are simulated and degraded with a simple noise model. Real touch and force sensors are messier.
-- The sensor check cannot see what happens after a release, such as a cube knocked off a stack. Sim state still decides success.
-- The planner still reads cube positions from the simulator. The OpenCV detector is used to verify results in the experiments, not to plan.
+- The sensor check cannot see what happens after a release, such as a cube knocked off a stack. The press probe covers that case in the experiments but is not used in the live demo.
+- By default the planner and skills read cube positions from the simulator. Perceived-state mode replaces them with OpenCV estimates, but only in the experiments and the local dev build; the planner's scene text still comes from the simulator.
+- The harder suite is small (20 tasks) and its tasks proved easy for the planner. It shows the refusal path works; it does not rank planners.
 - The camera-only rule in the experiments uses one fixed, calibrated camera, known cube sizes and distinct colors. Its contact result is a property of this camera and resolution: a closer or second camera could see some of the gaps it misses here.
 - The experiments use a scripted planner, so they measure checking and recovery, not LLM planning. The simulator rule still uses touch and force sensing during skills; only its final verdict reads true poses.
 - Failures are injected by teleporting cubes or briefly opening the gripper, not by modeled physical causes. Hover gaps came out 1.3 mm larger than commanded because the arm sags; the tables use the measured gaps.
 - The research study's vision numbers come from free tiers with partial coverage for several models; see [research/README.md](research/README.md).
+
+## Reproduce every number
+
+```bash
+npm run results            # rebuilds every table, figure and number from committed data, no API calls
+npm run results -- --check # the same check CI runs
+```
+
+Experiment commands, quota estimates, the coverage policy and dataset publishing: [docs/RUNBOOK.md](docs/RUNBOOK.md).
 
 ## Run locally
 
@@ -232,6 +334,10 @@ python research/scripts/judge_checkpoints.py                              # Open
 python research/scripts/judge_checkpoints.py gemini/gemini-3.1-flash-lite # optional VLM, cached, free tier
 python research/scripts/analyze_experiments.py                            # tables, confidence intervals, plots
 ```
+
+## Cite
+
+See [CITATION.cff](CITATION.cff).
 
 ## Credits
 

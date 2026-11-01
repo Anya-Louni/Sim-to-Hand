@@ -25,8 +25,8 @@ One probe, the **press probe**, with the gripper closed:
 
 What it catches: a cube that is not there (it was knocked off or slid away: no contact, or contact at table
 height) and a cube resting at the wrong height (on the table instead of on the stack). What it cannot catch: a
-cube sitting at the right height but rotated, and a sideways error of under about 2 cm (the fingers still land
-on the cube).
+cube sitting at the right height but rotated, a sideways error of under about 2 cm (the fingers still land
+on the cube), and a stack of the right height in the wrong order (the trials found such towers).
 
 Probed cubes: for each goal `on(a, b)` or `in_zone(a, z)`, cube `a`, unless another goal puts a cube on `a`. In
 a tower only the top cube is probed; pressing the top at the right height implies the cubes under it are there.

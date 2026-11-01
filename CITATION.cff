@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "If you use this code or dataset, please cite it as below."
+title: "Sim-to-Hand: verifying robot actions with cheap touch sensors, a camera, and active probes"
+type: software
+authors:
+  - family-names: Louni
+    given-names: Anya
+repository-code: "https://github.com/Anya-Louni/sim-to-hand"
+url: "https://sim-to-hand.vercel.app"
+license: MIT
+version: "1.1.0"
+date-released: "2026-11-01"
+keywords:
+  - robotics
+  - failure detection
+  - tactile sensing
+  - vision-language models
+  - MuJoCo
+references:
+  - type: dataset
+    title: "Vision Can't Feel"
+    authors:
+      - family-names: Louni
+        given-names: Anya
+    url: "https://huggingface.co/datasets/lilizzz4444/vision-cant-feel"
+    license: CC-BY-4.0

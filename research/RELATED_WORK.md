@@ -9,9 +9,9 @@ Checked October 2026. Summaries come from abstracts, project pages and the FailB
 
 **Guardian** ([arXiv 2512.01946](https://arxiv.org/abs/2512.01946), Pacaud, Garcia, Chen, Schmid; v3 retitled "Scaling Cross-Environment Failure Reasoning Data for Vision-Language Robotic Manipulation"). Perturbs successful trajectories in RLBench and BridgeData V2 to make planning and execution failures (FailCoT), trains a multi-view reasoning VLM, reports state of the art on RoboFail, RoboVQA and a new real benchmark, UR5-Fail. Vision only.
 
-**RoboFAC** ([arXiv 2505.12224](https://arxiv.org/abs/2505.12224)). 9,440 failure trajectories, 78k QA pairs, a six-type failure taxonomy (planning, motion, execution including grasping errors). Fine-tunes Qwen2.5-VL; reports +34.1% over GPT-4o on its own benchmark. Vision only.
+**RoboFAC** ([arXiv 2505.12224](https://arxiv.org/abs/2505.12224), Ye et al., 2025). 9,440 failure trajectories, 78k QA pairs, a six-type failure taxonomy (planning, motion, execution including grasping errors). Fine-tunes Qwen2.5-VL; reports +34.1% over GPT-4o on its own benchmark. Vision only.
 
-**AHA** ([arXiv 2410.00371](https://arxiv.org/abs/2410.00371), ICLR 2025). FailGen perturbs simulated demos to create failures; a fine-tuned VLM detects and explains them and transfers to real datasets. Vision only.
+**AHA** ([arXiv 2410.00371](https://arxiv.org/abs/2410.00371), Duan et al., 2024). FailGen perturbs simulated demos to create failures; a fine-tuned VLM detects and explains them and transfers to real datasets. Vision only.
 
 **FAER.** I could not find a paper by this name. Nearest matches: FLARE ([arXiv 2608.26645](https://arxiv.org/abs/2608.26645), failure-aware recovery) and Fail-RAG ([arXiv 2606.19598](https://arxiv.org/abs/2606.19598), retrieval for failure identification). Please send the full title if you meant something else.
 
@@ -28,6 +28,16 @@ Other vision-centric detectors: I-FailSense ([arXiv 2509.16072](https://arxiv.or
 **Watchdog / physical agentic loop** ([arXiv 2604.07395](https://arxiv.org/abs/2604.07395)). Turns noisy gripper telemetry into grasp outcome labels on a mobile manipulator. No VLM-judge comparison and no quantitative metrics on the abstract page.
 
 **Classical multimodal anomaly detection**, for example Park, Hoshi and Kemp, RA-L 2018 (LSTM-VAE over force, sound and kinematics for robot-assisted feeding). Shows non-visual signals catch execution anomalies. Predates VLM judges.
+
+## LLM planners and acting to perceive (agent side)
+
+Checked 2026-11-01 on the arXiv abstract pages.
+
+**SayCan** ([arXiv 2204.01691](https://arxiv.org/abs/2204.01691), Ahn et al., 2022) and **Inner Monologue** ([arXiv 2207.05608](https://arxiv.org/abs/2207.05608), Huang et al., 2022): language models choose from a fixed skill library; Inner Monologue feeds success detection and scene descriptions back into the plan. The agent here follows that pattern.
+
+**More Than a Feeling** ([arXiv 1805.11085](https://arxiv.org/abs/1805.11085), Calandra et al., RA-L 2018): vision plus touch to predict grasp outcome and regrasp. Touch as a success signal predates VLM judges.
+
+**Interactive Perception** ([arXiv 1604.03670](https://arxiv.org/abs/1604.03670), Bohg et al., IEEE T-RO 2017): survey of acting in order to perceive. The press probe is a small instance of it.
 
 ## Where this project differs
 

@@ -31,6 +31,8 @@ Each sample (`samples.jsonl`) has: `id`, `pair`, `task`, `seed`, `intended` (wha
 
 `sensors.npz` maps each sample id to a raw 100 Hz trace with columns: time (s), left fingertip touch (N), right fingertip touch (N), gripper actuator force (N), wrist force along the tool axis (N). The cheap-sensor degradation in `vcf/sensors.py` is applied at evaluation time, so you can choose the noise level.
 
+`sensors_ft.npz` holds the full 6-axis wrist force/torque of the same attempts, same ids and same time steps: fx, fy, fz (N), tx, ty, tz (N m) in the wrist frame. Its fz column equals the single wrist-force column above. It was added later by replaying every committed pair (`python -m vcf.generate --ft-only`); the replayed single-axis traces matched the committed ones exactly.
+
 `vlm/*.jsonl` holds every model answer: verdict, self-reported confidence, and the raw text.
 
 ## Tasks and ground truth
@@ -46,6 +48,15 @@ Each sample (`samples.jsonl`) has: `id`, `pair`, `task`, `seed`, `intended` (wha
 ## Limitations
 
 Simulation only. Failures are synthetic and drawn from five designed tasks. Simulated touch and force are cleaner than real sensors even after degradation. Confidence values from models are self-reported text.
+
+## Versions
+
+- 1.0: samples, images, single-axis traces, VLM answers.
+- 1.1: adds `sensors_ft.npz` (6-axis wrist force/torque). Nothing else changed.
+
+## Citation
+
+See `CITATION.cff` in the code repository.
 
 ## License
 
