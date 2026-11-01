@@ -26,9 +26,8 @@ function headline() {
   const b = boards?.large ?? boards?.small;
   const el = document.getElementById('headline');
   if (!b) return (el.textContent = 'Results not exported yet.');
-  // Only cite models that answered at least 80% of the test set.
-  const covered = (r) => { const [a, n] = String(r.coverage).split('/').map(Number); return !n || a / n >= 0.8; };
-  const vlms = b.rows.filter((r) => r.kind === 'vlm' && covered(r));
+  // Only cite models in the main table (coverage policy: at least half the test set) that are not degenerate.
+  const vlms = b.rows.filter((r) => r.kind === 'vlm' && !r.appendix && !r.degenerate);
   // Prefer models that answered at least 80%; otherwise the one that answered the most, with coverage stated.
   const answered = (r) => Number(String(r.coverage).split('/')[0]) || 0;
   const best = vlms.sort((a, c) => c.balanced_accuracy - a.balanced_accuracy)[0] ?? b.rows.filter((r) => r.kind === 'vlm').sort((a, c) => answered(c) - answered(a))[0];
@@ -47,10 +46,11 @@ function leaderboard() {
   if (!b) return;
   document.getElementById('lb-note').textContent = `${b.n_test} test samples. Coverage shows how many each judge answered; free-tier daily quotas limited some models. Sorted by balanced accuracy.`;
   const tasks = ['stack', 'grasp', 'button', 'peg', 'push'];
-  const rows = [...b.rows].sort((a, c) => c.balanced_accuracy - a.balanced_accuracy);
+  const rows = [...b.rows].sort((a, c) => (a.appendix ? 1 : 0) - (c.appendix ? 1 : 0) || c.balanced_accuracy - a.balanced_accuracy);
+  const firstAppendix = rows.findIndex((r) => r.appendix);
   document.getElementById('lb').innerHTML =
     `<thead><tr><th>Judge</th><th>Coverage</th><th>Balanced acc.</th><th>False-success</th><th>False-failure</th><th>ECE</th>${tasks.map((t) => `<th>${t}</th>`).join('')}</tr></thead><tbody>` +
-    rows.map((r) => `<tr class="${r.kind}"><td>${esc(r.judge)}</td><td class="num">${r.coverage}</td><td class="num">${r.balanced_accuracy.toFixed(2)}<span class="bar" style="width:${Math.max(0, (r.balanced_accuracy - 0.5) * 120)}px"></span></td><td class="num">${pct(r.false_success_rate)}</td><td class="num">${pct(r.false_failure_rate)}</td><td class="num">${r.ece == null ? '–' : r.ece.toFixed(2)}</td>${tasks.map((t) => `<td class="num">${r.by_task[t] == null || Number.isNaN(r.by_task[t]) ? '–' : r.by_task[t].toFixed(2)}</td>`).join('')}</tr>`).join('') +
+    rows.map((r, i) => `${i === firstAppendix ? `<tr class="appendix-head"><td colspan="${6 + tasks.length}">Answered under half of this test set (free-tier quota). Not comparable with the rows above.</td></tr>` : ''}<tr class="${r.kind}${r.appendix ? ' appendix' : ''}"><td>${esc(r.judge)}${r.degenerate ? ' <span class="muted">(always the same answer)</span>' : ''}</td><td class="num">${r.coverage}</td><td class="num">${r.balanced_accuracy.toFixed(2)}<span class="bar" style="width:${Math.max(0, (r.balanced_accuracy - 0.5) * 120)}px"></span></td><td class="num">${pct(r.false_success_rate)}</td><td class="num">${pct(r.false_failure_rate)}</td><td class="num">${r.ece == null ? '–' : r.ece.toFixed(2)}</td>${tasks.map((t) => `<td class="num">${r.by_task[t] == null || Number.isNaN(r.by_task[t]) ? '–' : r.by_task[t].toFixed(2)}</td>`).join('')}</tr>`).join('') +
     '</tbody>';
 }
 
@@ -102,7 +102,7 @@ function playRound() {
   document.getElementById('game-task').textContent = p.task;
   document.getElementById('game-goal').textContent = TASK_GOAL[p.task];
   document.getElementById('game-score').textContent = played ? `you: ${correct}/${played}` : '';
-  document.querySelectorAll('.choice').forEach((btn, i) => {
+  document.querySelectorAll('#game .choice').forEach((btn, i) => {
     btn.className = 'choice';
     btn.disabled = false;
     btn.querySelector('img')?.remove();
@@ -121,7 +121,7 @@ function answer(p, sides, pick) {
   played++;
   if (right) correct++;
   storeScore();
-  document.querySelectorAll('.choice').forEach((btn, i) => {
+  document.querySelectorAll('#game .choice').forEach((btn, i) => {
     btn.disabled = true;
     btn.classList.add(sides[i] === 'success' ? 'right' : 'wrong');
   });
@@ -140,6 +140,56 @@ function answer(p, sides, pick) {
   document.getElementById('next').hidden = false;
 }
 document.getElementById('next').addEventListener('click', () => { round++; playRound(); });
+
+// ---------- Trace game: the same pairs, sensors only ----------
+const feelOrder = (pairs ?? []).map((_, i) => i).sort(() => Math.random() - 0.5);
+let feelRound = 0, feelCorrect = 0, feelPlayed = 0;
+try { ({ correct: feelCorrect = 0, played: feelPlayed = 0 } = JSON.parse(localStorage.getItem('vcf-feel-score') ?? '{}')); } catch {}
+function feelRoundShow() {
+  if (!pairs?.length) return;
+  const p = pairs[feelOrder[feelRound % feelOrder.length]];
+  const sides = Math.random() < 0.5 ? ['failure', 'success'] : ['success', 'failure'];
+  document.getElementById('feel-task').textContent = p.task;
+  document.getElementById('feel-goal').textContent = TASK_GOAL[p.task];
+  document.getElementById('feel-score').textContent = feelPlayed ? `you: ${feelCorrect}/${feelPlayed}` : '';
+  // Same y range for both sides, so the two traces can be compared by eye.
+  const both = sides.map((s) => p.sides[s].sensors);
+  const range = (k) => [Math.min(...both.flatMap((s) => s[k])), Math.max(...both.flatMap((s) => s[k]))];
+  const [e0, e1] = range('effort'), [f0, f1] = range('force');
+  document.querySelectorAll('#feel .choice').forEach((btn, i) => {
+    const s = p.sides[sides[i]].sensors;
+    btn.className = 'choice';
+    btn.disabled = false;
+    btn.querySelector('.trace').innerHTML = `<div class="spark-label">contact switch</div>${spark(s.switch, 'var(--sensor)', 0, 1)}<div class="spark-label">gripper effort (N)</div>${spark(s.effort, 'var(--sensor)', e0, e1)}<div class="spark-label">wrist force (N)</div>${spark(s.force, 'var(--sensor)', f0, f1)}`;
+    btn.onclick = () => feelAnswer(p, sides, i);
+  });
+  document.getElementById('feel-reveal').hidden = true;
+  document.getElementById('feel-next').hidden = true;
+}
+function feelAnswer(p, sides, pick) {
+  feelPlayed++;
+  if (sides[pick] === 'success') feelCorrect++;
+  try { localStorage.setItem('vcf-feel-score', JSON.stringify({ correct: feelCorrect, played: feelPlayed })); } catch {}
+  document.querySelectorAll('#feel .choice').forEach((btn, i) => {
+    btn.disabled = true;
+    btn.classList.add(sides[i] === 'success' ? 'right' : 'wrong');
+  });
+  const col = (side, letter) => {
+    const sd = p.sides[side];
+    const llm = Object.entries(sd.trace_llm ?? {});
+    return `<div class="col"><h4>${letter}: ${side === 'success' ? '<span class="yes">success</span>' : '<span class="no">failure</span>'}</h4>
+      <img src="img/${sd.id}-front.jpg" alt="Camera view of ${letter}" class="reveal-img">
+      <div class="muted">${esc(sd.rule)}</div>
+      <ul class="verdicts">${llm.length ? llm.map(([k, r]) => `<li><span>${esc(k)}, reading the trace</span><span class="${r.success === (side === 'success') ? 'yes' : 'no'}">${r.success == null ? 'no answer' : r.success ? 'says success' : 'says failure'}</span></li>`).join('') : '<li>no language-model reading yet</li>'}</ul></div>`;
+  };
+  const rv = document.getElementById('feel-reveal');
+  rv.innerHTML = col(sides[0], 'A') + col(sides[1], 'B');
+  rv.hidden = false;
+  document.getElementById('feel-score').textContent = `you: ${feelCorrect}/${feelPlayed}`;
+  document.getElementById('feel-next').hidden = false;
+}
+document.getElementById('feel-next').addEventListener('click', () => { feelRound++; feelRoundShow(); });
+feelRoundShow();
 
 // ---------- Gallery ----------
 let galleryTask = 'all';

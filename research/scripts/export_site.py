@@ -15,6 +15,7 @@ sys.path.insert(0, str(ROOT))
 from vcf.generate import pair_seed  # noqa: E402
 from vcf.model import compiled  # noqa: E402
 from vcf.randomize import place_distractors, randomize  # noqa: E402
+from vcf.evaluate import policy  # noqa: E402
 from vcf.sensors import degrade  # noqa: E402
 from vcf.tasks import TASK_CLASSES  # noqa: E402
 
@@ -100,6 +101,10 @@ def main():
     with np.load(data_dir / "sensors.npz") as z:
         traces = {k: z[k] for k in z.files}
     vlm = load_vlm(data_dir)
+    trace_llm: dict = {}  # B2: text LLMs reading the sensor trace
+    for f in sorted((data_dir / "trace_llm").glob("*.jsonl")):
+        for r in map(json.loads, open(f)):
+            trace_llm.setdefault(r["id"], {})[f"{r['model']} ({r['shots']}-shot)"] = {"success": r["success"], "confidence": r["confidence"]}
 
     # Leaderboards.
     boards = {}
@@ -110,6 +115,7 @@ def main():
             boards[name] = {
                 "n_test": r["n_test"],
                 "rows": [{"judge": k, "kind": j["kind"], "coverage": j.get("coverage", "all"), **{x: j["overall"].get(x) for x in ("balanced_accuracy", "false_success_rate", "false_failure_rate", "ece", "n")},
+                          "appendix": not policy(j, r["n_test"])["main"], "degenerate": policy(j, r["n_test"])["degenerate"],
                           "by_task": {t: v["balanced_accuracy"] for t, v in j["by_task"].items()}} for k, j in r["judges"].items()],
                 "noise_sweep": r["noise_sweep_sensor_logreg"],
                 "loto": r["sensor_logreg_leave_one_task_out"],
@@ -134,6 +140,7 @@ def main():
             item["sides"][v] = {
                 "id": s["id"], "label": s["label"], "rule": s["rule"], "realized_mm": s["realized_mm"],
                 "vlm": vlm.get(s["id"], {}),
+                "trace_llm": trace_llm.get(s["id"], {}),
                 "sensors": {"switch": np.maximum(x[:, 0], x[:, 1])[::2].round(0).tolist(), "effort": x[::2, 2].round(2).tolist(), "force": x[::2, 3].round(2).tolist()},
             }
         items.append(item)

@@ -18,6 +18,7 @@
   <p class="lede" id="headline">Loading results…</p>
   <nav>
     <a href="#game">Can you tell?</a>
+    <a href="#feel">Can you feel it?</a>
     <a href="#leaderboard">Leaderboard</a>
     <a href="#pairs">Minimal pairs</a>
     <a href="#fool">Millimeters to fool</a>
@@ -39,6 +40,20 @@
       </div>
       <div id="reveal" class="reveal" hidden></div>
       <div class="game-foot"><button id="next" class="btn" hidden>Next pair</button></div>
+    </div>
+  </section>
+
+  <section id="feel">
+    <h2>Can you feel it?</h2>
+    <p class="muted">The same pairs, without the pictures. You get only what the robot's cheap sensors read during each attempt: a fingertip contact switch, gripper effort and a single-axis wrist force, all noisy. Pick the success. Then see the camera images and what a text-only language model said when it read the same two traces.</p>
+    <div class="game">
+      <div class="game-head"><span id="feel-task" class="pill"></span><span id="feel-goal"></span><span id="feel-score" class="score"></span></div>
+      <div class="choices traces">
+        <button class="choice" data-side="0"><span>A</span><div class="trace"></div></button>
+        <button class="choice" data-side="1"><span>B</span><div class="trace"></div></button>
+      </div>
+      <div id="feel-reveal" class="reveal" hidden></div>
+      <div class="game-foot"><button id="feel-next" class="btn" hidden>Next pair</button></div>
     </div>
   </section>
 
