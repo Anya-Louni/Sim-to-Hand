@@ -4,10 +4,12 @@
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
 \usepackage{xcolor}
+\usepackage[section]{placeins}
 \hypersetup{colorlinks=true,linkcolor=black,urlcolor=blue!50!black,citecolor=black}
 \setlength{\tabcolsep}{4pt}
+\input{tables/macros.tex}
 
-\title{Vision Can't Feel: Minimal Pairs for Contact-Dependent Robot Success Judgment}
+\title{Vision Can't Feel: Minimal Pairs for Contact-Dependent Robot Success Judgment, and What an Agent Should Check Instead}
 \author{Anya Louni}
 \date{October 2026}
 
@@ -22,7 +24,7 @@ Vision-language models (VLMs) are increasingly used to judge whether a robot fin
 A success detector gates retries, rewards, and data collection. A false success is the costly error: the robot moves on while the task silently failed. For contact-dependent tasks the evidence is often a millimeter gap or a force, which a camera at 640 pixels sees poorly or not at all. Cheap sensors measure contact directly. We ask how far that intuition holds when the sensors are realistically noisy, and where it breaks.
 
 \section{Related work}
-FailBench~\cite{failbench} evaluates 13 VLM detectors on 2{,}197 real and simulated attempts. Detection is near saturation when success shows as object motion and near chance on contact-rich assembly (no model above 0.60 balanced accuracy on its REASSEMBLE subset), with a bias toward predicting success. It uses vision only and names force-torque as future work. Guardian~\cite{guardian}, AHA~\cite{aha} and RoboFAC~\cite{robofac} train vision-language failure detectors from perturbed demonstrations; all are vision-only. Force and touch appear in policies (e.g.\ force-aware VLAs) rather than as success judges, and classical multimodal anomaly detectors predate VLM judges. To our knowledge no prior work compares cheap non-visual sensors with VLM judges on the same attempts. The vision-side finding is therefore not new; our contribution is the controlled minimal-pair setting, the degraded-sensor comparison, fusion, and the physical attacker. FailBench data was not yet released when we checked, so we could not report on its subset.
+FailBench~\cite{failbench} evaluates 13 VLM detectors on 2{,}197 real and simulated attempts. Detection is near saturation when success shows as object motion and near chance on contact-rich assembly (no model above 0.60 balanced accuracy on its REASSEMBLE subset), with a bias toward predicting success. It uses vision only and names force-torque as future work. Guardian~\cite{guardian}, AHA~\cite{aha} and RoboFAC~\cite{robofac} train vision-language failure detectors from perturbed demonstrations; all are vision-only. Force and touch appear in policies (e.g.\ force-aware VLAs) rather than as success judges, and classical multimodal anomaly detectors predate VLM judges. To our knowledge no prior work compares cheap non-visual sensors with VLM judges on the same attempts. The vision-side finding is therefore not new; our contribution is the controlled minimal-pair setting, the degraded-sensor comparison, fusion, and the physical attacker. FailBench data was not yet released when we checked, so we could not report on its subset. On the agent side, LLM planners over a fixed skill library with success feedback follow SayCan~\cite{saycan} and Inner Monologue~\cite{innermono}; Inner Monologue already feeds success detection back into the plan. Using touch to decide whether a grasp worked goes back at least to Calandra et al.~\cite{feeling}, and acting to perceive (our press probe) is interactive perception~\cite{interactive}.
 
 \section{Setup}
 \paragraph{Simulation.} MuJoCo 3.17 with the Menagerie Franka Panda (gravity compensation, position actuators, damped least-squares IK, guarded moves that stop at 8\,N of tared wrist force). Five tasks, each with a matched failure: \textbf{stack} (held cube touching the base vs.\ hovering), \textbf{grasp} (closed on the cube vs.\ beside it), \textbf{button} (pressed past a 4\,mm click vs.\ less), \textbf{peg} (seated vs.\ on the rim), \textbf{push} (block against a wall vs.\ short of it).
@@ -56,8 +58,68 @@ FailBench~\cite{failbench} evaluates 13 VLM detectors on 2{,}197 real and simula
 \begin{table}[t]\centering\small\resizebox{\columnwidth}{!}{\input{tables/attack.tex}}\caption{Millimeters to fool (largest failure judged success; mean of 2 scenes).}\label{tab:attack}\end{table}
 \begin{table}[t]\centering\small\IfFileExists{tables/transfer.tex}{\input{tables/transfer.tex}}{Transfer run pending.}\caption{Fooling scenes re-judged by other judges.}\label{tab:transfer}\end{table}
 
+\section{From judging to acting}
+The study above judges single snapshots. A robot agent decides many times per task and can act to find out. We
+built one: an LLM plans over five skills (move, grasp, lift, place, release) in the style of SayCan and Inner
+Monologue~\cite{saycan,innermono}; MuJoCo WASM runs the Panda in a browser; damped least-squares IK executes. The
+same cheap sensors check each skill as it runs: a grasp must close both fingertip switches with effort above 5\,N,
+a slip turns the switches off, and a placement lowers under a force guard until the wrist force rises. All
+experiments in this section use 80 seeded tasks (stack, tower, sort, zone), a scripted planner (no API calls, so
+runs are free and repeatable), up to three replans, and true simulator state for scoring. Failures are injected in
+the first attempt: a slip while carrying, the target moved just before placing, the cube knocked away right after
+release, or seeded random chaos.
+
+\paragraph{Who decides ``done''.} Table~\ref{tab:trials} compares decision rules. An OpenCV detector that fits each
+cube's 3D pose from color silhouettes stands in for the camera (the robot then runs open loop, without touch).
+Sensors catch failures during the task but are blind after release: alone they declared \KnockSensorsFalse{}
+knocked-off episodes a success. Camera and sensors together had \CombinedFalse{} false successes.
+\begin{table}[!htb]\centering\small\resizebox{\columnwidth}{!}{\input{tables/agent_trials.tex}}\caption{True success (\%, 95\% Wilson interval) by decision rule and failure; 80 episodes per cell, 40 for target moved.}\label{tab:trials}\end{table}
+
+\paragraph{Planning from what the camera sees.} By default the skills aim at true cube poses. In perceived-state
+mode they aim at the detector's estimates, refreshed before every attempt. Over \PercLooks{} looks the median
+position error was \PercMedian\,mm (mean \PercMean\,mm, worst cube \PercWorstMax\,mm). Table~\ref{tab:perceived}
+shows that no rule's true success changed significantly: grasps close on the cube and placements stop on
+contact, which absorbs millimeter errors.
+\begin{table}[!htb]\centering\small\resizebox{\columnwidth}{!}{\input{tables/agent_perceived.tex}}\caption{True success (\%) with perceived and true state on the same tasks; McNemar counts only-perceived/only-true correct, and $p$.}\label{tab:perceived}\end{table}
+
+\paragraph{Touch the result before saying done.} Sensors go blind at release, so we added an active check in the
+spirit of interactive perception~\cite{interactive}: a \emph{press probe} lowers the closed gripper onto each top
+cube and checks, from the noisy wrist force and the arm's own height, that the top face sits where the goal puts
+it. A router runs checks cheapest first: sensors; the camera only if the sensors pass; the probe only if the camera
+disagrees. Table~\ref{tab:probes} pools all five failure types. Our first probe checked the height where the robot
+had put each cube and missed towers rebuilt on a knocked-off middle cube; the current one uses the height the goal
+implies (both runs are in the repository). On knocked-off cubes false success fell from \KnockSensorsFalse{} with
+sensors alone to \KnockProbeFalse{} with the probe; the remaining misses were towers of the right height in the wrong order, which a press cannot
+see and a camera can. The router matched sensors with the probe on true and false success and used \RouterCamera{} camera checks per episode
+against \CombinedCamera{} for camera and sensors together, at \RouterSimS{} against \CombinedSimS{} simulated
+seconds per episode.
+\begin{table*}[t]\centering\small\input{tables/agent_probes.tex}\caption{Checking strategies over all five failure types (360 episodes each): true and false success (\%, Wilson interval), false success when the cube was knocked off after release, simulated seconds, camera checks and probes per episode.}\label{tab:probes}\end{table*}
+
+\paragraph{A 6-axis wrist sensor.} We replayed every committed attempt with a 6-axis force/torque sensor at the
+wrist (the replayed single-axis traces matched the originals exactly) and gave it the same noise model per axis.
+Task-agnostic features (contact onset, peak change, direction relative to the approach, steadiness after onset,
+torque) replace the single-axis wrist features; switches and effort stay. On the scaled set balanced accuracy rose
+from \FtSingle{} to \FtSix{} (McNemar $p$ \FtP; Table~\ref{tab:ft}), and held-out-task accuracy rose on stack and peg
+but not on button or push. On the 100-sample set the logistic-regression gain was not significant ($p$ = \FtSmallP).
+With more noise than the default, the advantage disappears: the intervals overlap from twice the default on.
+\begin{table}[!htb]\centering\small\resizebox{\columnwidth}{!}{\input{tables/agent_ft.tex}}\caption{Single-axis vs.\ 6-axis wrist sensing, scaled set. McNemar: samples only 6-axis / only single-axis got right.}\label{tab:ft}\end{table}
+
+\paragraph{Can a language model read a touch trace?} Each small-set trace, with the evaluation's noise and printed
+at 10\,Hz, went to a text-only model (Table~\ref{tab:trace}). One-shot adds one labelled success/failure pair of the
+same task from the training seeds. Zero-shot, the model is worse than the sensor classifier; given one example
+pair it is not significantly different from the classifier and clearly better than the camera VLM on the same
+samples. Reading a touch trace, given a reference, is within reach of a free text model; reading the gap from an
+image is not.
+\begin{table}[!htb]\centering\small\resizebox{\columnwidth}{!}{\input{tables/agent_trace.tex}}\caption{A text LLM judging from the sensor trace alone (small set). Last column: McNemar against the sensor classifier.}\label{tab:trace}\end{table}
+
+\paragraph{Harder instructions.} Twenty hand-written tasks test the planner on relational references, cubes that
+start stacked, impossible requests (where the plan schema allows a structured refusal) and distractor phrasing
+(Table~\ref{tab:hard}). The LLM planner refused every impossible task and no possible one; the suite proved easier
+than intended and does not rank planners.
+\begin{table}[!htb]\centering\small\resizebox{\columnwidth}{!}{\input{tables/agent_hard.tex}}\caption{Harder suite: correct per family (goal met, or refusal for impossible tasks). Scripted rows plan from the hand-written goal.}\label{tab:hard}\end{table}
+
 \section{Limitations}
-Simulation only; nothing here is validated on hardware, and simulated touch and force are cleaner than real ones even after degradation. The failures are synthetic and drawn from five tasks we designed, so the sensor features fit those tasks; leave-one-task-out results show they do not generalize. The minimal pairs are hard by construction, so VLM accuracy here says little about natural failure distributions. Free-tier quotas limited coverage for several models, and local models ran on downscaled images. VLM confidence is self-reported text, not a probability. We used one prompt per task and did not tune prompts per model. Two scenes per task in the attacker is small. Fusion is cross-validated on the test set rather than trained on separate VLM-labelled data.
+Simulation only; nothing here is validated on hardware, and simulated touch and force are cleaner than real ones even after degradation. The failures are synthetic and drawn from five tasks we designed, so the sensor features fit those tasks; leave-one-task-out results show they do not generalize. The minimal pairs are hard by construction, so VLM accuracy here says little about natural failure distributions. Free-tier quotas limited coverage for several models, and local models ran on downscaled images. VLM confidence is self-reported text, not a probability. We used one prompt per task and did not tune prompts per model. Two scenes per task in the attacker is small. Fusion is cross-validated on the test set rather than trained on separate VLM-labelled data. In the agent experiments the planner is scripted, failures are injected by teleporting cubes or opening the gripper, the probe thresholds were set once and not tuned, and perceived-state mode still gives the planner a scene description from the simulator.
 
 \section{Reproducibility}
 Code (MIT), the dataset with images, sensor traces, simulator states, ground truth and every model answer (CC BY 4.0), and a one-command script are public. Cached answers make reruns free.
@@ -65,7 +127,11 @@ Code (MIT), the dataset with images, sensor traces, simulator states, ground tru
 \begin{thebibliography}{9}\small
 \bibitem{failbench} Z.~Navasardyan, T.~Danielyan, H.~Davtyan. FailBench: How Reliable are VLMs at Judging Robot Task Success? arXiv:2609.03611, 2026.
 \bibitem{guardian} P.~Pacaud, R.~Garcia, S.~Chen, C.~Schmid. Guardian: Detecting Robotic Planning and Execution Errors with Vision-Language Models. arXiv:2512.01946, 2025.
-\bibitem{aha} AHA: A Vision-Language-Model for Detecting and Reasoning Over Failures in Robotic Manipulation. ICLR 2025, arXiv:2410.00371.
-\bibitem{robofac} W.~Lu et al. RoboFAC: A Comprehensive Framework for Robotic Failure Analysis and Correction. arXiv:2505.12224, 2025.
+\bibitem{aha} J.~Duan, W.~Pumacay, N.~Kumar et al. AHA: A Vision-Language-Model for Detecting and Reasoning Over Failures in Robotic Manipulation. arXiv:2410.00371, 2024.
+\bibitem{robofac} Z.~Ye, W.~Lu, M.~Ye et al. RoboFAC: A Comprehensive Framework for Robotic Failure Analysis and Correction. arXiv:2505.12224, 2025.
+\bibitem{saycan} M.~Ahn, A.~Brohan, N.~Brown et al. Do As I Can, Not As I Say: Grounding Language in Robotic Affordances. arXiv:2204.01691, 2022.
+\bibitem{innermono} W.~Huang, F.~Xia, T.~Xiao et al. Inner Monologue: Embodied Reasoning through Planning with Language Models. arXiv:2207.05608, 2022.
+\bibitem{interactive} J.~Bohg, K.~Hausman, B.~Sankaran, O.~Brock, D.~Kragic, S.~Schaal, G.~Sukhatme. Interactive Perception: Leveraging Action in Perception and Perception in Action. IEEE Transactions on Robotics 33, 2017.
+\bibitem{feeling} R.~Calandra, A.~Owens, D.~Jayaraman et al. More Than a Feeling: Learning to Grasp and Regrasp using Vision and Touch. IEEE Robotics and Automation Letters, 2018.
 \end{thebibliography}
 \end{document}

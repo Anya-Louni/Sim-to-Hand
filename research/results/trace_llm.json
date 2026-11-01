@@ -1,0 +1,80 @@
+{
+  "groq/openai/gpt-oss-120b (0-shot)": {
+    "n": 100,
+    "overall": {
+      "n": 100,
+      "balanced_accuracy": 0.68,
+      "false_success_rate": 0.18,
+      "false_failure_rate": 0.46,
+      "no_answer_rate": 0.0
+    },
+    "ci": {
+      "balanced_accuracy": [
+        0.58,
+        0.78
+      ],
+      "false_success_rate": [
+        0.08,
+        0.3
+      ],
+      "n_pairs": 50,
+      "n_boot": 2000,
+      "seed": 0
+    },
+    "mcnemar": {
+      "sensor_logreg": {
+        "n_shared": 100,
+        "only_a_correct": 9,
+        "only_b_correct": 27,
+        "p": 0.004606532263391753,
+        "method": "chi2_cc"
+      },
+      "gemini/gemini-3.1-flash-lite (single)": {
+        "n_shared": 100,
+        "only_a_correct": 28,
+        "only_b_correct": 20,
+        "p": 0.31232142167621324,
+        "method": "chi2_cc"
+      }
+    }
+  },
+  "groq/openai/gpt-oss-120b (1-shot)": {
+    "n": 96,
+    "overall": {
+      "n": 96,
+      "balanced_accuracy": 0.9062,
+      "false_success_rate": 0.1042,
+      "false_failure_rate": 0.0833,
+      "no_answer_rate": 0.0
+    },
+    "ci": {
+      "balanced_accuracy": [
+        0.8333,
+        0.9688
+      ],
+      "false_success_rate": [
+        0.0208,
+        0.1875
+      ],
+      "n_pairs": 48,
+      "n_boot": 2000,
+      "seed": 0
+    },
+    "mcnemar": {
+      "sensor_logreg": {
+        "n_shared": 96,
+        "only_a_correct": 6,
+        "only_b_correct": 2,
+        "p": 0.2890625,
+        "method": "exact"
+      },
+      "gemini/gemini-3.1-flash-lite (single)": {
+        "n_shared": 96,
+        "only_a_correct": 34,
+        "only_b_correct": 6,
+        "p": 1.9628540586952144e-05,
+        "method": "chi2_cc"
+      }
+    }
+  }
+}

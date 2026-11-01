@@ -4,9 +4,14 @@ Test set: data/large (400 samples). Sensor classifiers trained on 600 samples fr
 |---|---|---|---|---|---|---|---|
 | sensor_gboost | sensor | all | 0.888 [0.85, 0.92] | 0.125 [0.08, 0.17] | 0.100 | 0.000 | 0.063 |
 | sensor_logreg | sensor | all | 0.885 [0.85, 0.92] | 0.110 [0.07, 0.16] | 0.120 | 0.000 | 0.043 |
-| fusion: gemini/gemini-3.1-flash-lite (single) + sensors | fusion | 150/400 | 0.880 [0.82, 0.93] | 0.107 [0.04, 0.19] | 0.133 | 0.000 | 0.055 |
-| gemini/gemini-3.1-flash-lite (single) | vlm | 150/400 | 0.553 [0.51, 0.60] | 0.533 [0.41, 0.64] | 0.360 | 0.000 | 0.446 |
-| ollama/moondream:1.8b (single) | vlm | 8/400 | 0.500 [0.50, 0.50] | 1.000 [1.00, 1.00] | 0.000 | 0.000 | 0.173 |
+
+Appendix: judges that answered under 50% of this test set (quota cuts). Their numbers cover a different, smaller sample and are not comparable with the table above.
+
+| Judge | Kind | Coverage | Balanced acc. | False-success | False-failure | No answer | ECE |
+|---|---|---|---|---|---|---|---|
+| fusion: gemini/gemini-3.1-flash-lite (single) + sensors | fusion | 164/400 | 0.878 [0.82, 0.93] | 0.098 [0.04, 0.17] | 0.146 | 0.000 | 0.053 |
+| gemini/gemini-3.1-flash-lite (single) | vlm | 164/400 | 0.549 [0.50, 0.60] | 0.537 [0.43, 0.65] | 0.366 | 0.000 | 0.450 |
+| ollama/moondream:1.8b (single) | vlm (degenerate: says success on 100%) | 8/400 | 0.500 [0.50, 0.50] | 1.000 [1.00, 1.00] | 0.000 | 0.000 | 0.173 |
 
 Brackets: 95% bootstrap intervals, resampling minimal pairs (2,000 resamples, seed 0).
 
@@ -14,7 +19,7 @@ Paired test, each VLM vs sensor_logreg on the samples the VLM answered (McNemar;
 
 | VLM | Shared samples | Only VLM right | Only sensors right | p | Test |
 |---|---|---|---|---|---|
-| gemini/gemini-3.1-flash-lite (single) | 150 | 6 | 60 | <0.001 | chi2_cc |
+| gemini/gemini-3.1-flash-lite (single) | 164 | 6 | 65 | <0.001 | chi2_cc |
 | ollama/moondream:1.8b (single) | 8 | 0 | 3 | 0.250 | exact |
 
 Balanced accuracy by task:
@@ -23,8 +28,8 @@ Balanced accuracy by task:
 |---|---|---|---|---|---|
 | sensor_gboost | 1.000 | 1.000 | 0.975 | 1.000 | 0.463 |
 | sensor_logreg | 0.938 | 1.000 | 1.000 | 0.988 | 0.500 |
-| fusion: gemini/gemini-3.1-flash-lite (single) + sensors | 0.967 | 1.000 | 0.933 | 1.000 | 0.500 |
-| gemini/gemini-3.1-flash-lite (single) | 0.500 | 0.667 | 0.567 | 0.600 | 0.433 |
+| fusion: gemini/gemini-3.1-flash-lite (single) + sensors | 0.969 | 1.000 | 0.941 | 1.000 | 0.469 |
+| gemini/gemini-3.1-flash-lite (single) | 0.469 | 0.677 | 0.588 | 0.594 | 0.406 |
 | ollama/moondream:1.8b (single) | - | 0.500 | 0.500 | 0.500 | 0.500 |
 
 False-success rate by task:
@@ -33,8 +38,8 @@ False-success rate by task:
 |---|---|---|---|---|---|
 | sensor_gboost | 0.000 | 0.000 | 0.050 | 0.000 | 0.575 |
 | sensor_logreg | 0.025 | 0.000 | 0.000 | 0.025 | 0.500 |
-| fusion: gemini/gemini-3.1-flash-lite (single) + sensors | 0.067 | 0.000 | 0.133 | 0.000 | 0.333 |
-| gemini/gemini-3.1-flash-lite (single) | 1.000 | 0.600 | 0.733 | 0.067 | 0.267 |
+| fusion: gemini/gemini-3.1-flash-lite (single) + sensors | 0.063 | 0.000 | 0.118 | 0.000 | 0.313 |
+| gemini/gemini-3.1-flash-lite (single) | 1.000 | 0.588 | 0.706 | 0.063 | 0.313 |
 | ollama/moondream:1.8b (single) | - | 1.000 | 1.000 | 1.000 | 1.000 |
 
 Sensor classifier, leave one task out (logistic regression):

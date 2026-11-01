@@ -10,15 +10,20 @@ Test set: data/small (100 samples). Sensor classifiers trained on 600 samples fr
 | fusion: gemini/gemini-3.1-flash-lite (single) + sensors | fusion | 100/100 | 0.850 [0.77, 0.92] | 0.080 [0.02, 0.16] | 0.220 | 0.000 | 0.131 |
 | fusion: ollama/qwen2.5vl:3b (single) + sensors | fusion | 100/100 | 0.850 [0.77, 0.92] | 0.100 [0.02, 0.18] | 0.200 | 0.000 | 0.099 |
 | fusion: groq/qwen/qwen3.8-27b (single) + sensors | fusion | 93/100 | 0.838 [0.75, 0.91] | 0.106 [0.02, 0.19] | 0.217 | 0.000 | 0.109 |
-| fusion: gemini/gemini-3.5-flash (single) + sensors | fusion | 41/100 | 0.781 [0.65, 0.90] | 0.238 [0.10, 0.43] | 0.200 | 0.000 | 0.176 |
 | gemini/gemini-3.1-flash-lite (multi) | vlm | 57/100 | 0.651 [0.55, 0.74] | 0.448 [0.28, 0.62] | 0.250 | 0.000 | 0.351 |
-| gemini/gemini-3.5-flash (single) | vlm | 41/100 | 0.613 [0.48, 0.74] | 0.524 [0.29, 0.76] | 0.250 | 0.000 | 0.343 |
 | gemini/gemini-3.1-flash-lite (single) | vlm | 100/100 | 0.600 [0.54, 0.66] | 0.460 [0.32, 0.60] | 0.340 | 0.000 | 0.400 |
 | groq/qwen/qwen3.8-27b (single) | vlm | 93/100 | 0.570 [0.49, 0.65] | 0.426 [0.28, 0.57] | 0.435 | 0.000 | 0.362 |
 | gemini/gemma-4-31b-it (single) | vlm | 83/100 | 0.557 [0.48, 0.64] | 0.375 [0.23, 0.53] | 0.512 | 0.000 | 0.419 |
+| ollama/moondream:1.8b (single) | vlm (degenerate: says success on 100%) | 100/100 | 0.500 [0.50, 0.50] | 1.000 [1.00, 1.00] | 0.000 | 0.000 | 0.228 |
+| ollama/qwen2.5vl:3b (single) | vlm (degenerate: says success on 100%) | 100/100 | 0.500 [0.50, 0.50] | 1.000 [1.00, 1.00] | 0.000 | 0.000 | 0.444 |
+
+Appendix: judges that answered under 50% of this test set (quota cuts). Their numbers cover a different, smaller sample and are not comparable with the table above.
+
+| Judge | Kind | Coverage | Balanced acc. | False-success | False-failure | No answer | ECE |
+|---|---|---|---|---|---|---|---|
+| fusion: gemini/gemini-3.5-flash (single) + sensors | fusion | 41/100 | 0.781 [0.65, 0.90] | 0.238 [0.10, 0.43] | 0.200 | 0.000 | 0.176 |
+| gemini/gemini-3.5-flash (single) | vlm | 41/100 | 0.613 [0.48, 0.74] | 0.524 [0.29, 0.76] | 0.250 | 0.000 | 0.343 |
 | gemini/gemma-4-31b-it (multi) | vlm | 9/100 | 0.550 [0.30, 0.80] | 0.400 [0.00, 0.80] | 0.500 | 0.000 | 0.428 |
-| ollama/moondream:1.8b (single) | vlm | 100/100 | 0.500 [0.50, 0.50] | 1.000 [1.00, 1.00] | 0.000 | 0.000 | 0.228 |
-| ollama/qwen2.5vl:3b (single) | vlm | 100/100 | 0.500 [0.50, 0.50] | 1.000 [1.00, 1.00] | 0.000 | 0.000 | 0.444 |
 
 Brackets: 95% bootstrap intervals, resampling minimal pairs (2,000 resamples, seed 0).
 

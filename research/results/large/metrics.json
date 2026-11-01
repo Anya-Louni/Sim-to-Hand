@@ -322,115 +322,115 @@
     },
     "gemini/gemini-3.1-flash-lite (single)": {
       "overall": {
-        "n": 150,
-        "balanced_accuracy": 0.5533,
-        "false_success_rate": 0.5333,
-        "false_failure_rate": 0.36,
+        "n": 164,
+        "balanced_accuracy": 0.5488,
+        "false_success_rate": 0.5366,
+        "false_failure_rate": 0.3659,
         "no_answer_rate": 0.0,
-        "ece": 0.4457,
+        "ece": 0.4503,
         "reliability": [
           {
             "bin": [
               0.0,
               0.1
             ],
-            "n": 62,
+            "n": 68,
             "mean_p": 0.002,
-            "frac_success": 0.435
+            "frac_success": 0.441
           },
           {
             "bin": [
               0.9,
               1.0
             ],
-            "n": 88,
+            "n": 96,
             "mean_p": 1.0,
-            "frac_success": 0.545
+            "frac_success": 0.542
           }
         ]
       },
       "ci": {
         "balanced_accuracy": [
-          0.5067,
-          0.6
+          0.5,
+          0.6037
         ],
         "false_success_rate": [
-          0.4133,
-          0.64
+          0.4268,
+          0.6463
         ],
-        "n_pairs": 75,
+        "n_pairs": 82,
         "n_boot": 2000,
         "seed": 0
       },
       "mcnemar_vs_sensor_logreg": {
-        "n_shared": 150,
+        "n_shared": 164,
         "only_a_correct": 6,
-        "only_b_correct": 60,
-        "p": 6.852568869796436e-11,
+        "only_b_correct": 65,
+        "p": 5.846787926641883e-12,
         "method": "chi2_cc"
       },
       "by_task": {
         "stack": {
-          "n": 30,
-          "balanced_accuracy": 0.5,
+          "n": 32,
+          "balanced_accuracy": 0.4688,
           "false_success_rate": 1.0,
-          "false_failure_rate": 0.0,
+          "false_failure_rate": 0.0625,
           "no_answer_rate": 0.0,
-          "ece": 0.5
+          "ece": 0.5312
         },
         "grasp": {
-          "n": 30,
-          "balanced_accuracy": 0.6667,
-          "false_success_rate": 0.6,
-          "false_failure_rate": 0.0667,
+          "n": 34,
+          "balanced_accuracy": 0.6765,
+          "false_success_rate": 0.5882,
+          "false_failure_rate": 0.0588,
           "no_answer_rate": 0.0,
-          "ece": 0.3333
+          "ece": 0.3235
         },
         "button": {
-          "n": 30,
-          "balanced_accuracy": 0.5667,
-          "false_success_rate": 0.7333,
-          "false_failure_rate": 0.1333,
+          "n": 34,
+          "balanced_accuracy": 0.5882,
+          "false_success_rate": 0.7059,
+          "false_failure_rate": 0.1176,
           "no_answer_rate": 0.0,
-          "ece": 0.4283
+          "ece": 0.4074
         },
         "peg": {
-          "n": 30,
-          "balanced_accuracy": 0.6,
-          "false_success_rate": 0.0667,
-          "false_failure_rate": 0.7333,
+          "n": 32,
+          "balanced_accuracy": 0.5938,
+          "false_success_rate": 0.0625,
+          "false_failure_rate": 0.75,
           "no_answer_rate": 0.0,
-          "ece": 0.4
+          "ece": 0.4062
         },
         "push": {
-          "n": 30,
-          "balanced_accuracy": 0.4333,
-          "false_success_rate": 0.2667,
-          "false_failure_rate": 0.8667,
+          "n": 32,
+          "balanced_accuracy": 0.4062,
+          "false_success_rate": 0.3125,
+          "false_failure_rate": 0.875,
           "no_answer_rate": 0.0,
-          "ece": 0.5667
+          "ece": 0.5938
         }
       },
-      "coverage": "150/400",
+      "coverage": "164/400",
       "kind": "vlm"
     },
     "fusion: gemini/gemini-3.1-flash-lite (single) + sensors": {
       "overall": {
-        "n": 150,
-        "balanced_accuracy": 0.88,
-        "false_success_rate": 0.1067,
-        "false_failure_rate": 0.1333,
+        "n": 164,
+        "balanced_accuracy": 0.878,
+        "false_success_rate": 0.0976,
+        "false_failure_rate": 0.1463,
         "no_answer_rate": 0.0,
-        "ece": 0.055,
+        "ece": 0.0532,
         "reliability": [
           {
             "bin": [
               0.0,
               0.1
             ],
-            "n": 31,
-            "mean_p": 0.041,
-            "frac_success": 0.032
+            "n": 36,
+            "mean_p": 0.038,
+            "frac_success": 0.028
           },
           {
             "bin": [
@@ -438,35 +438,35 @@
               0.2
             ],
             "n": 17,
-            "mean_p": 0.154,
-            "frac_success": 0.176
+            "mean_p": 0.16,
+            "frac_success": 0.118
           },
           {
             "bin": [
               0.2,
               0.3
             ],
-            "n": 14,
-            "mean_p": 0.248,
-            "frac_success": 0.071
+            "n": 15,
+            "mean_p": 0.239,
+            "frac_success": 0.133
           },
           {
             "bin": [
               0.3,
               0.4
             ],
-            "n": 10,
-            "mean_p": 0.346,
-            "frac_success": 0.3
+            "n": 8,
+            "mean_p": 0.327,
+            "frac_success": 0.25
           },
           {
             "bin": [
               0.4,
               0.5
             ],
-            "n": 5,
-            "mean_p": 0.444,
-            "frac_success": 0.4
+            "n": 10,
+            "mean_p": 0.451,
+            "frac_success": 0.5
           },
           {
             "bin": [
@@ -474,7 +474,7 @@
               0.6
             ],
             "n": 9,
-            "mean_p": 0.556,
+            "mean_p": 0.569,
             "frac_success": 0.556
           },
           {
@@ -482,17 +482,17 @@
               0.6,
               0.7
             ],
-            "n": 9,
-            "mean_p": 0.643,
-            "frac_success": 0.556
+            "n": 8,
+            "mean_p": 0.642,
+            "frac_success": 0.5
           },
           {
             "bin": [
               0.7,
               0.8
             ],
-            "n": 4,
-            "mean_p": 0.724,
+            "n": 5,
+            "mean_p": 0.745,
             "frac_success": 1.0
           },
           {
@@ -500,7 +500,7 @@
               0.8,
               0.9
             ],
-            "n": 12,
+            "n": 10,
             "mean_p": 0.855,
             "frac_success": 1.0
           },
@@ -509,68 +509,68 @@
               0.9,
               1.0
             ],
-            "n": 39,
-            "mean_p": 0.98,
+            "n": 46,
+            "mean_p": 0.979,
             "frac_success": 1.0
           }
         ]
       },
       "ci": {
         "balanced_accuracy": [
-          0.82,
-          0.9333
+          0.8171,
+          0.9268
         ],
         "false_success_rate": [
-          0.04,
-          0.1867
+          0.0366,
+          0.1707
         ],
-        "n_pairs": 75,
+        "n_pairs": 82,
         "n_boot": 2000,
         "seed": 0
       },
       "by_task": {
         "stack": {
-          "n": 30,
-          "balanced_accuracy": 0.9667,
-          "false_success_rate": 0.0667,
+          "n": 32,
+          "balanced_accuracy": 0.9688,
+          "false_success_rate": 0.0625,
           "false_failure_rate": 0.0,
           "no_answer_rate": 0.0,
-          "ece": 0.2254
+          "ece": 0.2043
         },
         "grasp": {
-          "n": 30,
+          "n": 34,
           "balanced_accuracy": 1.0,
           "false_success_rate": 0.0,
           "false_failure_rate": 0.0,
           "no_answer_rate": 0.0,
-          "ece": 0.0247
+          "ece": 0.0208
         },
         "button": {
-          "n": 30,
-          "balanced_accuracy": 0.9333,
-          "false_success_rate": 0.1333,
+          "n": 34,
+          "balanced_accuracy": 0.9412,
+          "false_success_rate": 0.1176,
           "false_failure_rate": 0.0,
           "no_answer_rate": 0.0,
-          "ece": 0.1354
+          "ece": 0.129
         },
         "peg": {
-          "n": 30,
+          "n": 32,
           "balanced_accuracy": 1.0,
           "false_success_rate": 0.0,
           "false_failure_rate": 0.0,
           "no_answer_rate": 0.0,
-          "ece": 0.0781
+          "ece": 0.0738
         },
         "push": {
-          "n": 30,
-          "balanced_accuracy": 0.5,
-          "false_success_rate": 0.3333,
-          "false_failure_rate": 0.6667,
+          "n": 32,
+          "balanced_accuracy": 0.4688,
+          "false_success_rate": 0.3125,
+          "false_failure_rate": 0.75,
           "no_answer_rate": 0.0,
-          "ece": 0.1957
+          "ece": 0.2095
         }
       },
-      "coverage": "150/400",
+      "coverage": "164/400",
       "kind": "fusion"
     },
     "ollama/moondream:1.8b (single)": {
