@@ -20,7 +20,7 @@ Brackets are 95% Wilson confidence intervals.
 
 | Decider | Episodes | True success | False success | Caught | Recovered | Avg attempts | Time to detect (s) |
 |---|---|---|---|---|---|---|---|
-| Simulator (reference) | 80 | 80/80 = 100% [95, 100] | 0/80 = 0% [0, 5] | 1/1 = 100% [21, 100] | 1/1 = 100% [21, 100] | 1.02 | 17.6 |
+| Simulator (reference) | 80 | 80/80 = 100% [95, 100] | 0/80 = 0% [0, 5] | 1/1 = 100% [21, 100] | 1/1 = 100% [21, 100] | 1.03 | 17.6 |
 | Camera only | 80 | 78/80 = 98% [91, 99] | 0/80 = 0% [0, 5] | 1/1 = 100% [21, 100] | 0/1 = 0% [0, 79] | 1.23 | 16.3 |
 | Sensors only | 80 | 79/80 = 99% [93, 100] | 1/80 = 1% [0, 7] | 0/1 = 0% [0, 79] | 0/1 = 0% [0, 79] | 1.00 |  |
 | Camera + sensors | 80 | 79/80 = 99% [93, 100] | 0/80 = 0% [0, 5] | 1/1 = 100% [21, 100] | 1/1 = 100% [21, 100] | 1.29 | 17.6 |
@@ -40,7 +40,7 @@ Brackets are 95% Wilson confidence intervals.
 |---|---|---|---|---|---|---|---|
 | Simulator (reference) | 40 | 40/40 = 100% [91, 100] | 0/40 = 0% [0, 9] | 40/40 = 100% [91, 100] | 40/40 = 100% [91, 100] | 2.00 | 7.6 |
 | Camera only | 40 | 20/40 = 50% [35, 65] | 0/40 = 0% [0, 9] | 40/40 = 100% [91, 100] | 18/40 = 45% [31, 60] | 3.10 | 12.6 |
-| Sensors only | 40 | 39/40 = 98% [87, 100] | 1/40 = 2% [0, 13] | 39/40 = 98% [87, 100] | 39/40 = 98% [87, 100] | 1.98 | 7.6 |
+| Sensors only | 40 | 39/40 = 98% [87, 100] | 1/40 = 3% [0, 13] | 39/40 = 98% [87, 100] | 39/40 = 98% [87, 100] | 1.98 | 7.6 |
 | Camera + sensors | 40 | 39/40 = 98% [87, 100] | 0/40 = 0% [0, 9] | 40/40 = 100% [91, 100] | 35/40 = 88% [74, 95] | 2.25 | 7.6 |
 
 ### Knocked after release
@@ -50,14 +50,14 @@ Brackets are 95% Wilson confidence intervals.
 | Simulator (reference) | 80 | 63/80 = 79% [69, 86] | 0/80 = 0% [0, 5] | 80/80 = 100% [95, 100] | 63/80 = 79% [69, 86] | 2.49 | 16.2 |
 | Camera only | 80 | 60/80 = 75% [65, 83] | 0/80 = 0% [0, 5] | 80/80 = 100% [95, 100] | 56/80 = 70% [59, 79] | 2.60 | 15.4 |
 | Sensors only | 80 | 0/80 = 0% [0, 5] | 80/80 = 100% [95, 100] | 0/80 = 0% [0, 5] | 0/80 = 0% [0, 5] | 1.00 |  |
-| Camera + sensors | 80 | 63/80 = 79% [69, 86] | 0/80 = 0% [0, 5] | 80/80 = 100% [95, 100] | 58/80 = 72% [62, 81] | 2.60 | 16.2 |
+| Camera + sensors | 80 | 63/80 = 79% [69, 86] | 0/80 = 0% [0, 5] | 80/80 = 100% [95, 100] | 58/80 = 73% [62, 81] | 2.60 | 16.2 |
 
 ### Random chaos
 
 | Decider | Episodes | True success | False success | Caught | Recovered | Avg attempts | Time to detect (s) |
 |---|---|---|---|---|---|---|---|
 | Simulator (reference) | 80 | 77/80 = 96% [90, 99] | 0/80 = 0% [0, 5] | 32/32 = 100% [89, 100] | 29/32 = 91% [76, 97] | 1.64 | 5.7 |
-| Camera only | 80 | 74/80 = 92% [85, 97] | 0/80 = 0% [0, 5] | 26/26 = 100% [87, 100] | 19/26 = 73% [54, 86] | 1.66 | 15.3 |
+| Camera only | 80 | 74/80 = 93% [85, 97] | 0/80 = 0% [0, 5] | 26/26 = 100% [87, 100] | 19/26 = 73% [54, 86] | 1.66 | 15.3 |
 | Sensors only | 80 | 76/80 = 95% [88, 98] | 1/80 = 1% [0, 7] | 31/32 = 97% [84, 99] | 27/32 = 84% [68, 93] | 1.88 | 5.6 |
 | Camera + sensors | 80 | 75/80 = 94% [86, 97] | 0/80 = 0% [0, 5] | 32/32 = 100% [89, 100] | 26/32 = 81% [65, 91] | 2.10 | 5.7 |
 
@@ -90,9 +90,9 @@ on the same task between perceived and true state.
 
 | Decider | Failure | Episodes | True success, perceived | True success, sim state | False success, perceived | False success, sim state | Avg attempts (perceived / sim) | McNemar (only perceived / only sim, p) |
 |---|---|---|---|---|---|---|---|---|
-| Simulator (reference) | No failure | 80 | 80/80 = 100% [95, 100] | 80/80 = 100% [95, 100] | 0/80 = 0% [0, 5] | 0/80 = 0% [0, 5] | 1.01 / 1.02 | 0 / 0, p 1.000 |
+| Simulator (reference) | No failure | 80 | 80/80 = 100% [95, 100] | 80/80 = 100% [95, 100] | 0/80 = 0% [0, 5] | 0/80 = 0% [0, 5] | 1.01 / 1.03 | 0 / 0, p 1.000 |
 | Sensors only | No failure | 80 | 79/80 = 99% [93, 100] | 79/80 = 99% [93, 100] | 1/80 = 1% [0, 7] | 1/80 = 1% [0, 7] | 1.00 / 1.00 | 1 / 1, p 1.000 |
-| Camera + sensors | No failure | 80 | 74/80 = 92% [85, 97] | 79/80 = 99% [93, 100] | 0/80 = 0% [0, 5] | 0/80 = 0% [0, 5] | 1.36 / 1.29 | 0 / 5, p 0.062 |
+| Camera + sensors | No failure | 80 | 74/80 = 93% [85, 97] | 79/80 = 99% [93, 100] | 0/80 = 0% [0, 5] | 0/80 = 0% [0, 5] | 1.36 / 1.29 | 0 / 5, p 0.063 |
 | Camera + sensors | Random chaos | 80 | 72/80 = 90% [81, 95] | 75/80 = 94% [86, 97] | 0/80 = 0% [0, 5] | 0/80 = 0% [0, 5] | 2.16 / 2.10 | 0 / 3, p 0.250 |
 
 Perception error over 443 looks (sideways distance between estimated and true cube centre, averaged over the cubes in view):
@@ -101,10 +101,78 @@ mean 4.7 mm, median 2.4 mm, 90th percentile 5.4 mm. Worst cube per look: 90th pe
 First attempts (simulator decider) with every cube within 5 mm: 65/66 = 98% [92, 100] succeeded;
 with a cube 5 mm or more off: 14/14 = 100% [78, 100].
 
+## 4. Active verification: touch the result before saying done
+
+Same 80 tasks and failure types as section 1. The press probe (docs/design/active_verification.md) lowers the closed
+gripper onto where the robot put each top cube and checks, with the cheap force reading and the arm's own height,
+that the cube's top face is there. Sensors + probe probes every attempt the sensors accept. The router runs the
+sensors, then the camera only if the sensors pass, then the probe only if the camera disagrees. The sensors-only and
+camera + sensors rows are the section 1 runs. Time is simulated seconds per episode, probes included.
+
+### No failure
+
+| Strategy | Episodes | True success | False success | Avg attempts | Sim s / episode | Camera checks / episode | Probes / episode |
+|---|---|---|---|---|---|---|---|
+| Sensors only | 80 | 79/80 = 99% [93, 100] | 1/80 = 1% [0, 7] | 1.00 | 18.2 | 0.00 | 0.00 |
+| Sensors + press probe | 80 | 80/80 = 100% [95, 100] | 0/80 = 0% [0, 5] | 1.18 | 33.4 | 0.00 | 1.89 |
+| Camera + sensors | 80 | 79/80 = 99% [93, 100] | 0/80 = 0% [0, 5] | 1.29 | 22.1 | 1.29 | 0.00 |
+| Router (sensors, camera, then probe) | 80 | 80/80 = 100% [95, 100] | 0/80 = 0% [0, 5] | 1.03 | 19.2 | 1.01 | 0.11 |
+
+### Slip while carrying
+
+| Strategy | Episodes | True success | False success | Avg attempts | Sim s / episode | Camera checks / episode | Probes / episode |
+|---|---|---|---|---|---|---|---|
+| Sensors only | 80 | 79/80 = 99% [93, 100] | 1/80 = 1% [0, 7] | 2.00 | 25.9 | 0.00 | 0.00 |
+| Sensors + press probe | 80 | 80/80 = 100% [95, 100] | 0/80 = 0% [0, 5] | 2.11 | 37.9 | 0.00 | 1.68 |
+| Camera + sensors | 80 | 79/80 = 99% [93, 100] | 0/80 = 0% [0, 5] | 2.20 | 28.7 | 2.20 | 0.00 |
+| Router (sensors, camera, then probe) | 80 | 80/80 = 100% [95, 100] | 0/80 = 0% [0, 5] | 2.03 | 26.9 | 1.01 | 0.11 |
+
+### Target moved
+
+| Strategy | Episodes | True success | False success | Avg attempts | Sim s / episode | Camera checks / episode | Probes / episode |
+|---|---|---|---|---|---|---|---|
+| Sensors only | 40 | 39/40 = 98% [87, 100] | 1/40 = 3% [0, 13] | 1.98 | 25.3 | 0.00 | 0.00 |
+| Sensors + press probe | 40 | 40/40 = 100% [91, 100] | 0/40 = 0% [0, 9] | 2.00 | 32.3 | 0.00 | 1.03 |
+| Camera + sensors | 40 | 39/40 = 98% [87, 100] | 0/40 = 0% [0, 9] | 2.25 | 28.3 | 2.25 | 0.00 |
+| Router (sensors, camera, then probe) | 40 | 40/40 = 100% [91, 100] | 0/40 = 0% [0, 9] | 2.00 | 26.5 | 1.03 | 0.15 |
+
+### Knocked after release
+
+| Strategy | Episodes | True success | False success | Avg attempts | Sim s / episode | Camera checks / episode | Probes / episode |
+|---|---|---|---|---|---|---|---|
+| Sensors only | 80 | 0/80 = 0% [0, 5] | 80/80 = 100% [95, 100] | 1.00 | 18.6 | 0.00 | 0.00 |
+| Sensors + press probe | 80 | 64/80 = 80% [70, 87] | 2/80 = 3% [1, 9] | 2.53 | 60.9 | 0.00 | 3.00 |
+| Camera + sensors | 80 | 63/80 = 79% [69, 86] | 0/80 = 0% [0, 5] | 2.60 | 43.1 | 2.60 | 0.00 |
+| Router (sensors, camera, then probe) | 80 | 64/80 = 80% [70, 87] | 2/80 = 3% [1, 9] | 2.46 | 51.4 | 1.86 | 1.63 |
+
+### Random chaos
+
+| Strategy | Episodes | True success | False success | Avg attempts | Sim s / episode | Camera checks / episode | Probes / episode |
+|---|---|---|---|---|---|---|---|
+| Sensors only | 80 | 76/80 = 95% [88, 98] | 1/80 = 1% [0, 7] | 1.88 | 26.5 | 0.00 | 0.00 |
+| Sensors + press probe | 80 | 77/80 = 96% [90, 99] | 0/80 = 0% [0, 5] | 2.00 | 38.2 | 0.00 | 1.55 |
+| Camera + sensors | 80 | 75/80 = 94% [86, 97] | 0/80 = 0% [0, 5] | 2.10 | 28.9 | 2.10 | 0.00 |
+| Router (sensors, camera, then probe) | 80 | 77/80 = 96% [90, 99] | 0/80 = 0% [0, 5] | 1.89 | 27.2 | 0.95 | 0.10 |
+
+### All failure types together
+
+| Strategy | Episodes | True success | False success | Sim s / episode | Camera checks / episode | Probes / episode |
+|---|---|---|---|---|---|---|
+| Sensors only | 360 | 273/360 = 76% [71, 80] | 84/360 = 23% [19, 28] | 22.6 | 0.00 | 0.00 |
+| Sensors + press probe | 360 | 341/360 = 95% [92, 97] | 2/360 = 1% [0, 2] | 41.5 | 0.00 | 1.92 |
+| Camera + sensors | 360 | 335/360 = 93% [90, 95] | 0/360 = 0% [0, 1] | 30.4 | 2.07 | 0.00 |
+| Router (sensors, camera, then probe) | 360 | 341/360 = 95% [92, 97] | 2/360 = 1% [0, 2] | 30.7 | 1.19 | 0.45 |
+
+First version of the probe (kept in `probe_v1_*.csv`): it checked each top cube at the height where the robot had put it.
+In a tower whose middle cube was knocked off, the robot stacks the top cube onto the middle cube where it now lies, so that
+check passed. Knocked after release, false success: sensors + probe 20/80 = 25% [17, 35],
+router 20/80 = 25% [17, 35], all of them towers. The current probe expects the height the goal implies.
+
 ## Figures
 
 ![checkpoints_accuracy](figures/checkpoints_accuracy.png)
 ![checkpoints_contact_gap](figures/checkpoints_contact_gap.png)
+![probes_tradeoff](figures/probes_tradeoff.png)
 ![trials_false_success](figures/trials_false_success.png)
 ![trials_recovery](figures/trials_recovery.png)
 ![trials_success](figures/trials_success.png)

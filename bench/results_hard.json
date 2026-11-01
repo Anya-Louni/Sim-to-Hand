@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-01T22:21:05.000Z",
+  "date": "2026-11-01T22:43:08.784Z",
   "maxReplans": 3,
   "conditions": {
     "scripted": [
@@ -1578,6 +1578,1649 @@
         "kind": "distractor",
         "chaos": true,
         "wallSeconds": 2.316600000023842,
+        "impossible": false
+      }
+    ],
+    "llm": [
+      {
+        "success": true,
+        "attempts": 1,
+        "replans": 0,
+        "visionChecks": 1,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
+        "visionAgreements": 0,
+        "disagreements": [
+          {
+            "attempt": 0,
+            "ground": true,
+            "vision": false,
+            "reason": "The robot stacked a blue cube on a green cube, but the task required stacking the cube closest to the robot base onto the cube farthest from it."
+          }
+        ],
+        "llmCalls": 2,
+        "chaosEvents": 0,
+        "simSeconds": 10.644000000000224,
+        "planner": "llm",
+        "providers": [
+          "gemini/gemini-3.1-flash-lite",
+          "gemini/gemini-3.1-flash-lite"
+        ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": false,
+            "declared": true,
+            "seconds": 8.45
+          }
+        ],
+        "injected": null,
+        "id": "rel-01",
+        "kind": "relational",
+        "chaos": false,
+        "wallSeconds": 3.167300000011921,
+        "impossible": false
+      },
+      {
+        "success": true,
+        "attempts": 1,
+        "replans": 0,
+        "visionChecks": 1,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
+        "visionAgreements": 0,
+        "disagreements": [
+          {
+            "attempt": 0,
+            "ground": true,
+            "vision": false,
+            "reason": "The cube furthest to the left is the red cube, which is not in the red zone; the blue cube is in the red zone instead."
+          }
+        ],
+        "llmCalls": 2,
+        "chaosEvents": 0,
+        "simSeconds": 12.40000000000081,
+        "planner": "llm",
+        "providers": [
+          "gemini/gemini-3.1-flash-lite",
+          "gemini/gemini-3.1-flash-lite"
+        ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": false,
+            "declared": true,
+            "seconds": 9.65
+          }
+        ],
+        "injected": null,
+        "id": "rel-02",
+        "kind": "relational",
+        "chaos": false,
+        "wallSeconds": 1.901300000011921,
+        "impossible": false
+      },
+      {
+        "success": true,
+        "attempts": 1,
+        "replans": 0,
+        "visionChecks": 1,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
+        "visionAgreements": 0,
+        "disagreements": [
+          {
+            "attempt": 0,
+            "ground": true,
+            "vision": false,
+            "reason": "The green cube is stacked on the yellow cube, but the blue cube was the one nearest to the red zone."
+          }
+        ],
+        "llmCalls": 2,
+        "chaosEvents": 0,
+        "simSeconds": 11.010000000000346,
+        "planner": "llm",
+        "providers": [
+          "gemini/gemini-3.1-flash-lite",
+          "gemini/gemini-3.1-flash-lite"
+        ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": false,
+            "declared": true,
+            "seconds": 9.25
+          }
+        ],
+        "injected": null,
+        "id": "rel-03",
+        "kind": "relational",
+        "chaos": false,
+        "wallSeconds": 1.6318000000119208,
+        "impossible": false
+      },
+      {
+        "success": true,
+        "attempts": 1,
+        "replans": 0,
+        "visionChecks": 1,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
+        "visionAgreements": 0,
+        "disagreements": [
+          {
+            "attempt": 0,
+            "ground": true,
+            "vision": false,
+            "reason": "The yellow cube was placed on top of the green cube instead of the cube furthest to the left."
+          }
+        ],
+        "llmCalls": 2,
+        "chaosEvents": 0,
+        "simSeconds": 11.608000000000546,
+        "planner": "llm",
+        "providers": [
+          "gemini/gemini-3.1-flash-lite",
+          "gemini/gemini-3.1-flash-lite"
+        ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": false,
+            "declared": true,
+            "seconds": 9.55
+          }
+        ],
+        "injected": null,
+        "id": "rel-04",
+        "kind": "relational",
+        "chaos": false,
+        "wallSeconds": 1.8695,
+        "impossible": false
+      },
+      {
+        "success": true,
+        "attempts": 1,
+        "replans": 0,
+        "visionChecks": 1,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
+        "visionAgreements": 0,
+        "disagreements": [
+          {
+            "attempt": 0,
+            "ground": true,
+            "vision": false,
+            "reason": "The green cube is placed in the blue zone instead of the middle-distance cube being placed there."
+          }
+        ],
+        "llmCalls": 2,
+        "chaosEvents": 0,
+        "simSeconds": 11.658000000000563,
+        "planner": "llm",
+        "providers": [
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite"
+        ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": false,
+            "declared": true,
+            "seconds": 8.97
+          }
+        ],
+        "injected": null,
+        "id": "rel-05",
+        "kind": "relational",
+        "chaos": false,
+        "wallSeconds": 1.743,
+        "impossible": false
+      },
+      {
+        "success": true,
+        "attempts": 2,
+        "replans": 1,
+        "visionChecks": 2,
+        "sensorChecks": 2,
+        "sensorAgreements": 1,
+        "visionAgreements": 2,
+        "disagreements": [],
+        "llmCalls": 4,
+        "chaosEvents": 0,
+        "simSeconds": 49.49800000001453,
+        "planner": "llm",
+        "providers": [
+          "gemini/gemini-3.1-flash-lite",
+          "gemini/gemini-3.1-flash-lite",
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.1-flash-lite"
+        ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": false,
+            "sensors": true,
+            "camera": null,
+            "vision": false,
+            "declared": false,
+            "seconds": 26.2
+          },
+          {
+            "attempt": 1,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": true,
+            "declared": true,
+            "seconds": 18.4
+          }
+        ],
+        "injected": null,
+        "id": "ord-01",
+        "kind": "reorder",
+        "chaos": false,
+        "wallSeconds": 45.94720000004769,
+        "impossible": false
+      },
+      {
+        "success": false,
+        "attempts": 4,
+        "replans": 3,
+        "visionChecks": 4,
+        "sensorChecks": 4,
+        "sensorAgreements": 2,
+        "visionAgreements": 4,
+        "disagreements": [],
+        "llmCalls": 9,
+        "chaosEvents": 0,
+        "simSeconds": 112.99999999991805,
+        "planner": "llm",
+        "providers": [
+          "gemini/gemini-3.1-flash-lite",
+          "gemini/gemini-3.1-flash-lite",
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.1-flash-lite",
+          "gemini/gemini-3.1-flash-lite",
+          "gemini/gemini-3.1-flash-lite",
+          "gemini/gemini-3.1-flash-lite"
+        ],
+        "declared": false,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": false,
+            "sensors": true,
+            "camera": null,
+            "vision": false,
+            "declared": false,
+            "seconds": 38.93
+          },
+          {
+            "attempt": 1,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": false,
+            "declared": false,
+            "stepError": "step 14 place(red_zone) failed: No contact felt when lowering the green cube onto red_zone.",
+            "seconds": 25.5
+          },
+          {
+            "attempt": 2,
+            "truth": false,
+            "sensors": true,
+            "camera": null,
+            "vision": false,
+            "declared": false,
+            "seconds": 27.92
+          },
+          {
+            "attempt": 3,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": false,
+            "declared": false,
+            "stepError": "step 4 place(red_zone) failed: No contact felt when lowering the blue cube onto red_zone.",
+            "seconds": 9.27
+          }
+        ],
+        "failure": "step 4 place(red_zone) failed: No contact felt when lowering the blue cube onto red_zone. Goal check: red is not on green (offset 10.5 cm, height diff 0.0 cm); blue is not on red (offset 8.0 cm, height diff -0.0 cm)",
+        "injected": null,
+        "id": "ord-02",
+        "kind": "reorder",
+        "chaos": false,
+        "wallSeconds": 336.80930000001194,
+        "impossible": false
+      },
+      {
+        "success": true,
+        "attempts": 1,
+        "replans": 0,
+        "visionChecks": 1,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
+        "visionAgreements": 1,
+        "disagreements": [],
+        "llmCalls": 2,
+        "chaosEvents": 0,
+        "simSeconds": 11.432000000000487,
+        "planner": "llm",
+        "providers": [
+          "gemini/gemini-3.1-flash-lite",
+          "gemini/gemini-3.1-flash-lite"
+        ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": true,
+            "declared": true,
+            "seconds": 8.85
+          }
+        ],
+        "injected": null,
+        "id": "ord-03",
+        "kind": "reorder",
+        "chaos": false,
+        "wallSeconds": 27.827,
+        "impossible": false
+      },
+      {
+        "success": true,
+        "attempts": 1,
+        "replans": 0,
+        "visionChecks": 1,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
+        "visionAgreements": 1,
+        "disagreements": [],
+        "llmCalls": 2,
+        "chaosEvents": 0,
+        "simSeconds": 21.46999999999898,
+        "planner": "llm",
+        "providers": [
+          "gemini/gemini-3.1-flash-lite",
+          "gemini/gemini-3.5-flash-lite"
+        ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": true,
+            "declared": true,
+            "seconds": 18.71
+          }
+        ],
+        "injected": null,
+        "id": "ord-04",
+        "kind": "reorder",
+        "chaos": false,
+        "wallSeconds": 27.79389999997616,
+        "impossible": false
+      },
+      {
+        "success": true,
+        "attempts": 1,
+        "replans": 0,
+        "visionChecks": 1,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
+        "visionAgreements": 1,
+        "disagreements": [],
+        "llmCalls": 2,
+        "chaosEvents": 0,
+        "simSeconds": 29.20599999999469,
+        "planner": "llm",
+        "providers": [
+          "gemini/gemini-3.1-flash-lite",
+          "gemini/gemini-3.5-flash-lite"
+        ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": true,
+            "declared": true,
+            "seconds": 27.71
+          }
+        ],
+        "injected": null,
+        "id": "ord-05",
+        "kind": "reorder",
+        "chaos": false,
+        "wallSeconds": 47.34520000004768,
+        "impossible": false
+      },
+      {
+        "success": false,
+        "attempts": 1,
+        "replans": 0,
+        "visionChecks": 0,
+        "sensorChecks": 0,
+        "sensorAgreements": 0,
+        "visionAgreements": 0,
+        "disagreements": [],
+        "llmCalls": 1,
+        "chaosEvents": 0,
+        "simSeconds": 0,
+        "planner": "llm",
+        "providers": [
+          "gemini/gemini-3.5-flash-lite"
+        ],
+        "declared": false,
+        "decider": "oracle",
+        "log": [],
+        "refused": "The purple cube does not exist in the scene.",
+        "failure": "planner refused: The purple cube does not exist in the scene.",
+        "injected": null,
+        "id": "imp-01",
+        "kind": "impossible",
+        "chaos": false,
+        "wallSeconds": 2.230399999976158,
+        "impossible": true
+      },
+      {
+        "success": false,
+        "attempts": 1,
+        "replans": 0,
+        "visionChecks": 0,
+        "sensorChecks": 0,
+        "sensorAgreements": 0,
+        "visionAgreements": 0,
+        "disagreements": [],
+        "llmCalls": 1,
+        "chaosEvents": 0,
+        "simSeconds": 0,
+        "planner": "llm",
+        "providers": [
+          "gemini/gemini-3.5-flash-lite"
+        ],
+        "declared": false,
+        "decider": "oracle",
+        "log": [],
+        "refused": "The yellow cube does not exist in the scene.",
+        "failure": "planner refused: The yellow cube does not exist in the scene.",
+        "injected": null,
+        "id": "imp-02",
+        "kind": "impossible",
+        "chaos": false,
+        "wallSeconds": 4.6269000000357625,
+        "impossible": true
+      },
+      {
+        "success": false,
+        "attempts": 1,
+        "replans": 0,
+        "visionChecks": 0,
+        "sensorChecks": 0,
+        "sensorAgreements": 0,
+        "visionAgreements": 0,
+        "disagreements": [],
+        "llmCalls": 1,
+        "chaosEvents": 0,
+        "simSeconds": 0,
+        "planner": "llm",
+        "providers": [
+          "gemini/gemini-3.5-flash-lite"
+        ],
+        "declared": false,
+        "decider": "oracle",
+        "log": [],
+        "refused": "A cube cannot be placed on top of itself.",
+        "failure": "planner refused: A cube cannot be placed on top of itself.",
+        "injected": null,
+        "id": "imp-03",
+        "kind": "impossible",
+        "chaos": false,
+        "wallSeconds": 6.666899999976158,
+        "impossible": true
+      },
+      {
+        "success": false,
+        "attempts": 1,
+        "replans": 0,
+        "visionChecks": 0,
+        "sensorChecks": 0,
+        "sensorAgreements": 0,
+        "visionAgreements": 0,
+        "disagreements": [],
+        "llmCalls": 1,
+        "chaosEvents": 0,
+        "simSeconds": 0,
+        "planner": "llm",
+        "providers": [
+          "gemini/gemini-3.5-flash-lite"
+        ],
+        "declared": false,
+        "decider": "oracle",
+        "log": [],
+        "refused": "The orange zone does not exist.",
+        "failure": "planner refused: The orange zone does not exist.",
+        "injected": null,
+        "id": "imp-04",
+        "kind": "impossible",
+        "chaos": false,
+        "wallSeconds": 1.131,
+        "impossible": true
+      },
+      {
+        "success": false,
+        "attempts": 1,
+        "replans": 0,
+        "visionChecks": 0,
+        "sensorChecks": 0,
+        "sensorAgreements": 0,
+        "visionAgreements": 0,
+        "disagreements": [],
+        "llmCalls": 1,
+        "chaosEvents": 0,
+        "simSeconds": 0,
+        "planner": "llm",
+        "providers": [
+          "gemini/gemini-3.5-flash-lite"
+        ],
+        "declared": false,
+        "decider": "oracle",
+        "log": [],
+        "refused": "The goal contains contradictory conditions (red on blue and blue on red simultaneously) which are impossible to achieve.",
+        "failure": "planner refused: The goal contains contradictory conditions (red on blue and blue on red simultaneously) which are impossible to achieve.",
+        "injected": null,
+        "id": "imp-05",
+        "kind": "impossible",
+        "chaos": false,
+        "wallSeconds": 22.218300000011922,
+        "impossible": true
+      },
+      {
+        "success": true,
+        "attempts": 1,
+        "replans": 0,
+        "visionChecks": 1,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
+        "visionAgreements": 1,
+        "disagreements": [],
+        "llmCalls": 2,
+        "chaosEvents": 0,
+        "simSeconds": 10.918000000000315,
+        "planner": "llm",
+        "providers": [
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite"
+        ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": true,
+            "declared": true,
+            "seconds": 8.73
+          }
+        ],
+        "injected": null,
+        "id": "dis-01",
+        "kind": "distractor",
+        "chaos": false,
+        "wallSeconds": 11.732699999988078,
+        "impossible": false
+      },
+      {
+        "success": true,
+        "attempts": 1,
+        "replans": 0,
+        "visionChecks": 1,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
+        "visionAgreements": 1,
+        "disagreements": [],
+        "llmCalls": 2,
+        "chaosEvents": 0,
+        "simSeconds": 11.956000000000662,
+        "planner": "llm",
+        "providers": [
+          "gemini/gemini-3.1-flash-lite",
+          "gemini/gemini-3.5-flash-lite"
+        ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": true,
+            "declared": true,
+            "seconds": 9.37
+          }
+        ],
+        "injected": null,
+        "id": "dis-02",
+        "kind": "distractor",
+        "chaos": false,
+        "wallSeconds": 19.244300000011922,
+        "impossible": false
+      },
+      {
+        "success": true,
+        "attempts": 1,
+        "replans": 0,
+        "visionChecks": 1,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
+        "visionAgreements": 1,
+        "disagreements": [],
+        "llmCalls": 2,
+        "chaosEvents": 0,
+        "simSeconds": 11.198000000000409,
+        "planner": "llm",
+        "providers": [
+          "gemini/gemini-3.1-flash-lite",
+          "gemini/gemini-3.1-flash-lite"
+        ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": true,
+            "declared": true,
+            "seconds": 8.57
+          }
+        ],
+        "injected": null,
+        "id": "dis-03",
+        "kind": "distractor",
+        "chaos": false,
+        "wallSeconds": 11.338,
+        "impossible": false
+      },
+      {
+        "success": true,
+        "attempts": 1,
+        "replans": 0,
+        "visionChecks": 1,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
+        "visionAgreements": 1,
+        "disagreements": [],
+        "llmCalls": 2,
+        "chaosEvents": 0,
+        "simSeconds": 11.306000000000445,
+        "planner": "llm",
+        "providers": [
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite"
+        ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": true,
+            "declared": true,
+            "seconds": 8.91
+          }
+        ],
+        "injected": null,
+        "id": "dis-04",
+        "kind": "distractor",
+        "chaos": false,
+        "wallSeconds": 17.466299999952316,
+        "impossible": false
+      },
+      {
+        "success": true,
+        "attempts": 1,
+        "replans": 0,
+        "visionChecks": 1,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
+        "visionAgreements": 1,
+        "disagreements": [],
+        "llmCalls": 2,
+        "chaosEvents": 0,
+        "simSeconds": 10.286000000000104,
+        "planner": "llm",
+        "providers": [
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite"
+        ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": true,
+            "declared": true,
+            "seconds": 8.3
+          }
+        ],
+        "injected": null,
+        "id": "dis-05",
+        "kind": "distractor",
+        "chaos": false,
+        "wallSeconds": 7.621899999976158,
+        "impossible": false
+      }
+    ],
+    "llm-chaos": [
+      {
+        "success": true,
+        "attempts": 1,
+        "replans": 0,
+        "visionChecks": 1,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
+        "visionAgreements": 0,
+        "disagreements": [
+          {
+            "attempt": 0,
+            "ground": true,
+            "vision": false,
+            "reason": "The blue cube is stacked on top of the green cube instead of the cube farthest from the robot base."
+          }
+        ],
+        "llmCalls": 2,
+        "chaosEvents": 2,
+        "simSeconds": 10.69000000000024,
+        "planner": "llm",
+        "providers": [
+          "gemini/gemini-3.1-flash-lite",
+          "gemini/gemini-3.5-flash-lite"
+        ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": false,
+            "declared": true,
+            "seconds": 8.49
+          }
+        ],
+        "injected": null,
+        "id": "rel-01",
+        "kind": "relational",
+        "chaos": true,
+        "wallSeconds": 12.29069999998808,
+        "impossible": false
+      },
+      {
+        "success": false,
+        "attempts": 3,
+        "replans": 2,
+        "visionChecks": 2,
+        "sensorChecks": 2,
+        "sensorAgreements": 1,
+        "visionAgreements": 1,
+        "disagreements": [
+          {
+            "attempt": 1,
+            "ground": false,
+            "vision": true,
+            "reason": "The cube furthest to the robot's left (red cube) has been successfully placed into the red zone."
+          }
+        ],
+        "llmCalls": 4,
+        "chaosEvents": 1,
+        "simSeconds": 17.870000000000974,
+        "planner": "llm",
+        "providers": [
+          "gemini/gemini-3.1-flash-lite",
+          "gemini/gemini-3.1-flash-lite",
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite"
+        ],
+        "declared": false,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": false,
+            "declared": false,
+            "stepError": "step 3 lift() failed: Sensors lost the blue cube during lift: fingertip switches went off.",
+            "seconds": 4.26
+          },
+          {
+            "attempt": 1,
+            "truth": false,
+            "sensors": true,
+            "camera": null,
+            "vision": true,
+            "declared": false,
+            "seconds": 9.08
+          }
+        ],
+        "failure": "planner error: plan failed schema validation twice: goal and steps must not be empty unless you refuse",
+        "injected": null,
+        "id": "rel-02",
+        "kind": "relational",
+        "chaos": true,
+        "wallSeconds": 38.0985,
+        "impossible": false
+      },
+      {
+        "success": true,
+        "attempts": 3,
+        "replans": 2,
+        "visionChecks": 3,
+        "sensorChecks": 3,
+        "sensorAgreements": 2,
+        "visionAgreements": 2,
+        "disagreements": [
+          {
+            "attempt": 2,
+            "ground": true,
+            "vision": false,
+            "reason": "The cube nearest to the red zone is the yellow cube itself, and it is not stacked on another yellow cube."
+          }
+        ],
+        "llmCalls": 6,
+        "chaosEvents": 3,
+        "simSeconds": 22.795999999998244,
+        "planner": "llm",
+        "providers": [
+          "gemini/gemini-3.1-flash-lite",
+          "gemini/gemini-3.1-flash-lite",
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.1-flash-lite"
+        ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": false,
+            "declared": false,
+            "stepError": "step 3 lift() failed: Sensors lost the green cube during lift: fingertip switches went off.",
+            "seconds": 4.33
+          },
+          {
+            "attempt": 1,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": false,
+            "declared": false,
+            "stepError": "step 3 lift() failed: Sensors lost the green cube during lift: fingertip switches went off.",
+            "seconds": 4.52
+          },
+          {
+            "attempt": 2,
+            "truth": true,
+            "sensors": false,
+            "camera": null,
+            "vision": false,
+            "declared": true,
+            "stepError": "step 4 place(yellow) failed: Sensors lost the green cube while lowering it onto yellow: fingertip switches went off.",
+            "seconds": 8.17
+          }
+        ],
+        "injected": null,
+        "id": "rel-03",
+        "kind": "relational",
+        "chaos": true,
+        "wallSeconds": 102.17619999998809,
+        "impossible": false
+      },
+      {
+        "success": true,
+        "attempts": 1,
+        "replans": 0,
+        "visionChecks": 1,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
+        "visionAgreements": 0,
+        "disagreements": [
+          {
+            "attempt": 0,
+            "ground": true,
+            "vision": false,
+            "reason": "The yellow cube was placed on top of the green cube instead of the cube furthest to the left."
+          }
+        ],
+        "llmCalls": 2,
+        "chaosEvents": 0,
+        "simSeconds": 11.608000000000546,
+        "planner": "llm",
+        "providers": [
+          "gemini/gemini-3.1-flash-lite",
+          "gemini/gemini-3.1-flash-lite"
+        ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": false,
+            "declared": true,
+            "seconds": 9.55
+          }
+        ],
+        "injected": null,
+        "id": "rel-04",
+        "kind": "relational",
+        "chaos": true,
+        "wallSeconds": 2.3782000000476837,
+        "impossible": false
+      },
+      {
+        "success": true,
+        "attempts": 1,
+        "replans": 0,
+        "visionChecks": 1,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
+        "visionAgreements": 0,
+        "disagreements": [
+          {
+            "attempt": 0,
+            "ground": true,
+            "vision": false,
+            "reason": "The green cube is placed in the blue zone instead of the middle-distance cube being placed there."
+          }
+        ],
+        "llmCalls": 2,
+        "chaosEvents": 0,
+        "simSeconds": 11.658000000000563,
+        "planner": "llm",
+        "providers": [
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite"
+        ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": false,
+            "declared": true,
+            "seconds": 8.97
+          }
+        ],
+        "injected": null,
+        "id": "rel-05",
+        "kind": "relational",
+        "chaos": true,
+        "wallSeconds": 2.0024000000357627,
+        "impossible": false
+      },
+      {
+        "success": true,
+        "attempts": 2,
+        "replans": 1,
+        "visionChecks": 2,
+        "sensorChecks": 2,
+        "sensorAgreements": 2,
+        "visionAgreements": 2,
+        "disagreements": [],
+        "llmCalls": 4,
+        "chaosEvents": 1,
+        "simSeconds": 21.57999999999892,
+        "planner": "llm",
+        "providers": [
+          "gemini/gemini-3.1-flash-lite",
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.1-flash-lite"
+        ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": false,
+            "declared": false,
+            "stepError": "step 4 place(green_zone) failed: Sensors lost the red cube while lowering it onto green_zone: fingertip switches went off.",
+            "seconds": 7.32
+          },
+          {
+            "attempt": 1,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": true,
+            "declared": true,
+            "seconds": 9.22
+          }
+        ],
+        "injected": null,
+        "id": "ord-01",
+        "kind": "reorder",
+        "chaos": true,
+        "wallSeconds": 38.58680000001192,
+        "impossible": false
+      },
+      {
+        "success": false,
+        "attempts": 4,
+        "replans": 3,
+        "visionChecks": 4,
+        "sensorChecks": 4,
+        "sensorAgreements": 3,
+        "visionAgreements": 3,
+        "disagreements": [
+          {
+            "attempt": 1,
+            "ground": false,
+            "vision": true,
+            "reason": "The tower has been reversed, with the blue cube now on top of the red cube."
+          }
+        ],
+        "llmCalls": 8,
+        "chaosEvents": 7,
+        "simSeconds": 45.714000000009904,
+        "planner": "llm",
+        "providers": [
+          "gemini/gemini-3.1-flash-lite",
+          "gemini/gemini-3.1-flash-lite",
+          "gemini/gemini-3.1-flash-lite",
+          "gemini/gemini-3.1-flash-lite",
+          "gemini/gemini-3.1-flash-lite",
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.1-flash-lite",
+          "gemini/gemini-3.1-flash-lite"
+        ],
+        "declared": false,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": false,
+            "declared": false,
+            "stepError": "step 4 move_to(green_zone) failed: Sensors lost the green cube while moving to green_zone: fingertip switches went off.",
+            "seconds": 5.24
+          },
+          {
+            "attempt": 1,
+            "truth": false,
+            "sensors": true,
+            "camera": null,
+            "vision": true,
+            "declared": false,
+            "seconds": 20.12
+          },
+          {
+            "attempt": 2,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": false,
+            "declared": false,
+            "stepError": "step 3 lift() failed: Sensors lost the blue cube during lift: fingertip switches went off.",
+            "seconds": 4.87
+          },
+          {
+            "attempt": 3,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": false,
+            "declared": false,
+            "stepError": "step 4 move_to(blue_zone) failed: Sensors lost the blue cube while moving to blue_zone: fingertip switches went off.",
+            "seconds": 5.92
+          }
+        ],
+        "failure": "step 4 move_to(blue_zone) failed: Sensors lost the blue cube while moving to blue_zone: fingertip switches went off. Goal check: red is not on green (offset 11.5 cm, height diff -0.0 cm); blue is not on red (offset 17.1 cm, height diff 0.0 cm)",
+        "injected": null,
+        "id": "ord-02",
+        "kind": "reorder",
+        "chaos": true,
+        "wallSeconds": 55.21209999996424,
+        "impossible": false
+      },
+      {
+        "success": true,
+        "attempts": 2,
+        "replans": 1,
+        "visionChecks": 2,
+        "sensorChecks": 2,
+        "sensorAgreements": 1,
+        "visionAgreements": 2,
+        "disagreements": [],
+        "llmCalls": 4,
+        "chaosEvents": 2,
+        "simSeconds": 14.358000000001464,
+        "planner": "llm",
+        "providers": [
+          "gemini/gemini-3.1-flash-lite",
+          "gemini/gemini-3.1-flash-lite",
+          "gemini/gemini-3.1-flash-lite",
+          "gemini/gemini-3.1-flash-lite"
+        ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": false,
+            "declared": false,
+            "stepError": "step 3 lift() failed: Sensors lost the yellow cube during lift: fingertip switches went off.",
+            "seconds": 4.17
+          },
+          {
+            "attempt": 1,
+            "truth": true,
+            "sensors": false,
+            "camera": null,
+            "vision": true,
+            "declared": true,
+            "stepError": "step 4 place(green_zone) failed: Sensors lost the yellow cube while carrying it to green_zone: fingertip switches went off.",
+            "seconds": 5.7
+          }
+        ],
+        "injected": null,
+        "id": "ord-03",
+        "kind": "reorder",
+        "chaos": true,
+        "wallSeconds": 34.56769999998808,
+        "impossible": false
+      },
+      {
+        "success": true,
+        "attempts": 1,
+        "replans": 0,
+        "visionChecks": 1,
+        "sensorChecks": 1,
+        "sensorAgreements": 0,
+        "visionAgreements": 1,
+        "disagreements": [],
+        "llmCalls": 2,
+        "chaosEvents": 2,
+        "simSeconds": 17.75200000000104,
+        "planner": "llm",
+        "providers": [
+          "gemini/gemini-3.1-flash-lite",
+          "gemini/gemini-3.1-flash-lite"
+        ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": false,
+            "camera": null,
+            "vision": true,
+            "declared": true,
+            "stepError": "step 9 place(red_zone) failed: Sensors lost the green cube while carrying it to red_zone: fingertip switches went off.",
+            "seconds": 15.15
+          }
+        ],
+        "injected": null,
+        "id": "ord-04",
+        "kind": "reorder",
+        "chaos": true,
+        "wallSeconds": 11.120899999976158,
+        "impossible": false
+      },
+      {
+        "success": true,
+        "attempts": 1,
+        "replans": 0,
+        "visionChecks": 1,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
+        "visionAgreements": 1,
+        "disagreements": [],
+        "llmCalls": 2,
+        "chaosEvents": 2,
+        "simSeconds": 29.177999999994707,
+        "planner": "llm",
+        "providers": [
+          "gemini/gemini-3.1-flash-lite",
+          "gemini/gemini-3.1-flash-lite"
+        ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": true,
+            "declared": true,
+            "seconds": 27.67
+          }
+        ],
+        "injected": null,
+        "id": "ord-05",
+        "kind": "reorder",
+        "chaos": true,
+        "wallSeconds": 21.84919999998808,
+        "impossible": false
+      },
+      {
+        "success": false,
+        "attempts": 1,
+        "replans": 0,
+        "visionChecks": 0,
+        "sensorChecks": 0,
+        "sensorAgreements": 0,
+        "visionAgreements": 0,
+        "disagreements": [],
+        "llmCalls": 1,
+        "chaosEvents": 0,
+        "simSeconds": 0,
+        "planner": "llm",
+        "providers": [
+          "gemini/gemini-3.5-flash-lite"
+        ],
+        "declared": false,
+        "decider": "oracle",
+        "log": [],
+        "refused": "The purple cube does not exist in the scene.",
+        "failure": "planner refused: The purple cube does not exist in the scene.",
+        "injected": null,
+        "id": "imp-01",
+        "kind": "impossible",
+        "chaos": true,
+        "wallSeconds": 0.01030000001192093,
+        "impossible": true
+      },
+      {
+        "success": false,
+        "attempts": 1,
+        "replans": 0,
+        "visionChecks": 0,
+        "sensorChecks": 0,
+        "sensorAgreements": 0,
+        "visionAgreements": 0,
+        "disagreements": [],
+        "llmCalls": 1,
+        "chaosEvents": 0,
+        "simSeconds": 0,
+        "planner": "llm",
+        "providers": [
+          "gemini/gemini-3.5-flash-lite"
+        ],
+        "declared": false,
+        "decider": "oracle",
+        "log": [],
+        "refused": "The yellow cube does not exist in the scene.",
+        "failure": "planner refused: The yellow cube does not exist in the scene.",
+        "injected": null,
+        "id": "imp-02",
+        "kind": "impossible",
+        "chaos": true,
+        "wallSeconds": 0.052199999988079074,
+        "impossible": true
+      },
+      {
+        "success": false,
+        "attempts": 1,
+        "replans": 0,
+        "visionChecks": 0,
+        "sensorChecks": 0,
+        "sensorAgreements": 0,
+        "visionAgreements": 0,
+        "disagreements": [],
+        "llmCalls": 1,
+        "chaosEvents": 0,
+        "simSeconds": 0,
+        "planner": "llm",
+        "providers": [
+          "gemini/gemini-3.5-flash-lite"
+        ],
+        "declared": false,
+        "decider": "oracle",
+        "log": [],
+        "refused": "A cube cannot be placed on top of itself.",
+        "failure": "planner refused: A cube cannot be placed on top of itself.",
+        "injected": null,
+        "id": "imp-03",
+        "kind": "impossible",
+        "chaos": true,
+        "wallSeconds": 0.02419999998807907,
+        "impossible": true
+      },
+      {
+        "success": false,
+        "attempts": 1,
+        "replans": 0,
+        "visionChecks": 0,
+        "sensorChecks": 0,
+        "sensorAgreements": 0,
+        "visionAgreements": 0,
+        "disagreements": [],
+        "llmCalls": 1,
+        "chaosEvents": 0,
+        "simSeconds": 0,
+        "planner": "llm",
+        "providers": [
+          "gemini/gemini-3.5-flash-lite"
+        ],
+        "declared": false,
+        "decider": "oracle",
+        "log": [],
+        "refused": "The orange zone does not exist.",
+        "failure": "planner refused: The orange zone does not exist.",
+        "injected": null,
+        "id": "imp-04",
+        "kind": "impossible",
+        "chaos": true,
+        "wallSeconds": 0.007399999976158142,
+        "impossible": true
+      },
+      {
+        "success": false,
+        "attempts": 1,
+        "replans": 0,
+        "visionChecks": 0,
+        "sensorChecks": 0,
+        "sensorAgreements": 0,
+        "visionAgreements": 0,
+        "disagreements": [],
+        "llmCalls": 1,
+        "chaosEvents": 0,
+        "simSeconds": 0,
+        "planner": "llm",
+        "providers": [
+          "gemini/gemini-3.5-flash-lite"
+        ],
+        "declared": false,
+        "decider": "oracle",
+        "log": [],
+        "refused": "The goal contains contradictory conditions (red on blue and blue on red simultaneously) which are impossible to achieve.",
+        "failure": "planner refused: The goal contains contradictory conditions (red on blue and blue on red simultaneously) which are impossible to achieve.",
+        "injected": null,
+        "id": "imp-05",
+        "kind": "impossible",
+        "chaos": true,
+        "wallSeconds": 0.106,
+        "impossible": true
+      },
+      {
+        "success": true,
+        "attempts": 2,
+        "replans": 1,
+        "visionChecks": 2,
+        "sensorChecks": 2,
+        "sensorAgreements": 2,
+        "visionAgreements": 2,
+        "disagreements": [],
+        "llmCalls": 4,
+        "chaosEvents": 3,
+        "simSeconds": 17.33600000000127,
+        "planner": "llm",
+        "providers": [
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.1-flash-lite"
+        ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": false,
+            "declared": false,
+            "stepError": "step 3 lift() failed: Sensors lost the red cube during lift: fingertip switches went off.",
+            "seconds": 3.95
+          },
+          {
+            "attempt": 1,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": true,
+            "declared": true,
+            "seconds": 9.35
+          }
+        ],
+        "injected": null,
+        "id": "dis-01",
+        "kind": "distractor",
+        "chaos": true,
+        "wallSeconds": 21.10219999998808,
+        "impossible": false
+      },
+      {
+        "success": true,
+        "attempts": 1,
+        "replans": 0,
+        "visionChecks": 1,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
+        "visionAgreements": 1,
+        "disagreements": [],
+        "llmCalls": 2,
+        "chaosEvents": 1,
+        "simSeconds": 11.956000000000662,
+        "planner": "llm",
+        "providers": [
+          "gemini/gemini-3.1-flash-lite",
+          "gemini/gemini-3.1-flash-lite"
+        ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": true,
+            "declared": true,
+            "seconds": 9.37
+          }
+        ],
+        "injected": null,
+        "id": "dis-02",
+        "kind": "distractor",
+        "chaos": true,
+        "wallSeconds": 17.01880000001192,
+        "impossible": false
+      },
+      {
+        "success": true,
+        "attempts": 1,
+        "replans": 0,
+        "visionChecks": 1,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
+        "visionAgreements": 1,
+        "disagreements": [],
+        "llmCalls": 2,
+        "chaosEvents": 0,
+        "simSeconds": 11.198000000000409,
+        "planner": "llm",
+        "providers": [
+          "gemini/gemini-3.1-flash-lite",
+          "gemini/gemini-3.1-flash-lite"
+        ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": true,
+            "declared": true,
+            "seconds": 8.57
+          }
+        ],
+        "injected": null,
+        "id": "dis-03",
+        "kind": "distractor",
+        "chaos": true,
+        "wallSeconds": 6.671,
+        "impossible": false
+      },
+      {
+        "success": true,
+        "attempts": 1,
+        "replans": 0,
+        "visionChecks": 1,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
+        "visionAgreements": 1,
+        "disagreements": [],
+        "llmCalls": 2,
+        "chaosEvents": 0,
+        "simSeconds": 11.306000000000445,
+        "planner": "llm",
+        "providers": [
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite"
+        ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": true,
+            "declared": true,
+            "seconds": 8.91
+          }
+        ],
+        "injected": null,
+        "id": "dis-04",
+        "kind": "distractor",
+        "chaos": true,
+        "wallSeconds": 2.4881999999880793,
+        "impossible": false
+      },
+      {
+        "success": true,
+        "attempts": 2,
+        "replans": 1,
+        "visionChecks": 2,
+        "sensorChecks": 2,
+        "sensorAgreements": 2,
+        "visionAgreements": 2,
+        "disagreements": [],
+        "llmCalls": 4,
+        "chaosEvents": 1,
+        "simSeconds": 16.322000000001832,
+        "planner": "llm",
+        "providers": [
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.1-flash-lite",
+          "gemini/gemini-3.1-flash-lite"
+        ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": false,
+            "declared": false,
+            "stepError": "step 3 lift() failed: Sensors lost the red cube during lift: fingertip switches went off.",
+            "seconds": 3.94
+          },
+          {
+            "attempt": 1,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": true,
+            "declared": true,
+            "seconds": 8.74
+          }
+        ],
+        "injected": null,
+        "id": "dis-05",
+        "kind": "distractor",
+        "chaos": true,
+        "wallSeconds": 96.90469999998808,
         "impossible": false
       }
     ]

@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-01T12:56:27.451Z",
+  "date": "2026-11-01T22:56:24.735Z",
   "maxReplans": 3,
   "conditions": {
     "scripted": [
@@ -19,10 +19,27 @@
         "providers": [
           "scripted"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": null,
+            "declared": true,
+            "seconds": 8.3,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "stack-01",
         "kind": "stack",
         "chaos": false,
-        "wallSeconds": 3.0245
+        "wallSeconds": 3.162399999976158,
+        "impossible": false
       },
       {
         "success": true,
@@ -40,10 +57,27 @@
         "providers": [
           "scripted"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": null,
+            "declared": true,
+            "seconds": 8.71,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "stack-02",
         "kind": "stack",
         "chaos": false,
-        "wallSeconds": 1.755399999976158
+        "wallSeconds": 2.329300000011921,
+        "impossible": false
       },
       {
         "success": true,
@@ -61,10 +95,27 @@
         "providers": [
           "scripted"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": null,
+            "declared": true,
+            "seconds": 8.44,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "stack-03",
         "kind": "stack",
         "chaos": false,
-        "wallSeconds": 1.7041000000238418
+        "wallSeconds": 2.468,
+        "impossible": false
       },
       {
         "success": true,
@@ -82,10 +133,27 @@
         "providers": [
           "scripted"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": null,
+            "declared": true,
+            "seconds": 8.23,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "stack-04",
         "kind": "stack",
         "chaos": false,
-        "wallSeconds": 1.5157999999523162
+        "wallSeconds": 2.336199999988079,
+        "impossible": false
       },
       {
         "success": true,
@@ -103,10 +171,27 @@
         "providers": [
           "scripted"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": null,
+            "declared": true,
+            "seconds": 8.72,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "stack-05",
         "kind": "stack",
         "chaos": false,
-        "wallSeconds": 1.518699999988079
+        "wallSeconds": 2.1796999999880793,
+        "impossible": false
       },
       {
         "success": true,
@@ -124,10 +209,27 @@
         "providers": [
           "scripted"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": null,
+            "declared": true,
+            "seconds": 9.5,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "stack-06",
         "kind": "stack",
         "chaos": false,
-        "wallSeconds": 1.8285
+        "wallSeconds": 2.6852000000476837,
+        "impossible": false
       },
       {
         "success": true,
@@ -145,10 +247,27 @@
         "providers": [
           "scripted"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": null,
+            "declared": true,
+            "seconds": 8.96,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "stack-07",
         "kind": "stack",
         "chaos": false,
-        "wallSeconds": 1.620800000011921
+        "wallSeconds": 2.533900000035763,
+        "impossible": false
       },
       {
         "success": true,
@@ -166,10 +285,27 @@
         "providers": [
           "scripted"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": null,
+            "declared": true,
+            "seconds": 8.54,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "stack-08",
         "kind": "stack",
         "chaos": false,
-        "wallSeconds": 1.6379000000357629
+        "wallSeconds": 2.417099999964237,
+        "impossible": false
       },
       {
         "success": true,
@@ -187,10 +323,27 @@
         "providers": [
           "scripted"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": null,
+            "declared": true,
+            "seconds": 17.54,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "tower-01",
         "kind": "tower",
         "chaos": false,
-        "wallSeconds": 3.045199999988079
+        "wallSeconds": 4.469899999976158,
+        "impossible": false
       },
       {
         "success": true,
@@ -208,10 +361,27 @@
         "providers": [
           "scripted"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": null,
+            "declared": true,
+            "seconds": 16.73,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "tower-02",
         "kind": "tower",
         "chaos": false,
-        "wallSeconds": 2.872
+        "wallSeconds": 4.130600000023842,
+        "impossible": false
       },
       {
         "success": true,
@@ -229,10 +399,27 @@
         "providers": [
           "scripted"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": null,
+            "declared": true,
+            "seconds": 19.59,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "tower-03",
         "kind": "tower",
         "chaos": false,
-        "wallSeconds": 3.506599999964237
+        "wallSeconds": 5.377300000011921,
+        "impossible": false
       },
       {
         "success": true,
@@ -250,10 +437,27 @@
         "providers": [
           "scripted"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": null,
+            "declared": true,
+            "seconds": 17.15,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "tower-04",
         "kind": "tower",
         "chaos": false,
-        "wallSeconds": 2.979400000035763
+        "wallSeconds": 4.2800999999642375,
+        "impossible": false
       },
       {
         "success": true,
@@ -271,10 +475,27 @@
         "providers": [
           "scripted"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": null,
+            "declared": true,
+            "seconds": 18.53,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "tower-05",
         "kind": "tower",
         "chaos": false,
-        "wallSeconds": 3.287199999988079
+        "wallSeconds": 5.0795,
+        "impossible": false
       },
       {
         "success": true,
@@ -292,10 +513,27 @@
         "providers": [
           "scripted"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": null,
+            "declared": true,
+            "seconds": 19.64,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "tower-06",
         "kind": "tower",
         "chaos": false,
-        "wallSeconds": 3.2015
+        "wallSeconds": 5.131900000035762,
+        "impossible": false
       },
       {
         "success": true,
@@ -313,10 +551,27 @@
         "providers": [
           "scripted"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": null,
+            "declared": true,
+            "seconds": 28.89,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "sort-01",
         "kind": "sort",
         "chaos": false,
-        "wallSeconds": 4.551800000011921
+        "wallSeconds": 7.179199999988079,
+        "impossible": false
       },
       {
         "success": true,
@@ -334,10 +589,27 @@
         "providers": [
           "scripted"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": null,
+            "declared": true,
+            "seconds": 28.09,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "sort-02",
         "kind": "sort",
         "chaos": false,
-        "wallSeconds": 4.452699999988079
+        "wallSeconds": 6.516599999964237,
+        "impossible": false
       },
       {
         "success": true,
@@ -355,10 +627,27 @@
         "providers": [
           "scripted"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": null,
+            "declared": true,
+            "seconds": 27.86,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "sort-03",
         "kind": "sort",
         "chaos": false,
-        "wallSeconds": 4.393199999988079
+        "wallSeconds": 5.978300000011921,
+        "impossible": false
       },
       {
         "success": true,
@@ -376,10 +665,27 @@
         "providers": [
           "scripted"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": null,
+            "declared": true,
+            "seconds": 28.23,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "sort-04",
         "kind": "sort",
         "chaos": false,
-        "wallSeconds": 4.5
+        "wallSeconds": 5.0615,
+        "impossible": false
       },
       {
         "success": true,
@@ -397,10 +703,27 @@
         "providers": [
           "scripted"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": null,
+            "declared": true,
+            "seconds": 8.68,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "zone-01",
         "kind": "zone",
         "chaos": false,
-        "wallSeconds": 1.6446999999880791
+        "wallSeconds": 1.943300000011921,
+        "impossible": false
       },
       {
         "success": true,
@@ -418,10 +741,27 @@
         "providers": [
           "scripted"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": null,
+            "declared": true,
+            "seconds": 8.41,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "zone-02",
         "kind": "zone",
         "chaos": false,
-        "wallSeconds": 1.4512999999523162
+        "wallSeconds": 1.8609000000357627,
+        "impossible": false
       },
       {
         "success": true,
@@ -439,10 +779,27 @@
         "providers": [
           "scripted"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": null,
+            "declared": true,
+            "seconds": 8.38,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "zone-03",
         "kind": "zone",
         "chaos": false,
-        "wallSeconds": 1.576
+        "wallSeconds": 1.9359000000357627,
+        "impossible": false
       },
       {
         "success": true,
@@ -460,10 +817,27 @@
         "providers": [
           "scripted"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": null,
+            "declared": true,
+            "seconds": 9.52,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "zone-04",
         "kind": "zone",
         "chaos": false,
-        "wallSeconds": 1.7730999999642372
+        "wallSeconds": 2.207900000035763,
+        "impossible": false
       },
       {
         "success": true,
@@ -481,10 +855,27 @@
         "providers": [
           "scripted"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": null,
+            "declared": true,
+            "seconds": 8.44,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "stack-09",
         "kind": "stack",
         "chaos": false,
-        "wallSeconds": 1.556300000011921
+        "wallSeconds": 1.9481000000238418,
+        "impossible": false
       },
       {
         "success": true,
@@ -502,10 +893,27 @@
         "providers": [
           "scripted"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": null,
+            "declared": true,
+            "seconds": 18.71,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "zone-05",
         "kind": "zone",
         "chaos": false,
-        "wallSeconds": 3.012699999988079
+        "wallSeconds": 4.007100000023842,
+        "impossible": false
       }
     ],
     "scripted-chaos": [
@@ -525,10 +933,27 @@
         "providers": [
           "scripted"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": null,
+            "declared": true,
+            "seconds": 8.29,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "stack-01",
         "kind": "stack",
         "chaos": true,
-        "wallSeconds": 1.5044000000357627
+        "wallSeconds": 1.9325,
+        "impossible": false
       },
       {
         "success": true,
@@ -547,10 +972,39 @@
           "scripted",
           "scripted"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": null,
+            "declared": false,
+            "stepError": "step 3 lift() failed: Sensors lost the green cube during lift: fingertip switches went off.",
+            "seconds": 4.28,
+            "probe": null,
+            "probes": 0
+          },
+          {
+            "attempt": 1,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": null,
+            "declared": true,
+            "seconds": 8.91,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "stack-02",
         "kind": "stack",
         "chaos": true,
-        "wallSeconds": 2.2918999999761582
+        "wallSeconds": 3.106100000023842,
+        "impossible": false
       },
       {
         "success": true,
@@ -568,10 +1022,27 @@
         "providers": [
           "scripted"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": null,
+            "declared": true,
+            "seconds": 8.44,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "stack-03",
         "kind": "stack",
         "chaos": true,
-        "wallSeconds": 1.658300000011921
+        "wallSeconds": 2.119199999988079,
+        "impossible": false
       },
       {
         "success": true,
@@ -590,10 +1061,39 @@
           "scripted",
           "scripted"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": null,
+            "declared": false,
+            "stepError": "step 3 lift() failed: Sensors lost the yellow cube during lift: fingertip switches went off.",
+            "seconds": 3.94,
+            "probe": null,
+            "probes": 0
+          },
+          {
+            "attempt": 1,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": null,
+            "declared": true,
+            "seconds": 8.55,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "stack-04",
         "kind": "stack",
         "chaos": true,
-        "wallSeconds": 2.205899999976158
+        "wallSeconds": 2.977,
+        "impossible": false
       },
       {
         "success": true,
@@ -613,10 +1113,50 @@
           "scripted",
           "scripted"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": null,
+            "declared": false,
+            "stepError": "step 3 lift() failed: Sensors lost the red cube during lift: fingertip switches went off.",
+            "seconds": 3.94,
+            "probe": null,
+            "probes": 0
+          },
+          {
+            "attempt": 1,
+            "truth": false,
+            "sensors": true,
+            "camera": null,
+            "vision": null,
+            "declared": false,
+            "seconds": 8.99,
+            "probe": null,
+            "probes": 0
+          },
+          {
+            "attempt": 2,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": null,
+            "declared": true,
+            "seconds": 9.87,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "stack-05",
         "kind": "stack",
         "chaos": true,
-        "wallSeconds": 3.6096000000238417
+        "wallSeconds": 4.857,
+        "impossible": false
       },
       {
         "success": true,
@@ -634,10 +1174,27 @@
         "providers": [
           "scripted"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": null,
+            "declared": true,
+            "seconds": 9.5,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "stack-06",
         "kind": "stack",
         "chaos": true,
-        "wallSeconds": 1.796
+        "wallSeconds": 2.2810999999642374,
+        "impossible": false
       },
       {
         "success": true,
@@ -655,10 +1212,27 @@
         "providers": [
           "scripted"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": null,
+            "declared": true,
+            "seconds": 8.95,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "stack-07",
         "kind": "stack",
         "chaos": true,
-        "wallSeconds": 1.5606000000238418
+        "wallSeconds": 2.063600000023842,
+        "impossible": false
       },
       {
         "success": true,
@@ -676,10 +1250,27 @@
         "providers": [
           "scripted"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": null,
+            "declared": true,
+            "seconds": 8.54,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "stack-08",
         "kind": "stack",
         "chaos": true,
-        "wallSeconds": 1.5615
+        "wallSeconds": 1.9536000000238418,
+        "impossible": false
       },
       {
         "success": true,
@@ -697,10 +1288,27 @@
         "providers": [
           "scripted"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": null,
+            "declared": true,
+            "seconds": 17.54,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "tower-01",
         "kind": "tower",
         "chaos": true,
-        "wallSeconds": 2.933800000011921
+        "wallSeconds": 4.008100000023842,
+        "impossible": false
       },
       {
         "success": false,
@@ -721,11 +1329,64 @@
           "scripted",
           "scripted"
         ],
+        "declared": false,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": null,
+            "declared": false,
+            "stepError": "step 3 lift() failed: Sensors lost the red cube during lift: fingertip switches went off.",
+            "seconds": 3.94,
+            "probe": null,
+            "probes": 0
+          },
+          {
+            "attempt": 1,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": null,
+            "declared": false,
+            "stepError": "step 3 lift() failed: Sensors lost the red cube during lift: fingertip switches went off.",
+            "seconds": 4.57,
+            "probe": null,
+            "probes": 0
+          },
+          {
+            "attempt": 2,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": null,
+            "declared": false,
+            "stepError": "step 4 place(green) failed: Sensors lost the red cube while carrying it to green: fingertip switches went off.",
+            "seconds": 5.5,
+            "probe": null,
+            "probes": 0
+          },
+          {
+            "attempt": 3,
+            "truth": false,
+            "sensors": true,
+            "camera": null,
+            "vision": null,
+            "declared": false,
+            "seconds": 17.02,
+            "probe": null,
+            "probes": 0
+          }
+        ],
         "failure": "Plan finished but goal not met: red is not on green (offset 5.4 cm, height diff -0.0 cm)",
+        "injected": null,
         "id": "tower-02",
         "kind": "tower",
         "chaos": true,
-        "wallSeconds": 5.469699999988079
+        "wallSeconds": 7.377599999964238,
+        "impossible": false
       },
       {
         "success": false,
@@ -746,11 +1407,65 @@
           "scripted",
           "scripted"
         ],
+        "declared": false,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": null,
+            "declared": false,
+            "stepError": "step 3 lift() failed: Sensors lost the yellow cube during lift: fingertip switches went off.",
+            "seconds": 4.01,
+            "probe": null,
+            "probes": 0
+          },
+          {
+            "attempt": 1,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": null,
+            "declared": false,
+            "stepError": "step 3 lift() failed: Sensors lost the yellow cube during lift: fingertip switches went off.",
+            "seconds": 4.37,
+            "probe": null,
+            "probes": 0
+          },
+          {
+            "attempt": 2,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": null,
+            "declared": false,
+            "stepError": "step 3 lift() failed: Sensors lost the yellow cube during lift: fingertip switches went off.",
+            "seconds": 4.41,
+            "probe": null,
+            "probes": 0
+          },
+          {
+            "attempt": 3,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": null,
+            "declared": false,
+            "stepError": "step 3 lift() failed: Sensors lost the yellow cube during lift: fingertip switches went off.",
+            "seconds": 4.45,
+            "probe": null,
+            "probes": 0
+          }
+        ],
         "failure": "step 3 lift() failed: Sensors lost the yellow cube during lift: fingertip switches went off. Goal check: yellow is not on red (offset 31.4 cm, height diff 0.0 cm); blue is not on yellow (offset 14.6 cm, height diff 0.0 cm)",
+        "injected": null,
         "id": "tower-03",
         "kind": "tower",
         "chaos": true,
-        "wallSeconds": 3.333899999976158
+        "wallSeconds": 4.286400000035763,
+        "impossible": false
       },
       {
         "success": true,
@@ -770,10 +1485,51 @@
           "scripted",
           "scripted"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": null,
+            "declared": false,
+            "stepError": "step 3 lift() failed: Sensors lost the blue cube during lift: fingertip switches went off.",
+            "seconds": 4.03,
+            "probe": null,
+            "probes": 0
+          },
+          {
+            "attempt": 1,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": null,
+            "declared": false,
+            "stepError": "step 3 lift() failed: Sensors lost the blue cube during lift: fingertip switches went off.",
+            "seconds": 4.26,
+            "probe": null,
+            "probes": 0
+          },
+          {
+            "attempt": 2,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": null,
+            "declared": true,
+            "seconds": 17.46,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "tower-04",
         "kind": "tower",
         "chaos": true,
-        "wallSeconds": 4.556699999988079
+        "wallSeconds": 5.740300000011921,
+        "impossible": false
       },
       {
         "success": true,
@@ -791,10 +1547,27 @@
         "providers": [
           "scripted"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": null,
+            "declared": true,
+            "seconds": 18.52,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "tower-05",
         "kind": "tower",
         "chaos": true,
-        "wallSeconds": 3.359299999952316
+        "wallSeconds": 3.991899999976158,
+        "impossible": false
       },
       {
         "success": false,
@@ -815,11 +1588,65 @@
           "scripted",
           "scripted"
         ],
+        "declared": false,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": null,
+            "declared": false,
+            "stepError": "step 3 lift() failed: Sensors lost the red cube during lift: fingertip switches went off.",
+            "seconds": 4.42,
+            "probe": null,
+            "probes": 0
+          },
+          {
+            "attempt": 1,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": null,
+            "declared": false,
+            "stepError": "step 3 lift() failed: Sensors lost the red cube during lift: fingertip switches went off.",
+            "seconds": 4.76,
+            "probe": null,
+            "probes": 0
+          },
+          {
+            "attempt": 2,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": null,
+            "declared": false,
+            "stepError": "step 3 lift() failed: Sensors lost the red cube during lift: fingertip switches went off.",
+            "seconds": 4.78,
+            "probe": null,
+            "probes": 0
+          },
+          {
+            "attempt": 3,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": null,
+            "declared": false,
+            "stepError": "step 4 place(green) failed: Sensors lost the red cube while carrying it to green: fingertip switches went off.",
+            "seconds": 6.71,
+            "probe": null,
+            "probes": 0
+          }
+        ],
         "failure": "step 4 place(green) failed: Sensors lost the red cube while carrying it to green: fingertip switches went off. Goal check: red is not on green (offset 6.3 cm, height diff -0.0 cm); blue is not on red (offset 27.8 cm, height diff 0.0 cm)",
+        "injected": null,
         "id": "tower-06",
         "kind": "tower",
         "chaos": true,
-        "wallSeconds": 4.272199999988079
+        "wallSeconds": 4.729199999988079,
+        "impossible": false
       },
       {
         "success": true,
@@ -837,10 +1664,27 @@
         "providers": [
           "scripted"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": null,
+            "declared": true,
+            "seconds": 28.93,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "sort-01",
         "kind": "sort",
         "chaos": true,
-        "wallSeconds": 4.714300000011921
+        "wallSeconds": 5.609700000047684,
+        "impossible": false
       },
       {
         "success": true,
@@ -860,10 +1704,51 @@
           "scripted",
           "scripted"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": null,
+            "declared": false,
+            "stepError": "step 14 place(blue_zone) failed: Sensors lost the blue cube while carrying it to blue_zone: fingertip switches went off.",
+            "seconds": 24.53,
+            "probe": null,
+            "probes": 0
+          },
+          {
+            "attempt": 1,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": null,
+            "declared": false,
+            "stepError": "step 3 lift() failed: Sensors lost the red cube during lift: fingertip switches went off.",
+            "seconds": 5.22,
+            "probe": null,
+            "probes": 0
+          },
+          {
+            "attempt": 2,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": null,
+            "declared": true,
+            "seconds": 26.77,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "sort-02",
         "kind": "sort",
         "chaos": true,
-        "wallSeconds": 9.329299999952315
+        "wallSeconds": 10.198600000023841,
+        "impossible": false
       },
       {
         "success": true,
@@ -882,10 +1767,39 @@
           "scripted",
           "scripted"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": null,
+            "declared": false,
+            "stepError": "step 3 lift() failed: Sensors lost the red cube during lift: fingertip switches went off.",
+            "seconds": 3.99,
+            "probe": null,
+            "probes": 0
+          },
+          {
+            "attempt": 1,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": null,
+            "declared": true,
+            "seconds": 28.31,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "sort-03",
         "kind": "sort",
         "chaos": true,
-        "wallSeconds": 5.278200000047684
+        "wallSeconds": 6.105600000023842,
+        "impossible": false
       },
       {
         "success": true,
@@ -903,10 +1817,27 @@
         "providers": [
           "scripted"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": null,
+            "declared": true,
+            "seconds": 28.21,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "sort-04",
         "kind": "sort",
         "chaos": true,
-        "wallSeconds": 4.5285999999642375
+        "wallSeconds": 5.1975,
+        "impossible": false
       },
       {
         "success": true,
@@ -924,10 +1855,27 @@
         "providers": [
           "scripted"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": null,
+            "declared": true,
+            "seconds": 8.68,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "zone-01",
         "kind": "zone",
         "chaos": true,
-        "wallSeconds": 1.664
+        "wallSeconds": 2.0995,
+        "impossible": false
       },
       {
         "success": true,
@@ -946,10 +1894,39 @@
           "scripted",
           "scripted"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": null,
+            "declared": false,
+            "stepError": "step 3 lift() failed: Sensors lost the yellow cube during lift: fingertip switches went off.",
+            "seconds": 3.94,
+            "probe": null,
+            "probes": 0
+          },
+          {
+            "attempt": 1,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": null,
+            "declared": true,
+            "seconds": 8.93,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "zone-02",
         "kind": "zone",
         "chaos": true,
-        "wallSeconds": 2.122699999988079
+        "wallSeconds": 4.021,
+        "impossible": false
       },
       {
         "success": true,
@@ -967,10 +1944,27 @@
         "providers": [
           "scripted"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": null,
+            "declared": true,
+            "seconds": 8.38,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "zone-03",
         "kind": "zone",
         "chaos": true,
-        "wallSeconds": 1.5488999999761581
+        "wallSeconds": 2.381899999976158,
+        "impossible": false
       },
       {
         "success": true,
@@ -989,10 +1983,39 @@
           "scripted",
           "scripted"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": null,
+            "declared": false,
+            "stepError": "step 3 lift() failed: Sensors lost the green cube during lift: fingertip switches went off.",
+            "seconds": 4.26,
+            "probe": null,
+            "probes": 0
+          },
+          {
+            "attempt": 1,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": null,
+            "declared": true,
+            "seconds": 10.03,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "zone-04",
         "kind": "zone",
         "chaos": true,
-        "wallSeconds": 2.5699000000357626
+        "wallSeconds": 4.174699999988079,
+        "impossible": false
       },
       {
         "success": true,
@@ -1010,10 +2033,27 @@
         "providers": [
           "scripted"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": null,
+            "declared": true,
+            "seconds": 8.45,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "stack-09",
         "kind": "stack",
         "chaos": true,
-        "wallSeconds": 1.6101999999880792
+        "wallSeconds": 2.330300000011921,
+        "impossible": false
       },
       {
         "success": true,
@@ -1032,10 +2072,39 @@
           "scripted",
           "scripted"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": null,
+            "declared": false,
+            "stepError": "step 8 lift() failed: Sensors lost the red cube during lift: fingertip switches went off.",
+            "seconds": 13.99,
+            "probe": null,
+            "probes": 0
+          },
+          {
+            "attempt": 1,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": null,
+            "declared": true,
+            "seconds": 19.54,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "zone-05",
         "kind": "zone",
         "chaos": true,
-        "wallSeconds": 5.071900000035763
+        "wallSeconds": 8.936899999976157,
+        "impossible": false
       }
     ],
     "llm": [
@@ -1044,426 +2113,749 @@
         "attempts": 1,
         "replans": 0,
         "visionChecks": 1,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
         "visionAgreements": 1,
         "disagreements": [],
         "llmCalls": 2,
         "chaosEvents": 0,
-        "simSeconds": 8.949999999999658,
+        "simSeconds": 10.252000000000093,
         "planner": "llm",
         "providers": [
           "gemini/gemini-3.1-flash-lite",
           "gemini/gemini-3.1-flash-lite"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": true,
+            "declared": true,
+            "seconds": 8.3,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "stack-01",
         "kind": "stack",
         "chaos": false,
-        "wallSeconds": 14.86929999999702
+        "wallSeconds": 11.07819999998808,
+        "impossible": false
       },
       {
         "success": true,
         "attempts": 1,
         "replans": 0,
         "visionChecks": 1,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
         "visionAgreements": 1,
         "disagreements": [],
         "llmCalls": 2,
         "chaosEvents": 0,
-        "simSeconds": 9.653999999999893,
+        "simSeconds": 10.958000000000329,
         "planner": "llm",
         "providers": [
-          "gemini/gemini-3.5-flash-lite",
-          "gemini/gemini-3.5-flash-lite"
+          "gemini/gemini-3.1-flash-lite",
+          "gemini/gemini-3.1-flash-lite"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": true,
+            "declared": true,
+            "seconds": 8.71,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "stack-02",
         "kind": "stack",
         "chaos": false,
-        "wallSeconds": 36.5695
+        "wallSeconds": 7.598300000011921,
+        "impossible": false
       },
       {
         "success": true,
         "attempts": 1,
         "replans": 0,
         "visionChecks": 1,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
         "visionAgreements": 1,
         "disagreements": [],
         "llmCalls": 2,
         "chaosEvents": 0,
-        "simSeconds": 9.219999999999748,
+        "simSeconds": 10.524000000000184,
         "planner": "llm",
         "providers": [
           "gemini/gemini-3.1-flash-lite",
           "gemini/gemini-3.1-flash-lite"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": true,
+            "declared": true,
+            "seconds": 8.44,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "stack-03",
         "kind": "stack",
         "chaos": false,
-        "wallSeconds": 8.8165
+        "wallSeconds": 4.380699999988079,
+        "impossible": false
       },
       {
         "success": true,
         "attempts": 1,
         "replans": 0,
         "visionChecks": 1,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
         "visionAgreements": 1,
         "disagreements": [],
         "llmCalls": 2,
         "chaosEvents": 0,
-        "simSeconds": 8.767999999999597,
+        "simSeconds": 10.072000000000033,
         "planner": "llm",
         "providers": [
           "gemini/gemini-3.1-flash-lite",
           "gemini/gemini-3.1-flash-lite"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": true,
+            "declared": true,
+            "seconds": 8.23,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "stack-04",
         "kind": "stack",
         "chaos": false,
-        "wallSeconds": 7.0831999999955295
+        "wallSeconds": 4.2568999999761585,
+        "impossible": false
       },
       {
         "success": true,
         "attempts": 1,
         "replans": 0,
         "visionChecks": 1,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
         "visionAgreements": 1,
         "disagreements": [],
         "llmCalls": 2,
         "chaosEvents": 0,
-        "simSeconds": 9.527999999999851,
+        "simSeconds": 10.830000000000286,
         "planner": "llm",
         "providers": [
           "gemini/gemini-3.1-flash-lite",
-          "gemini/gemini-3.1-flash-lite"
+          "gemini/gemini-3.5-flash-lite"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": true,
+            "declared": true,
+            "seconds": 8.72,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "stack-05",
         "kind": "stack",
         "chaos": false,
-        "wallSeconds": 24.66470000000298
+        "wallSeconds": 4.271899999976158,
+        "impossible": false
       },
       {
         "success": true,
         "attempts": 1,
         "replans": 0,
         "visionChecks": 1,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
         "visionAgreements": 1,
         "disagreements": [],
         "llmCalls": 2,
         "chaosEvents": 0,
-        "simSeconds": 10.070000000000032,
+        "simSeconds": 11.374000000000468,
         "planner": "llm",
         "providers": [
-          "gemini/gemini-3.1-flash-lite",
+          "gemini/gemini-3.5-flash-lite",
           "gemini/gemini-3.5-flash-lite"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": true,
+            "declared": true,
+            "seconds": 9.5,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "stack-06",
         "kind": "stack",
         "chaos": false,
-        "wallSeconds": 386.576700000003
+        "wallSeconds": 8.08030000001192,
+        "impossible": false
       },
       {
         "success": true,
         "attempts": 1,
         "replans": 0,
         "visionChecks": 1,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
         "visionAgreements": 1,
         "disagreements": [],
         "llmCalls": 2,
         "chaosEvents": 0,
-        "simSeconds": 9.659999999999895,
+        "simSeconds": 10.96200000000033,
         "planner": "llm",
         "providers": [
-          "gemini/gemini-3.1-flash-lite",
+          "gemini/gemini-3.5-flash-lite",
           "gemini/gemini-3.5-flash-lite"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": true,
+            "declared": true,
+            "seconds": 8.96,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "stack-07",
         "kind": "stack",
         "chaos": false,
-        "wallSeconds": 45.93780000000447
+        "wallSeconds": 9.214100000023842,
+        "impossible": false
       },
       {
         "success": true,
         "attempts": 1,
         "replans": 0,
         "visionChecks": 1,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
         "visionAgreements": 1,
         "disagreements": [],
         "llmCalls": 2,
         "chaosEvents": 0,
-        "simSeconds": 9.0759999999997,
+        "simSeconds": 10.380000000000136,
         "planner": "llm",
         "providers": [
-          "gemini/gemini-3.1-flash-lite",
+          "gemini/gemini-3.5-flash-lite",
           "gemini/gemini-3.5-flash-lite"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": true,
+            "declared": true,
+            "seconds": 8.54,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "stack-08",
         "kind": "stack",
         "chaos": false,
-        "wallSeconds": 35.72860000000149
+        "wallSeconds": 4.698399999976158,
+        "impossible": false
       },
       {
         "success": true,
         "attempts": 1,
         "replans": 0,
         "visionChecks": 1,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
         "visionAgreements": 1,
         "disagreements": [],
         "llmCalls": 2,
         "chaosEvents": 0,
-        "simSeconds": 27.72999999999551,
+        "simSeconds": 19.388000000000133,
         "planner": "llm",
         "providers": [
           "gemini/gemini-3.5-flash-lite",
           "gemini/gemini-3.5-flash-lite"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": true,
+            "declared": true,
+            "seconds": 17.54,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "tower-01",
         "kind": "tower",
         "chaos": false,
-        "wallSeconds": 70.2965
+        "wallSeconds": 11.08119999998808,
+        "impossible": false
       },
       {
         "success": true,
         "attempts": 1,
         "replans": 0,
         "visionChecks": 1,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
         "visionAgreements": 1,
         "disagreements": [],
         "llmCalls": 2,
         "chaosEvents": 0,
-        "simSeconds": 24.799999999997134,
+        "simSeconds": 28.731999999994954,
         "planner": "llm",
         "providers": [
-          "gemini/gemini-3.1-flash-lite",
+          "gemini/gemini-3.5-flash-lite",
           "gemini/gemini-3.5-flash-lite"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": true,
+            "declared": true,
+            "seconds": 26.37,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "tower-02",
         "kind": "tower",
         "chaos": false,
-        "wallSeconds": 46.1905
+        "wallSeconds": 17.054699999988078,
+        "impossible": false
       },
       {
         "success": true,
         "attempts": 1,
         "replans": 0,
         "visionChecks": 1,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
         "visionAgreements": 1,
         "disagreements": [],
         "llmCalls": 2,
         "chaosEvents": 0,
-        "simSeconds": 19.040000000000326,
+        "simSeconds": 32.36399999999359,
         "planner": "llm",
         "providers": [
           "gemini/gemini-3.5-flash-lite",
-          "gemini/gemini-3.1-flash-lite"
+          "gemini/gemini-3.5-flash-lite"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": true,
+            "declared": true,
+            "seconds": 29.82,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "tower-03",
         "kind": "tower",
         "chaos": false,
-        "wallSeconds": 44.36739999999851
+        "wallSeconds": 16.176699999988077,
+        "impossible": false
       },
       {
         "success": true,
         "attempts": 1,
         "replans": 0,
         "visionChecks": 1,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
         "visionAgreements": 1,
         "disagreements": [],
         "llmCalls": 2,
         "chaosEvents": 0,
-        "simSeconds": 16.50600000000173,
+        "simSeconds": 19.12400000000028,
         "planner": "llm",
         "providers": [
-          "gemini/gemini-3.1-flash-lite",
-          "gemini/gemini-3.1-flash-lite"
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": true,
+            "declared": true,
+            "seconds": 17.15,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "tower-04",
         "kind": "tower",
         "chaos": false,
-        "wallSeconds": 35.327100000001494
+        "wallSeconds": 6.303900000035763,
+        "impossible": false
       },
       {
         "success": true,
         "attempts": 1,
         "replans": 0,
         "visionChecks": 1,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
         "visionAgreements": 1,
         "disagreements": [],
         "llmCalls": 2,
         "chaosEvents": 0,
-        "simSeconds": 27.42399999999568,
-        "planner": "llm",
-        "providers": [
-          "gemini/gemini-3.1-flash-lite",
-          "gemini/gemini-3.1-flash-lite"
-        ],
-        "id": "tower-05",
-        "kind": "tower",
-        "chaos": false,
-        "wallSeconds": 12.43470000000298
-      },
-      {
-        "success": true,
-        "attempts": 1,
-        "replans": 0,
-        "visionChecks": 1,
-        "visionAgreements": 1,
-        "disagreements": [],
-        "llmCalls": 2,
-        "chaosEvents": 0,
-        "simSeconds": 26.547999999996165,
-        "planner": "llm",
-        "providers": [
-          "gemini/gemini-3.1-flash-lite",
-          "gemini/gemini-3.5-flash-lite"
-        ],
-        "id": "tower-06",
-        "kind": "tower",
-        "chaos": false,
-        "wallSeconds": 41.73139999999851
-      },
-      {
-        "success": true,
-        "attempts": 1,
-        "replans": 0,
-        "visionChecks": 1,
-        "visionAgreements": 1,
-        "disagreements": [],
-        "llmCalls": 2,
-        "chaosEvents": 0,
-        "simSeconds": 27.669999999995543,
-        "planner": "llm",
-        "providers": [
-          "gemini/gemini-3.1-flash-lite",
-          "gemini/gemini-3.1-flash-lite"
-        ],
-        "id": "sort-01",
-        "kind": "sort",
-        "chaos": false,
-        "wallSeconds": 57.25820000000298
-      },
-      {
-        "success": true,
-        "attempts": 1,
-        "replans": 0,
-        "visionChecks": 1,
-        "visionAgreements": 1,
-        "disagreements": [],
-        "llmCalls": 2,
-        "chaosEvents": 0,
-        "simSeconds": 26.86199999999599,
-        "planner": "llm",
-        "providers": [
-          "gemini/gemini-3.1-flash-lite",
-          "gemini/gemini-3.1-flash-lite"
-        ],
-        "id": "sort-02",
-        "kind": "sort",
-        "chaos": false,
-        "wallSeconds": 9.886
-      },
-      {
-        "success": true,
-        "attempts": 1,
-        "replans": 0,
-        "visionChecks": 1,
-        "visionAgreements": 1,
-        "disagreements": [],
-        "llmCalls": 2,
-        "chaosEvents": 0,
-        "simSeconds": 26.587999999996143,
-        "planner": "llm",
-        "providers": [
-          "gemini/gemini-3.1-flash-lite",
-          "gemini/gemini-3.1-flash-lite"
-        ],
-        "id": "sort-03",
-        "kind": "sort",
-        "chaos": false,
-        "wallSeconds": 18.11889999999851
-      },
-      {
-        "success": true,
-        "attempts": 1,
-        "replans": 0,
-        "visionChecks": 1,
-        "visionAgreements": 1,
-        "disagreements": [],
-        "llmCalls": 2,
-        "chaosEvents": 0,
-        "simSeconds": 27.197999999995805,
-        "planner": "llm",
-        "providers": [
-          "gemini/gemini-3.1-flash-lite",
-          "gemini/gemini-3.1-flash-lite"
-        ],
-        "id": "sort-04",
-        "kind": "sort",
-        "chaos": false,
-        "wallSeconds": 92.40660000000149
-      },
-      {
-        "success": true,
-        "attempts": 1,
-        "replans": 0,
-        "visionChecks": 1,
-        "visionAgreements": 1,
-        "disagreements": [],
-        "llmCalls": 2,
-        "chaosEvents": 0,
-        "simSeconds": 10.00400000000001,
-        "planner": "llm",
-        "providers": [
-          "gemini/gemini-3.1-flash-lite",
-          "gemini/gemini-3.1-flash-lite"
-        ],
-        "id": "zone-01",
-        "kind": "zone",
-        "chaos": false,
-        "wallSeconds": 74.64060000000148
-      },
-      {
-        "success": true,
-        "attempts": 1,
-        "replans": 0,
-        "visionChecks": 1,
-        "visionAgreements": 1,
-        "disagreements": [],
-        "llmCalls": 2,
-        "chaosEvents": 0,
-        "simSeconds": 9.64199999999989,
+        "simSeconds": 33.523999999995006,
         "planner": "llm",
         "providers": [
           "gemini/gemini-3.5-flash-lite",
           "gemini/gemini-3.1-flash-lite"
         ],
-        "id": "zone-02",
-        "kind": "zone",
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": true,
+            "declared": true,
+            "seconds": 31.06,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
+        "id": "tower-05",
+        "kind": "tower",
         "chaos": false,
-        "wallSeconds": 36.53610000000149
+        "wallSeconds": 8.670899999976157,
+        "impossible": false
       },
       {
         "success": true,
         "attempts": 1,
         "replans": 0,
         "visionChecks": 1,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
         "visionAgreements": 1,
         "disagreements": [],
         "llmCalls": 2,
         "chaosEvents": 0,
-        "simSeconds": 9.661999999999896,
+        "simSeconds": 30.47399999999399,
         "planner": "llm",
         "providers": [
-          "gemini/gemini-3.1-flash-lite",
-          "gemini/gemini-3.1-flash-lite"
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite"
         ],
-        "id": "zone-03",
-        "kind": "zone",
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": true,
+            "declared": true,
+            "seconds": 28.12,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
+        "id": "tower-06",
+        "kind": "tower",
         "chaos": false,
-        "wallSeconds": 14.1015
+        "wallSeconds": 9.75519999998808,
+        "impossible": false
       },
       {
         "success": true,
         "attempts": 1,
         "replans": 0,
         "visionChecks": 1,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
+        "visionAgreements": 1,
+        "disagreements": [],
+        "llmCalls": 2,
+        "chaosEvents": 0,
+        "simSeconds": 31.581999999993375,
+        "planner": "llm",
+        "providers": [
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite"
+        ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": true,
+            "declared": true,
+            "seconds": 28.89,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
+        "id": "sort-01",
+        "kind": "sort",
+        "chaos": false,
+        "wallSeconds": 11.361899999976158,
+        "impossible": false
+      },
+      {
+        "success": true,
+        "attempts": 1,
+        "replans": 0,
+        "visionChecks": 1,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
+        "visionAgreements": 1,
+        "disagreements": [],
+        "llmCalls": 2,
+        "chaosEvents": 0,
+        "simSeconds": 30.773999999993823,
+        "planner": "llm",
+        "providers": [
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite"
+        ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": true,
+            "declared": true,
+            "seconds": 28.09,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
+        "id": "sort-02",
+        "kind": "sort",
+        "chaos": false,
+        "wallSeconds": 27.444,
+        "impossible": false
+      },
+      {
+        "success": true,
+        "attempts": 1,
+        "replans": 0,
+        "visionChecks": 1,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
+        "visionAgreements": 1,
+        "disagreements": [],
+        "llmCalls": 2,
+        "chaosEvents": 0,
+        "simSeconds": 30.497999999993976,
+        "planner": "llm",
+        "providers": [
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite"
+        ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": true,
+            "declared": true,
+            "seconds": 27.86,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
+        "id": "sort-03",
+        "kind": "sort",
+        "chaos": false,
+        "wallSeconds": 19.75880000001192,
+        "impossible": false
+      },
+      {
+        "success": true,
+        "attempts": 1,
+        "replans": 0,
+        "visionChecks": 1,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
+        "visionAgreements": 1,
+        "disagreements": [],
+        "llmCalls": 2,
+        "chaosEvents": 0,
+        "simSeconds": 31.10599999999364,
+        "planner": "llm",
+        "providers": [
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite"
+        ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": true,
+            "declared": true,
+            "seconds": 28.23,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
+        "id": "sort-04",
+        "kind": "sort",
+        "chaos": false,
+        "wallSeconds": 11.1145,
+        "impossible": false
+      },
+      {
+        "success": true,
+        "attempts": 1,
+        "replans": 0,
+        "visionChecks": 1,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
+        "visionAgreements": 1,
+        "disagreements": [],
+        "llmCalls": 2,
+        "chaosEvents": 0,
+        "simSeconds": 11.308000000000446,
+        "planner": "llm",
+        "providers": [
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite"
+        ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": true,
+            "declared": true,
+            "seconds": 8.68,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
+        "id": "zone-01",
+        "kind": "zone",
+        "chaos": false,
+        "wallSeconds": 9.374,
+        "impossible": false
+      },
+      {
+        "success": true,
+        "attempts": 1,
+        "replans": 0,
+        "visionChecks": 1,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
         "visionAgreements": 1,
         "disagreements": [],
         "llmCalls": 2,
@@ -1471,53 +2863,186 @@
         "simSeconds": 10.946000000000325,
         "planner": "llm",
         "providers": [
-          "gemini/gemini-3.1-flash-lite",
-          "gemini/gemini-3.1-flash-lite"
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": true,
+            "declared": true,
+            "seconds": 8.41,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
+        "id": "zone-02",
+        "kind": "zone",
+        "chaos": false,
+        "wallSeconds": 5.136600000023842,
+        "impossible": false
+      },
+      {
+        "success": true,
+        "attempts": 1,
+        "replans": 0,
+        "visionChecks": 1,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
+        "visionAgreements": 1,
+        "disagreements": [],
+        "llmCalls": 2,
+        "chaosEvents": 0,
+        "simSeconds": 10.96400000000033,
+        "planner": "llm",
+        "providers": [
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite"
+        ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": true,
+            "declared": true,
+            "seconds": 8.38,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
+        "id": "zone-03",
+        "kind": "zone",
+        "chaos": false,
+        "wallSeconds": 5.052099999964237,
+        "impossible": false
+      },
+      {
+        "success": true,
+        "attempts": 1,
+        "replans": 0,
+        "visionChecks": 1,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
+        "visionAgreements": 1,
+        "disagreements": [],
+        "llmCalls": 2,
+        "chaosEvents": 0,
+        "simSeconds": 12.24800000000076,
+        "planner": "llm",
+        "providers": [
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite"
+        ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": true,
+            "declared": true,
+            "seconds": 9.52,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "zone-04",
         "kind": "zone",
         "chaos": false,
-        "wallSeconds": 34.445
+        "wallSeconds": 5.803800000011921,
+        "impossible": false
       },
       {
         "success": true,
         "attempts": 1,
         "replans": 0,
         "visionChecks": 1,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
         "visionAgreements": 1,
         "disagreements": [],
         "llmCalls": 2,
         "chaosEvents": 0,
-        "simSeconds": 9.055999999999694,
+        "simSeconds": 10.360000000000129,
         "planner": "llm",
         "providers": [
-          "gemini/gemini-3.1-flash-lite",
-          "gemini/gemini-3.1-flash-lite"
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": true,
+            "declared": true,
+            "seconds": 8.44,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "stack-09",
         "kind": "stack",
         "chaos": false,
-        "wallSeconds": 9.74209999999404
+        "wallSeconds": 5.262199999988079,
+        "impossible": false
       },
       {
         "success": true,
         "attempts": 1,
         "replans": 0,
         "visionChecks": 1,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
         "visionAgreements": 1,
         "disagreements": [],
         "llmCalls": 2,
         "chaosEvents": 0,
-        "simSeconds": 18.70800000000051,
+        "simSeconds": 21.313999999999066,
         "planner": "llm",
         "providers": [
-          "gemini/gemini-3.1-flash-lite",
-          "gemini/gemini-3.1-flash-lite"
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": true,
+            "declared": true,
+            "seconds": 18.71,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "zone-05",
         "kind": "zone",
         "chaos": false,
-        "wallSeconds": 9.39689999999851
+        "wallSeconds": 7.412300000011921,
+        "impossible": false
       }
     ],
     "llm-chaos": [
@@ -1526,524 +3051,1233 @@
         "attempts": 1,
         "replans": 0,
         "visionChecks": 1,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
         "visionAgreements": 1,
         "disagreements": [],
         "llmCalls": 2,
         "chaosEvents": 1,
-        "simSeconds": 8.92799999999965,
+        "simSeconds": 10.232000000000086,
         "planner": "llm",
         "providers": [
           "gemini/gemini-3.1-flash-lite",
-          "gemini/gemini-3.1-flash-lite"
+          "gemini/gemini-3.5-flash-lite"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": true,
+            "declared": true,
+            "seconds": 8.29,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "stack-01",
         "kind": "stack",
         "chaos": true,
-        "wallSeconds": 5.64480000000447
+        "wallSeconds": 3.504400000035763,
+        "impossible": false
       },
       {
         "success": true,
         "attempts": 2,
         "replans": 1,
         "visionChecks": 2,
+        "sensorChecks": 2,
+        "sensorAgreements": 2,
         "visionAgreements": 2,
         "disagreements": [],
         "llmCalls": 4,
         "chaosEvents": 2,
-        "simSeconds": 15.796000000001944,
+        "simSeconds": 17.23000000000133,
         "planner": "llm",
         "providers": [
           "gemini/gemini-3.1-flash-lite",
-          "gemini/gemini-3.1-flash-lite",
           "gemini/gemini-3.5-flash-lite",
-          "gemini/gemini-3.1-flash-lite"
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": false,
+            "declared": false,
+            "stepError": "step 3 lift() failed: Sensors lost the green cube during lift: fingertip switches went off.",
+            "seconds": 4.28,
+            "probe": null,
+            "probes": 0
+          },
+          {
+            "attempt": 1,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": true,
+            "declared": true,
+            "seconds": 8.91,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "stack-02",
         "kind": "stack",
         "chaos": true,
-        "wallSeconds": 57.55519999999553
+        "wallSeconds": 8.230400000035763,
+        "impossible": false
       },
       {
         "success": true,
         "attempts": 1,
         "replans": 0,
         "visionChecks": 1,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
         "visionAgreements": 1,
         "disagreements": [],
         "llmCalls": 2,
         "chaosEvents": 2,
-        "simSeconds": 9.219999999999748,
+        "simSeconds": 10.524000000000184,
         "planner": "llm",
         "providers": [
           "gemini/gemini-3.1-flash-lite",
-          "gemini/gemini-3.1-flash-lite"
+          "gemini/gemini-3.5-flash-lite"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": true,
+            "declared": true,
+            "seconds": 8.44,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "stack-03",
         "kind": "stack",
         "chaos": true,
-        "wallSeconds": 47.528
+        "wallSeconds": 3.799400000035763,
+        "impossible": false
       },
       {
         "success": true,
         "attempts": 2,
         "replans": 1,
         "visionChecks": 2,
+        "sensorChecks": 2,
+        "sensorAgreements": 2,
         "visionAgreements": 2,
         "disagreements": [],
         "llmCalls": 4,
         "chaosEvents": 2,
-        "simSeconds": 14.458000000001498,
+        "simSeconds": 15.922000000001987,
         "planner": "llm",
         "providers": [
           "gemini/gemini-3.1-flash-lite",
-          "gemini/gemini-3.1-flash-lite",
-          "gemini/gemini-3.1-flash-lite",
-          "gemini/gemini-3.1-flash-lite"
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": false,
+            "declared": false,
+            "stepError": "step 3 lift() failed: Sensors lost the yellow cube during lift: fingertip switches went off.",
+            "seconds": 3.94,
+            "probe": null,
+            "probes": 0
+          },
+          {
+            "attempt": 1,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": true,
+            "declared": true,
+            "seconds": 8.55,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "stack-04",
         "kind": "stack",
         "chaos": true,
-        "wallSeconds": 36.15489999999851
+        "wallSeconds": 6.453699999988079,
+        "impossible": false
       },
       {
         "success": true,
         "attempts": 3,
         "replans": 2,
         "visionChecks": 3,
+        "sensorChecks": 3,
+        "sensorAgreements": 2,
         "visionAgreements": 3,
         "disagreements": [],
         "llmCalls": 6,
         "chaosEvents": 4,
-        "simSeconds": 27.001999999995913,
+        "simSeconds": 28.567999999995045,
         "planner": "llm",
         "providers": [
           "gemini/gemini-3.1-flash-lite",
-          "gemini/gemini-3.1-flash-lite",
           "gemini/gemini-3.5-flash-lite",
           "gemini/gemini-3.5-flash-lite",
-          "gemini/gemini-3.1-flash-lite",
-          "gemini/gemini-3.1-flash-lite"
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": false,
+            "declared": false,
+            "stepError": "step 3 lift() failed: Sensors lost the red cube during lift: fingertip switches went off.",
+            "seconds": 3.94,
+            "probe": null,
+            "probes": 0
+          },
+          {
+            "attempt": 1,
+            "truth": false,
+            "sensors": true,
+            "camera": null,
+            "vision": false,
+            "declared": false,
+            "seconds": 8.99,
+            "probe": null,
+            "probes": 0
+          },
+          {
+            "attempt": 2,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": true,
+            "declared": true,
+            "seconds": 9.87,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "stack-05",
         "kind": "stack",
         "chaos": true,
-        "wallSeconds": 221.106
+        "wallSeconds": 12.409800000011922,
+        "impossible": false
       },
       {
         "success": true,
         "attempts": 1,
         "replans": 0,
         "visionChecks": 1,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
         "visionAgreements": 1,
         "disagreements": [],
         "llmCalls": 2,
         "chaosEvents": 1,
-        "simSeconds": 10.070000000000032,
-        "planner": "llm",
-        "providers": [
-          "gemini/gemini-3.1-flash-lite",
-          "gemini/gemini-3.1-flash-lite"
-        ],
-        "id": "stack-06",
-        "kind": "stack",
-        "chaos": true,
-        "wallSeconds": 6.71729999999702
-      },
-      {
-        "success": true,
-        "attempts": 1,
-        "replans": 0,
-        "visionChecks": 1,
-        "visionAgreements": 1,
-        "disagreements": [],
-        "llmCalls": 2,
-        "chaosEvents": 1,
-        "simSeconds": 9.629999999999885,
-        "planner": "llm",
-        "providers": [
-          "gemini/gemini-3.1-flash-lite",
-          "gemini/gemini-3.1-flash-lite"
-        ],
-        "id": "stack-07",
-        "kind": "stack",
-        "chaos": true,
-        "wallSeconds": 7.56969999999553
-      },
-      {
-        "success": true,
-        "attempts": 1,
-        "replans": 0,
-        "visionChecks": 1,
-        "visionAgreements": 1,
-        "disagreements": [],
-        "llmCalls": 2,
-        "chaosEvents": 1,
-        "simSeconds": 9.0759999999997,
+        "simSeconds": 11.374000000000468,
         "planner": "llm",
         "providers": [
           "gemini/gemini-3.5-flash-lite",
-          "gemini/gemini-3.1-flash-lite"
+          "gemini/gemini-3.5-flash-lite"
         ],
-        "id": "stack-08",
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": true,
+            "declared": true,
+            "seconds": 9.5,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
+        "id": "stack-06",
         "kind": "stack",
         "chaos": true,
-        "wallSeconds": 72.67709999999404
+        "wallSeconds": 5.763800000011921,
+        "impossible": false
       },
       {
         "success": true,
         "attempts": 1,
         "replans": 0,
         "visionChecks": 1,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
         "visionAgreements": 1,
         "disagreements": [],
         "llmCalls": 2,
-        "chaosEvents": 2,
-        "simSeconds": 23.313999999997957,
+        "chaosEvents": 1,
+        "simSeconds": 10.93200000000032,
         "planner": "llm",
         "providers": [
-          "gemini/gemini-3.1-flash-lite",
-          "gemini/gemini-3.1-flash-lite"
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": true,
+            "declared": true,
+            "seconds": 8.95,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
+        "id": "stack-07",
+        "kind": "stack",
+        "chaos": true,
+        "wallSeconds": 3.147,
+        "impossible": false
+      },
+      {
+        "success": true,
+        "attempts": 1,
+        "replans": 0,
+        "visionChecks": 1,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
+        "visionAgreements": 1,
+        "disagreements": [],
+        "llmCalls": 2,
+        "chaosEvents": 1,
+        "simSeconds": 10.380000000000136,
+        "planner": "llm",
+        "providers": [
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite"
+        ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": true,
+            "declared": true,
+            "seconds": 8.54,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
+        "id": "stack-08",
+        "kind": "stack",
+        "chaos": true,
+        "wallSeconds": 24.359799999952315,
+        "impossible": false
+      },
+      {
+        "success": true,
+        "attempts": 1,
+        "replans": 0,
+        "visionChecks": 1,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
+        "visionAgreements": 1,
+        "disagreements": [],
+        "llmCalls": 2,
+        "chaosEvents": 1,
+        "simSeconds": 19.400000000000126,
+        "planner": "llm",
+        "providers": [
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite"
+        ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": true,
+            "declared": true,
+            "seconds": 17.54,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "tower-01",
         "kind": "tower",
         "chaos": true,
-        "wallSeconds": 8.18020000000298
+        "wallSeconds": 4.8015,
+        "impossible": false
       },
       {
         "success": true,
         "attempts": 4,
         "replans": 3,
         "visionChecks": 4,
+        "sensorChecks": 4,
+        "sensorAgreements": 4,
         "visionAgreements": 4,
         "disagreements": [],
         "llmCalls": 8,
         "chaosEvents": 5,
-        "simSeconds": 44.152000000007995,
+        "simSeconds": 48.65000000001349,
         "planner": "llm",
         "providers": [
-          "gemini/gemini-3.1-flash-lite",
-          "gemini/gemini-3.1-flash-lite",
-          "gemini/gemini-3.1-flash-lite",
-          "gemini/gemini-3.1-flash-lite",
-          "gemini/gemini-3.1-flash-lite",
-          "gemini/gemini-3.1-flash-lite",
-          "gemini/gemini-3.1-flash-lite",
-          "gemini/gemini-3.1-flash-lite"
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": false,
+            "declared": false,
+            "stepError": "step 3 lift() failed: Sensors lost the green cube during lift: fingertip switches went off.",
+            "seconds": 3.97,
+            "probe": null,
+            "probes": 0
+          },
+          {
+            "attempt": 1,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": false,
+            "declared": false,
+            "stepError": "step 3 lift() failed: Sensors lost the green cube during lift: fingertip switches went off.",
+            "seconds": 4.29,
+            "probe": null,
+            "probes": 0
+          },
+          {
+            "attempt": 2,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": false,
+            "declared": false,
+            "stepError": "step 4 place(green_zone) failed: Sensors lost the green cube while carrying it to green_zone: fingertip switches went off.",
+            "seconds": 5.41,
+            "probe": null,
+            "probes": 0
+          },
+          {
+            "attempt": 3,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": true,
+            "declared": true,
+            "seconds": 27.08,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "tower-02",
         "kind": "tower",
         "chaos": true,
-        "wallSeconds": 43.87809999999404
+        "wallSeconds": 16.819600000023843,
+        "impossible": false
       },
       {
         "success": false,
         "attempts": 4,
         "replans": 3,
         "visionChecks": 4,
+        "sensorChecks": 4,
+        "sensorAgreements": 4,
         "visionAgreements": 4,
         "disagreements": [],
         "llmCalls": 8,
         "chaosEvents": 4,
-        "simSeconds": 25.279999999996868,
+        "simSeconds": 26.73799999999606,
         "planner": "llm",
         "providers": [
           "gemini/gemini-3.5-flash-lite",
-          "gemini/gemini-3.1-flash-lite",
-          "gemini/gemini-3.1-flash-lite",
-          "gemini/gemini-3.1-flash-lite",
-          "gemini/gemini-3.1-flash-lite",
-          "gemini/gemini-3.1-flash-lite",
-          "gemini/gemini-3.1-flash-lite",
-          "gemini/gemini-3.1-flash-lite"
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite"
         ],
-        "failure": "step 3 lift() failed: The red cube slipped out of the gripper during lift. Goal check: yellow is not on red (offset 31.7 cm, height diff 0.0 cm); blue is not on yellow (offset 13.0 cm, height diff -0.0 cm)",
+        "declared": false,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": false,
+            "declared": false,
+            "stepError": "step 3 lift() failed: Sensors lost the red cube during lift: fingertip switches went off.",
+            "seconds": 4.39,
+            "probe": null,
+            "probes": 0
+          },
+          {
+            "attempt": 1,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": false,
+            "declared": false,
+            "stepError": "step 3 lift() failed: Sensors lost the red cube during lift: fingertip switches went off.",
+            "seconds": 4.71,
+            "probe": null,
+            "probes": 0
+          },
+          {
+            "attempt": 2,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": false,
+            "declared": false,
+            "stepError": "step 3 lift() failed: Sensors lost the red cube during lift: fingertip switches went off.",
+            "seconds": 4.74,
+            "probe": null,
+            "probes": 0
+          },
+          {
+            "attempt": 3,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": false,
+            "declared": false,
+            "stepError": "step 3 lift() failed: Sensors lost the red cube during lift: fingertip switches went off.",
+            "seconds": 4.75,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "failure": "step 3 lift() failed: Sensors lost the red cube during lift: fingertip switches went off. Goal check: yellow is not on red (offset 31.0 cm, height diff 0.0 cm); blue is not on yellow (offset 12.9 cm, height diff -0.0 cm)",
+        "injected": null,
         "id": "tower-03",
         "kind": "tower",
         "chaos": true,
-        "wallSeconds": 51.02110000000149
+        "wallSeconds": 14.03680000001192,
+        "impossible": false
       },
       {
         "success": true,
         "attempts": 3,
         "replans": 2,
         "visionChecks": 3,
+        "sensorChecks": 3,
+        "sensorAgreements": 3,
         "visionAgreements": 3,
         "disagreements": [],
         "llmCalls": 6,
         "chaosEvents": 4,
-        "simSeconds": 27.937999999995395,
+        "simSeconds": 31.539999999993398,
         "planner": "llm",
         "providers": [
-          "gemini/gemini-3.1-flash-lite",
-          "gemini/gemini-3.1-flash-lite",
-          "gemini/gemini-3.1-flash-lite",
-          "gemini/gemini-3.1-flash-lite",
-          "gemini/gemini-3.1-flash-lite",
-          "gemini/gemini-3.1-flash-lite"
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": false,
+            "declared": false,
+            "stepError": "step 3 lift() failed: Sensors lost the blue cube during lift: fingertip switches went off.",
+            "seconds": 4.03,
+            "probe": null,
+            "probes": 0
+          },
+          {
+            "attempt": 1,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": false,
+            "declared": false,
+            "stepError": "step 3 lift() failed: Sensors lost the green cube during lift: fingertip switches went off.",
+            "seconds": 4.61,
+            "probe": null,
+            "probes": 0
+          },
+          {
+            "attempt": 2,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": true,
+            "declared": true,
+            "seconds": 17.42,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "tower-04",
         "kind": "tower",
         "chaos": true,
-        "wallSeconds": 167.91630000000447
+        "wallSeconds": 32.65210000002384,
+        "impossible": false
       },
       {
         "success": true,
         "attempts": 1,
         "replans": 0,
         "visionChecks": 1,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
         "visionAgreements": 1,
         "disagreements": [],
         "llmCalls": 2,
         "chaosEvents": 1,
-        "simSeconds": 27.431999999995675,
+        "simSeconds": 33.531999999995016,
         "planner": "llm",
         "providers": [
-          "gemini/gemini-3.1-flash-lite",
-          "gemini/gemini-3.1-flash-lite"
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": true,
+            "declared": true,
+            "seconds": 31.07,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "tower-05",
         "kind": "tower",
         "chaos": true,
-        "wallSeconds": 12.771100000001491
+        "wallSeconds": 6.878800000011921,
+        "impossible": false
       },
       {
         "success": false,
         "attempts": 4,
         "replans": 3,
         "visionChecks": 4,
+        "sensorChecks": 4,
+        "sensorAgreements": 4,
         "visionAgreements": 4,
         "disagreements": [],
         "llmCalls": 8,
         "chaosEvents": 5,
-        "simSeconds": 27.27999999999576,
+        "simSeconds": 27.82199999999546,
         "planner": "llm",
         "providers": [
-          "gemini/gemini-3.1-flash-lite",
-          "gemini/gemini-3.1-flash-lite",
-          "gemini/gemini-3.1-flash-lite",
-          "gemini/gemini-3.1-flash-lite",
           "gemini/gemini-3.5-flash-lite",
-          "gemini/gemini-3.1-flash-lite",
-          "gemini/gemini-3.1-flash-lite",
-          "gemini/gemini-3.1-flash-lite"
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite"
         ],
-        "failure": "step 4 place(green_zone) failed: The green cube slipped out of the gripper while carrying it to green_zone. Goal check: red is not on green (offset 30.4 cm, height diff 0.0 cm); blue is not on red (offset 12.7 cm, height diff -0.0 cm)",
+        "declared": false,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": false,
+            "declared": false,
+            "stepError": "step 3 lift() failed: Sensors lost the green cube during lift: fingertip switches went off.",
+            "seconds": 4.4,
+            "probe": null,
+            "probes": 0
+          },
+          {
+            "attempt": 1,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": false,
+            "declared": false,
+            "stepError": "step 3 lift() failed: Sensors lost the green cube during lift: fingertip switches went off.",
+            "seconds": 4.63,
+            "probe": null,
+            "probes": 0
+          },
+          {
+            "attempt": 2,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": false,
+            "declared": false,
+            "stepError": "step 3 lift() failed: Sensors lost the green cube during lift: fingertip switches went off.",
+            "seconds": 4.63,
+            "probe": null,
+            "probes": 0
+          },
+          {
+            "attempt": 3,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": false,
+            "declared": false,
+            "stepError": "step 4 place(green_zone) failed: Sensors lost the green cube while carrying it to green_zone: fingertip switches went off.",
+            "seconds": 6.01,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "failure": "step 4 place(green_zone) failed: Sensors lost the green cube while carrying it to green_zone: fingertip switches went off. Goal check: red is not on green (offset 30.8 cm, height diff -0.0 cm); blue is not on red (offset 12.3 cm, height diff -0.0 cm)",
+        "injected": null,
         "id": "tower-06",
         "kind": "tower",
         "chaos": true,
-        "wallSeconds": 129.468
+        "wallSeconds": 17.95890000003576,
+        "impossible": false
       },
       {
         "success": true,
         "attempts": 1,
         "replans": 0,
         "visionChecks": 1,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
         "visionAgreements": 1,
         "disagreements": [],
         "llmCalls": 2,
         "chaosEvents": 2,
-        "simSeconds": 27.721999999995514,
+        "simSeconds": 31.633999999993346,
         "planner": "llm",
         "providers": [
-          "gemini/gemini-3.1-flash-lite",
-          "gemini/gemini-3.1-flash-lite"
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": true,
+            "declared": true,
+            "seconds": 28.93,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "sort-01",
         "kind": "sort",
         "chaos": true,
-        "wallSeconds": 20.948
+        "wallSeconds": 14.968800000011921,
+        "impossible": false
       },
       {
         "success": true,
         "attempts": 3,
         "replans": 2,
         "visionChecks": 3,
+        "sensorChecks": 3,
+        "sensorAgreements": 3,
         "visionAgreements": 3,
         "disagreements": [],
         "llmCalls": 6,
         "chaosEvents": 3,
-        "simSeconds": 41.52400000000478,
+        "simSeconds": 45.8740000000101,
         "planner": "llm",
         "providers": [
-          "gemini/gemini-3.1-flash-lite",
-          "gemini/gemini-3.1-flash-lite",
-          "gemini/gemini-3.1-flash-lite",
-          "gemini/gemini-3.1-flash-lite",
-          "gemini/gemini-3.1-flash-lite",
-          "gemini/gemini-3.1-flash-lite"
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": false,
+            "declared": false,
+            "stepError": "step 14 place(blue_zone) failed: Sensors lost the blue cube while carrying it to blue_zone: fingertip switches went off.",
+            "seconds": 24.53,
+            "probe": null,
+            "probes": 0
+          },
+          {
+            "attempt": 1,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": false,
+            "declared": false,
+            "stepError": "step 3 lift() failed: Sensors lost the blue cube during lift: fingertip switches went off.",
+            "seconds": 4.84,
+            "probe": null,
+            "probes": 0
+          },
+          {
+            "attempt": 2,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": true,
+            "declared": true,
+            "seconds": 9.15,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "sort-02",
         "kind": "sort",
         "chaos": true,
-        "wallSeconds": 85.62910000000149
+        "wallSeconds": 15.056899999976158,
+        "impossible": false
       },
       {
         "success": true,
         "attempts": 2,
         "replans": 1,
         "visionChecks": 2,
+        "sensorChecks": 2,
+        "sensorAgreements": 2,
         "visionAgreements": 2,
         "disagreements": [],
         "llmCalls": 4,
         "chaosEvents": 3,
-        "simSeconds": 32.6179999999939,
+        "simSeconds": 36.68599999999887,
         "planner": "llm",
         "providers": [
-          "groq/openai/gpt-oss-120b",
-          "gemini/gemini-3.1-flash-lite",
           "gemini/gemini-3.5-flash-lite",
-          "gemini/gemini-3.1-flash-lite"
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": false,
+            "declared": false,
+            "stepError": "step 3 lift() failed: Sensors lost the red cube during lift: fingertip switches went off.",
+            "seconds": 3.99,
+            "probe": null,
+            "probes": 0
+          },
+          {
+            "attempt": 1,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": true,
+            "declared": true,
+            "seconds": 28.31,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "sort-03",
         "kind": "sort",
         "chaos": true,
-        "wallSeconds": 67.74629999999702
+        "wallSeconds": 11.057899999976158,
+        "impossible": false
       },
       {
         "success": true,
         "attempts": 1,
         "replans": 0,
         "visionChecks": 1,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
         "visionAgreements": 1,
         "disagreements": [],
         "llmCalls": 2,
         "chaosEvents": 2,
-        "simSeconds": 27.051999999995886,
+        "simSeconds": 30.95799999999372,
         "planner": "llm",
         "providers": [
-          "gemini/gemini-3.1-flash-lite",
-          "gemini/gemini-3.1-flash-lite"
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": true,
+            "declared": true,
+            "seconds": 28.21,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "sort-04",
         "kind": "sort",
         "chaos": true,
-        "wallSeconds": 10.5815
+        "wallSeconds": 7.505900000035763,
+        "impossible": false
       },
       {
         "success": true,
         "attempts": 1,
         "replans": 0,
         "visionChecks": 1,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
         "visionAgreements": 1,
         "disagreements": [],
         "llmCalls": 2,
         "chaosEvents": 0,
-        "simSeconds": 10.00400000000001,
+        "simSeconds": 11.308000000000446,
         "planner": "llm",
         "providers": [
-          "gemini/gemini-3.1-flash-lite",
-          "gemini/gemini-3.1-flash-lite"
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": true,
+            "declared": true,
+            "seconds": 8.68,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "zone-01",
         "kind": "zone",
         "chaos": true,
-        "wallSeconds": 5.22239999999851
+        "wallSeconds": 2.052600000023842,
+        "impossible": false
       },
       {
         "success": true,
         "attempts": 2,
         "replans": 1,
         "visionChecks": 2,
+        "sensorChecks": 2,
+        "sensorAgreements": 2,
         "visionAgreements": 2,
         "disagreements": [],
         "llmCalls": 4,
         "chaosEvents": 1,
-        "simSeconds": 15.702000000001913,
+        "simSeconds": 17.166000000001365,
         "planner": "llm",
         "providers": [
-          "gemini/gemini-3.1-flash-lite",
-          "gemini/gemini-3.1-flash-lite",
-          "gemini/gemini-3.1-flash-lite",
-          "gemini/gemini-3.1-flash-lite"
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": false,
+            "declared": false,
+            "stepError": "step 3 lift() failed: Sensors lost the yellow cube during lift: fingertip switches went off.",
+            "seconds": 3.94,
+            "probe": null,
+            "probes": 0
+          },
+          {
+            "attempt": 1,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": true,
+            "declared": true,
+            "seconds": 8.93,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "zone-02",
         "kind": "zone",
         "chaos": true,
-        "wallSeconds": 26.13890000000596
+        "wallSeconds": 6.581699999988079,
+        "impossible": false
       },
       {
         "success": true,
         "attempts": 1,
         "replans": 0,
         "visionChecks": 1,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
         "visionAgreements": 1,
         "disagreements": [],
         "llmCalls": 2,
         "chaosEvents": 1,
-        "simSeconds": 9.659999999999895,
+        "simSeconds": 10.938000000000322,
         "planner": "llm",
         "providers": [
-          "gemini/gemini-3.1-flash-lite",
+          "gemini/gemini-3.5-flash-lite",
           "gemini/gemini-3.5-flash-lite"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": true,
+            "declared": true,
+            "seconds": 8.38,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "zone-03",
         "kind": "zone",
         "chaos": true,
-        "wallSeconds": 148.23140000000595
+        "wallSeconds": 3.1157999999523165,
+        "impossible": false
       },
       {
         "success": true,
         "attempts": 2,
         "replans": 1,
         "visionChecks": 2,
+        "sensorChecks": 2,
+        "sensorAgreements": 2,
         "visionAgreements": 2,
         "disagreements": [],
         "llmCalls": 4,
         "chaosEvents": 3,
-        "simSeconds": 17.614000000001116,
+        "simSeconds": 19.078000000000305,
         "planner": "llm",
         "providers": [
-          "gemini/gemini-3.1-flash-lite",
-          "gemini/gemini-3.1-flash-lite",
-          "gemini/gemini-3.1-flash-lite",
-          "gemini/gemini-3.1-flash-lite"
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": false,
+            "declared": false,
+            "stepError": "step 3 lift() failed: Sensors lost the green cube during lift: fingertip switches went off.",
+            "seconds": 4.26,
+            "probe": null,
+            "probes": 0
+          },
+          {
+            "attempt": 1,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": true,
+            "declared": true,
+            "seconds": 10.03,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "zone-04",
         "kind": "zone",
         "chaos": true,
-        "wallSeconds": 126.27429999999703
+        "wallSeconds": 11.7265,
+        "impossible": false
       },
       {
         "success": true,
         "attempts": 1,
         "replans": 0,
         "visionChecks": 1,
+        "sensorChecks": 1,
+        "sensorAgreements": 1,
         "visionAgreements": 1,
         "disagreements": [],
         "llmCalls": 2,
         "chaosEvents": 1,
-        "simSeconds": 9.057999999999694,
+        "simSeconds": 10.36200000000013,
         "planner": "llm",
         "providers": [
-          "gemini/gemini-3.1-flash-lite",
-          "gemini/gemini-3.1-flash-lite"
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": true,
+            "declared": true,
+            "seconds": 8.45,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "stack-09",
         "kind": "stack",
         "chaos": true,
-        "wallSeconds": 4.67929999999702
+        "wallSeconds": 3.225199999988079,
+        "impossible": false
       },
       {
         "success": true,
         "attempts": 2,
         "replans": 1,
         "visionChecks": 2,
+        "sensorChecks": 2,
+        "sensorAgreements": 2,
         "visionAgreements": 2,
         "disagreements": [],
         "llmCalls": 4,
         "chaosEvents": 1,
-        "simSeconds": 25.00799999999702,
+        "simSeconds": 27.773999999995485,
         "planner": "llm",
         "providers": [
-          "gemini/gemini-3.1-flash-lite",
-          "gemini/gemini-3.1-flash-lite",
-          "gemini/gemini-3.1-flash-lite",
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite",
+          "gemini/gemini-3.5-flash-lite",
           "gemini/gemini-3.5-flash-lite"
         ],
+        "declared": true,
+        "decider": "oracle",
+        "log": [
+          {
+            "attempt": 0,
+            "truth": false,
+            "sensors": false,
+            "camera": null,
+            "vision": false,
+            "declared": false,
+            "stepError": "step 8 lift() failed: Sensors lost the red cube during lift: fingertip switches went off.",
+            "seconds": 13.99,
+            "probe": null,
+            "probes": 0
+          },
+          {
+            "attempt": 1,
+            "truth": true,
+            "sensors": true,
+            "camera": null,
+            "vision": true,
+            "declared": true,
+            "seconds": 9.3,
+            "probe": null,
+            "probes": 0
+          }
+        ],
+        "injected": null,
         "id": "zone-05",
         "kind": "zone",
         "chaos": true,
-        "wallSeconds": 121.8325
+        "wallSeconds": 8.72319999998808,
+        "impossible": false
       }
     ]
   }
