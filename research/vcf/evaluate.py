@@ -219,14 +219,38 @@ def _p(p: float) -> str:
     return "<0.001" if p < 0.001 else f"{p:.3f}"
 
 
+MIN_COVERAGE = 0.5  # judges that answered less of the test set go to the appendix table
+DEGENERATE = 0.9  # a judge giving one answer on at least this share of its answers is flagged
+
+
+def policy(j: dict, n_test: int) -> dict:
+    """Coverage policy: share of the test set judged, whether that is enough for the main table, and whether the
+    judge is degenerate (nearly always the same answer, so its accuracy says little)."""
+    cov = j.get("coverage", f"{n_test}/{n_test}")
+    k = int(cov.split("/")[0])
+    o = j["overall"]
+    # With balanced labels, saying "success" on share s of answers gives false-success + (1 - false-failure) = 2s.
+    yes = ((o["false_success_rate"] or 0) + 1 - (o["false_failure_rate"] or 0)) / 2
+    return {"coverage": k / n_test, "main": k / n_test >= MIN_COVERAGE, "degenerate": max(yes, 1 - yes) >= DEGENERATE and j["kind"] != "sensor", "says_success": yes}
+
+
 def write_tables(r: dict, out: Path):
     rows = sorted(r["judges"].items(), key=lambda kv: -(kv[1]["overall"]["balanced_accuracy"] or 0))
     md = f"Test set: {r['test']} ({r['n_test']} samples). Sensor classifiers trained on {r['n_train_sensor']} samples from other seeds, noise strength {r['sensor_strength']}.\n\n"
-    md += "| Judge | Kind | Coverage | Balanced acc. | False-success | False-failure | No answer | ECE |\n|---|---|---|---|---|---|---|---|\n"
-    for name, j in rows:
-        o, ci = j["overall"], j["ci"]
-        md += (f"| {name} | {j['kind']} | {j.get('coverage', 'all')} | {_n(o['balanced_accuracy'])} {_ci(ci['balanced_accuracy'])} | "
-               f"{_n(o['false_success_rate'])} {_ci(ci['false_success_rate'])} | {_n(o['false_failure_rate'])} | {_n(o['no_answer_rate'])} | {_n(o.get('ece'))} |\n")
+    head = "| Judge | Kind | Coverage | Balanced acc. | False-success | False-failure | No answer | ECE |\n|---|---|---|---|---|---|---|---|\n"
+
+    def line(name, j):
+        o, ci, pol = j["overall"], j["ci"], policy(j, r["n_test"])
+        kind = j["kind"] + (f" (degenerate: says success on {half_up(pol['says_success'], 0, 100)}%)" if pol["degenerate"] else "")
+        return (f"| {name} | {kind} | {j.get('coverage', 'all')} | {_n(o['balanced_accuracy'])} {_ci(ci['balanced_accuracy'])} | "
+                f"{_n(o['false_success_rate'])} {_ci(ci['false_success_rate'])} | {_n(o['false_failure_rate'])} | {_n(o['no_answer_rate'])} | {_n(o.get('ece'))} |\n")
+
+    main = [(n, j) for n, j in rows if policy(j, r["n_test"])["main"]]
+    rest = [(n, j) for n, j in rows if not policy(j, r["n_test"])["main"]]
+    md += head + "".join(line(n, j) for n, j in main)
+    if rest:
+        md += f"\nAppendix: judges that answered under {int(MIN_COVERAGE * 100)}% of this test set (quota cuts). Their numbers cover a different, smaller sample and are not comparable with the table above.\n\n"
+        md += head + "".join(line(n, j) for n, j in rest)
     md += "\nBrackets: 95% bootstrap intervals, resampling minimal pairs (2,000 resamples, seed 0).\n"
     md += "\nPaired test, each VLM vs sensor_logreg on the samples the VLM answered (McNemar; exact below 25 discordant samples):\n\n"
     md += "| VLM | Shared samples | Only VLM right | Only sensors right | p | Test |\n|---|---|---|---|---|---|\n"

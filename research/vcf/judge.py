@@ -1,6 +1,9 @@
 """Run one VLM over a dataset, single view and/or multi-view. Results go to <data>/vlm/<model>.jsonl.
 
-Usage: python -m vcf.judge data/small gemini/gemini-3.5-flash [--views single,multi] [--min-interval 0]
+Usage: python -m vcf.judge data/small gemini/gemini-3.5-flash [--views single,multi] [--min-interval 0] [--budget N]
+
+Resumable: samples already in the output file are skipped. Stops cleanly on a daily-quota answer (HTTP 429), or
+after --budget new calls, so a run can be spread over several days. scripts/coverage_report.py shows what is left.
 """
 from __future__ import annotations
 
@@ -19,6 +22,7 @@ def main():
     ap.add_argument("model")
     ap.add_argument("--views", default="single,multi")
     ap.add_argument("--min-interval", type=float, default=0.0, help="seconds between uncached calls")
+    ap.add_argument("--budget", type=int, default=0, help="stop after this many new calls (0: no limit)")
     a = ap.parse_args()
     p = provider(a.model)
     samples = [json.loads(l) for l in open(a.data / "samples.jsonl")]
@@ -30,6 +34,7 @@ def main():
         done = {(r["id"], r["mode"]) for r in map(json.loads, open(out_path))}
     f = open(out_path, "a")
     last = 0.0
+    calls = 0
     # Interleave so a quota cut leaves balanced coverage across tasks.
     order = sorted(samples, key=lambda s: (s["index"], s["task"], s["intended"]))
     for mode in a.views.split(","):
@@ -37,6 +42,10 @@ def main():
         for s in order:
             if (s["id"], mode) in done:
                 continue
+            if a.budget and calls >= a.budget:
+                print(f"budget of {a.budget} calls used; rerun to continue", flush=True)
+                return
+            calls += 1
             images = [(a.data / s["images"][v]).read_bytes() for v in views]
             prompt = prompt_for(s["task"], len(views))
             wait = a.min_interval - (time.time() - last)
