@@ -9,7 +9,7 @@ The study behind the agent's sensor check. A benchmark of minimal pairs that tes
 ## Headline
 
 <!-- BEGIN:headline -->
-On 400 simulated contact attempts (200 minimal pairs), the best free vision model we could run at scale, gemini/gemini-3.1-flash-lite (single) (150/400 answered), reached 55% balanced accuracy (95% CI [51, 60]) and called 53% [41, 64] of failures a success. A logistic regression on three cheap, noisy sensor signals reached 89% [85, 92] with a 11% [7, 16] false-success rate. On the 150 samples both answered, the sensors were right where the VLM was wrong 60 times and the reverse 6 times (McNemar p < 0.001). The sensors are not a full fix: on the push task they score 50%, they do not transfer to unseen tasks, and vision's interval overlaps the sensors' from noise strength 16x the default and its point estimate is higher from 32x.
+On 400 simulated contact attempts (200 minimal pairs), the best free vision model we could run at scale, gemini/gemini-3.1-flash-lite (single) (164/400 answered), reached 55% balanced accuracy (95% CI [50, 60]) and called 54% [43, 65] of failures a success. A logistic regression on three cheap, noisy sensor signals reached 89% [85, 92] with a 11% [7, 16] false-success rate. On the 164 samples both answered, the sensors were right where the VLM was wrong 65 times and the reverse 6 times (McNemar p < 0.001). The sensors are not a full fix: on the push task they score 50%, they do not transfer to unseen tasks, and vision's interval overlaps the sensors' from noise strength 16x the default and its point estimate is higher from 32x.
 <!-- END:headline -->
 
 ## Leaderboard
@@ -19,8 +19,8 @@ On 400 simulated contact attempts (200 minimal pairs), the best free vision mode
 |---|---|---|---|---|---|
 | sensor_gboost | sensor | all | 0.89 [0.85, 0.92] | 13% [8, 17] | 0.06 |
 | sensor_logreg | sensor | all | 0.89 [0.85, 0.92] | 11% [7, 16] | 0.04 |
-| fusion: gemini/gemini-3.1-flash-lite (single) + sensors | fusion | 150/400 | 0.88 [0.82, 0.93] | 11% [4, 19] | 0.06 |
-| gemini/gemini-3.1-flash-lite (single) | vlm | 150/400 | 0.55 [0.51, 0.60] | 53% [41, 64] | 0.45 |
+| fusion: gemini/gemini-3.1-flash-lite (single) + sensors | fusion | 164/400 | 0.88 [0.82, 0.93] | 10% [4, 17] | 0.05 |
+| gemini/gemini-3.1-flash-lite (single) | vlm | 164/400 | 0.55 [0.50, 0.60] | 54% [43, 65] | 0.45 |
 | ollama/moondream:1.8b (single) | vlm | 8/400 | 0.50 [0.50, 0.50] | 100% [100, 100] | 0.17 |
 
 Scaled set, 400 samples. Chance is 0.50. Intervals are pair bootstraps. Coverage below 400 is due to free-tier daily quotas; metrics use answered samples only.
@@ -51,7 +51,7 @@ Millimeters to fool (largest failure still judged a success, mean over scenes):
 
 | Model | stack | grasp | button | peg | push |
 |---|---|---|---|---|---|
-| gemini/gemini-3.1-flash-lite | 11.2 | 0.0 | - | - | - |
+| gemini/gemini-3.1-flash-lite | 11.3 | 0.0 | - | - | - |
 | ollama/moondream:1.8b | 16.0 | 16.0 | 3.7 | 16.0 | 16.0 |
 
 Of 115 scenes that fooled a model, the sensor classifier also called 6 a success.
