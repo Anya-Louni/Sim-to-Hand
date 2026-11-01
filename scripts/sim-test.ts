@@ -43,3 +43,4 @@ for (let seed = 1; seed <= seeds; seed++) {
   }
 }
 console.log(`${pass}/${seeds * cases.length} passed`);
+process.exit(pass === seeds * cases.length ? 0 : 1);
