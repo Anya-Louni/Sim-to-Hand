@@ -1,5 +1,7 @@
 # Sim-to-Hand
 
+[![CI](https://github.com/Anya-Louni/sim-to-hand/actions/workflows/ci.yml/badge.svg)](https://github.com/Anya-Louni/sim-to-hand/actions/workflows/ci.yml)
+
 An AI agent for robot manipulation. Type a tabletop task in plain English: an LLM plans it, MuJoCo runs it in your browser, three independent checks verify it (simulator state, a vision model, and cheap touch and force sensors), and the agent replans when it fails. A built-in study shows why the sensor check is there: free vision models miss millimeter-scale contact failures.
 
 **Live demo:** https://sim-to-hand.vercel.app · **Research benchmark and game:** https://sim-to-hand.vercel.app/benchmark/ · **Report:** [research/report/report.pdf](research/report/report.pdf) · **Dataset:** https://huggingface.co/datasets/lilizzz4444/vision-cant-feel

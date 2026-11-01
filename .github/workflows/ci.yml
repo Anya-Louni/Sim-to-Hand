@@ -1,0 +1,43 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  web:
+    name: Web app, simulator and unit tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - run: npm run test:sim
+      - run: npm test
+
+  research:
+    name: Research tests and result rebuild
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+          cache-dependency-path: research/requirements.txt
+      - run: pip install -r research/requirements.txt
+      - name: Fetch the robot model (MuJoCo Menagerie, pinned commit)
+        run: python research/scripts/fetch_assets.py
+      - name: Unit tests
+        working-directory: research
+        run: python -m pytest -q
+      - name: Rebuild every result from committed data and fail on any change
+        run: python research/scripts/regenerate.py --check

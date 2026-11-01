@@ -15,27 +15,27 @@ async function setup(seed = 2) {
 test('move_to, grasp, lift, place, release stack red on blue', async () => {
   const { sim, ex } = await setup();
   let r = await ex.run({ skill: 'move_to', target: 'red' });
-  assert.ok(r.ok, r.error);
+  assert.ok(r.ok, r.error ?? '');
   const g = sim.gripPos();
   const red = sim.cube('red').pos;
   assert.ok(Math.hypot(g[0] - red[0], g[1] - red[1]) < 0.01, 'gripper above the cube');
   assert.ok(Math.abs(g[2] - HOVER_Z) < 0.02, 'gripper at hover height');
 
   r = await ex.run({ skill: 'grasp', object: 'red' });
-  assert.ok(r.ok, r.error);
+  assert.ok(r.ok, r.error ?? '');
   assert.equal(ex.holding, 'red');
   assert.deepEqual(ex.sensorEvents.map((e) => [e.check, e.ok]), [['grasp', true]]);
 
   r = await ex.run({ skill: 'lift' });
-  assert.ok(r.ok, r.error);
+  assert.ok(r.ok, r.error ?? '');
   assert.ok(sim.cube('red').pos[2] > 0.15, 'cube lifted');
 
   r = await ex.run({ skill: 'place', on: 'blue' });
-  assert.ok(r.ok, r.error);
+  assert.ok(r.ok, r.error ?? '');
   assert.ok(ex.sensorEvents.some((e) => e.check === 'contact' && e.ok), 'placement contact felt');
 
   r = await ex.run({ skill: 'release' });
-  assert.ok(r.ok, r.error);
+  assert.ok(r.ok, r.error ?? '');
   assert.equal(ex.holding, null);
   await ex.retreat();
   assert.equal(verifyGoals(sim, [{ pred: 'on', a: 'red', b: 'blue' }]).ok, true);
