@@ -1,8 +1,8 @@
 # Sim-to-Hand
 
-Type a tabletop task in plain English. An LLM plans it, MuJoCo runs it in your browser, two independent checks verify it, and the agent replans when it fails.
+An AI agent for robot manipulation. Type a tabletop task in plain English: an LLM plans it, MuJoCo runs it in your browser, three independent checks verify it (simulator state, a vision model, and cheap touch and force sensors), and the agent replans when it fails. A built-in study shows why the sensor check is there: free vision models miss millimeter-scale contact failures.
 
-**Live demo:** https://sim-to-hand.vercel.app
+**Live demo:** https://sim-to-hand.vercel.app · **Research benchmark and game:** https://sim-to-hand.vercel.app/benchmark/ · **Report:** [research/report/report.pdf](research/report/report.pdf) · **Dataset:** https://huggingface.co/datasets/lilizzz4444/vision-cant-feel
 
 ![Demo: the agent builds a 3-cube tower while chaos mode makes grasps slip](docs/demo.gif)
 
@@ -11,10 +11,11 @@ Type a tabletop task in plain English. An LLM plans it, MuJoCo runs it in your b
 - A Franka Panda arm, a table, colored cubes and three colored zones, simulated with the official MuJoCo WebAssembly build.
 - Presets: stack two cubes, sort by color, build a 3-cube tower. Or type any instruction.
 - The LLM only picks from five skills: `move_to`, `grasp`, `lift`, `place`, `release`. It never outputs joint angles or torques. Inverse kinematics does the low-level control.
-- After each attempt, two checks run side by side:
+- After each attempt, three checks run side by side:
   1. **Sim state:** goal predicates checked against true cube poses.
   2. **Vision:** a fixed camera render goes to Gemini with the question "did the task succeed?".
-  Both verdicts are shown. Disagreements are flagged and logged. Sim state decides success.
+  3. **Sensors:** what the robot itself felt, through cheap, noisy sensors: a contact switch on each fingertip, gripper effort (a motor-current proxy) and a single-axis wrist force. Every grasp must be felt and every placement must register as a force spike.
+  All verdicts are shown. Disagreements are flagged and logged. Sim state decides success.
 - On failure the agent replans with the error, the current scene and the camera image (up to N times).
 - **Chaos** mode makes grasps slip and shoves cubes, so you can watch it recover.
 
@@ -31,8 +32,11 @@ flowchart LR
   C[Chaos: slips, shoves] -.-> M
   M --> G[Sim-state check<br/>goal predicates]
   M --> R[Camera render] --> J[Vision judge<br/>Gemini]
+  M --> SN[Cheap sensors<br/>switches, effort, wrist force] --> SC[Sensor check]
+  SN -.->|grasp, slip, contact| X
   G --> D{Success?}
   J -->|logged, compared| D
+  SC -->|logged, compared| D
   D -->|no| P
   D -->|yes| Done[Done]
 ```
@@ -42,8 +46,8 @@ Keys never reach the browser bundle. Without a visitor key, the browser calls `/
 ## Agent loop
 
 1. **Plan.** The planner gets the instruction and a text description of the scene (cube positions, what rests on what, zones, gripper state). It returns `{reasoning, goal, steps}`. `goal` is a list of predicates: `on(a, b)` or `in_zone(a, zone)`. The output is validated with a JSON Schema (Ajv) and every name is checked against the scene. Invalid output gets one repair round with the errors fed back.
-2. **Execute.** Each skill is a sequence of minimum-jerk Cartesian moves. A damped least squares IK solver with a null-space posture term turns them into joint targets for the Panda's position actuators. Skills check themselves: a grasp that closes on nothing or a cube that slips out fails the step right away.
-3. **Verify.** The arm moves out of view, the scene settles, then both checks run. For presets and benchmark tasks the goal comes from the task definition. For free text it comes from the planner's own `goal`, so sim-state checking free text is only as good as the planner's reading of the instruction.
+2. **Execute.** Each skill is a sequence of minimum-jerk Cartesian moves. A damped least squares IK solver with a null-space posture term turns them into joint targets for the Panda's position actuators. Skills check themselves with the cheap sensors, not with true object poses: a grasp must close both fingertip switches with gripper effort above 5 N, a slip shows up as the switches going off, and a placement lowers under a force guard until the wrist force jumps. The sensor model adds noise, 8 to 10 bit quantization, a fixed offset, 2% switch flips and 2% dropped reads.
+3. **Verify.** The arm moves out of view, the scene settles, then all three checks run. For presets and benchmark tasks the goal comes from the task definition. For free text it comes from the planner's own `goal`, so sim-state checking free text is only as good as the planner's reading of the instruction.
 4. **Replan.** The failure reason, the camera's verdict and the camera image (Gemini only) go back to the planner along with the new scene state. It plans only what is left.
 
 ## Benchmark
@@ -53,12 +57,14 @@ Keys never reach the browser bundle. Without a visitor key, the browser calls `/
 - `scripted`: no LLM. Plans come straight from the task's goal predicates. Isolates executor reliability. On retry it repeats the full sequence, with no reasoning about the new state.
 - `llm`: LLM planner plus vision judge. Ground truth for success always comes from sim state.
 
-| Condition | Tasks | Success | Avg replans | Avg chaos events | Vision agrees with sim | LLM calls |
-|---|---|---|---|---|---|---|
-| scripted | 24 | 24/24 (100%) | 0.00 | 0.00 | not run | 0 |
-| scripted-chaos | 24 | 21/24 (88%) | 0.88 | 2.17 | not run | 0 |
-| llm | 24 | 24/24 (100%) | 0.00 | 0.00 | 24/24 (100%) | 48 |
-| llm-chaos | 24 | 22/24 (92%) | 0.88 | 2.17 | 45/45 (100%) | 90 |
+| Condition | Tasks | Success | Avg replans | Avg chaos events | Vision agrees with sim | Sensors agree with sim | LLM calls |
+|---|---|---|---|---|---|---|---|
+| scripted | 24 | 24/24 (100%) | 0.00 | 0.00 | not run | 24/24 (100%) | 0 |
+| scripted-chaos | 24 | 21/24 (88%) | 0.88 | 2.17 | not run | 43/45 (96%) | 0 |
+| llm | 24 | 24/24 (100%) | 0.00 | 0.00 | 24/24 (100%) | not run* | 48 |
+| llm-chaos | 24 | 22/24 (92%) | 0.88 | 2.17 | 45/45 (100%) | not run* | 90 |
+
+*The LLM rows come from a run made before the sensor check existed (raw data kept in [bench/results-llm-before-sensors.json](bench/results-llm-before-sensors.json)); the scripted rows were rerun with sensors and still pass at the same rates, so the sensor-driven executor kept the same reliability. The two sensor disagreements under chaos are cases sensors cannot see: a cube knocked off after it was released.
 
 | Condition | stack | tower | sort | zone |
 |---|---|---|---|---|
@@ -78,6 +84,21 @@ Reading:
 
 Raw per-task data: [bench/results.json](bench/results.json). Summary and failure list: [bench/RESULTS.md](bench/RESULTS.md). Reproduce with `npm run bench` (needs keys in `.env`; free-tier rate limits make the LLM rows take about an hour).
 
+## Why the sensor check: the research behind it
+
+The agent's vision check agreed with the simulator on all 69 checks above, because those failures were centimeters apart. [research/](research/) asks what happens at the millimeter scale where contact decides success. It builds minimal pairs in MuJoCo, the same scene captured as a success and as a failure a few millimeters off, across five contact tasks (stack, grasp, button, peg, push). It then compares free vision models with a tiny classifier on the same cheap sensors the agent uses.
+
+| Judge (400 samples, 200 pairs) | Balanced accuracy | Failures called a success |
+|---|---|---|
+| Cheap-sensor classifier (logistic regression) | 0.89 | 11% |
+| Gemini 3.1 Flash-Lite, image only (150/400 answered, free quota) | 0.55 | 53% |
+
+- Some vision models still call a stack a success with the cube hovering 7 to 16 mm above it.
+- Sensors are not a full fix. A single-axis wrist force cannot feel a sideways push (the push task stays at chance), the classifier does not transfer to unseen tasks, and vision catches up at 32x the default sensor noise.
+- That is why the agent uses sensors for per-skill checks (grasp, slip, contact) rather than a learned success classifier, and keeps all three verdicts visible.
+
+Play "Can you tell?" and see every model's answers at https://sim-to-hand.vercel.app/benchmark/. Full results, attacker, limitations and reproduction: [research/README.md](research/README.md). Related work: [research/RELATED_WORK.md](research/RELATED_WORK.md).
+
 ## Physics engine choice
 
 I compared MuJoCo WASM, Rapier and cannon-es before building.
@@ -96,6 +117,10 @@ Picked MuJoCo. The npm README calls Windows support experimental; it ran without
 - Free-text tasks are verified against the planner's own goal predicates, not an independent spec.
 - The proxy's rate limit lives in function memory, so it is per instance and resets on cold starts. It is basic abuse protection, not a quota system.
 - Free LLM tiers have daily limits. When the shared key runs out, add your own key or come back tomorrow.
+- The agent's sensors are simulated and degraded with a simple noise model. Real touch and force sensors are messier.
+- The sensor check cannot see what happens after a release, such as a cube knocked off a stack. Sim state still decides success.
+- The agent still perceives cube positions from the simulator (no camera-based state estimation).
+- The research study's vision numbers come from free tiers with partial coverage for several models; see [research/README.md](research/README.md).
 
 ## Run locally
 
@@ -118,10 +143,19 @@ npm run bench         # full benchmark in headless Edge or Chrome, writes bench/
 npm run model         # rebuild public/models from MuJoCo Menagerie (clone franka_emika_panda into vendor/panda first)
 ```
 
+Research study (Python 3.11+):
+
+```bash
+cd research
+pip install -r requirements.txt
+cp .env.example .env    # free GEMINI_API_KEY and GROQ_API_KEY; Ollama for local models
+sh reproduce.sh         # regenerates data, runs judges and attacker, rebuilds the site data in public/benchmark
+```
+
 ## Credits
 
 Franka Panda model from [MuJoCo Menagerie](https://github.com/google-deepmind/mujoco_menagerie) (Apache-2.0, see `public/models/LICENSE-panda.txt`), decimated for the web. Physics by [MuJoCo](https://github.com/google-deepmind/mujoco). Rendering by [Three.js](https://threejs.org).
 
 ## License
 
-MIT
+Code: MIT. Research dataset: CC BY 4.0. Robot model: Apache-2.0.
