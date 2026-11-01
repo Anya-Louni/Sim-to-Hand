@@ -1,4 +1,5 @@
 import { CUBE_HALF, HOVER_Z, mulberry32, zoneByName } from './scene.ts';
+import { average, CheapSensors, type Reading, type SensorEvent } from './sensors.ts';
 import type { Pose, Sim } from './sim.ts';
 import type { Skill } from './types.ts';
 
@@ -39,6 +40,9 @@ export class Executor {
   private chaos: ChaosOptions;
   private emit: (e: ExecEvent) => void;
   private cancelled: () => boolean;
+  /** Cheap, noisy sensors the agent uses to check its own grasps and placements. */
+  private sensors: CheapSensors;
+  sensorEvents: SensorEvent[] = [];
 
   constructor(sim: Sim, clock: Clock, chaos: ChaosOptions, emit: (e: ExecEvent) => void = () => {}, cancelled: () => boolean = () => false) {
     this.sim = sim;
@@ -47,11 +51,29 @@ export class Executor {
     this.emit = emit;
     this.cancelled = cancelled;
     this.rand = mulberry32(chaos.seed * 7919 + 13);
+    this.sensors = new CheapSensors(chaos.seed);
+  }
+
+  /** Average of eight sensor reads taken over 80 ms. */
+  async sense(): Promise<Reading> {
+    const reads: Reading[] = [];
+    let k = 0;
+    await this.advance(0.08, () => {
+      if (k++ % 5 === 0) reads.push(this.sensors.read(this.sim.rawSensors()));
+    });
+    return average(reads);
+  }
+
+  /** Held, according to the sensors: both fingertip switches on and the fingers not fully closed. */
+  private async sensedHold(): Promise<{ held: boolean; r: Reading }> {
+    const r = await this.sense();
+    return { held: r.switchLeft >= 0.5 && r.switchRight >= 0.5 && this.sim.gripWidth() > 0.03, r };
   }
 
   /** Reset per-attempt chaos budget. */
   newAttempt() {
     this.chaosCount = 0;
+    this.sensorEvents = [];
   }
 
   /** Advance simulated time, optionally driving a per-step callback with progress 0..1. */
@@ -174,11 +196,14 @@ export class Executor {
     return null;
   }
 
-  private checkDrop(context: string): StepResult {
-    if (this.holding && !this.isHeld(this.holding)) {
+  private async checkDrop(skill: string, context: string): Promise<StepResult> {
+    if (!this.holding) return { ok: true };
+    const { held, r } = await this.sensedHold();
+    if (!held) {
       const name = this.holding;
       this.holding = null;
-      return { ok: false, error: `The ${name} cube slipped out of the gripper ${context}.` };
+      this.sensorEvents.push({ skill, check: 'hold', ok: false, detail: `switches ${r.switchLeft.toFixed(1)}/${r.switchRight.toFixed(1)} after ${context}` });
+      return { ok: false, error: `Sensors lost the ${name} cube ${context}: fingertip switches went off.` };
     }
     return { ok: true };
   }
@@ -191,7 +216,7 @@ export class Executor {
         const yaw = r.isCube && !this.holding ? this.alignYaw(r.yaw) : this.sim.target.yaw;
         this.maybeScheduleSlip(1.5);
         await this.moveTo([r.x, r.y, HOVER_Z], yaw);
-        return this.checkDrop(`while moving to ${skill.target}`);
+        return this.checkDrop('move_to', `while moving to ${skill.target}`);
       }
       case 'grasp': {
         if (this.holding) return { ok: false, error: `Already holding the ${this.holding} cube.` };
@@ -209,8 +234,11 @@ export class Executor {
         if (this.sim.gripWidth() < 0.03) {
           return { ok: false, error: `Grasp missed the ${skill.object} cube: the gripper closed on nothing.` };
         }
-        if (!this.isHeld(skill.object)) {
-          return { ok: false, error: `Grasp failed: the ${skill.object} cube is not between the fingers.` };
+        const { held, r } = await this.sensedHold();
+        const ok = held && Math.abs(r.effort) > 5;
+        this.sensorEvents.push({ skill: `grasp(${skill.object})`, check: 'grasp', ok, detail: `switches ${r.switchLeft.toFixed(1)}/${r.switchRight.toFixed(1)}, effort ${r.effort.toFixed(1)} N` });
+        if (!ok) {
+          return { ok: false, error: `Grasp failed: the fingertip sensors do not feel the ${skill.object} cube.` };
         }
         this.holding = skill.object;
         return { ok: true };
@@ -221,7 +249,7 @@ export class Executor {
         this.maybeScheduleSlip(1.0);
         await this.moveTo([g[0], g[1], HOVER_Z], this.sim.target.yaw);
         await this.advance(0.3);
-        return this.checkDrop('during lift');
+        return this.checkDrop('lift', 'during lift');
       }
       case 'place': {
         if (!this.holding) return { ok: false, error: 'Place called while not holding anything.' };
@@ -231,11 +259,17 @@ export class Executor {
         const yaw = r.isCube ? this.alignYaw(r.yaw) : this.sim.target.yaw;
         this.maybeScheduleSlip(2.0);
         await this.moveTo([r.x, r.y, HOVER_Z], yaw);
-        let res = this.checkDrop(`while carrying it to ${skill.on}`);
+        let res = await this.checkDrop('place', `while carrying it to ${skill.on}`);
         if (!res.ok) return res;
         const r2 = this.resolve(skill.on)!;
-        await this.moveTo([r2.x, r2.y, r2.topZ + CUBE_HALF + 0.006], yaw, 1.1);
-        res = this.checkDrop(`while lowering it onto ${skill.on}`);
+        // Lower until contact: stop on a rise in tool-axis force, then confirm contact with the cheap sensor.
+        await this.moveTo([r2.x, r2.y, r2.topZ + CUBE_HALF + 0.015], yaw, 1.0);
+        const rise = await this.guardedLower(r2.topZ + CUBE_HALF - 0.004, 4);
+        const contact = rise > 2;
+        this.sensorEvents.push({ skill: `place(${skill.on})`, check: 'contact', ok: contact, detail: `peak wrist force change ${rise.toFixed(1)} N` });
+        res = await this.checkDrop('place', `while lowering it onto ${skill.on}`);
+        if (!res.ok) return res;
+        if (!contact) return { ok: false, error: `No contact felt when lowering the ${this.holding} cube onto ${skill.on}.` };
         return res;
       }
       case 'release': {
@@ -246,6 +280,30 @@ export class Executor {
         return { ok: true };
       }
     }
+  }
+
+  /** Lower the gripper toward z, stopping early when the raw tool-axis force changes by more than guard N. */
+  private async guardedLower(z: number, guard: number): Promise<number> {
+    const tare = (await this.sense()).force;
+    const start = [...this.sim.target.pos] as [number, number, number];
+    const f0 = this.sim.rawSensors().forceTool;
+    let stopped = false;
+    let peak = 0;
+    let k = 0;
+    await this.advance(0.8, (a) => {
+      if (k++ % 5 === 0) peak = Math.max(peak, Math.abs(this.sensors.read(this.sim.rawSensors()).force - tare));
+      if (stopped) return;
+      if (Math.abs(this.sim.rawSensors().forceTool - f0) > guard) {
+        stopped = true;
+        const g = this.sim.gripPos();
+        this.sim.target = { pos: [start[0], start[1], g[2]], yaw: this.sim.target.yaw };
+        return;
+      }
+      const s = minJerk(a);
+      this.sim.target = { pos: [start[0], start[1], start[2] + (z - start[2]) * s], yaw: this.sim.target.yaw };
+    });
+    await this.advance(0.2);
+    return peak;
   }
 
   /** Move out of the camera's way and let the scene settle. */

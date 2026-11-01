@@ -124,6 +124,14 @@ export class Sim {
   }
 
   /** Finger separation in meters. */
+  /** Raw sensor values: fingertip touch (N), gripper actuator force (N), wrist force along the tool axis (N). */
+  rawSensors(): { touchLeft: number; touchRight: number; effort: number; forceTool: number } {
+    const { mj, m, d } = this;
+    const adr = (name: string) => m.sensor_adr[mj.mj_name2id(m, mj.mjtObj.mjOBJ_SENSOR.value, name)];
+    const s = d.sensordata;
+    return { touchLeft: s[adr('touch_left')], touchRight: s[adr('touch_right')], effort: d.actuator_force[7], forceTool: s[adr('wrist_force') + 2] };
+  }
+
   gripWidth(): number {
     return this.d.qpos[7] + this.d.qpos[8];
   }

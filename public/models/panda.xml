@@ -104,9 +104,11 @@
                     <geom mesh="link7_c" class="collision"/>
                     <body name="hand" gravcomp="1" pos="0 0 0.107" quat="0.9238795 0 0 -0.3826834">
                       <site name="grip" pos="0 0 0.1034" size="0.005" rgba="1 0 0 0"/>
+                      <site name="wrist" pos="0 0 0" size="0.004" rgba="1 0 0 0" group="5"/>
                       <inertial mass="0.73" pos="-0.01 0 0.03" diaginertia="0.001 0.0025 0.0017"/>
                       <geom mesh="hand_c" class="collision"/>
                       <body name="left_finger" gravcomp="1" pos="0 0 0.0584">
+<site name="left_finger_tip" type="box" pos="0 0.004 0.044" size="0.016 0.016 0.014" rgba="0 1 0 0" group="5"/>
                         <inertial mass="0.015" pos="0 0 0" diaginertia="2.375e-6 2.375e-6 7.5e-7"/>
                         <joint name="finger_joint1" class="finger"/>
                         <geom mesh="finger_0" class="collision"/>
@@ -117,6 +119,7 @@
                         <geom class="fingertip_pad_collision_5"/>
                       </body>
                       <body name="right_finger" gravcomp="1" pos="0 0 0.0584" quat="0 0 0 1">
+<site name="right_finger_tip" type="box" pos="0 0.004 0.044" size="0.016 0.016 0.014" rgba="0 1 0 0" group="5"/>
                         <inertial mass="0.015" pos="0 0 0" diaginertia="2.375e-6 2.375e-6 7.5e-7"/>
                         <joint name="finger_joint2" class="finger"/>
                         <geom mesh="finger_0" class="collision"/>
@@ -164,6 +167,11 @@
       gainprm="0.1568627451 0 0" biasprm="0 -1000 -60"/>
   </actuator>
 
+  <sensor>
+    <touch name="touch_left" site="left_finger_tip"/>
+    <touch name="touch_right" site="right_finger_tip"/>
+    <force name="wrist_force" site="wrist"/>
+  </sensor>
   <keyframe>
     <key name="home" qpos="0 0 0 -1.57079 0 1.57079 -0.7853 0.04 0.04" ctrl="0 0 0 -1.57079 0 1.57079 -0.7853 255"/>
   </keyframe>

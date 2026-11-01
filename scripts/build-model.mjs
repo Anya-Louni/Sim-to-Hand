@@ -28,8 +28,17 @@ xml = xml
     'gainprm="0.1568627451 0 0" biasprm="0 -1000 -60"',
   )
   .replace('forcerange="-100 100" ctrlrange="0 255"', 'forcerange="-40 40" ctrlrange="0 255"')
-  .replace(/(<body name="hand"[^>]*>)/, '$1\n                      <site name="grip" pos="0 0 0.1034" size="0.005" rgba="1 0 0 0"/>');
-if (!xml.includes('name="grip"')) throw new Error('grip site not inserted');
+  .replace(
+    /(<body name="hand"[^>]*>)/,
+    '$1\n                      <site name="grip" pos="0 0 0.1034" size="0.005" rgba="1 0 0 0"/>\n                      <site name="wrist" pos="0 0 0" size="0.004" rgba="1 0 0 0" group="5"/>',
+  )
+  // Cheap sensors, same layout as the research benchmark: fingertip contact zones and a wrist force sensor.
+  .replace(/(<body name="(left_finger|right_finger)"[^>]*>)/g, '$1\n<site name="$2_tip" type="box" pos="0 0.004 0.044" size="0.016 0.016 0.014" rgba="0 1 0 0" group="5"/>')
+  .replace(
+    '<keyframe>',
+    '<sensor>\n    <touch name="touch_left" site="left_finger_tip"/>\n    <touch name="touch_right" site="right_finger_tip"/>\n    <force name="wrist_force" site="wrist"/>\n  </sensor>\n  <keyframe>',
+  );
+if (!xml.includes('name="grip"') || !xml.includes('touch_right')) throw new Error('sites or sensors not inserted');
 fs.writeFileSync(path.join(OUT, 'panda.xml'), xml);
 const collisionFiles = [...xml.matchAll(/file="([^"]+)"/g)].map((m) => m[1]);
 for (const f of collisionFiles) fs.copyFileSync(path.join(SRC, 'assets', f), path.join(OUT, 'assets', f));
