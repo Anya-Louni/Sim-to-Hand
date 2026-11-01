@@ -12,7 +12,9 @@
     "model": "node scripts/build-model.mjs",
     "test:sim": "node --experimental-strip-types --no-warnings scripts/sim-test.ts",
     "bench": "node --experimental-strip-types --no-warnings scripts/bench.ts",
-    "trials": "node --experimental-strip-types --no-warnings scripts/trials.ts"
+    "trials": "node --experimental-strip-types --no-warnings scripts/trials.ts",
+    "results": "node scripts/results.mjs",
+    "test": "node --experimental-strip-types --no-warnings --test tests/"
   },
   "dependencies": {
     "@mujoco/mujoco": "^3.17.0",
