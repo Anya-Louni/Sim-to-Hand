@@ -1,0 +1,70 @@
+\documentclass[10pt,twocolumn]{article}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{booktabs,graphicx,hyperref,amsmath}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{xcolor}
+\hypersetup{colorlinks=true,linkcolor=black,urlcolor=blue!50!black,citecolor=black}
+\setlength{\tabcolsep}{4pt}
+
+\title{Vision Can't Feel: Minimal Pairs for Contact-Dependent Robot Success Judgment}
+\author{Anya Louni}
+\date{October 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Vision-language models (VLMs) are increasingly used to judge whether a robot finished its task. Recent work found these judges near chance when success depends on contact. We study that failure under control. We generate \emph{minimal pairs} in MuJoCo: two snapshots of the same randomized scene, one a success and one a failure that differs by a few millimeters (touching vs.\ hovering, grasped vs.\ beside, seated vs.\ on the rim, pressed vs.\ barely pressed, touching a wall vs.\ short of it). We compare free VLM judges with tiny classifiers on three deliberately degraded, low-cost sensor signals: a fingertip contact switch, gripper effort, and a single-axis wrist force. We also search for the largest physical failure that still fools each VLM. On 400 samples the best free VLM we could run at scale reached 55\% balanced accuracy with a 53\% false-success rate; a logistic regression on the degraded sensors reached 88\% with 11\%. Sensors fail where they cannot observe the contact (push, 50\%) and do not transfer across tasks. Some VLMs still call a failure a success at gaps of several millimeters. Free-tier quotas limited coverage for several models; we report it throughout.
+\end{abstract}
+
+\section{Motivation}
+A success detector gates retries, rewards, and data collection. A false success is the costly error: the robot moves on while the task silently failed. For contact-dependent tasks the evidence is often a millimeter gap or a force, which a camera at 640 pixels sees poorly or not at all. Cheap sensors measure contact directly. We ask how far that intuition holds when the sensors are realistically noisy, and where it breaks.
+
+\section{Related work}
+FailBench~\cite{failbench} evaluates 13 VLM detectors on 2{,}197 real and simulated attempts. Detection is near saturation when success shows as object motion and near chance on contact-rich assembly (no model above 0.60 balanced accuracy on its REASSEMBLE subset), with a bias toward predicting success. It uses vision only and names force-torque as future work. Guardian~\cite{guardian}, AHA~\cite{aha} and RoboFAC~\cite{robofac} train vision-language failure detectors from perturbed demonstrations; all are vision-only. Force and touch appear in policies (e.g.\ force-aware VLAs) rather than as success judges, and classical multimodal anomaly detectors predate VLM judges. To our knowledge no prior work compares cheap non-visual sensors with VLM judges on the same attempts. The vision-side finding is therefore not new; our contribution is the controlled minimal-pair setting, the degraded-sensor comparison, fusion, and the physical attacker. FailBench data was not yet released when we checked, so we could not report on its subset.
+
+\section{Setup}
+\paragraph{Simulation.} MuJoCo 3.17 with the Menagerie Franka Panda (gravity compensation, position actuators, damped least-squares IK, guarded moves that stop at 8\,N of tared wrist force). Five tasks, each with a matched failure: \textbf{stack} (held cube touching the base vs.\ hovering), \textbf{grasp} (closed on the cube vs.\ beside it), \textbf{button} (pressed past a 4\,mm click vs.\ less), \textbf{peg} (seated vs.\ on the rim), \textbf{push} (block against a wall vs.\ short of it).
+\paragraph{Ground truth.} Explicit rules on simulator state after a 2\,s stability hold with controls frozen: contact force between the right bodies, cap displacement, peg depth plus floor contact, and for grasp a lift test. Images and sensors are captured \emph{before} the hold, at the moment a judge would decide. A pair counts only if its labels come out opposite.
+\paragraph{Randomization.} Seeded per pair: key and fill light, table tint, object colors from a palette, three camera poses (one raised oblique, two low profile views), and 0 to 4 distractors kept out of camera sight lines.
+\paragraph{Pairs.} Table~\ref{tab:pairs} shows failure magnitudes and the median front-view pixel difference within pairs.
+\begin{table}[t]\centering\small\input{tables/pairs.tex}\caption{Scaled set: minimal pairs per task.}\label{tab:pairs}\end{table}
+\paragraph{Cheap sensors.} From the simulator at 100\,Hz: fingertip touch (thresholded at 0.3\,N into a binary switch per finger), gripper actuator force (a motor-current proxy), and wrist force along the tool axis only. Degradation per unit strength: switch flips 2\%, 30\,ms latency; effort noise 0.6\,N, 10-bit over $\pm$40\,N, drift up to 0.8\,N; force noise 0.5\,N, 8-bit over $\pm$30\,N, offset up to 1.5\,N, drift up to 1\,N; 2\% dropped samples; 20\,ms latency. Twelve summary features feed logistic regression and a small gradient-boosted tree, trained on 600 samples from seeds disjoint from every test set.
+\paragraph{VLM judges.} Free tiers only: Gemini 3.5 Flash, Gemini 3.1 Flash-Lite and Gemma 4 31B through Google AI Studio; Qwen 3.8 27B through Groq; Qwen2.5-VL 3B and Moondream 1.8B through local Ollama on a CPU laptop (images downscaled to 384\,px for these two). Each gets a task description and one front image (single view) or all three views (multi-view), and returns JSON with a verdict and a confidence. Every answer is cached by (model, image hashes, prompt). Calibration uses the stated confidence.
+\paragraph{Fusion.} Logistic regression on sensor features plus the VLM's P(success), 5-fold cross-validated on the test set with folds grouped by pair.
+
+\section{Results}
+\paragraph{Main comparison.} Table~\ref{tab:large} is the scaled set (400 samples). Table~\ref{tab:small} adds all models and multi-view on the 100-sample set. Free-tier daily quotas stopped some models early; the Coverage column says how many samples each judge answered, and metrics use only those.
+\begin{table*}[t]\centering\small\input{tables/leaderboard_large.tex}\caption{Scaled set (400 samples). Sorted by balanced accuracy.}\label{tab:large}\end{table*}
+\begin{table*}[t]\centering\small\input{tables/leaderboard_small.tex}\caption{Small set (100 samples), all judges including multi-view. Partial coverage reflects free-tier quotas.}\label{tab:small}\end{table*}
+\begin{table}[t]\centering\small\resizebox{\columnwidth}{!}{\input{tables/by_task_large.tex}}\caption{Balanced accuracy by task, scaled set.}\label{tab:task}\end{table}
+On the scaled set the sensor classifier beats every VLM we ran on balanced accuracy and false-success rate (Table~\ref{tab:large}). The best VLM is gemini/gemini-3.1-flash-lite (single) at 0.55. Fusing it with sensor features gives 0.88 (150/400 samples). On the small set the best VLM is gemini/gemini-3.1-flash-lite (multi) at 0.65 with 57/100 answered; low-coverage rows are indicative only. Vision does best on grasp, where an empty gripper is visible, and worst where the failure is a sub-millimeter gap or a few millimeters of travel.
+
+\paragraph{Where sensors fail.} The single-axis wrist force runs along the tool, so a sideways push barely registers, and the fingertip switch only sees the push if the contact lands inside its zone. Table~\ref{tab:task} shows the push column. Sensor classifiers also do not transfer across tasks (Table~\ref{tab:loto}): a model trained on four tasks is near chance on the fifth, because the same signal means different things in different tasks.
+\begin{table}[t]\centering\small\input{tables/loto_large.tex}\caption{Sensor classifier trained on four tasks, tested on the held-out one.}\label{tab:loto}\end{table}
+
+\paragraph{Noise robustness.} Table~\ref{tab:sweep} and Figure~\ref{fig:sweep} scale every degradation together. Accuracy falls from 0.97 with ideal sensors to 0.89 at the default and 0.49 at strength 32. It drops to the best VLM's level at strength 32.
+\begin{table}[t]\centering\small\input{tables/sweep_large.tex}\caption{Sensor classifier vs.\ noise strength (1 = default cheap hardware).}\label{tab:sweep}\end{table}
+\begin{figure}[t]\centering\includegraphics[width=\columnwidth]{../results/large/noise_sweep.png}\caption{Sensor classifier balanced accuracy vs.\ noise strength; dashed: best VLM on the same set.}\label{fig:sweep}\end{figure}
+
+\paragraph{Calibration.} Figure~\ref{fig:rel} plots reliability. VLMs report high confidence whether right or wrong, so their ECE is large (gemini/gemini-3.1-flash-lite (single): 0.45); the sensor classifier's ECE is 0.04.
+\begin{figure}[t]\centering\includegraphics[width=\columnwidth]{../results/large/reliability.png}\caption{Reliability diagrams on the scaled set. VLM confidence is self-reported.}\label{fig:rel}\end{figure}
+
+\paragraph{Millimeters to fool.} For each model, task and scene the attacker climbs a ladder of failure magnitudes (0.5 to 16\,mm; 0.25 to 3.7\,mm below the click for the button), bisects between the largest fooled and smallest not-fooled value, then runs four LLM-proposed mutations (magnitude, light, camera height) that see all previous results. Every candidate is re-simulated and discarded if ground truth turns into success. Table~\ref{tab:attack} reports the largest failure still judged a success, averaged over two scenes; Table~\ref{tab:transfer} re-judges every fooling scene with the other model and the sensor classifier. gemini/gemini-3.1-flash-lite: fooled in 2 of 4 scenes, up to 13.5\,mm. ollama/moondream:1.8b: fooled in 10 of 10 scenes, up to 16.0\,mm. The sensor classifier called 6 of 115 fooling scenes a success.
+\begin{table}[t]\centering\small\resizebox{\columnwidth}{!}{\input{tables/attack.tex}}\caption{Millimeters to fool (largest failure judged success; mean of 2 scenes).}\label{tab:attack}\end{table}
+\begin{table}[t]\centering\small\IfFileExists{tables/transfer.tex}{\input{tables/transfer.tex}}{Transfer run pending.}\caption{Fooling scenes re-judged by other judges.}\label{tab:transfer}\end{table}
+
+\section{Limitations}
+Simulation only; nothing here is validated on hardware, and simulated touch and force are cleaner than real ones even after degradation. The failures are synthetic and drawn from five tasks we designed, so the sensor features fit those tasks; leave-one-task-out results show they do not generalize. The minimal pairs are hard by construction, so VLM accuracy here says little about natural failure distributions. Free-tier quotas limited coverage for several models, and local models ran on downscaled images. VLM confidence is self-reported text, not a probability. We used one prompt per task and did not tune prompts per model. Two scenes per task in the attacker is small. Fusion is cross-validated on the test set rather than trained on separate VLM-labelled data.
+
+\section{Reproducibility}
+Code (MIT), the dataset with images, sensor traces, simulator states, ground truth and every model answer (CC BY 4.0), and a one-command script are public. Cached answers make reruns free.
+
+\begin{thebibliography}{9}\small
+\bibitem{failbench} Z.~Navasardyan, T.~Danielyan, H.~Davtyan. FailBench: How Reliable are VLMs at Judging Robot Task Success? arXiv:2609.03611, 2026.
+\bibitem{guardian} P.~Pacaud, R.~Garcia, S.~Chen, C.~Schmid. Guardian: Detecting Robotic Planning and Execution Errors with Vision-Language Models. arXiv:2512.01946, 2025.
+\bibitem{aha} AHA: A Vision-Language-Model for Detecting and Reasoning Over Failures in Robotic Manipulation. ICLR 2025, arXiv:2410.00371.
+\bibitem{robofac} W.~Lu et al. RoboFAC: A Comprehensive Framework for Robotic Failure Analysis and Correction. arXiv:2505.12224, 2025.
+\end{thebibliography}
+\end{document}

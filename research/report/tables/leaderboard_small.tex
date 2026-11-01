@@ -1,0 +1,23 @@
+\begin{tabular}{lrrrrr}
+\toprule
+Judge & Coverage & Bal. acc. & False-succ. & False-fail. & ECE \\
+\midrule
+fusion: gemini/gemma-4-31b-it (single) + sensors & 83/100 & 0.87 & 8\% & 19\% & 0.10 \\
+sensor\_logreg & all & 0.86 & 14\% & 14\% & 0.06 \\
+sensor\_gboost & all & 0.86 & 12\% & 16\% & 0.10 \\
+fusion: ollama/moondream:1.8b (single) + sensors & 100/100 & 0.86 & 8\% & 20\% & 0.10 \\
+fusion: gemini/gemini-3.1-flash-lite (multi) + sensors & 57/100 & 0.86 & 10\% & 18\% & 0.12 \\
+fusion: gemini/gemini-3.1-flash-lite (single) + sensors & 100/100 & 0.85 & 8\% & 22\% & 0.13 \\
+fusion: ollama/qwen2.5vl:3b (single) + sensors & 100/100 & 0.85 & 10\% & 20\% & 0.10 \\
+fusion: groq/qwen/qwen3.8-27b (single) + sensors & 93/100 & 0.84 & 11\% & 22\% & 0.11 \\
+fusion: gemini/gemini-3.5-flash (single) + sensors & 41/100 & 0.78 & 24\% & 20\% & 0.18 \\
+gemini/gemini-3.1-flash-lite (multi) & 57/100 & 0.65 & 45\% & 25\% & 0.35 \\
+gemini/gemini-3.5-flash (single) & 41/100 & 0.61 & 52\% & 25\% & 0.34 \\
+gemini/gemini-3.1-flash-lite (single) & 100/100 & 0.60 & 46\% & 34\% & 0.40 \\
+groq/qwen/qwen3.8-27b (single) & 93/100 & 0.57 & 43\% & 43\% & 0.36 \\
+gemini/gemma-4-31b-it (single) & 83/100 & 0.56 & 38\% & 51\% & 0.42 \\
+gemini/gemma-4-31b-it (multi) & 9/100 & 0.55 & 40\% & 50\% & 0.43 \\
+ollama/moondream:1.8b (single) & 100/100 & 0.50 & 100\% & 0\% & 0.23 \\
+ollama/qwen2.5vl:3b (single) & 100/100 & 0.50 & 100\% & 0\% & 0.44 \\
+\bottomrule
+\end{tabular}

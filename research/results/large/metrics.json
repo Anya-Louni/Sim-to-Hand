@@ -1,0 +1,654 @@
+{
+  "test": "data\\large",
+  "n_test": 400,
+  "n_train_sensor": 600,
+  "sensor_strength": 1.0,
+  "judges": {
+    "sensor_logreg": {
+      "overall": {
+        "n": 400,
+        "balanced_accuracy": 0.885,
+        "false_success_rate": 0.11,
+        "false_failure_rate": 0.12,
+        "no_answer_rate": 0.0,
+        "ece": 0.0432,
+        "reliability": [
+          {
+            "bin": [
+              0.0,
+              0.1
+            ],
+            "n": 88,
+            "mean_p": 0.031,
+            "frac_success": 0.011
+          },
+          {
+            "bin": [
+              0.1,
+              0.2
+            ],
+            "n": 43,
+            "mean_p": 0.144,
+            "frac_success": 0.023
+          },
+          {
+            "bin": [
+              0.2,
+              0.3
+            ],
+            "n": 28,
+            "mean_p": 0.246,
+            "frac_success": 0.179
+          },
+          {
+            "bin": [
+              0.3,
+              0.4
+            ],
+            "n": 19,
+            "mean_p": 0.353,
+            "frac_success": 0.368
+          },
+          {
+            "bin": [
+              0.4,
+              0.5
+            ],
+            "n": 24,
+            "mean_p": 0.448,
+            "frac_success": 0.417
+          },
+          {
+            "bin": [
+              0.5,
+              0.6
+            ],
+            "n": 19,
+            "mean_p": 0.549,
+            "frac_success": 0.684
+          },
+          {
+            "bin": [
+              0.6,
+              0.7
+            ],
+            "n": 13,
+            "mean_p": 0.641,
+            "frac_success": 0.615
+          },
+          {
+            "bin": [
+              0.7,
+              0.8
+            ],
+            "n": 20,
+            "mean_p": 0.749,
+            "frac_success": 0.7
+          },
+          {
+            "bin": [
+              0.8,
+              0.9
+            ],
+            "n": 17,
+            "mean_p": 0.853,
+            "frac_success": 0.765
+          },
+          {
+            "bin": [
+              0.9,
+              1.0
+            ],
+            "n": 129,
+            "mean_p": 0.976,
+            "frac_success": 0.992
+          }
+        ]
+      },
+      "by_task": {
+        "stack": {
+          "n": 80,
+          "balanced_accuracy": 0.9375,
+          "false_success_rate": 0.025,
+          "false_failure_rate": 0.1,
+          "no_answer_rate": 0.0,
+          "ece": 0.1494
+        },
+        "grasp": {
+          "n": 80,
+          "balanced_accuracy": 1.0,
+          "false_success_rate": 0.0,
+          "false_failure_rate": 0.0,
+          "no_answer_rate": 0.0,
+          "ece": 0.0086
+        },
+        "button": {
+          "n": 80,
+          "balanced_accuracy": 1.0,
+          "false_success_rate": 0.0,
+          "false_failure_rate": 0.0,
+          "no_answer_rate": 0.0,
+          "ece": 0.1153
+        },
+        "peg": {
+          "n": 80,
+          "balanced_accuracy": 0.9875,
+          "false_success_rate": 0.025,
+          "false_failure_rate": 0.0,
+          "no_answer_rate": 0.0,
+          "ece": 0.07
+        },
+        "push": {
+          "n": 80,
+          "balanced_accuracy": 0.5,
+          "false_success_rate": 0.5,
+          "false_failure_rate": 0.5,
+          "no_answer_rate": 0.0,
+          "ece": 0.2364
+        }
+      },
+      "kind": "sensor"
+    },
+    "sensor_gboost": {
+      "overall": {
+        "n": 400,
+        "balanced_accuracy": 0.8875,
+        "false_success_rate": 0.125,
+        "false_failure_rate": 0.1,
+        "no_answer_rate": 0.0,
+        "ece": 0.0626,
+        "reliability": [
+          {
+            "bin": [
+              0.0,
+              0.1
+            ],
+            "n": 161,
+            "mean_p": 0.007,
+            "frac_success": 0.012
+          },
+          {
+            "bin": [
+              0.1,
+              0.2
+            ],
+            "n": 4,
+            "mean_p": 0.162,
+            "frac_success": 0.75
+          },
+          {
+            "bin": [
+              0.2,
+              0.3
+            ],
+            "n": 12,
+            "mean_p": 0.248,
+            "frac_success": 0.75
+          },
+          {
+            "bin": [
+              0.3,
+              0.4
+            ],
+            "n": 5,
+            "mean_p": 0.34,
+            "frac_success": 0.4
+          },
+          {
+            "bin": [
+              0.4,
+              0.5
+            ],
+            "n": 13,
+            "mean_p": 0.467,
+            "frac_success": 0.308
+          },
+          {
+            "bin": [
+              0.5,
+              0.6
+            ],
+            "n": 9,
+            "mean_p": 0.541,
+            "frac_success": 0.333
+          },
+          {
+            "bin": [
+              0.6,
+              0.7
+            ],
+            "n": 6,
+            "mean_p": 0.658,
+            "frac_success": 0.167
+          },
+          {
+            "bin": [
+              0.7,
+              0.8
+            ],
+            "n": 10,
+            "mean_p": 0.754,
+            "frac_success": 0.5
+          },
+          {
+            "bin": [
+              0.8,
+              0.9
+            ],
+            "n": 12,
+            "mean_p": 0.84,
+            "frac_success": 0.583
+          },
+          {
+            "bin": [
+              0.9,
+              1.0
+            ],
+            "n": 168,
+            "mean_p": 0.994,
+            "frac_success": 0.976
+          }
+        ]
+      },
+      "by_task": {
+        "stack": {
+          "n": 80,
+          "balanced_accuracy": 1.0,
+          "false_success_rate": 0.0,
+          "false_failure_rate": 0.0,
+          "no_answer_rate": 0.0,
+          "ece": 0.003
+        },
+        "grasp": {
+          "n": 80,
+          "balanced_accuracy": 1.0,
+          "false_success_rate": 0.0,
+          "false_failure_rate": 0.0,
+          "no_answer_rate": 0.0,
+          "ece": 0.0078
+        },
+        "button": {
+          "n": 80,
+          "balanced_accuracy": 0.975,
+          "false_success_rate": 0.05,
+          "false_failure_rate": 0.0,
+          "no_answer_rate": 0.0,
+          "ece": 0.0329
+        },
+        "peg": {
+          "n": 80,
+          "balanced_accuracy": 1.0,
+          "false_success_rate": 0.0,
+          "false_failure_rate": 0.0,
+          "no_answer_rate": 0.0,
+          "ece": 0.0016
+        },
+        "push": {
+          "n": 80,
+          "balanced_accuracy": 0.4625,
+          "false_success_rate": 0.575,
+          "false_failure_rate": 0.5,
+          "no_answer_rate": 0.0,
+          "ece": 0.2976
+        }
+      },
+      "kind": "sensor"
+    },
+    "gemini/gemini-3.1-flash-lite (single)": {
+      "overall": {
+        "n": 150,
+        "balanced_accuracy": 0.5533,
+        "false_success_rate": 0.5333,
+        "false_failure_rate": 0.36,
+        "no_answer_rate": 0.0,
+        "ece": 0.4457,
+        "reliability": [
+          {
+            "bin": [
+              0.0,
+              0.1
+            ],
+            "n": 62,
+            "mean_p": 0.002,
+            "frac_success": 0.435
+          },
+          {
+            "bin": [
+              0.9,
+              1.0
+            ],
+            "n": 88,
+            "mean_p": 1.0,
+            "frac_success": 0.545
+          }
+        ]
+      },
+      "by_task": {
+        "stack": {
+          "n": 30,
+          "balanced_accuracy": 0.5,
+          "false_success_rate": 1.0,
+          "false_failure_rate": 0.0,
+          "no_answer_rate": 0.0,
+          "ece": 0.5
+        },
+        "grasp": {
+          "n": 30,
+          "balanced_accuracy": 0.6667,
+          "false_success_rate": 0.6,
+          "false_failure_rate": 0.0667,
+          "no_answer_rate": 0.0,
+          "ece": 0.3333
+        },
+        "button": {
+          "n": 30,
+          "balanced_accuracy": 0.5667,
+          "false_success_rate": 0.7333,
+          "false_failure_rate": 0.1333,
+          "no_answer_rate": 0.0,
+          "ece": 0.4283
+        },
+        "peg": {
+          "n": 30,
+          "balanced_accuracy": 0.6,
+          "false_success_rate": 0.0667,
+          "false_failure_rate": 0.7333,
+          "no_answer_rate": 0.0,
+          "ece": 0.4
+        },
+        "push": {
+          "n": 30,
+          "balanced_accuracy": 0.4333,
+          "false_success_rate": 0.2667,
+          "false_failure_rate": 0.8667,
+          "no_answer_rate": 0.0,
+          "ece": 0.5667
+        }
+      },
+      "coverage": "150/400",
+      "kind": "vlm"
+    },
+    "fusion: gemini/gemini-3.1-flash-lite (single) + sensors": {
+      "overall": {
+        "n": 150,
+        "balanced_accuracy": 0.88,
+        "false_success_rate": 0.1067,
+        "false_failure_rate": 0.1333,
+        "no_answer_rate": 0.0,
+        "ece": 0.055,
+        "reliability": [
+          {
+            "bin": [
+              0.0,
+              0.1
+            ],
+            "n": 31,
+            "mean_p": 0.041,
+            "frac_success": 0.032
+          },
+          {
+            "bin": [
+              0.1,
+              0.2
+            ],
+            "n": 17,
+            "mean_p": 0.154,
+            "frac_success": 0.176
+          },
+          {
+            "bin": [
+              0.2,
+              0.3
+            ],
+            "n": 14,
+            "mean_p": 0.248,
+            "frac_success": 0.071
+          },
+          {
+            "bin": [
+              0.3,
+              0.4
+            ],
+            "n": 10,
+            "mean_p": 0.346,
+            "frac_success": 0.3
+          },
+          {
+            "bin": [
+              0.4,
+              0.5
+            ],
+            "n": 5,
+            "mean_p": 0.444,
+            "frac_success": 0.4
+          },
+          {
+            "bin": [
+              0.5,
+              0.6
+            ],
+            "n": 9,
+            "mean_p": 0.556,
+            "frac_success": 0.556
+          },
+          {
+            "bin": [
+              0.6,
+              0.7
+            ],
+            "n": 9,
+            "mean_p": 0.643,
+            "frac_success": 0.556
+          },
+          {
+            "bin": [
+              0.7,
+              0.8
+            ],
+            "n": 4,
+            "mean_p": 0.724,
+            "frac_success": 1.0
+          },
+          {
+            "bin": [
+              0.8,
+              0.9
+            ],
+            "n": 12,
+            "mean_p": 0.855,
+            "frac_success": 1.0
+          },
+          {
+            "bin": [
+              0.9,
+              1.0
+            ],
+            "n": 39,
+            "mean_p": 0.98,
+            "frac_success": 1.0
+          }
+        ]
+      },
+      "by_task": {
+        "stack": {
+          "n": 30,
+          "balanced_accuracy": 0.9667,
+          "false_success_rate": 0.0667,
+          "false_failure_rate": 0.0,
+          "no_answer_rate": 0.0,
+          "ece": 0.2254
+        },
+        "grasp": {
+          "n": 30,
+          "balanced_accuracy": 1.0,
+          "false_success_rate": 0.0,
+          "false_failure_rate": 0.0,
+          "no_answer_rate": 0.0,
+          "ece": 0.0247
+        },
+        "button": {
+          "n": 30,
+          "balanced_accuracy": 0.9333,
+          "false_success_rate": 0.1333,
+          "false_failure_rate": 0.0,
+          "no_answer_rate": 0.0,
+          "ece": 0.1354
+        },
+        "peg": {
+          "n": 30,
+          "balanced_accuracy": 1.0,
+          "false_success_rate": 0.0,
+          "false_failure_rate": 0.0,
+          "no_answer_rate": 0.0,
+          "ece": 0.0781
+        },
+        "push": {
+          "n": 30,
+          "balanced_accuracy": 0.5,
+          "false_success_rate": 0.3333,
+          "false_failure_rate": 0.6667,
+          "no_answer_rate": 0.0,
+          "ece": 0.1957
+        }
+      },
+      "coverage": "150/400",
+      "kind": "fusion"
+    },
+    "ollama/moondream:1.8b (single)": {
+      "overall": {
+        "n": 8,
+        "balanced_accuracy": 0.5,
+        "false_success_rate": 1.0,
+        "false_failure_rate": 0.0,
+        "no_answer_rate": 0.0,
+        "ece": 0.1725,
+        "reliability": [
+          {
+            "bin": [
+              0.6,
+              0.7
+            ],
+            "n": 8,
+            "mean_p": 0.673,
+            "frac_success": 0.5
+          }
+        ]
+      },
+      "by_task": {
+        "grasp": {
+          "n": 2,
+          "balanced_accuracy": 0.5,
+          "false_success_rate": 1.0,
+          "false_failure_rate": 0.0,
+          "no_answer_rate": 0.0,
+          "ece": 0.17
+        },
+        "button": {
+          "n": 2,
+          "balanced_accuracy": 0.5,
+          "false_success_rate": 1.0,
+          "false_failure_rate": 0.0,
+          "no_answer_rate": 0.0,
+          "ece": 0.17
+        },
+        "peg": {
+          "n": 2,
+          "balanced_accuracy": 0.5,
+          "false_success_rate": 1.0,
+          "false_failure_rate": 0.0,
+          "no_answer_rate": 0.0,
+          "ece": 0.17
+        },
+        "push": {
+          "n": 2,
+          "balanced_accuracy": 0.5,
+          "false_success_rate": 1.0,
+          "false_failure_rate": 0.0,
+          "no_answer_rate": 0.0,
+          "ece": 0.18
+        }
+      },
+      "coverage": "8/400",
+      "kind": "vlm"
+    }
+  },
+  "sensor_logreg_leave_one_task_out": {
+    "stack": {
+      "n": 80,
+      "balanced_accuracy": 0.5,
+      "false_success_rate": 1.0,
+      "false_failure_rate": 0.0,
+      "no_answer_rate": 0.0
+    },
+    "grasp": {
+      "n": 80,
+      "balanced_accuracy": 1.0,
+      "false_success_rate": 0.0,
+      "false_failure_rate": 0.0,
+      "no_answer_rate": 0.0
+    },
+    "button": {
+      "n": 80,
+      "balanced_accuracy": 0.6625,
+      "false_success_rate": 0.675,
+      "false_failure_rate": 0.0,
+      "no_answer_rate": 0.0
+    },
+    "peg": {
+      "n": 80,
+      "balanced_accuracy": 0.5,
+      "false_success_rate": 1.0,
+      "false_failure_rate": 0.0,
+      "no_answer_rate": 0.0
+    },
+    "push": {
+      "n": 80,
+      "balanced_accuracy": 0.5,
+      "false_success_rate": 0.0,
+      "false_failure_rate": 1.0,
+      "no_answer_rate": 0.0
+    }
+  },
+  "noise_sweep_sensor_logreg": [
+    {
+      "strength": 0,
+      "balanced_accuracy": 0.9725,
+      "false_success_rate": 0.025
+    },
+    {
+      "strength": 0.5,
+      "balanced_accuracy": 0.8975,
+      "false_success_rate": 0.095
+    },
+    {
+      "strength": 1,
+      "balanced_accuracy": 0.885,
+      "false_success_rate": 0.11
+    },
+    {
+      "strength": 2,
+      "balanced_accuracy": 0.82,
+      "false_success_rate": 0.18
+    },
+    {
+      "strength": 4,
+      "balanced_accuracy": 0.7425,
+      "false_success_rate": 0.195
+    },
+    {
+      "strength": 8,
+      "balanced_accuracy": 0.6575,
+      "false_success_rate": 0.315
+    },
+    {
+      "strength": 16,
+      "balanced_accuracy": 0.605,
+      "false_success_rate": 0.41
+    },
+    {
+      "strength": 32,
+      "balanced_accuracy": 0.495,
+      "false_success_rate": 0.535
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+\begin{tabular}{lrrrrr}
+\toprule
+Judge & stack & grasp & button & peg & push \\
+\midrule
+fusion: gemini/gemma-4-31b-it (single) + sensors & 0.94 & 1.00 & 0.94 & 0.95 & 0.42 \\
+sensor\_logreg & 1.00 & 1.00 & 0.95 & 0.95 & 0.40 \\
+sensor\_gboost & 1.00 & 1.00 & 0.95 & 0.95 & 0.40 \\
+fusion: ollama/moondream:1.8b (single) + sensors & 0.95 & 1.00 & 0.95 & 0.95 & 0.45 \\
+fusion: gemini/gemini-3.1-flash-lite (multi) + sensors & 0.80 & 1.00 & 1.00 & 1.00 & 0.42 \\
+fusion: gemini/gemini-3.1-flash-lite (single) + sensors & 0.90 & 1.00 & 0.95 & 0.95 & 0.45 \\
+fusion: ollama/qwen2.5vl:3b (single) + sensors & 0.95 & 1.00 & 0.95 & 0.95 & 0.40 \\
+fusion: groq/qwen/qwen3.8-27b (single) + sensors & 0.83 & 1.00 & 0.95 & 0.94 & 0.44 \\
+fusion: gemini/gemini-3.5-flash (single) + sensors & 0.75 & 1.00 & 0.90 & 0.88 & 0.38 \\
+gemini/gemini-3.1-flash-lite (multi) & 0.60 & 1.00 & 0.58 & 0.58 & 0.50 \\
+gemini/gemini-3.5-flash (single) & 0.50 & 0.88 & 0.68 & 0.50 & 0.50 \\
+gemini/gemini-3.1-flash-lite (single) & 0.50 & 0.95 & 0.50 & 0.55 & 0.50 \\
+groq/qwen/qwen3.8-27b (single) & 0.39 & 0.90 & 0.60 & 0.50 & 0.44 \\
+gemini/gemma-4-31b-it (single) & 0.43 & 0.83 & 0.55 & 0.50 & 0.45 \\
+gemini/gemma-4-31b-it (multi) & -- & 1.00 & 0.50 & 0.50 & 0.50 \\
+ollama/moondream:1.8b (single) & 0.50 & 0.50 & 0.50 & 0.50 & 0.50 \\
+ollama/qwen2.5vl:3b (single) & 0.50 & 0.50 & 0.50 & 0.50 & 0.50 \\
+\bottomrule
+\end{tabular}

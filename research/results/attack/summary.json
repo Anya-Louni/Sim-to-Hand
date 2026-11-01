@@ -1,0 +1,114 @@
+[
+  {
+    "model": "gemini/gemini-3.1-flash-lite",
+    "task": "stack",
+    "scene": 0,
+    "mm_to_fool_ladder": 7.0,
+    "mm_to_fool_with_llm": 9.0,
+    "calls": 12
+  },
+  {
+    "model": "ollama/moondream:1.8b",
+    "task": "stack",
+    "scene": 0,
+    "mm_to_fool_ladder": 16,
+    "mm_to_fool_with_llm": 16,
+    "calls": 10
+  },
+  {
+    "model": "gemini/gemini-3.1-flash-lite",
+    "task": "stack",
+    "scene": 1,
+    "mm_to_fool_ladder": 10.0,
+    "mm_to_fool_with_llm": 13.5,
+    "calls": 12
+  },
+  {
+    "model": "ollama/moondream:1.8b",
+    "task": "stack",
+    "scene": 1,
+    "mm_to_fool_ladder": 16,
+    "mm_to_fool_with_llm": 16,
+    "calls": 10
+  },
+  {
+    "model": "gemini/gemini-3.1-flash-lite",
+    "task": "grasp",
+    "scene": 0,
+    "mm_to_fool_ladder": 0.0,
+    "mm_to_fool_with_llm": 0.0,
+    "calls": 10
+  },
+  {
+    "model": "ollama/moondream:1.8b",
+    "task": "grasp",
+    "scene": 0,
+    "mm_to_fool_ladder": 16,
+    "mm_to_fool_with_llm": 16,
+    "calls": 10
+  },
+  {
+    "model": "gemini/gemini-3.1-flash-lite",
+    "task": "grasp",
+    "scene": 1,
+    "mm_to_fool_ladder": 0.0,
+    "mm_to_fool_with_llm": 0.0,
+    "calls": 7
+  },
+  {
+    "model": "ollama/moondream:1.8b",
+    "task": "grasp",
+    "scene": 1,
+    "mm_to_fool_ladder": 16,
+    "mm_to_fool_with_llm": 16,
+    "calls": 10
+  },
+  {
+    "model": "ollama/moondream:1.8b",
+    "task": "button",
+    "scene": 0,
+    "mm_to_fool_ladder": 3.7,
+    "mm_to_fool_with_llm": 3.7,
+    "calls": 10
+  },
+  {
+    "model": "ollama/moondream:1.8b",
+    "task": "button",
+    "scene": 1,
+    "mm_to_fool_ladder": 3.7,
+    "mm_to_fool_with_llm": 3.7,
+    "calls": 10
+  },
+  {
+    "model": "ollama/moondream:1.8b",
+    "task": "peg",
+    "scene": 0,
+    "mm_to_fool_ladder": 16,
+    "mm_to_fool_with_llm": 16,
+    "calls": 10
+  },
+  {
+    "model": "ollama/moondream:1.8b",
+    "task": "peg",
+    "scene": 1,
+    "mm_to_fool_ladder": 16,
+    "mm_to_fool_with_llm": 16,
+    "calls": 10
+  },
+  {
+    "model": "ollama/moondream:1.8b",
+    "task": "push",
+    "scene": 0,
+    "mm_to_fool_ladder": 16,
+    "mm_to_fool_with_llm": 16,
+    "calls": 10
+  },
+  {
+    "model": "ollama/moondream:1.8b",
+    "task": "push",
+    "scene": 1,
+    "mm_to_fool_ladder": 16,
+    "mm_to_fool_with_llm": 16,
+    "calls": 10
+  }
+]

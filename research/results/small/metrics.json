@@ -1,0 +1,1982 @@
+{
+  "test": "data\\small",
+  "n_test": 100,
+  "n_train_sensor": 600,
+  "sensor_strength": 1.0,
+  "judges": {
+    "sensor_logreg": {
+      "overall": {
+        "n": 100,
+        "balanced_accuracy": 0.86,
+        "false_success_rate": 0.14,
+        "false_failure_rate": 0.14,
+        "no_answer_rate": 0.0,
+        "ece": 0.0562,
+        "reliability": [
+          {
+            "bin": [
+              0.0,
+              0.1
+            ],
+            "n": 23,
+            "mean_p": 0.028,
+            "frac_success": 0.087
+          },
+          {
+            "bin": [
+              0.1,
+              0.2
+            ],
+            "n": 10,
+            "mean_p": 0.169,
+            "frac_success": 0.1
+          },
+          {
+            "bin": [
+              0.2,
+              0.3
+            ],
+            "n": 10,
+            "mean_p": 0.232,
+            "frac_success": 0.1
+          },
+          {
+            "bin": [
+              0.3,
+              0.4
+            ],
+            "n": 4,
+            "mean_p": 0.347,
+            "frac_success": 0.25
+          },
+          {
+            "bin": [
+              0.4,
+              0.5
+            ],
+            "n": 3,
+            "mean_p": 0.436,
+            "frac_success": 0.667
+          },
+          {
+            "bin": [
+              0.5,
+              0.6
+            ],
+            "n": 4,
+            "mean_p": 0.523,
+            "frac_success": 0.5
+          },
+          {
+            "bin": [
+              0.6,
+              0.7
+            ],
+            "n": 5,
+            "mean_p": 0.651,
+            "frac_success": 0.6
+          },
+          {
+            "bin": [
+              0.7,
+              0.8
+            ],
+            "n": 3,
+            "mean_p": 0.726,
+            "frac_success": 0.667
+          },
+          {
+            "bin": [
+              0.8,
+              0.9
+            ],
+            "n": 4,
+            "mean_p": 0.868,
+            "frac_success": 0.75
+          },
+          {
+            "bin": [
+              0.9,
+              1.0
+            ],
+            "n": 34,
+            "mean_p": 0.976,
+            "frac_success": 0.971
+          }
+        ]
+      },
+      "by_task": {
+        "stack": {
+          "n": 20,
+          "balanced_accuracy": 1.0,
+          "false_success_rate": 0.0,
+          "false_failure_rate": 0.0,
+          "no_answer_rate": 0.0,
+          "ece": 0.2063
+        },
+        "grasp": {
+          "n": 20,
+          "balanced_accuracy": 1.0,
+          "false_success_rate": 0.0,
+          "false_failure_rate": 0.0,
+          "no_answer_rate": 0.0,
+          "ece": 0.0033
+        },
+        "button": {
+          "n": 20,
+          "balanced_accuracy": 0.95,
+          "false_success_rate": 0.1,
+          "false_failure_rate": 0.0,
+          "no_answer_rate": 0.0,
+          "ece": 0.1236
+        },
+        "peg": {
+          "n": 20,
+          "balanced_accuracy": 0.95,
+          "false_success_rate": 0.1,
+          "false_failure_rate": 0.0,
+          "no_answer_rate": 0.0,
+          "ece": 0.0711
+        },
+        "push": {
+          "n": 20,
+          "balanced_accuracy": 0.4,
+          "false_success_rate": 0.5,
+          "false_failure_rate": 0.7,
+          "no_answer_rate": 0.0,
+          "ece": 0.324
+        }
+      },
+      "kind": "sensor"
+    },
+    "sensor_gboost": {
+      "overall": {
+        "n": 100,
+        "balanced_accuracy": 0.86,
+        "false_success_rate": 0.12,
+        "false_failure_rate": 0.16,
+        "no_answer_rate": 0.0,
+        "ece": 0.1007,
+        "reliability": [
+          {
+            "bin": [
+              0.0,
+              0.1
+            ],
+            "n": 40,
+            "mean_p": 0.007,
+            "frac_success": 0.05
+          },
+          {
+            "bin": [
+              0.1,
+              0.2
+            ],
+            "n": 3,
+            "mean_p": 0.18,
+            "frac_success": 0.0
+          },
+          {
+            "bin": [
+              0.2,
+              0.3
+            ],
+            "n": 3,
+            "mean_p": 0.251,
+            "frac_success": 0.667
+          },
+          {
+            "bin": [
+              0.3,
+              0.4
+            ],
+            "n": 3,
+            "mean_p": 0.387,
+            "frac_success": 0.667
+          },
+          {
+            "bin": [
+              0.4,
+              0.5
+            ],
+            "n": 3,
+            "mean_p": 0.447,
+            "frac_success": 0.667
+          },
+          {
+            "bin": [
+              0.7,
+              0.8
+            ],
+            "n": 2,
+            "mean_p": 0.741,
+            "frac_success": 0.0
+          },
+          {
+            "bin": [
+              0.8,
+              0.9
+            ],
+            "n": 1,
+            "mean_p": 0.848,
+            "frac_success": 0.0
+          },
+          {
+            "bin": [
+              0.9,
+              1.0
+            ],
+            "n": 45,
+            "mean_p": 0.994,
+            "frac_success": 0.933
+          }
+        ]
+      },
+      "by_task": {
+        "stack": {
+          "n": 20,
+          "balanced_accuracy": 1.0,
+          "false_success_rate": 0.0,
+          "false_failure_rate": 0.0,
+          "no_answer_rate": 0.0,
+          "ece": 0.0026
+        },
+        "grasp": {
+          "n": 20,
+          "balanced_accuracy": 1.0,
+          "false_success_rate": 0.0,
+          "false_failure_rate": 0.0,
+          "no_answer_rate": 0.0,
+          "ece": 0.0025
+        },
+        "button": {
+          "n": 20,
+          "balanced_accuracy": 0.95,
+          "false_success_rate": 0.1,
+          "false_failure_rate": 0.0,
+          "no_answer_rate": 0.0,
+          "ece": 0.0501
+        },
+        "peg": {
+          "n": 20,
+          "balanced_accuracy": 0.95,
+          "false_success_rate": 0.1,
+          "false_failure_rate": 0.0,
+          "no_answer_rate": 0.0,
+          "ece": 0.0496
+        },
+        "push": {
+          "n": 20,
+          "balanced_accuracy": 0.4,
+          "false_success_rate": 0.4,
+          "false_failure_rate": 0.8,
+          "no_answer_rate": 0.0,
+          "ece": 0.4161
+        }
+      },
+      "kind": "sensor"
+    },
+    "gemini/gemini-3.1-flash-lite (single)": {
+      "overall": {
+        "n": 100,
+        "balanced_accuracy": 0.6,
+        "false_success_rate": 0.46,
+        "false_failure_rate": 0.34,
+        "no_answer_rate": 0.0,
+        "ece": 0.3995,
+        "reliability": [
+          {
+            "bin": [
+              0.0,
+              0.1
+            ],
+            "n": 44,
+            "mean_p": 0.001,
+            "frac_success": 0.386
+          },
+          {
+            "bin": [
+              0.9,
+              1.0
+            ],
+            "n": 56,
+            "mean_p": 1.0,
+            "frac_success": 0.589
+          }
+        ]
+      },
+      "by_task": {
+        "stack": {
+          "n": 20,
+          "balanced_accuracy": 0.5,
+          "false_success_rate": 1.0,
+          "false_failure_rate": 0.0,
+          "no_answer_rate": 0.0,
+          "ece": 0.5
+        },
+        "grasp": {
+          "n": 20,
+          "balanced_accuracy": 0.95,
+          "false_success_rate": 0.1,
+          "false_failure_rate": 0.0,
+          "no_answer_rate": 0.0,
+          "ece": 0.0525
+        },
+        "button": {
+          "n": 20,
+          "balanced_accuracy": 0.5,
+          "false_success_rate": 0.9,
+          "false_failure_rate": 0.1,
+          "no_answer_rate": 0.0,
+          "ece": 0.5
+        },
+        "peg": {
+          "n": 20,
+          "balanced_accuracy": 0.55,
+          "false_success_rate": 0.0,
+          "false_failure_rate": 0.9,
+          "no_answer_rate": 0.0,
+          "ece": 0.45
+        },
+        "push": {
+          "n": 20,
+          "balanced_accuracy": 0.5,
+          "false_success_rate": 0.3,
+          "false_failure_rate": 0.7,
+          "no_answer_rate": 0.0,
+          "ece": 0.5
+        }
+      },
+      "coverage": "100/100",
+      "kind": "vlm"
+    },
+    "fusion: gemini/gemini-3.1-flash-lite (single) + sensors": {
+      "overall": {
+        "n": 100,
+        "balanced_accuracy": 0.85,
+        "false_success_rate": 0.08,
+        "false_failure_rate": 0.22,
+        "no_answer_rate": 0.0,
+        "ece": 0.1306,
+        "reliability": [
+          {
+            "bin": [
+              0.0,
+              0.1
+            ],
+            "n": 13,
+            "mean_p": 0.044,
+            "frac_success": 0.077
+          },
+          {
+            "bin": [
+              0.1,
+              0.2
+            ],
+            "n": 10,
+            "mean_p": 0.133,
+            "frac_success": 0.4
+          },
+          {
+            "bin": [
+              0.2,
+              0.3
+            ],
+            "n": 15,
+            "mean_p": 0.248,
+            "frac_success": 0.067
+          },
+          {
+            "bin": [
+              0.3,
+              0.4
+            ],
+            "n": 11,
+            "mean_p": 0.35,
+            "frac_success": 0.091
+          },
+          {
+            "bin": [
+              0.4,
+              0.5
+            ],
+            "n": 8,
+            "mean_p": 0.451,
+            "frac_success": 0.5
+          },
+          {
+            "bin": [
+              0.5,
+              0.6
+            ],
+            "n": 5,
+            "mean_p": 0.554,
+            "frac_success": 0.6
+          },
+          {
+            "bin": [
+              0.6,
+              0.7
+            ],
+            "n": 1,
+            "mean_p": 0.662,
+            "frac_success": 0.0
+          },
+          {
+            "bin": [
+              0.7,
+              0.8
+            ],
+            "n": 8,
+            "mean_p": 0.773,
+            "frac_success": 1.0
+          },
+          {
+            "bin": [
+              0.8,
+              0.9
+            ],
+            "n": 7,
+            "mean_p": 0.854,
+            "frac_success": 1.0
+          },
+          {
+            "bin": [
+              0.9,
+              1.0
+            ],
+            "n": 22,
+            "mean_p": 0.967,
+            "frac_success": 0.955
+          }
+        ]
+      },
+      "by_task": {
+        "stack": {
+          "n": 20,
+          "balanced_accuracy": 0.9,
+          "false_success_rate": 0.0,
+          "false_failure_rate": 0.2,
+          "no_answer_rate": 0.0,
+          "ece": 0.3122
+        },
+        "grasp": {
+          "n": 20,
+          "balanced_accuracy": 1.0,
+          "false_success_rate": 0.0,
+          "false_failure_rate": 0.0,
+          "no_answer_rate": 0.0,
+          "ece": 0.0227
+        },
+        "button": {
+          "n": 20,
+          "balanced_accuracy": 0.95,
+          "false_success_rate": 0.1,
+          "false_failure_rate": 0.0,
+          "no_answer_rate": 0.0,
+          "ece": 0.2055
+        },
+        "peg": {
+          "n": 20,
+          "balanced_accuracy": 0.95,
+          "false_success_rate": 0.1,
+          "false_failure_rate": 0.0,
+          "no_answer_rate": 0.0,
+          "ece": 0.1609
+        },
+        "push": {
+          "n": 20,
+          "balanced_accuracy": 0.45,
+          "false_success_rate": 0.2,
+          "false_failure_rate": 0.9,
+          "no_answer_rate": 0.0,
+          "ece": 0.3238
+        }
+      },
+      "coverage": "100/100",
+      "kind": "fusion"
+    },
+    "gemini/gemini-3.1-flash-lite (multi)": {
+      "overall": {
+        "n": 57,
+        "balanced_accuracy": 0.6509,
+        "false_success_rate": 0.4483,
+        "false_failure_rate": 0.25,
+        "no_answer_rate": 0.0,
+        "ece": 0.3509,
+        "reliability": [
+          {
+            "bin": [
+              0.0,
+              0.1
+            ],
+            "n": 23,
+            "mean_p": 0.0,
+            "frac_success": 0.304
+          },
+          {
+            "bin": [
+              0.9,
+              1.0
+            ],
+            "n": 34,
+            "mean_p": 1.0,
+            "frac_success": 0.618
+          }
+        ]
+      },
+      "by_task": {
+        "stack": {
+          "n": 10,
+          "balanced_accuracy": 0.6,
+          "false_success_rate": 0.8,
+          "false_failure_rate": 0.0,
+          "no_answer_rate": 0.0,
+          "ece": 0.4
+        },
+        "grasp": {
+          "n": 12,
+          "balanced_accuracy": 1.0,
+          "false_success_rate": 0.0,
+          "false_failure_rate": 0.0,
+          "no_answer_rate": 0.0,
+          "ece": 0.0
+        },
+        "button": {
+          "n": 12,
+          "balanced_accuracy": 0.5833,
+          "false_success_rate": 0.5,
+          "false_failure_rate": 0.3333,
+          "no_answer_rate": 0.0,
+          "ece": 0.4167
+        },
+        "peg": {
+          "n": 12,
+          "balanced_accuracy": 0.5833,
+          "false_success_rate": 0.0,
+          "false_failure_rate": 0.8333,
+          "no_answer_rate": 0.0,
+          "ece": 0.4167
+        },
+        "push": {
+          "n": 11,
+          "balanced_accuracy": 0.5,
+          "false_success_rate": 1.0,
+          "false_failure_rate": 0.0,
+          "no_answer_rate": 0.0,
+          "ece": 0.5455
+        }
+      },
+      "coverage": "57/100",
+      "kind": "vlm"
+    },
+    "fusion: gemini/gemini-3.1-flash-lite (multi) + sensors": {
+      "overall": {
+        "n": 57,
+        "balanced_accuracy": 0.859,
+        "false_success_rate": 0.1034,
+        "false_failure_rate": 0.1786,
+        "no_answer_rate": 0.0,
+        "ece": 0.1202,
+        "reliability": [
+          {
+            "bin": [
+              0.0,
+              0.1
+            ],
+            "n": 9,
+            "mean_p": 0.038,
+            "frac_success": 0.111
+          },
+          {
+            "bin": [
+              0.1,
+              0.2
+            ],
+            "n": 3,
+            "mean_p": 0.141,
+            "frac_success": 0.0
+          },
+          {
+            "bin": [
+              0.2,
+              0.3
+            ],
+            "n": 8,
+            "mean_p": 0.225,
+            "frac_success": 0.125
+          },
+          {
+            "bin": [
+              0.3,
+              0.4
+            ],
+            "n": 6,
+            "mean_p": 0.34,
+            "frac_success": 0.333
+          },
+          {
+            "bin": [
+              0.4,
+              0.5
+            ],
+            "n": 5,
+            "mean_p": 0.435,
+            "frac_success": 0.2
+          },
+          {
+            "bin": [
+              0.5,
+              0.6
+            ],
+            "n": 4,
+            "mean_p": 0.551,
+            "frac_success": 0.25
+          },
+          {
+            "bin": [
+              0.6,
+              0.7
+            ],
+            "n": 1,
+            "mean_p": 0.664,
+            "frac_success": 1.0
+          },
+          {
+            "bin": [
+              0.7,
+              0.8
+            ],
+            "n": 5,
+            "mean_p": 0.755,
+            "frac_success": 1.0
+          },
+          {
+            "bin": [
+              0.8,
+              0.9
+            ],
+            "n": 6,
+            "mean_p": 0.857,
+            "frac_success": 1.0
+          },
+          {
+            "bin": [
+              0.9,
+              1.0
+            ],
+            "n": 10,
+            "mean_p": 0.987,
+            "frac_success": 1.0
+          }
+        ]
+      },
+      "by_task": {
+        "stack": {
+          "n": 10,
+          "balanced_accuracy": 0.8,
+          "false_success_rate": 0.4,
+          "false_failure_rate": 0.0,
+          "no_answer_rate": 0.0,
+          "ece": 0.2513
+        },
+        "grasp": {
+          "n": 12,
+          "balanced_accuracy": 1.0,
+          "false_success_rate": 0.0,
+          "false_failure_rate": 0.0,
+          "no_answer_rate": 0.0,
+          "ece": 0.012
+        },
+        "button": {
+          "n": 12,
+          "balanced_accuracy": 1.0,
+          "false_success_rate": 0.0,
+          "false_failure_rate": 0.0,
+          "no_answer_rate": 0.0,
+          "ece": 0.1865
+        },
+        "peg": {
+          "n": 12,
+          "balanced_accuracy": 1.0,
+          "false_success_rate": 0.0,
+          "false_failure_rate": 0.0,
+          "no_answer_rate": 0.0,
+          "ece": 0.1709
+        },
+        "push": {
+          "n": 11,
+          "balanced_accuracy": 0.4167,
+          "false_success_rate": 0.1667,
+          "false_failure_rate": 1.0,
+          "no_answer_rate": 0.0,
+          "ece": 0.3061
+        }
+      },
+      "coverage": "57/100",
+      "kind": "fusion"
+    },
+    "gemini/gemini-3.5-flash (single)": {
+      "overall": {
+        "n": 41,
+        "balanced_accuracy": 0.6131,
+        "false_success_rate": 0.5238,
+        "false_failure_rate": 0.25,
+        "no_answer_rate": 0.0,
+        "ece": 0.3434,
+        "reliability": [
+          {
+            "bin": [
+              0.0,
+              0.1
+            ],
+            "n": 15,
+            "mean_p": 0.046,
+            "frac_success": 0.333
+          },
+          {
+            "bin": [
+              0.9,
+              1.0
+            ],
+            "n": 26,
+            "mean_p": 0.953,
+            "frac_success": 0.577
+          }
+        ]
+      },
+      "by_task": {
+        "stack": {
+          "n": 8,
+          "balanced_accuracy": 0.5,
+          "false_success_rate": 1.0,
+          "false_failure_rate": 0.0,
+          "no_answer_rate": 0.0,
+          "ece": 0.4537
+        },
+        "grasp": {
+          "n": 8,
+          "balanced_accuracy": 0.875,
+          "false_success_rate": 0.25,
+          "false_failure_rate": 0.0,
+          "no_answer_rate": 0.0,
+          "ece": 0.1237
+        },
+        "button": {
+          "n": 9,
+          "balanced_accuracy": 0.675,
+          "false_success_rate": 0.4,
+          "false_failure_rate": 0.25,
+          "no_answer_rate": 0.0,
+          "ece": 0.2778
+        },
+        "peg": {
+          "n": 8,
+          "balanced_accuracy": 0.5,
+          "false_success_rate": 0.25,
+          "false_failure_rate": 0.75,
+          "no_answer_rate": 0.0,
+          "ece": 0.4575
+        },
+        "push": {
+          "n": 8,
+          "balanced_accuracy": 0.5,
+          "false_success_rate": 0.75,
+          "false_failure_rate": 0.25,
+          "no_answer_rate": 0.0,
+          "ece": 0.45
+        }
+      },
+      "coverage": "41/100",
+      "kind": "vlm"
+    },
+    "fusion: gemini/gemini-3.5-flash (single) + sensors": {
+      "overall": {
+        "n": 41,
+        "balanced_accuracy": 0.781,
+        "false_success_rate": 0.2381,
+        "false_failure_rate": 0.2,
+        "no_answer_rate": 0.0,
+        "ece": 0.1758,
+        "reliability": [
+          {
+            "bin": [
+              0.0,
+              0.1
+            ],
+            "n": 6,
+            "mean_p": 0.06,
+            "frac_success": 0.167
+          },
+          {
+            "bin": [
+              0.1,
+              0.2
+            ],
+            "n": 6,
+            "mean_p": 0.173,
+            "frac_success": 0.0
+          },
+          {
+            "bin": [
+              0.2,
+              0.3
+            ],
+            "n": 2,
+            "mean_p": 0.255,
+            "frac_success": 1.0
+          },
+          {
+            "bin": [
+              0.3,
+              0.4
+            ],
+            "n": 5,
+            "mean_p": 0.365,
+            "frac_success": 0.2
+          },
+          {
+            "bin": [
+              0.4,
+              0.5
+            ],
+            "n": 1,
+            "mean_p": 0.431,
+            "frac_success": 0.0
+          },
+          {
+            "bin": [
+              0.5,
+              0.6
+            ],
+            "n": 5,
+            "mean_p": 0.567,
+            "frac_success": 0.4
+          },
+          {
+            "bin": [
+              0.6,
+              0.7
+            ],
+            "n": 4,
+            "mean_p": 0.639,
+            "frac_success": 0.5
+          },
+          {
+            "bin": [
+              0.7,
+              0.8
+            ],
+            "n": 3,
+            "mean_p": 0.778,
+            "frac_success": 1.0
+          },
+          {
+            "bin": [
+              0.8,
+              0.9
+            ],
+            "n": 4,
+            "mean_p": 0.846,
+            "frac_success": 1.0
+          },
+          {
+            "bin": [
+              0.9,
+              1.0
+            ],
+            "n": 5,
+            "mean_p": 0.978,
+            "frac_success": 1.0
+          }
+        ]
+      },
+      "by_task": {
+        "stack": {
+          "n": 8,
+          "balanced_accuracy": 0.75,
+          "false_success_rate": 0.5,
+          "false_failure_rate": 0.0,
+          "no_answer_rate": 0.0,
+          "ece": 0.2032
+        },
+        "grasp": {
+          "n": 8,
+          "balanced_accuracy": 1.0,
+          "false_success_rate": 0.0,
+          "false_failure_rate": 0.0,
+          "no_answer_rate": 0.0,
+          "ece": 0.0332
+        },
+        "button": {
+          "n": 9,
+          "balanced_accuracy": 0.9,
+          "false_success_rate": 0.2,
+          "false_failure_rate": 0.0,
+          "no_answer_rate": 0.0,
+          "ece": 0.2193
+        },
+        "peg": {
+          "n": 8,
+          "balanced_accuracy": 0.875,
+          "false_success_rate": 0.25,
+          "false_failure_rate": 0.0,
+          "no_answer_rate": 0.0,
+          "ece": 0.1598
+        },
+        "push": {
+          "n": 8,
+          "balanced_accuracy": 0.375,
+          "false_success_rate": 0.25,
+          "false_failure_rate": 1.0,
+          "no_answer_rate": 0.0,
+          "ece": 0.4106
+        }
+      },
+      "coverage": "41/100",
+      "kind": "fusion"
+    },
+    "gemini/gemma-4-31b-it (single)": {
+      "overall": {
+        "n": 83,
+        "balanced_accuracy": 0.5567,
+        "false_success_rate": 0.375,
+        "false_failure_rate": 0.5116,
+        "no_answer_rate": 0.0,
+        "ece": 0.4187,
+        "reliability": [
+          {
+            "bin": [
+              0.0,
+              0.1
+            ],
+            "n": 44,
+            "mean_p": 0.027,
+            "frac_success": 0.455
+          },
+          {
+            "bin": [
+              0.1,
+              0.2
+            ],
+            "n": 3,
+            "mean_p": 0.2,
+            "frac_success": 0.667
+          },
+          {
+            "bin": [
+              0.9,
+              1.0
+            ],
+            "n": 36,
+            "mean_p": 0.988,
+            "frac_success": 0.583
+          }
+        ]
+      },
+      "by_task": {
+        "stack": {
+          "n": 19,
+          "balanced_accuracy": 0.4333,
+          "false_success_rate": 0.8,
+          "false_failure_rate": 0.3333,
+          "no_answer_rate": 0.0,
+          "ece": 0.5789
+        },
+        "grasp": {
+          "n": 15,
+          "balanced_accuracy": 0.8333,
+          "false_success_rate": 0.3333,
+          "false_failure_rate": 0.0,
+          "no_answer_rate": 0.0,
+          "ece": 0.1333
+        },
+        "button": {
+          "n": 17,
+          "balanced_accuracy": 0.5486,
+          "false_success_rate": 0.125,
+          "false_failure_rate": 0.7778,
+          "no_answer_rate": 0.0,
+          "ece": 0.3618
+        },
+        "peg": {
+          "n": 19,
+          "balanced_accuracy": 0.5,
+          "false_success_rate": 0.0,
+          "false_failure_rate": 1.0,
+          "no_answer_rate": 0.0,
+          "ece": 0.4684
+        },
+        "push": {
+          "n": 13,
+          "balanced_accuracy": 0.4524,
+          "false_success_rate": 0.6667,
+          "false_failure_rate": 0.4286,
+          "no_answer_rate": 0.0,
+          "ece": 0.5154
+        }
+      },
+      "coverage": "83/100",
+      "kind": "vlm"
+    },
+    "fusion: gemini/gemma-4-31b-it (single) + sensors": {
+      "overall": {
+        "n": 83,
+        "balanced_accuracy": 0.8695,
+        "false_success_rate": 0.075,
+        "false_failure_rate": 0.186,
+        "no_answer_rate": 0.0,
+        "ece": 0.1024,
+        "reliability": [
+          {
+            "bin": [
+              0.0,
+              0.1
+            ],
+            "n": 12,
+            "mean_p": 0.059,
+            "frac_success": 0.167
+          },
+          {
+            "bin": [
+              0.1,
+              0.2
+            ],
+            "n": 6,
+            "mean_p": 0.157,
+            "frac_success": 0.167
+          },
+          {
+            "bin": [
+              0.2,
+              0.3
+            ],
+            "n": 10,
+            "mean_p": 0.25,
+            "frac_success": 0.2
+          },
+          {
+            "bin": [
+              0.3,
+              0.4
+            ],
+            "n": 9,
+            "mean_p": 0.347,
+            "frac_success": 0.333
+          },
+          {
+            "bin": [
+              0.4,
+              0.5
+            ],
+            "n": 8,
+            "mean_p": 0.441,
+            "frac_success": 0.0
+          },
+          {
+            "bin": [
+              0.5,
+              0.6
+            ],
+            "n": 5,
+            "mean_p": 0.552,
+            "frac_success": 0.6
+          },
+          {
+            "bin": [
+              0.6,
+              0.7
+            ],
+            "n": 2,
+            "mean_p": 0.658,
+            "frac_success": 1.0
+          },
+          {
+            "bin": [
+              0.7,
+              0.8
+            ],
+            "n": 6,
+            "mean_p": 0.762,
+            "frac_success": 1.0
+          },
+          {
+            "bin": [
+              0.8,
+              0.9
+            ],
+            "n": 7,
+            "mean_p": 0.854,
+            "frac_success": 0.857
+          },
+          {
+            "bin": [
+              0.9,
+              1.0
+            ],
+            "n": 18,
+            "mean_p": 0.965,
+            "frac_success": 1.0
+          }
+        ]
+      },
+      "by_task": {
+        "stack": {
+          "n": 19,
+          "balanced_accuracy": 0.9444,
+          "false_success_rate": 0.0,
+          "false_failure_rate": 0.1111,
+          "no_answer_rate": 0.0,
+          "ece": 0.2647
+        },
+        "grasp": {
+          "n": 15,
+          "balanced_accuracy": 1.0,
+          "false_success_rate": 0.0,
+          "false_failure_rate": 0.0,
+          "no_answer_rate": 0.0,
+          "ece": 0.0225
+        },
+        "button": {
+          "n": 17,
+          "balanced_accuracy": 0.9375,
+          "false_success_rate": 0.125,
+          "false_failure_rate": 0.0,
+          "no_answer_rate": 0.0,
+          "ece": 0.2217
+        },
+        "peg": {
+          "n": 19,
+          "balanced_accuracy": 0.95,
+          "false_success_rate": 0.1,
+          "false_failure_rate": 0.0,
+          "no_answer_rate": 0.0,
+          "ece": 0.1577
+        },
+        "push": {
+          "n": 13,
+          "balanced_accuracy": 0.4167,
+          "false_success_rate": 0.1667,
+          "false_failure_rate": 1.0,
+          "no_answer_rate": 0.0,
+          "ece": 0.5378
+        }
+      },
+      "coverage": "83/100",
+      "kind": "fusion"
+    },
+    "gemini/gemma-4-31b-it (multi)": {
+      "overall": {
+        "n": 9,
+        "balanced_accuracy": 0.55,
+        "false_success_rate": 0.4,
+        "false_failure_rate": 0.5,
+        "no_answer_rate": 0.0,
+        "ece": 0.4278,
+        "reliability": [
+          {
+            "bin": [
+              0.0,
+              0.1
+            ],
+            "n": 5,
+            "mean_p": 0.03,
+            "frac_success": 0.4
+          },
+          {
+            "bin": [
+              0.9,
+              1.0
+            ],
+            "n": 4,
+            "mean_p": 1.0,
+            "frac_success": 0.5
+          }
+        ]
+      },
+      "by_task": {
+        "stack": {
+          "n": 1,
+          "balanced_accuracy": NaN,
+          "false_success_rate": 1.0,
+          "false_failure_rate": null,
+          "no_answer_rate": 0.0,
+          "ece": 1.0
+        },
+        "grasp": {
+          "n": 2,
+          "balanced_accuracy": 1.0,
+          "false_success_rate": 0.0,
+          "false_failure_rate": 0.0,
+          "no_answer_rate": 0.0,
+          "ece": 0.0
+        },
+        "button": {
+          "n": 2,
+          "balanced_accuracy": 0.5,
+          "false_success_rate": 0.0,
+          "false_failure_rate": 1.0,
+          "no_answer_rate": 0.0,
+          "ece": 0.425
+        },
+        "peg": {
+          "n": 2,
+          "balanced_accuracy": 0.5,
+          "false_success_rate": 0.0,
+          "false_failure_rate": 1.0,
+          "no_answer_rate": 0.0,
+          "ece": 0.5
+        },
+        "push": {
+          "n": 2,
+          "balanced_accuracy": 0.5,
+          "false_success_rate": 1.0,
+          "false_failure_rate": 0.0,
+          "no_answer_rate": 0.0,
+          "ece": 0.5
+        }
+      },
+      "coverage": "9/100",
+      "kind": "vlm"
+    },
+    "groq/qwen/qwen3.8-27b (single)": {
+      "overall": {
+        "n": 93,
+        "balanced_accuracy": 0.5698,
+        "false_success_rate": 0.4255,
+        "false_failure_rate": 0.4348,
+        "no_answer_rate": 0.0,
+        "ece": 0.3618,
+        "reliability": [
+          {
+            "bin": [
+              0.0,
+              0.1
+            ],
+            "n": 47,
+            "mean_p": 0.05,
+            "frac_success": 0.426
+          },
+          {
+            "bin": [
+              0.8,
+              0.9
+            ],
+            "n": 15,
+            "mean_p": 0.85,
+            "frac_success": 0.533
+          },
+          {
+            "bin": [
+              0.9,
+              1.0
+            ],
+            "n": 31,
+            "mean_p": 0.944,
+            "frac_success": 0.581
+          }
+        ]
+      },
+      "by_task": {
+        "stack": {
+          "n": 18,
+          "balanced_accuracy": 0.3889,
+          "false_success_rate": 0.5556,
+          "false_failure_rate": 0.6667,
+          "no_answer_rate": 0.0,
+          "ece": 0.5611
+        },
+        "grasp": {
+          "n": 19,
+          "balanced_accuracy": 0.9,
+          "false_success_rate": 0.2,
+          "false_failure_rate": 0.0,
+          "no_answer_rate": 0.0,
+          "ece": 0.0921
+        },
+        "button": {
+          "n": 20,
+          "balanced_accuracy": 0.6,
+          "false_success_rate": 0.8,
+          "false_failure_rate": 0.0,
+          "no_answer_rate": 0.0,
+          "ece": 0.28
+        },
+        "peg": {
+          "n": 18,
+          "balanced_accuracy": 0.5,
+          "false_success_rate": 0.0,
+          "false_failure_rate": 1.0,
+          "no_answer_rate": 0.0,
+          "ece": 0.45
+        },
+        "push": {
+          "n": 18,
+          "balanced_accuracy": 0.4444,
+          "false_success_rate": 0.5556,
+          "false_failure_rate": 0.5556,
+          "no_answer_rate": 0.0,
+          "ece": 0.5056
+        }
+      },
+      "coverage": "93/100",
+      "kind": "vlm"
+    },
+    "fusion: groq/qwen/qwen3.8-27b (single) + sensors": {
+      "overall": {
+        "n": 93,
+        "balanced_accuracy": 0.8381,
+        "false_success_rate": 0.1064,
+        "false_failure_rate": 0.2174,
+        "no_answer_rate": 0.0,
+        "ece": 0.1089,
+        "reliability": [
+          {
+            "bin": [
+              0.0,
+              0.1
+            ],
+            "n": 11,
+            "mean_p": 0.033,
+            "frac_success": 0.091
+          },
+          {
+            "bin": [
+              0.1,
+              0.2
+            ],
+            "n": 13,
+            "mean_p": 0.144,
+            "frac_success": 0.231
+          },
+          {
+            "bin": [
+              0.2,
+              0.3
+            ],
+            "n": 16,
+            "mean_p": 0.254,
+            "frac_success": 0.125
+          },
+          {
+            "bin": [
+              0.3,
+              0.4
+            ],
+            "n": 7,
+            "mean_p": 0.351,
+            "frac_success": 0.143
+          },
+          {
+            "bin": [
+              0.4,
+              0.5
+            ],
+            "n": 5,
+            "mean_p": 0.457,
+            "frac_success": 0.6
+          },
+          {
+            "bin": [
+              0.5,
+              0.6
+            ],
+            "n": 4,
+            "mean_p": 0.53,
+            "frac_success": 0.25
+          },
+          {
+            "bin": [
+              0.6,
+              0.7
+            ],
+            "n": 3,
+            "mean_p": 0.628,
+            "frac_success": 0.667
+          },
+          {
+            "bin": [
+              0.7,
+              0.8
+            ],
+            "n": 5,
+            "mean_p": 0.758,
+            "frac_success": 1.0
+          },
+          {
+            "bin": [
+              0.8,
+              0.9
+            ],
+            "n": 10,
+            "mean_p": 0.875,
+            "frac_success": 1.0
+          },
+          {
+            "bin": [
+              0.9,
+              1.0
+            ],
+            "n": 19,
+            "mean_p": 0.97,
+            "frac_success": 0.947
+          }
+        ]
+      },
+      "by_task": {
+        "stack": {
+          "n": 18,
+          "balanced_accuracy": 0.8333,
+          "false_success_rate": 0.1111,
+          "false_failure_rate": 0.2222,
+          "no_answer_rate": 0.0,
+          "ece": 0.279
+        },
+        "grasp": {
+          "n": 19,
+          "balanced_accuracy": 1.0,
+          "false_success_rate": 0.0,
+          "false_failure_rate": 0.0,
+          "no_answer_rate": 0.0,
+          "ece": 0.0207
+        },
+        "button": {
+          "n": 20,
+          "balanced_accuracy": 0.95,
+          "false_success_rate": 0.1,
+          "false_failure_rate": 0.0,
+          "no_answer_rate": 0.0,
+          "ece": 0.2133
+        },
+        "peg": {
+          "n": 18,
+          "balanced_accuracy": 0.9444,
+          "false_success_rate": 0.1111,
+          "false_failure_rate": 0.0,
+          "no_answer_rate": 0.0,
+          "ece": 0.1596
+        },
+        "push": {
+          "n": 18,
+          "balanced_accuracy": 0.4444,
+          "false_success_rate": 0.2222,
+          "false_failure_rate": 0.8889,
+          "no_answer_rate": 0.0,
+          "ece": 0.3065
+        }
+      },
+      "coverage": "93/100",
+      "kind": "fusion"
+    },
+    "ollama/moondream:1.8b (single)": {
+      "overall": {
+        "n": 100,
+        "balanced_accuracy": 0.5,
+        "false_success_rate": 1.0,
+        "false_failure_rate": 0.0,
+        "no_answer_rate": 0.0,
+        "ece": 0.2279,
+        "reliability": [
+          {
+            "bin": [
+              0.6,
+              0.7
+            ],
+            "n": 83,
+            "mean_p": 0.672,
+            "frac_success": 0.482
+          },
+          {
+            "bin": [
+              0.9,
+              1.0
+            ],
+            "n": 17,
+            "mean_p": 1.0,
+            "frac_success": 0.588
+          }
+        ]
+      },
+      "by_task": {
+        "stack": {
+          "n": 20,
+          "balanced_accuracy": 0.5,
+          "false_success_rate": 1.0,
+          "false_failure_rate": 0.0,
+          "no_answer_rate": 0.0,
+          "ece": 0.17
+        },
+        "grasp": {
+          "n": 20,
+          "balanced_accuracy": 0.5,
+          "false_success_rate": 1.0,
+          "false_failure_rate": 0.0,
+          "no_answer_rate": 0.0,
+          "ece": 0.368
+        },
+        "button": {
+          "n": 20,
+          "balanced_accuracy": 0.5,
+          "false_success_rate": 1.0,
+          "false_failure_rate": 0.0,
+          "no_answer_rate": 0.0,
+          "ece": 0.1875
+        },
+        "peg": {
+          "n": 20,
+          "balanced_accuracy": 0.5,
+          "false_success_rate": 1.0,
+          "false_failure_rate": 0.0,
+          "no_answer_rate": 0.0,
+          "ece": 0.171
+        },
+        "push": {
+          "n": 20,
+          "balanced_accuracy": 0.5,
+          "false_success_rate": 1.0,
+          "false_failure_rate": 0.0,
+          "no_answer_rate": 0.0,
+          "ece": 0.243
+        }
+      },
+      "coverage": "100/100",
+      "kind": "vlm"
+    },
+    "fusion: ollama/moondream:1.8b (single) + sensors": {
+      "overall": {
+        "n": 100,
+        "balanced_accuracy": 0.86,
+        "false_success_rate": 0.08,
+        "false_failure_rate": 0.2,
+        "no_answer_rate": 0.0,
+        "ece": 0.0958,
+        "reliability": [
+          {
+            "bin": [
+              0.0,
+              0.1
+            ],
+            "n": 13,
+            "mean_p": 0.043,
+            "frac_success": 0.077
+          },
+          {
+            "bin": [
+              0.1,
+              0.2
+            ],
+            "n": 12,
+            "mean_p": 0.145,
+            "frac_success": 0.25
+          },
+          {
+            "bin": [
+              0.2,
+              0.3
+            ],
+            "n": 13,
+            "mean_p": 0.255,
+            "frac_success": 0.154
+          },
+          {
+            "bin": [
+              0.3,
+              0.4
+            ],
+            "n": 10,
+            "mean_p": 0.353,
+            "frac_success": 0.2
+          },
+          {
+            "bin": [
+              0.4,
+              0.5
+            ],
+            "n": 8,
+            "mean_p": 0.441,
+            "frac_success": 0.25
+          },
+          {
+            "bin": [
+              0.5,
+              0.6
+            ],
+            "n": 4,
+            "mean_p": 0.531,
+            "frac_success": 0.75
+          },
+          {
+            "bin": [
+              0.6,
+              0.7
+            ],
+            "n": 3,
+            "mean_p": 0.647,
+            "frac_success": 0.667
+          },
+          {
+            "bin": [
+              0.7,
+              0.8
+            ],
+            "n": 8,
+            "mean_p": 0.769,
+            "frac_success": 0.875
+          },
+          {
+            "bin": [
+              0.8,
+              0.9
+            ],
+            "n": 9,
+            "mean_p": 0.862,
+            "frac_success": 1.0
+          },
+          {
+            "bin": [
+              0.9,
+              1.0
+            ],
+            "n": 20,
+            "mean_p": 0.974,
+            "frac_success": 0.95
+          }
+        ]
+      },
+      "by_task": {
+        "stack": {
+          "n": 20,
+          "balanced_accuracy": 0.95,
+          "false_success_rate": 0.0,
+          "false_failure_rate": 0.1,
+          "no_answer_rate": 0.0,
+          "ece": 0.3079
+        },
+        "grasp": {
+          "n": 20,
+          "balanced_accuracy": 1.0,
+          "false_success_rate": 0.0,
+          "false_failure_rate": 0.0,
+          "no_answer_rate": 0.0,
+          "ece": 0.0239
+        },
+        "button": {
+          "n": 20,
+          "balanced_accuracy": 0.95,
+          "false_success_rate": 0.1,
+          "false_failure_rate": 0.0,
+          "no_answer_rate": 0.0,
+          "ece": 0.207
+        },
+        "peg": {
+          "n": 20,
+          "balanced_accuracy": 0.95,
+          "false_success_rate": 0.1,
+          "false_failure_rate": 0.0,
+          "no_answer_rate": 0.0,
+          "ece": 0.1669
+        },
+        "push": {
+          "n": 20,
+          "balanced_accuracy": 0.45,
+          "false_success_rate": 0.2,
+          "false_failure_rate": 0.9,
+          "no_answer_rate": 0.0,
+          "ece": 0.3924
+        }
+      },
+      "coverage": "100/100",
+      "kind": "fusion"
+    },
+    "ollama/qwen2.5vl:3b (single)": {
+      "overall": {
+        "n": 100,
+        "balanced_accuracy": 0.5,
+        "false_success_rate": 1.0,
+        "false_failure_rate": 0.0,
+        "no_answer_rate": 0.0,
+        "ece": 0.4435,
+        "reliability": [
+          {
+            "bin": [
+              0.9,
+              1.0
+            ],
+            "n": 100,
+            "mean_p": 0.943,
+            "frac_success": 0.5
+          }
+        ]
+      },
+      "by_task": {
+        "stack": {
+          "n": 20,
+          "balanced_accuracy": 0.5,
+          "false_success_rate": 1.0,
+          "false_failure_rate": 0.0,
+          "no_answer_rate": 0.0,
+          "ece": 0.445
+        },
+        "grasp": {
+          "n": 20,
+          "balanced_accuracy": 0.5,
+          "false_success_rate": 1.0,
+          "false_failure_rate": 0.0,
+          "no_answer_rate": 0.0,
+          "ece": 0.43
+        },
+        "button": {
+          "n": 20,
+          "balanced_accuracy": 0.5,
+          "false_success_rate": 1.0,
+          "false_failure_rate": 0.0,
+          "no_answer_rate": 0.0,
+          "ece": 0.4475
+        },
+        "peg": {
+          "n": 20,
+          "balanced_accuracy": 0.5,
+          "false_success_rate": 1.0,
+          "false_failure_rate": 0.0,
+          "no_answer_rate": 0.0,
+          "ece": 0.445
+        },
+        "push": {
+          "n": 20,
+          "balanced_accuracy": 0.5,
+          "false_success_rate": 1.0,
+          "false_failure_rate": 0.0,
+          "no_answer_rate": 0.0,
+          "ece": 0.45
+        }
+      },
+      "coverage": "100/100",
+      "kind": "vlm"
+    },
+    "fusion: ollama/qwen2.5vl:3b (single) + sensors": {
+      "overall": {
+        "n": 100,
+        "balanced_accuracy": 0.85,
+        "false_success_rate": 0.1,
+        "false_failure_rate": 0.2,
+        "no_answer_rate": 0.0,
+        "ece": 0.0992,
+        "reliability": [
+          {
+            "bin": [
+              0.0,
+              0.1
+            ],
+            "n": 13,
+            "mean_p": 0.041,
+            "frac_success": 0.077
+          },
+          {
+            "bin": [
+              0.1,
+              0.2
+            ],
+            "n": 10,
+            "mean_p": 0.14,
+            "frac_success": 0.3
+          },
+          {
+            "bin": [
+              0.2,
+              0.3
+            ],
+            "n": 12,
+            "mean_p": 0.243,
+            "frac_success": 0.167
+          },
+          {
+            "bin": [
+              0.3,
+              0.4
+            ],
+            "n": 12,
+            "mean_p": 0.335,
+            "frac_success": 0.167
+          },
+          {
+            "bin": [
+              0.4,
+              0.5
+            ],
+            "n": 8,
+            "mean_p": 0.444,
+            "frac_success": 0.25
+          },
+          {
+            "bin": [
+              0.5,
+              0.6
+            ],
+            "n": 7,
+            "mean_p": 0.544,
+            "frac_success": 0.571
+          },
+          {
+            "bin": [
+              0.6,
+              0.7
+            ],
+            "n": 3,
+            "mean_p": 0.63,
+            "frac_success": 0.667
+          },
+          {
+            "bin": [
+              0.7,
+              0.8
+            ],
+            "n": 5,
+            "mean_p": 0.771,
+            "frac_success": 1.0
+          },
+          {
+            "bin": [
+              0.8,
+              0.9
+            ],
+            "n": 10,
+            "mean_p": 0.854,
+            "frac_success": 1.0
+          },
+          {
+            "bin": [
+              0.9,
+              1.0
+            ],
+            "n": 20,
+            "mean_p": 0.973,
+            "frac_success": 0.95
+          }
+        ]
+      },
+      "by_task": {
+        "stack": {
+          "n": 20,
+          "balanced_accuracy": 0.95,
+          "false_success_rate": 0.0,
+          "false_failure_rate": 0.1,
+          "no_answer_rate": 0.0,
+          "ece": 0.2759
+        },
+        "grasp": {
+          "n": 20,
+          "balanced_accuracy": 1.0,
+          "false_success_rate": 0.0,
+          "false_failure_rate": 0.0,
+          "no_answer_rate": 0.0,
+          "ece": 0.0197
+        },
+        "button": {
+          "n": 20,
+          "balanced_accuracy": 0.95,
+          "false_success_rate": 0.1,
+          "false_failure_rate": 0.0,
+          "no_answer_rate": 0.0,
+          "ece": 0.2136
+        },
+        "peg": {
+          "n": 20,
+          "balanced_accuracy": 0.95,
+          "false_success_rate": 0.1,
+          "false_failure_rate": 0.0,
+          "no_answer_rate": 0.0,
+          "ece": 0.17
+        },
+        "push": {
+          "n": 20,
+          "balanced_accuracy": 0.4,
+          "false_success_rate": 0.3,
+          "false_failure_rate": 0.9,
+          "no_answer_rate": 0.0,
+          "ece": 0.3295
+        }
+      },
+      "coverage": "100/100",
+      "kind": "fusion"
+    }
+  },
+  "sensor_logreg_leave_one_task_out": {
+    "stack": {
+      "n": 20,
+      "balanced_accuracy": 0.5,
+      "false_success_rate": 1.0,
+      "false_failure_rate": 0.0,
+      "no_answer_rate": 0.0
+    },
+    "grasp": {
+      "n": 20,
+      "balanced_accuracy": 1.0,
+      "false_success_rate": 0.0,
+      "false_failure_rate": 0.0,
+      "no_answer_rate": 0.0
+    },
+    "button": {
+      "n": 20,
+      "balanced_accuracy": 0.5,
+      "false_success_rate": 0.8,
+      "false_failure_rate": 0.2,
+      "no_answer_rate": 0.0
+    },
+    "peg": {
+      "n": 20,
+      "balanced_accuracy": 0.5,
+      "false_success_rate": 1.0,
+      "false_failure_rate": 0.0,
+      "no_answer_rate": 0.0
+    },
+    "push": {
+      "n": 20,
+      "balanced_accuracy": 0.5,
+      "false_success_rate": 0.0,
+      "false_failure_rate": 1.0,
+      "no_answer_rate": 0.0
+    }
+  },
+  "noise_sweep_sensor_logreg": [
+    {
+      "strength": 0,
+      "balanced_accuracy": 0.99,
+      "false_success_rate": 0.0
+    },
+    {
+      "strength": 0.5,
+      "balanced_accuracy": 0.9,
+      "false_success_rate": 0.06
+    },
+    {
+      "strength": 1,
+      "balanced_accuracy": 0.86,
+      "false_success_rate": 0.14
+    },
+    {
+      "strength": 2,
+      "balanced_accuracy": 0.79,
+      "false_success_rate": 0.2
+    },
+    {
+      "strength": 4,
+      "balanced_accuracy": 0.78,
+      "false_success_rate": 0.22
+    },
+    {
+      "strength": 8,
+      "balanced_accuracy": 0.67,
+      "false_success_rate": 0.26
+    },
+    {
+      "strength": 16,
+      "balanced_accuracy": 0.56,
+      "false_success_rate": 0.4
+    },
+    {
+      "strength": 32,
+      "balanced_accuracy": 0.54,
+      "false_success_rate": 0.5
+    }
+  ]
+}

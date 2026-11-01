@@ -1,0 +1,1037 @@
+[
+  {
+    "name": "stack-0-gemini_gemini-3.1-flash-lite-ladder-0.5mm",
+    "source_model": "gemini/gemini-3.1-flash-lite",
+    "task": "stack",
+    "dist_mm": 0.5,
+    "stage": "ladder",
+    "ollama/moondream:1.8b": true,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "stack-0-gemini_gemini-3.1-flash-lite-ladder-1mm",
+    "source_model": "gemini/gemini-3.1-flash-lite",
+    "task": "stack",
+    "dist_mm": 1,
+    "stage": "ladder",
+    "ollama/moondream:1.8b": true,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "stack-0-gemini_gemini-3.1-flash-lite-ladder-2mm",
+    "source_model": "gemini/gemini-3.1-flash-lite",
+    "task": "stack",
+    "dist_mm": 2,
+    "stage": "ladder",
+    "ollama/moondream:1.8b": true,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "stack-0-gemini_gemini-3.1-flash-lite-ladder-4mm",
+    "source_model": "gemini/gemini-3.1-flash-lite",
+    "task": "stack",
+    "dist_mm": 4,
+    "stage": "ladder",
+    "ollama/moondream:1.8b": true,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "stack-0-gemini_gemini-3.1-flash-lite-bisect-6.0mm",
+    "source_model": "gemini/gemini-3.1-flash-lite",
+    "task": "stack",
+    "dist_mm": 6.0,
+    "stage": "bisect",
+    "ollama/moondream:1.8b": true,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "stack-0-gemini_gemini-3.1-flash-lite-bisect-7.0mm",
+    "source_model": "gemini/gemini-3.1-flash-lite",
+    "task": "stack",
+    "dist_mm": 7.0,
+    "stage": "bisect",
+    "ollama/moondream:1.8b": true,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "stack-0-gemini_gemini-3.1-flash-lite-llm-9.0mm",
+    "source_model": "gemini/gemini-3.1-flash-lite",
+    "task": "stack",
+    "dist_mm": 9.0,
+    "stage": "llm",
+    "ollama/moondream:1.8b": true,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "stack-0-ollama_moondream_1.8b-ladder-0.5mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "stack",
+    "dist_mm": 0.5,
+    "stage": "ladder",
+    "gemini/gemini-3.1-flash-lite": true,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "stack-0-ollama_moondream_1.8b-ladder-1mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "stack",
+    "dist_mm": 1,
+    "stage": "ladder",
+    "gemini/gemini-3.1-flash-lite": true,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "stack-0-ollama_moondream_1.8b-ladder-2mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "stack",
+    "dist_mm": 2,
+    "stage": "ladder",
+    "gemini/gemini-3.1-flash-lite": true,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "stack-0-ollama_moondream_1.8b-ladder-4mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "stack",
+    "dist_mm": 4,
+    "stage": "ladder",
+    "gemini/gemini-3.1-flash-lite": true,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "stack-0-ollama_moondream_1.8b-ladder-8mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "stack",
+    "dist_mm": 8,
+    "stage": "ladder",
+    "gemini/gemini-3.1-flash-lite": false,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "stack-0-ollama_moondream_1.8b-ladder-16mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "stack",
+    "dist_mm": 16,
+    "stage": "ladder",
+    "gemini/gemini-3.1-flash-lite": false,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "stack-0-ollama_moondream_1.8b-llm-16.0mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "stack",
+    "dist_mm": 16.0,
+    "stage": "llm",
+    "gemini/gemini-3.1-flash-lite": false,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "stack-0-ollama_moondream_1.8b-llm-16.0mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "stack",
+    "dist_mm": 16.0,
+    "stage": "llm",
+    "gemini/gemini-3.1-flash-lite": false,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "stack-0-ollama_moondream_1.8b-llm-16.0mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "stack",
+    "dist_mm": 16.0,
+    "stage": "llm",
+    "gemini/gemini-3.1-flash-lite": false,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "stack-0-ollama_moondream_1.8b-llm-16.0mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "stack",
+    "dist_mm": 16.0,
+    "stage": "llm",
+    "gemini/gemini-3.1-flash-lite": false,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "stack-1-gemini_gemini-3.1-flash-lite-ladder-0.5mm",
+    "source_model": "gemini/gemini-3.1-flash-lite",
+    "task": "stack",
+    "dist_mm": 0.5,
+    "stage": "ladder",
+    "ollama/moondream:1.8b": true,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "stack-1-gemini_gemini-3.1-flash-lite-ladder-1mm",
+    "source_model": "gemini/gemini-3.1-flash-lite",
+    "task": "stack",
+    "dist_mm": 1,
+    "stage": "ladder",
+    "ollama/moondream:1.8b": true,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "stack-1-gemini_gemini-3.1-flash-lite-ladder-2mm",
+    "source_model": "gemini/gemini-3.1-flash-lite",
+    "task": "stack",
+    "dist_mm": 2,
+    "stage": "ladder",
+    "ollama/moondream:1.8b": true,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "stack-1-gemini_gemini-3.1-flash-lite-ladder-4mm",
+    "source_model": "gemini/gemini-3.1-flash-lite",
+    "task": "stack",
+    "dist_mm": 4,
+    "stage": "ladder",
+    "ollama/moondream:1.8b": true,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "stack-1-gemini_gemini-3.1-flash-lite-ladder-8mm",
+    "source_model": "gemini/gemini-3.1-flash-lite",
+    "task": "stack",
+    "dist_mm": 8,
+    "stage": "ladder",
+    "ollama/moondream:1.8b": true,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "stack-1-gemini_gemini-3.1-flash-lite-bisect-10.0mm",
+    "source_model": "gemini/gemini-3.1-flash-lite",
+    "task": "stack",
+    "dist_mm": 10.0,
+    "stage": "bisect",
+    "ollama/moondream:1.8b": true,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "stack-1-gemini_gemini-3.1-flash-lite-llm-10.5mm",
+    "source_model": "gemini/gemini-3.1-flash-lite",
+    "task": "stack",
+    "dist_mm": 10.5,
+    "stage": "llm",
+    "ollama/moondream:1.8b": true,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "stack-1-gemini_gemini-3.1-flash-lite-llm-13.5mm",
+    "source_model": "gemini/gemini-3.1-flash-lite",
+    "task": "stack",
+    "dist_mm": 13.5,
+    "stage": "llm",
+    "ollama/moondream:1.8b": true,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "stack-1-ollama_moondream_1.8b-ladder-0.5mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "stack",
+    "dist_mm": 0.5,
+    "stage": "ladder",
+    "gemini/gemini-3.1-flash-lite": true,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "stack-1-ollama_moondream_1.8b-ladder-1mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "stack",
+    "dist_mm": 1,
+    "stage": "ladder",
+    "gemini/gemini-3.1-flash-lite": true,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "stack-1-ollama_moondream_1.8b-ladder-2mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "stack",
+    "dist_mm": 2,
+    "stage": "ladder",
+    "gemini/gemini-3.1-flash-lite": true,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "stack-1-ollama_moondream_1.8b-ladder-4mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "stack",
+    "dist_mm": 4,
+    "stage": "ladder",
+    "gemini/gemini-3.1-flash-lite": true,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "stack-1-ollama_moondream_1.8b-ladder-8mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "stack",
+    "dist_mm": 8,
+    "stage": "ladder",
+    "gemini/gemini-3.1-flash-lite": true,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "stack-1-ollama_moondream_1.8b-ladder-16mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "stack",
+    "dist_mm": 16,
+    "stage": "ladder",
+    "gemini/gemini-3.1-flash-lite": false,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "stack-1-ollama_moondream_1.8b-llm-16.0mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "stack",
+    "dist_mm": 16.0,
+    "stage": "llm",
+    "gemini/gemini-3.1-flash-lite": false,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "stack-1-ollama_moondream_1.8b-llm-16.0mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "stack",
+    "dist_mm": 16.0,
+    "stage": "llm",
+    "gemini/gemini-3.1-flash-lite": false,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "stack-1-ollama_moondream_1.8b-llm-16.0mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "stack",
+    "dist_mm": 16.0,
+    "stage": "llm",
+    "gemini/gemini-3.1-flash-lite": false,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "stack-1-ollama_moondream_1.8b-llm-16.0mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "stack",
+    "dist_mm": 16.0,
+    "stage": "llm",
+    "gemini/gemini-3.1-flash-lite": false,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "grasp-0-ollama_moondream_1.8b-ladder-0.5mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "grasp",
+    "dist_mm": 0.5,
+    "stage": "ladder",
+    "gemini/gemini-3.1-flash-lite": false,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "grasp-0-ollama_moondream_1.8b-ladder-1mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "grasp",
+    "dist_mm": 1,
+    "stage": "ladder",
+    "gemini/gemini-3.1-flash-lite": false,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "grasp-0-ollama_moondream_1.8b-ladder-2mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "grasp",
+    "dist_mm": 2,
+    "stage": "ladder",
+    "gemini/gemini-3.1-flash-lite": false,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "grasp-0-ollama_moondream_1.8b-ladder-4mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "grasp",
+    "dist_mm": 4,
+    "stage": "ladder",
+    "gemini/gemini-3.1-flash-lite": false,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "grasp-0-ollama_moondream_1.8b-ladder-8mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "grasp",
+    "dist_mm": 8,
+    "stage": "ladder",
+    "gemini/gemini-3.1-flash-lite": false,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "grasp-0-ollama_moondream_1.8b-ladder-16mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "grasp",
+    "dist_mm": 16,
+    "stage": "ladder",
+    "gemini/gemini-3.1-flash-lite": false,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "grasp-0-ollama_moondream_1.8b-llm-16.0mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "grasp",
+    "dist_mm": 16.0,
+    "stage": "llm",
+    "gemini/gemini-3.1-flash-lite": false,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "grasp-0-ollama_moondream_1.8b-llm-16.0mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "grasp",
+    "dist_mm": 16.0,
+    "stage": "llm",
+    "gemini/gemini-3.1-flash-lite": false,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "grasp-0-ollama_moondream_1.8b-llm-16.0mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "grasp",
+    "dist_mm": 16.0,
+    "stage": "llm",
+    "gemini/gemini-3.1-flash-lite": false,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "grasp-0-ollama_moondream_1.8b-llm-16.0mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "grasp",
+    "dist_mm": 16.0,
+    "stage": "llm",
+    "gemini/gemini-3.1-flash-lite": false,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "grasp-1-ollama_moondream_1.8b-ladder-0.5mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "grasp",
+    "dist_mm": 0.5,
+    "stage": "ladder",
+    "gemini/gemini-3.1-flash-lite": false,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "grasp-1-ollama_moondream_1.8b-ladder-1mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "grasp",
+    "dist_mm": 1,
+    "stage": "ladder",
+    "gemini/gemini-3.1-flash-lite": false,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "grasp-1-ollama_moondream_1.8b-ladder-2mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "grasp",
+    "dist_mm": 2,
+    "stage": "ladder",
+    "gemini/gemini-3.1-flash-lite": false,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "grasp-1-ollama_moondream_1.8b-ladder-4mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "grasp",
+    "dist_mm": 4,
+    "stage": "ladder",
+    "gemini/gemini-3.1-flash-lite": false,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "grasp-1-ollama_moondream_1.8b-ladder-8mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "grasp",
+    "dist_mm": 8,
+    "stage": "ladder",
+    "gemini/gemini-3.1-flash-lite": false,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "grasp-1-ollama_moondream_1.8b-ladder-16mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "grasp",
+    "dist_mm": 16,
+    "stage": "ladder",
+    "gemini/gemini-3.1-flash-lite": false,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "grasp-1-ollama_moondream_1.8b-llm-16.0mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "grasp",
+    "dist_mm": 16.0,
+    "stage": "llm",
+    "gemini/gemini-3.1-flash-lite": false,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "grasp-1-ollama_moondream_1.8b-llm-16.0mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "grasp",
+    "dist_mm": 16.0,
+    "stage": "llm",
+    "gemini/gemini-3.1-flash-lite": false,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "grasp-1-ollama_moondream_1.8b-llm-16.0mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "grasp",
+    "dist_mm": 16.0,
+    "stage": "llm",
+    "gemini/gemini-3.1-flash-lite": false,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "grasp-1-ollama_moondream_1.8b-llm-16.0mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "grasp",
+    "dist_mm": 16.0,
+    "stage": "llm",
+    "gemini/gemini-3.1-flash-lite": false,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "button-0-ollama_moondream_1.8b-ladder-0.25mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "button",
+    "dist_mm": 0.25,
+    "stage": "ladder",
+    "gemini/gemini-3.1-flash-lite": null,
+    "sensor_logreg_says_success": true
+  },
+  {
+    "name": "button-0-ollama_moondream_1.8b-ladder-0.5mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "button",
+    "dist_mm": 0.5,
+    "stage": "ladder",
+    "gemini/gemini-3.1-flash-lite": null,
+    "sensor_logreg_says_success": true
+  },
+  {
+    "name": "button-0-ollama_moondream_1.8b-ladder-1mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "button",
+    "dist_mm": 1,
+    "stage": "ladder",
+    "gemini/gemini-3.1-flash-lite": null,
+    "sensor_logreg_says_success": true
+  },
+  {
+    "name": "button-0-ollama_moondream_1.8b-ladder-2mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "button",
+    "dist_mm": 2,
+    "stage": "ladder",
+    "gemini/gemini-3.1-flash-lite": null,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "button-0-ollama_moondream_1.8b-ladder-3mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "button",
+    "dist_mm": 3,
+    "stage": "ladder",
+    "gemini/gemini-3.1-flash-lite": null,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "button-0-ollama_moondream_1.8b-ladder-3.7mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "button",
+    "dist_mm": 3.7,
+    "stage": "ladder",
+    "gemini/gemini-3.1-flash-lite": null,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "button-0-ollama_moondream_1.8b-llm-3.7mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "button",
+    "dist_mm": 3.7,
+    "stage": "llm",
+    "gemini/gemini-3.1-flash-lite": null,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "button-0-ollama_moondream_1.8b-llm-3.7mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "button",
+    "dist_mm": 3.7,
+    "stage": "llm",
+    "gemini/gemini-3.1-flash-lite": null,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "button-0-ollama_moondream_1.8b-llm-3.7mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "button",
+    "dist_mm": 3.7,
+    "stage": "llm",
+    "gemini/gemini-3.1-flash-lite": null,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "button-0-ollama_moondream_1.8b-llm-3.7mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "button",
+    "dist_mm": 3.7,
+    "stage": "llm",
+    "gemini/gemini-3.1-flash-lite": null,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "button-1-ollama_moondream_1.8b-ladder-0.25mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "button",
+    "dist_mm": 0.25,
+    "stage": "ladder",
+    "gemini/gemini-3.1-flash-lite": null,
+    "sensor_logreg_says_success": true
+  },
+  {
+    "name": "button-1-ollama_moondream_1.8b-ladder-0.5mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "button",
+    "dist_mm": 0.5,
+    "stage": "ladder",
+    "gemini/gemini-3.1-flash-lite": null,
+    "sensor_logreg_says_success": true
+  },
+  {
+    "name": "button-1-ollama_moondream_1.8b-ladder-1mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "button",
+    "dist_mm": 1,
+    "stage": "ladder",
+    "gemini/gemini-3.1-flash-lite": null,
+    "sensor_logreg_says_success": true
+  },
+  {
+    "name": "button-1-ollama_moondream_1.8b-ladder-2mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "button",
+    "dist_mm": 2,
+    "stage": "ladder",
+    "gemini/gemini-3.1-flash-lite": null,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "button-1-ollama_moondream_1.8b-ladder-3mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "button",
+    "dist_mm": 3,
+    "stage": "ladder",
+    "gemini/gemini-3.1-flash-lite": null,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "button-1-ollama_moondream_1.8b-ladder-3.7mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "button",
+    "dist_mm": 3.7,
+    "stage": "ladder",
+    "gemini/gemini-3.1-flash-lite": null,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "button-1-ollama_moondream_1.8b-llm-3.7mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "button",
+    "dist_mm": 3.7,
+    "stage": "llm",
+    "gemini/gemini-3.1-flash-lite": null,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "button-1-ollama_moondream_1.8b-llm-3.7mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "button",
+    "dist_mm": 3.7,
+    "stage": "llm",
+    "gemini/gemini-3.1-flash-lite": null,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "button-1-ollama_moondream_1.8b-llm-3.7mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "button",
+    "dist_mm": 3.7,
+    "stage": "llm",
+    "gemini/gemini-3.1-flash-lite": null,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "button-1-ollama_moondream_1.8b-llm-3.7mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "button",
+    "dist_mm": 3.7,
+    "stage": "llm",
+    "gemini/gemini-3.1-flash-lite": null,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "peg-0-ollama_moondream_1.8b-ladder-0.5mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "peg",
+    "dist_mm": 0.5,
+    "stage": "ladder",
+    "gemini/gemini-3.1-flash-lite": null,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "peg-0-ollama_moondream_1.8b-ladder-1mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "peg",
+    "dist_mm": 1,
+    "stage": "ladder",
+    "gemini/gemini-3.1-flash-lite": null,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "peg-0-ollama_moondream_1.8b-ladder-2mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "peg",
+    "dist_mm": 2,
+    "stage": "ladder",
+    "gemini/gemini-3.1-flash-lite": null,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "peg-0-ollama_moondream_1.8b-ladder-4mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "peg",
+    "dist_mm": 4,
+    "stage": "ladder",
+    "gemini/gemini-3.1-flash-lite": null,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "peg-0-ollama_moondream_1.8b-ladder-8mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "peg",
+    "dist_mm": 8,
+    "stage": "ladder",
+    "gemini/gemini-3.1-flash-lite": null,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "peg-0-ollama_moondream_1.8b-ladder-16mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "peg",
+    "dist_mm": 16,
+    "stage": "ladder",
+    "gemini/gemini-3.1-flash-lite": null,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "peg-0-ollama_moondream_1.8b-llm-16.0mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "peg",
+    "dist_mm": 16.0,
+    "stage": "llm",
+    "gemini/gemini-3.1-flash-lite": null,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "peg-0-ollama_moondream_1.8b-llm-16.0mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "peg",
+    "dist_mm": 16.0,
+    "stage": "llm",
+    "gemini/gemini-3.1-flash-lite": null,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "peg-0-ollama_moondream_1.8b-llm-16.0mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "peg",
+    "dist_mm": 16.0,
+    "stage": "llm",
+    "gemini/gemini-3.1-flash-lite": null,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "peg-0-ollama_moondream_1.8b-llm-16.0mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "peg",
+    "dist_mm": 16.0,
+    "stage": "llm",
+    "gemini/gemini-3.1-flash-lite": null,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "peg-1-ollama_moondream_1.8b-ladder-0.5mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "peg",
+    "dist_mm": 0.5,
+    "stage": "ladder",
+    "gemini/gemini-3.1-flash-lite": null,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "peg-1-ollama_moondream_1.8b-ladder-1mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "peg",
+    "dist_mm": 1,
+    "stage": "ladder",
+    "gemini/gemini-3.1-flash-lite": null,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "peg-1-ollama_moondream_1.8b-ladder-2mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "peg",
+    "dist_mm": 2,
+    "stage": "ladder",
+    "gemini/gemini-3.1-flash-lite": null,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "peg-1-ollama_moondream_1.8b-ladder-4mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "peg",
+    "dist_mm": 4,
+    "stage": "ladder",
+    "gemini/gemini-3.1-flash-lite": null,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "peg-1-ollama_moondream_1.8b-ladder-8mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "peg",
+    "dist_mm": 8,
+    "stage": "ladder",
+    "gemini/gemini-3.1-flash-lite": null,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "peg-1-ollama_moondream_1.8b-ladder-16mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "peg",
+    "dist_mm": 16,
+    "stage": "ladder",
+    "gemini/gemini-3.1-flash-lite": null,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "peg-1-ollama_moondream_1.8b-llm-16.0mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "peg",
+    "dist_mm": 16.0,
+    "stage": "llm",
+    "gemini/gemini-3.1-flash-lite": null,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "peg-1-ollama_moondream_1.8b-llm-16.0mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "peg",
+    "dist_mm": 16.0,
+    "stage": "llm",
+    "gemini/gemini-3.1-flash-lite": null,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "peg-1-ollama_moondream_1.8b-llm-16.0mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "peg",
+    "dist_mm": 16.0,
+    "stage": "llm",
+    "gemini/gemini-3.1-flash-lite": null,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "peg-1-ollama_moondream_1.8b-llm-16.0mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "peg",
+    "dist_mm": 16.0,
+    "stage": "llm",
+    "gemini/gemini-3.1-flash-lite": null,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "push-0-ollama_moondream_1.8b-ladder-0.5mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "push",
+    "dist_mm": 0.5,
+    "stage": "ladder",
+    "gemini/gemini-3.1-flash-lite": null,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "push-0-ollama_moondream_1.8b-ladder-1mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "push",
+    "dist_mm": 1,
+    "stage": "ladder",
+    "gemini/gemini-3.1-flash-lite": null,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "push-0-ollama_moondream_1.8b-ladder-2mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "push",
+    "dist_mm": 2,
+    "stage": "ladder",
+    "gemini/gemini-3.1-flash-lite": null,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "push-0-ollama_moondream_1.8b-ladder-4mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "push",
+    "dist_mm": 4,
+    "stage": "ladder",
+    "gemini/gemini-3.1-flash-lite": null,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "push-0-ollama_moondream_1.8b-ladder-8mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "push",
+    "dist_mm": 8,
+    "stage": "ladder",
+    "gemini/gemini-3.1-flash-lite": null,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "push-0-ollama_moondream_1.8b-ladder-16mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "push",
+    "dist_mm": 16,
+    "stage": "ladder",
+    "gemini/gemini-3.1-flash-lite": null,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "push-0-ollama_moondream_1.8b-llm-16.0mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "push",
+    "dist_mm": 16.0,
+    "stage": "llm",
+    "gemini/gemini-3.1-flash-lite": null,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "push-0-ollama_moondream_1.8b-llm-16.0mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "push",
+    "dist_mm": 16.0,
+    "stage": "llm",
+    "gemini/gemini-3.1-flash-lite": null,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "push-0-ollama_moondream_1.8b-llm-16.0mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "push",
+    "dist_mm": 16.0,
+    "stage": "llm",
+    "gemini/gemini-3.1-flash-lite": null,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "push-0-ollama_moondream_1.8b-llm-16.0mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "push",
+    "dist_mm": 16.0,
+    "stage": "llm",
+    "gemini/gemini-3.1-flash-lite": null,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "push-1-ollama_moondream_1.8b-ladder-0.5mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "push",
+    "dist_mm": 0.5,
+    "stage": "ladder",
+    "gemini/gemini-3.1-flash-lite": false,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "push-1-ollama_moondream_1.8b-ladder-1mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "push",
+    "dist_mm": 1,
+    "stage": "ladder",
+    "gemini/gemini-3.1-flash-lite": null,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "push-1-ollama_moondream_1.8b-ladder-2mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "push",
+    "dist_mm": 2,
+    "stage": "ladder",
+    "gemini/gemini-3.1-flash-lite": null,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "push-1-ollama_moondream_1.8b-ladder-4mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "push",
+    "dist_mm": 4,
+    "stage": "ladder",
+    "gemini/gemini-3.1-flash-lite": null,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "push-1-ollama_moondream_1.8b-ladder-8mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "push",
+    "dist_mm": 8,
+    "stage": "ladder",
+    "gemini/gemini-3.1-flash-lite": null,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "push-1-ollama_moondream_1.8b-ladder-16mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "push",
+    "dist_mm": 16,
+    "stage": "ladder",
+    "gemini/gemini-3.1-flash-lite": null,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "push-1-ollama_moondream_1.8b-llm-16.0mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "push",
+    "dist_mm": 16.0,
+    "stage": "llm",
+    "gemini/gemini-3.1-flash-lite": null,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "push-1-ollama_moondream_1.8b-llm-16.0mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "push",
+    "dist_mm": 16.0,
+    "stage": "llm",
+    "gemini/gemini-3.1-flash-lite": null,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "push-1-ollama_moondream_1.8b-llm-16.0mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "push",
+    "dist_mm": 16.0,
+    "stage": "llm",
+    "gemini/gemini-3.1-flash-lite": null,
+    "sensor_logreg_says_success": false
+  },
+  {
+    "name": "push-1-ollama_moondream_1.8b-llm-16.0mm",
+    "source_model": "ollama/moondream:1.8b",
+    "task": "push",
+    "dist_mm": 16.0,
+    "stage": "llm",
+    "gemini/gemini-3.1-flash-lite": null,
+    "sensor_logreg_says_success": false
+  }
+]
