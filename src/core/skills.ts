@@ -379,7 +379,7 @@ export class Executor {
     const dz = this.sim.gripPos()[2] - PROBE_TIP - p.topZ;
     await this.moveTo([p.x, p.y, Math.min(HOVER_Z, p.topZ + 0.1)], this.sim.target.yaw, 0.6);
     const ok = rise > 2 && Math.abs(dz) < 0.01;
-    return { ok, detail: `${name}: force change ${rise.toFixed(1)} N, stopped ${(dz * 1000).toFixed(0)} mm from its expected top` };
+    return { ok, detail: `${name}: force change ${rise.toFixed(1)} N, stopped ${Math.round(dz * 1000) || 0} mm from its expected top` };
   }
 
   /** Lower the gripper toward z, stopping early when the raw tool-axis force changes by more than guard N. */

@@ -97,7 +97,7 @@ async function run() {
         cancelled: () => cancel,
         speed: Number($<HTMLSelectElement>('speed').value),
       },
-      { instruction, goal, maxReplans: Number($<HTMLSelectElement>('replans').value), chaos },
+      { instruction, goal, maxReplans: Number($<HTMLSelectElement>('replans').value), chaos, probe: $<HTMLInputElement>('probe').checked },
     );
   } catch (e) {
     const msg = (e as Error).message;

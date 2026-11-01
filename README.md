@@ -210,6 +210,10 @@ All five failure types pooled (360 episodes per strategy). Per failure type: [ex
 
 ![False success against time per strategy](experiments/figures/probes_tradeoff.png)
 
+In the live demo, the "Touch check" toggle runs the same probe before the final checks (the simulator still decides success there):
+
+![Touch check in the demo: the robot presses the stacked cube before verifying](docs/probe.gif)
+
 ### Does a 6-axis wrist sensor help?
 
 The research classifier uses one wrist force axis. A cheap 6-axis force/torque sensor (same noise model on every axis) was added to the simulator and to the dataset by replaying every committed attempt; the replayed single-axis traces matched the committed ones exactly. The features are task-agnostic: contact onset time, peak change, direction relative to the approach, steadiness after onset, and torque.
@@ -278,7 +282,7 @@ Picked MuJoCo. The npm README calls Windows support experimental; it ran without
 - The proxy's rate limit lives in function memory, so it is per instance and resets on cold starts. It is basic abuse protection, not a quota system.
 - Free LLM tiers have daily limits. When the shared key runs out, add your own key or come back tomorrow.
 - The agent's sensors are simulated and degraded with a simple noise model. Real touch and force sensors are messier.
-- The sensor check cannot see what happens after a release, such as a cube knocked off a stack. The press probe covers that case in the experiments but is not used in the live demo.
+- The sensor check cannot see what happens after a release, such as a cube knocked off a stack. The press probe covers that case in the experiments and behind the optional Touch check toggle in the demo, where it is shown but the simulator still decides.
 - By default the planner and skills read cube positions from the simulator. Perceived-state mode replaces them with OpenCV estimates, but only in the experiments and the local dev build; the planner's scene text still comes from the simulator.
 - The harder suite is small (20 tasks) and its tasks proved easy for the planner. It shows the refusal path works; it does not rank planners.
 - The camera-only rule in the experiments uses one fixed, calibrated camera, known cube sizes and distinct colors. Its contact result is a property of this camera and resolution: a closer or second camera could see some of the gaps it misses here.

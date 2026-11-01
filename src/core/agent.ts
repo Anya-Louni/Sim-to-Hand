@@ -67,6 +67,7 @@ export type AgentEvent =
   | { type: 'plan_error'; attempt: number; message: string }
   | { type: 'step'; attempt: number; index: number; skill: Skill; status: 'running' | 'ok' | 'failed'; error?: string }
   | { type: 'chaos'; message: string }
+  | { type: 'probe'; attempt: number; ok: boolean; detail: string }
   | {
       type: 'verify';
       attempt: number;
@@ -303,6 +304,7 @@ export async function runEpisode(deps: AgentDeps, opts: EpisodeOptions): Promise
       for (const name of tops) res.push(await ex.probe(name, level(name) * 2 * CUBE_HALF));
       probes = res.length;
       probe = { ok: res.every((r) => r.ok), detail: res.map((r) => r.detail).join('; ') };
+      emit({ type: 'probe', attempt, ...probe });
       await ex.retreat();
       ground = verifyGoals(sim, goal); // a probe touches the scene, so score what is there after it
     }

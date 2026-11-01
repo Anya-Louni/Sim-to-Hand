@@ -90,6 +90,9 @@ export class Feed {
         if (e.status === 'running') li.scrollIntoView({ block: 'nearest' });
         break;
       }
+      case 'probe':
+        this.note(e.ok ? '' : 'error', e.ok ? 'Touch check passed' : 'Touch check failed', e.detail);
+        break;
       case 'chaos':
         this.note('chaos', 'Chaos', e.message);
         break;

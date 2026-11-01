@@ -18,7 +18,7 @@ New experiments
   structured refusal in the plan schema (`bench/RESULTS_HARD.md`).
 - Active verification: a press probe that touches the result before the agent says done, and a router that runs
   sensors, then the camera, then the probe only when needed. 800 episodes (`experiments/RESULTS.md`, section 4;
-  design in `docs/design/active_verification.md`).
+  design in `docs/design/active_verification.md`). A "Touch check" toggle runs the probe in the live demo.
 - Text LLMs reading touch traces (`research/results/trace_llm.md`) and a "Can you feel it?" trace game on the
   benchmark site.
 

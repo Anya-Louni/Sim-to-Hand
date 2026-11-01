@@ -1,5 +1,5 @@
 // Records docs/demo.gif from the real app: tower preset with chaos on.
-// Usage: node --experimental-strip-types scripts/record-demo.ts [preset]
+// Usage: node --experimental-strip-types scripts/record-demo.ts [preset] [--probe]
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -7,6 +7,9 @@ import { chromium } from 'playwright-core';
 import { createServer } from 'vite';
 
 const preset = process.argv[2] ?? 'tower';
+// --probe turns on the touch check instead of chaos and writes docs/probe.gif.
+const probe = process.argv.includes('--probe');
+const out = probe ? 'docs/probe.gif' : 'docs/demo.gif';
 const frames = path.resolve('bench/out/frames');
 fs.rmSync(frames, { recursive: true, force: true });
 fs.mkdirSync(frames, { recursive: true });
@@ -19,7 +22,11 @@ const page = await browser.newPage({ viewport: { width: 1280, height: 720 } });
 await page.goto('http://localhost:5399/');
 await page.waitForSelector('#loading.done');
 await page.click(`[data-preset="${preset}"]`);
-await page.check('#chaos', { force: true });
+if (probe) {
+  await page.check('#probe', { force: true });
+  await page.selectOption('#planner', 'scripted'); // no API calls for this recording
+}
+else await page.check('#chaos', { force: true });
 await page.selectOption('#speed', '2');
 await page.waitForTimeout(800);
 await page.click('#run');
@@ -39,5 +46,5 @@ console.log('frames', i, 'seconds', ((Date.now() - start) / 1000).toFixed(0));
 
 // Play back about 3x faster than captured; two-pass palette for clean colors.
 const vf = 'fps=12,scale=960:-1:flags=lanczos,split[a][b];[a]palettegen=max_colors=128:stats_mode=diff[p];[b][p]paletteuse=dither=bayer:bayer_scale=4:diff_mode=rectangle';
-execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-framerate', '12', '-i', path.join(frames, 'f%04d.png'), '-vf', vf, 'docs/demo.gif']);
-console.log('docs/demo.gif', (fs.statSync('docs/demo.gif').size / 1e6).toFixed(1), 'MB');
+execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-framerate', '12', '-i', path.join(frames, 'f%04d.png'), '-vf', vf, out]);
+console.log(out, (fs.statSync(out).size / 1e6).toFixed(1), 'MB');
