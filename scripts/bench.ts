@@ -40,7 +40,12 @@ await page.route('**/api/llm', async (route) => {
     return route.fulfill({ status: 200, contentType: 'application/json', body: fs.readFileSync(file, 'utf8') });
   }
   misses++;
-  const res = await route.fetch();
+  let res;
+  try {
+    res = await route.fetch({ timeout: 180_000 }); // the provider fallback chain can take a while
+  } catch (e) {
+    return route.fulfill({ status: 504, contentType: 'application/json', body: JSON.stringify({ error: `bench proxy: ${(e as Error).message.split('\n')[0]}` }) });
+  }
   const body = await res.text();
   if (res.ok()) fs.writeFileSync(file, body);
   return route.fulfill({ response: res, body });
