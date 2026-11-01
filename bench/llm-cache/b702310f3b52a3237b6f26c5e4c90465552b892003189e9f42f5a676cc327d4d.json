@@ -1,0 +1,1 @@
+{"text":"{\n  \"reasoning\": \"The user wants to put the yellow cube on the red cube, but there is no yellow cube in the current scene.\",\n  \"refuse\": \"The yellow cube does not exist in the scene.\",\n  \"goal\": [\n    {\n      \"pred\": \"on\",\n      \"a\": \"yellow\",\n      \"b\": \"red\"\n    }\n  ],\n  \"steps\": []\n}","provider":"gemini/gemini-3.5-flash-lite"}

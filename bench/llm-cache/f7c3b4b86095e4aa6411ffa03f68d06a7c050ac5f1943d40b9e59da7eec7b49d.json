@@ -1,0 +1,1 @@
+{"text":"{\"success\": false, \"reason\": \"The robot stacked a blue cube on a green cube, but the task required stacking the cube closest to the robot base onto the cube farthest from it.\"}","provider":"gemini/gemini-3.1-flash-lite"}
