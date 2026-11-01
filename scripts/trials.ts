@@ -3,6 +3,7 @@
 //   npm run trials -- checkpoints [pairs]          minimal pairs: contact gap and placement offset
 //   npm run trials -- trials [perKind] [conds]     full episodes, conds like camera/slip,sensors/knock
 //   npm run trials -- perceived [perKind] [conds]  same episodes, robot aims at camera cube estimates (A5)
+//   npm run trials -- probes [perKind] [conds]     press-probe strategies (B1) and the router (B3)
 //
 // Outputs go to experiments/data (CSV, committed) and experiments/images (JPEG, ignored).
 // Runs resume: rows already in the CSV are skipped. The camera check calls research/vcf/detect.py (OpenCV).
@@ -119,30 +120,34 @@ if (mode === 'checkpoints') {
     out.add({ ...r, id, image: img.replace(/\\/g, '/'), meta: { cam: r.cam, cubePos: r.cubePos, grip: r.grip, cubes: r.cubes } });
     console.log(id, `truth=${r.truth}`, r.gapMm !== null ? `gap=${r.gapMm.toFixed(2)}mm` : '', `sensors=${r.sensorContact}`);
   });
-} else if (mode === 'trials' || mode === 'perceived') {
+} else if (mode === 'trials' || mode === 'perceived' || mode === 'probes') {
   const perKind = Number(process.argv[3] ?? 20);
   const perceived = mode === 'perceived';
+  const FAILS = ['none', 'slip', 'displace', 'knock', 'chaos'];
   const defaults = perceived
     ? ['oracle/none', 'sensors/none', 'combined/none', 'combined/chaos']
-    : ['none', 'slip', 'displace', 'knock', 'chaos'].flatMap((f) => ['oracle', 'camera', 'sensors', 'combined'].map((d) => `${d}/${f}`));
+    : mode === 'probes'
+      ? FAILS.flatMap((f) => [`sensors+probe/${f}`, `router/${f}`])
+      : FAILS.flatMap((f) => ['oracle', 'camera', 'sensors', 'combined'].map((d) => `${d}/${f}`));
   const conds = (process.argv[4] ?? defaults.join(','))
     .split(',')
     .map((c) => c.split('/'));
-  const pre = perceived ? 'perceived_' : '';
+  const pre = perceived ? 'perceived_' : mode === 'probes' ? 'probe_' : '';
   const ep = csv(`${pre}trials.csv`, ['key', 'decider', 'failure', 'id', 'kind', 'seed', 'truth', 'declared', 'attempts', 'replans', 'injected', 'chaosEvents', 'simSeconds', 'wallSeconds', 'firstTruth', 'firstDeclared', 'failureText']);
-  const at = csv(`${pre}attempts.csv`, ['key', 'decider', 'failure', 'id', 'kind', 'attempt', 'truth', 'sensors', 'camera', 'declared', 'stepError', 'seconds', 'cameraDetail', ...(perceived ? ['perceptionMm', 'perceptionMaxMm', 'perceptionMissing'] : [])]);
-  for (const [decide, failure] of conds) {
+  const at = csv(`${pre}attempts.csv`, ['key', 'decider', 'failure', 'id', 'kind', 'attempt', 'truth', 'sensors', 'camera', 'declared', 'stepError', 'seconds', 'cameraDetail', ...(perceived ? ['perceptionMm', 'perceptionMaxMm', 'perceptionMissing'] : []), ...(mode === 'probes' ? ['probe', 'probes', 'probeDetail'] : [])]);
+  for (const [cond, failure] of conds) {
+    const [decide, probeFlag] = cond.split('+');
     const shards = Array.from({ length: WORKERS }, (_, k) => k);
-    console.log(`\n== ${decide}/${failure}`);
+    console.log(`\n== ${cond}/${failure}`);
     await pool(shards, async (page, k) => {
-      const cfg = { perKind, seed: 1000, shard: [k, WORKERS], decide, inject: failure === 'chaos' ? 'none' : failure, chaos: failure === 'chaos', maxReplans: 3, state: perceived ? 'perceived' : 'sim' };
+      const cfg = { perKind, seed: 1000, shard: [k, WORKERS], decide, inject: failure === 'chaos' ? 'none' : failure, chaos: failure === 'chaos', maxReplans: 3, state: perceived ? 'perceived' : 'sim', probe: probeFlag === 'probe' };
       const rows: any[] = await page.evaluate((c) => (window as any).runTrials(c), cfg);
       for (const r of rows) {
-        const key = `${decide}/${failure}/${r.id}`;
+        const key = `${cond}/${failure}/${r.id}`;
         if (ep.done.has(key)) continue;
         const first = r.log[0];
-        ep.add({ ...r, key, decider: decide, failure, truth: r.success, firstTruth: first?.truth, firstDeclared: first?.declared, failureText: r.failure });
-        for (const a of r.log) at.add({ ...a, key: `${key}/${a.attempt}`, decider: decide, failure, id: r.id, kind: r.kind });
+        ep.add({ ...r, key, decider: cond, failure, truth: r.success, firstTruth: first?.truth, firstDeclared: first?.declared, failureText: r.failure });
+        for (const a of r.log) at.add({ ...a, key: `${key}/${a.attempt}`, decider: cond, failure, id: r.id, kind: r.kind });
       }
       console.log(`  shard ${k}: ${rows.filter((r) => r.success).length}/${rows.length} true successes, ${rows.filter((r) => r.declared && !r.success).length} false`);
     });

@@ -37,6 +37,9 @@ export interface StepResult {
 const wrapAngle = (a: number) => Math.atan2(Math.sin(a), Math.cos(a));
 const minJerk = (t: number) => t * t * t * (10 - 15 * t + 6 * t * t);
 
+/** Grip point to the bottom of the closed fingertips, measured in the sim (tests/skills.test.ts). */
+export const PROBE_TIP = 0.01;
+
 export class Executor {
   holding: string | null = null;
   private rand: () => number;
@@ -61,6 +64,8 @@ export class Executor {
    * places it there. The physics and the final goal check still use the true state.
    */
   belief: Record<string, CubePose | null> | null = null;
+  /** Where the robot put each cube: release point and the expected height of the cube's top face. */
+  placed: Record<string, { x: number; y: number; topZ: number }> = {};
 
   constructor(sim: Sim, clock: Clock, chaos: ChaosOptions, emit: (e: ExecEvent) => void = () => {}, cancelled: () => boolean = () => false) {
     this.sim = sim;
@@ -322,6 +327,7 @@ export class Executor {
         }
         // In perceived-state mode the robot now believes the held cube sits where it is putting it.
         if (this.belief) this.belief[this.holding] = { pos: [r2.x, r2.y, r2.topZ + CUBE_HALF], yaw };
+        this.placed[this.holding] = { x: r2.x, y: r2.y, topZ: r2.topZ + 2 * CUBE_HALF };
         if (!this.sensing) {
           // Open loop: lower to where contact should be and trust it.
           await this.moveTo([r2.x, r2.y, r2.topZ + CUBE_HALF + 0.001], yaw, 0.8);
@@ -357,15 +363,34 @@ export class Executor {
     return this.belief && this.sim.cubeNames.includes(name) && !this.belief[name] ? `The camera cannot find the ${name} cube.` : null;
   }
 
+  /**
+   * Press probe (docs/design/active_verification.md): with the gripper closed, lower onto the spot where the robot
+   * put the cube and check, with the cheap force reading and the arm's own height, that its top face is there.
+   */
+  async probe(name: string, expectedTop?: number): Promise<{ ok: boolean; detail: string }> {
+    const placed = this.placed[name];
+    if (!placed) return { ok: false, detail: `no record of placing the ${name} cube` };
+    // The height the goal implies (a cube 3 high in a tower has its top 3 cube widths up), not just where it was put:
+    // a tower rebuilt on a knocked-off middle cube is put down at the right spot but at the wrong height.
+    const p = { ...placed, topZ: expectedTop ?? placed.topZ };
+    this.sim.grip = 0;
+    await this.moveTo([p.x, p.y, p.topZ + PROBE_TIP + 0.04], this.sim.target.yaw);
+    const rise = await this.guardedLower(p.topZ + PROBE_TIP - 0.015, 3, 2.0);
+    const dz = this.sim.gripPos()[2] - PROBE_TIP - p.topZ;
+    await this.moveTo([p.x, p.y, Math.min(HOVER_Z, p.topZ + 0.1)], this.sim.target.yaw, 0.6);
+    const ok = rise > 2 && Math.abs(dz) < 0.01;
+    return { ok, detail: `${name}: force change ${rise.toFixed(1)} N, stopped ${(dz * 1000).toFixed(0)} mm from its expected top` };
+  }
+
   /** Lower the gripper toward z, stopping early when the raw tool-axis force changes by more than guard N. */
-  async guardedLower(z: number, guard: number): Promise<number> {
+  async guardedLower(z: number, guard: number, seconds = 0.8): Promise<number> {
     const tare = (await this.sense()).force;
     const start = [...this.sim.target.pos] as [number, number, number];
     const f0 = this.sim.rawSensors().forceTool;
     let stopped = false;
     let peak = 0;
     let k = 0;
-    await this.advance(0.8, (a) => {
+    await this.advance(seconds, (a) => {
       if (k++ % 5 === 0) peak = Math.max(peak, Math.abs(this.sensors.read(this.sim.rawSensors()).force - tare));
       if (stopped) return;
       if (Math.abs(this.sim.rawSensors().forceTool - f0) > guard) {

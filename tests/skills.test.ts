@@ -121,3 +121,29 @@ test('a scene can start with cubes stacked', async () => {
   assert.equal(verifyGoals(sim, [{ pred: 'on', a: 'red', b: 'blue' }, { pred: 'on', a: 'green', b: 'red' }]).ok, true);
   sim.dispose();
 });
+
+test('press probe passes on a correct stack and fails when the cube was knocked off', async () => {
+  for (const knock of [false, true]) {
+    const { sim, ex } = await setup();
+    if (knock) ex.inject = 'knock';
+    for (const s of [{ skill: 'move_to', target: 'red' }, { skill: 'grasp', object: 'red' }, { skill: 'lift' }, { skill: 'place', on: 'blue' }, { skill: 'release' }] as const) assert.ok((await ex.run(s)).ok);
+    await ex.retreat();
+    const p = await ex.probe('red');
+    assert.equal(p.ok, !knock, p.detail);
+    await ex.retreat();
+    assert.equal(verifyGoals(sim, [{ pred: 'on', a: 'red', b: 'blue' }]).ok, !knock, 'the probe must not change the result');
+    sim.dispose();
+  }
+});
+
+test('press probe with the goal height catches a tower rebuilt on a knocked-off middle cube', async () => {
+  const { sim, ex } = await setup(4);
+  ex.inject = 'knock';
+  for (const s of [{ skill: 'move_to', target: 'green' }, { skill: 'grasp', object: 'green' }, { skill: 'lift' }, { skill: 'place', on: 'blue' }, { skill: 'release' },
+    { skill: 'move_to', target: 'red' }, { skill: 'grasp', object: 'red' }, { skill: 'lift' }, { skill: 'place', on: 'green' }, { skill: 'release' }] as const) assert.ok((await ex.run(s)).ok);
+  await ex.retreat();
+  assert.equal((await ex.probe('red')).ok, true, 'where it was put, red looks fine');
+  await ex.retreat();
+  assert.equal((await ex.probe('red', 3 * 2 * 0.025)).ok, false, 'at the tower height it is missing');
+  sim.dispose();
+});

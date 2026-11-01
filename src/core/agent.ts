@@ -1,3 +1,4 @@
+import { CUBE_HALF } from './scene.ts';
 import { describeScene, verifyGoals } from './verify.ts';
 import { Executor, type ChaosOptions, type Clock, type Injection } from './skills.ts';
 import type { CubePose, Sim } from './sim.ts';
@@ -30,8 +31,9 @@ export type Perceive = (image: string) => Promise<Record<string, CubePose | null
  *   camera    the image detector alone, robot runs open loop without touch or force sensing
  *   sensors   the cheap sensors alone
  *   combined  done only when both the sensors and the camera say so
+ *   router    cheapest check first (B3): sensors; if they pass, the camera; if the camera disagrees, a press probe decides
  */
-export type Decider = 'oracle' | 'camera' | 'sensors' | 'combined';
+export type Decider = 'oracle' | 'camera' | 'sensors' | 'combined' | 'router';
 
 export interface AttemptLog {
   attempt: number;
@@ -44,6 +46,10 @@ export interface AttemptLog {
   stepError?: string;
   /** Simulated seconds from attempt start to the moment the attempt ended (failed step or final check). */
   seconds: number;
+  /** Press probe result (null when no probe ran), how many cubes were probed, and the probe's detail. */
+  probe?: boolean | null;
+  probes?: number;
+  probeDetail?: string;
   /** Perceived-state mode: mean and largest sideways error of the camera's cube positions (mm), cubes not found. */
   perceptionMm?: number;
   perceptionMaxMm?: number;
@@ -112,6 +118,8 @@ export interface EpisodeOptions {
   chaos: ChaosOptions;
   decide?: Decider;
   inject?: Injection;
+  /** Press-probe the result whenever the sensors accept an attempt (B1). The router probes on its own terms. */
+  probe?: boolean;
 }
 
 export interface AgentDeps {
@@ -239,7 +247,7 @@ export async function runEpisode(deps: AgentDeps, opts: EpisodeOptions): Promise
     emit({ type: 'status', message: 'Verifying' });
     await ex.retreat();
 
-    const ground = verifyGoals(sim, goal);
+    let ground = verifyGoals(sim, goal);
     // Third check: the agent's own cheap sensors. Success needs every grasp felt, every placement felt as contact,
     // no hold lost, and the plan run to the end. Sensors cannot see where a cube ends up after release.
     const evs = ex.sensorEvents;
@@ -276,8 +284,27 @@ export async function runEpisode(deps: AgentDeps, opts: EpisodeOptions): Promise
       }
     }
     let camera: { ok: boolean; detail: string } | null = null;
-    if (deps.detector && image && decide !== 'oracle' && decide !== 'sensors') {
+    if (deps.detector && image && decide !== 'oracle' && decide !== 'sensors' && (decide !== 'router' || sensorOk)) {
       camera = await deps.detector(image, goal);
+    }
+    // Active verification: touch the result. Only the top cube of each stack is probed.
+    let probe: { ok: boolean; detail: string } | null = null;
+    let probes = 0;
+    const wantProbe = (opts.probe && sensorOk && decide !== 'router') || (decide === 'router' && sensorOk && camera && !camera.ok);
+    if (wantProbe && !stepError) {
+      emit({ type: 'status', message: 'Probing the result' });
+      const tops = goal.filter((g) => !goal.some((o) => o.pred === 'on' && o.b === g.a)).map((g) => g.a);
+      const res = [];
+      // Expected top face from the goal: a cube on the table or in a zone is one cube high, on(a, b) is one above b.
+      const level = (n: string): number => {
+        const g = goal.find((o) => o.a === n && o.pred === 'on');
+        return g && g.pred === 'on' ? level(g.b) + 1 : 1;
+      };
+      for (const name of tops) res.push(await ex.probe(name, level(name) * 2 * CUBE_HALF));
+      probes = res.length;
+      probe = { ok: res.every((r) => r.ok), detail: res.map((r) => r.detail).join('; ') };
+      await ex.retreat();
+      ground = verifyGoals(sim, goal); // a probe touches the scene, so score what is there after it
     }
     const agree = vision ? vision.success === ground.ok : null;
     if (vision) {
@@ -289,7 +316,15 @@ export async function runEpisode(deps: AgentDeps, opts: EpisodeOptions): Promise
 
     const sensing = ex.sensing ? sensorOk : null;
     const declared =
-      decide === 'oracle' ? ground.ok : decide === 'sensors' ? sensorOk : decide === 'camera' ? !stepError && !!camera?.ok : sensorOk && !!camera?.ok;
+      decide === 'oracle'
+        ? ground.ok
+        : decide === 'sensors'
+          ? sensorOk && (!opts.probe || !!probe?.ok)
+          : decide === 'camera'
+            ? !stepError && !!camera?.ok
+            : decide === 'router'
+              ? sensorOk && (camera?.ok || !!probe?.ok)
+              : sensorOk && !!camera?.ok;
     result.log!.push({
       attempt,
       truth: ground.ok,
@@ -300,6 +335,9 @@ export async function runEpisode(deps: AgentDeps, opts: EpisodeOptions): Promise
       declared,
       stepError,
       seconds: +tEnd.toFixed(2),
+      probe: probe ? probe.ok : null,
+      probes,
+      probeDetail: probe?.detail,
       ...perception,
     });
     result.success = ground.ok;
@@ -308,7 +346,8 @@ export async function runEpisode(deps: AgentDeps, opts: EpisodeOptions): Promise
       result.failure = ground.ok ? undefined : `agent declared success but ${ground.summary}`;
       break;
     }
-    const why = decide === 'oracle' ? ground.summary : stepError ?? (camera && !camera.ok ? camera.detail : sensors.summary);
+    const why =
+      decide === 'oracle' ? ground.summary : stepError ?? (probe && !probe.ok ? `probe: ${probe.detail}` : camera && !camera.ok ? camera.detail : sensors.summary);
     const failure = stepError ? `${stepError} Goal check: ${why}` : `Plan finished but goal not met: ${why}`;
     result.failure = failure;
     history.push({ attempt, steps: plan.steps.map(stepText).join(', '), failure, vision: vision ? `${vision.success ? 'success' : 'failure'}: ${vision.reason}` : undefined });

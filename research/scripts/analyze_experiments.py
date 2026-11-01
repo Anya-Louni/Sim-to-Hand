@@ -353,13 +353,99 @@ def perceived_summary(md: list[str]):
     ]
 
 
+# ---------------- Active verification (B1) and the router (B3) ----------------
+STRATS = ["sensors", "sensors+probe", "combined", "router"]
+STRAT_LABEL = {"sensors": "Sensors only", "sensors+probe": "Sensors + press probe", "combined": "Camera + sensors", "router": "Router (sensors, camera, then probe)"}
+
+
+def probes_summary(md: list[str]):
+    pe, pa = read("probe_trials.csv"), read("probe_attempts.csv")
+    if not pe:
+        return
+    eps = [e for e in read("trials.csv") if e["decider"] in ("sensors", "combined")] + pe
+    att = [a for a in read("attempts.csv") if a["decider"] in ("sensors", "combined")] + pa
+    by_ep = defaultdict(list)
+    for a in att:
+        by_ep[a["key"].rsplit("/", 1)[0]].append(a)
+    rows = []
+    for f in FAILURES:
+        for d in STRATS:
+            g = [e for e in eps if e["decider"] == d and e["failure"] == f and not (f in ("slip", "displace", "knock") and not e["injected"])]
+            if not g:
+                continue
+            a = [x for e in g for x in by_ep[e["key"]]]
+            rows.append(dict(
+                failure=f, strategy=d, n=len(g), success=sum(B(e["truth"]) for e in g), false_success=sum(B(e["declared"]) and not B(e["truth"]) for e in g),
+                attempts=float(np.mean([int(e["attempts"]) for e in g])), sim_s=float(np.mean([float(e["simSeconds"]) for e in g])),
+                camera_per_ep=sum(x["camera"] != "" for x in a) / len(g), probes_per_ep=sum(int(x.get("probes") or 0) for x in a) / len(g),
+            ))
+    with open(EXP / "summary_probes.csv", "w", newline="", encoding="utf-8") as fh:
+        w = csv.DictWriter(fh, fieldnames=list(rows[0]), lineterminator="\n")
+        w.writeheader()
+        w.writerows(rows)
+    md += [
+        "## 4. Active verification: touch the result before saying done",
+        "",
+        "Same 80 tasks and failure types as section 1. The press probe (docs/design/active_verification.md) lowers the closed",
+        "gripper onto where the robot put each top cube and checks, with the cheap force reading and the arm's own height,",
+        "that the cube's top face is there. Sensors + probe probes every attempt the sensors accept. The router runs the",
+        "sensors, then the camera only if the sensors pass, then the probe only if the camera disagrees. The sensors-only and",
+        "camera + sensors rows are the section 1 runs. Time is simulated seconds per episode, probes included.",
+        "",
+    ]
+    for f in FAILURES:
+        sub = [r for r in rows if r["failure"] == f]
+        md += [f"### {FAIL_LABEL[f]}", "", "| Strategy | Episodes | True success | False success | Avg attempts | Sim s / episode | Camera checks / episode | Probes / episode |", "|---|---|---|---|---|---|---|---|"]
+        for r in sub:
+            md.append(f"| {STRAT_LABEL[r['strategy']]} | {r['n']} | {fmt(r['success'], r['n'])} | {fmt(r['false_success'], r['n'])} | {r['attempts']:.2f} | {r['sim_s']:.1f} | {r['camera_per_ep']:.2f} | {r['probes_per_ep']:.2f} |")
+        md.append("")
+    tot = {d: [r for r in rows if r["strategy"] == d] for d in STRATS}
+    md += ["### All failure types together", "", "| Strategy | Episodes | True success | False success | Sim s / episode | Camera checks / episode | Probes / episode |", "|---|---|---|---|---|---|---|"]
+    for d, rs in tot.items():
+        n = sum(r["n"] for r in rs)
+        if not n:
+            continue
+        md.append(f"| {STRAT_LABEL[d]} | {n} | {fmt(sum(r['success'] for r in rs), n)} | {fmt(sum(r['false_success'] for r in rs), n)} | "
+                  f"{sum(r['sim_s'] * r['n'] for r in rs) / n:.1f} | {sum(r['camera_per_ep'] * r['n'] for r in rs) / n:.2f} | {sum(r['probes_per_ep'] * r['n'] for r in rs) / n:.2f} |")
+    md.append("")
+    v1 = read("probe_v1_trials.csv")
+    if v1:
+        kn = lambda d: [e for e in v1 if e["decider"] == d and e["failure"] == "knock" and e["injected"]]  # noqa: E731
+        fs = lambda g: sum(B(e["declared"]) and not B(e["truth"]) for e in g)  # noqa: E731
+        md += [
+            "First version of the probe (kept in `probe_v1_*.csv`): it checked each top cube at the height where the robot had put it.",
+            "In a tower whose middle cube was knocked off, the robot stacks the top cube onto the middle cube where it now lies, so that",
+            f"check passed. Knocked after release, false success: sensors + probe {fmt(fs(kn('sensors+probe')), len(kn('sensors+probe')))},",
+            f"router {fmt(fs(kn('router')), len(kn('router')))}, all of them towers. The current probe expects the height the goal implies.",
+            "",
+        ]
+
+    # Trade-off: false success against time, one point per strategy per failure type, plus the pooled point.
+    colors = {"sensors": COLOR["sensors"], "sensors+probe": "#b45309", "combined": COLOR["combined"], "router": "#6366f1"}
+    fig, ax = plt.subplots(figsize=(6.2, 4))
+    for d, rs in tot.items():
+        if not rs:
+            continue
+        ax.scatter([r["sim_s"] for r in rs], [r["false_success"] / r["n"] for r in rs], color=colors[d], alpha=0.35, s=22)
+        n = sum(r["n"] for r in rs)
+        ax.scatter([sum(r["sim_s"] * r["n"] for r in rs) / n], [sum(r["false_success"] for r in rs) / n], color=colors[d], s=90, edgecolor="black", label=STRAT_LABEL[d])
+    ax.set_xlabel("simulated seconds per episode")
+    ax.set_ylabel("false success rate (said done, was not)")
+    ax.set_title("Checking cost against false success (small points: one failure type)")
+    ax.legend(frameon=False, fontsize=8)
+    fig.tight_layout()
+    fig.savefig(FIG / "probes_tradeoff.png")
+    plt.close(fig)
+
+
 def main():
     md = ["# Experiment results", "", "Generated by `research/scripts/analyze_experiments.py` from the CSV logs in `experiments/data`. All numbers come from simulation.", ""]
     trials_summary(md)
     checkpoints_summary(md)
     perceived_summary(md)
+    probes_summary(md)
     md += ["## Figures", ""] + [f"![{p.stem}](figures/{p.name})" for p in sorted(FIG.glob("*.png"))] + [""]
-    (EXP / "RESULTS.md").write_text("\n".join(md), encoding="utf-8")
+    (EXP / "RESULTS.md").write_text("\n".join(md), encoding="utf-8", newline="\n")
     print("\n".join(md))
 
 

@@ -87,6 +87,8 @@ export interface TrialConfig {
   maxReplans: number;
   /** 'perceived': the robot aims at the camera's cube estimates (A5). Default: true simulator poses. */
   state?: 'sim' | 'perceived';
+  /** Press-probe accepted attempts (B1). */
+  probe?: boolean;
 }
 
 type CvDetect = (payload: unknown) => Promise<{ ok: boolean; detail: string }>;
@@ -106,7 +108,7 @@ async function runTrials(cfg: TrialConfig) {
     w.load(task.scene);
     const t0 = performance.now();
     const perceived = cfg.state === 'perceived';
-    const useCam = perceived || cfg.decide === 'camera' || cfg.decide === 'combined';
+    const useCam = perceived || cfg.decide === 'camera' || cfg.decide === 'combined' || cfg.decide === 'router';
     const r = await runEpisode(
       {
         sim: w.sim,
@@ -132,6 +134,7 @@ async function runTrials(cfg: TrialConfig) {
         chaos: { ...DEFAULT_CHAOS, enabled: cfg.chaos, seed: hash(task.id) },
         decide: cfg.decide,
         inject: cfg.inject,
+        probe: cfg.probe,
       },
     );
     rows.push({ id: task.id, kind: task.kind, seed: task.scene.seed, wallSeconds: (performance.now() - t0) / 1000, ...r });
