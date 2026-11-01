@@ -50,13 +50,22 @@ def test_balanced_tasks():
 
 @pytest.mark.skipif(not (ROOT / "assets/menagerie_panda/panda.xml").exists(), reason="robot model not fetched (scripts/fetch_assets.py)")
 def test_ground_truth_rules_reproduce_committed_labels(tmp_path):
-    """Regenerate pair 0 of every task from seed 0 and compare with data/small: same labels, same rule readouts."""
+    """Regenerate pair 0 of every task from seed 0 and compare with data/small: same labels, same rule readouts.
+
+    Labels must match exactly. MuJoCo on Linux and Windows differs in the last digits, so the numbers inside
+    the rule readout (forces in N, distances in mm) are compared to within 0.05."""
+    import re
+
     from vcf.generate import run
 
     run(1, 0, tmp_path, TASKS, images=False)
     new = {s["id"]: s for s in map(json.loads, open(tmp_path / "samples.jsonl"))}
     old = {s["id"]: s for s in samples("small")}
     assert len(new) == 2 * len(TASKS)
+    number = re.compile(r"-?\d+(?:\.\d+)?")
     for i, s in new.items():
         assert s["label"] == (1 if s["intended"] == "success" else 0), (i, s["rule"])
-        assert s["label"] == old[i]["label"] and s["rule"] == old[i]["rule"], i
+        assert s["label"] == old[i]["label"], i
+        assert number.sub("#", s["rule"]) == number.sub("#", old[i]["rule"]), i
+        a, b = [float(x) for x in number.findall(s["rule"])], [float(x) for x in number.findall(old[i]["rule"])]
+        assert a == pytest.approx(b, abs=0.05), (i, s["rule"], old[i]["rule"])
