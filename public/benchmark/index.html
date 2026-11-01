@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vision Can't Feel</title>
+<meta name="description" content="A benchmark of minimal pairs showing where vision-language models misjudge contact-dependent robot task success, and how cheap simulated sensors compare.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,650&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script type="importmap">{"imports": {"three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js", "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"}}</script>
+</head>
+<body>
+<header class="hero">
+  <p class="kicker">Open benchmark · simulation · free models only</p>
+  <h1>Vision can't feel.</h1>
+  <p class="lede" id="headline">Loading results…</p>
+  <nav>
+    <a href="#game">Can you tell?</a>
+    <a href="#leaderboard">Leaderboard</a>
+    <a href="#pairs">Minimal pairs</a>
+    <a href="#fool">Millimeters to fool</a>
+    <a href="#viewer">3D scenes</a>
+    <a href="https://github.com/Anya-Louni/sim-to-hand/tree/main/research">Code and data</a>
+    <a href="../">Back to the agent</a>
+  </nav>
+</header>
+
+<main>
+  <section id="game">
+    <h2>Can you tell?</h2>
+    <p class="muted">Each round shows two snapshots of the same scene. In one the robot succeeded, in the other it failed by a few millimeters. Pick the success. Then see the ground truth, what the vision models said, and what three cheap sensors read.</p>
+    <div class="game">
+      <div class="game-head"><span id="game-task" class="pill"></span><span id="game-goal"></span><span id="game-score" class="score"></span></div>
+      <div class="choices">
+        <button class="choice" data-side="0"><span>A</span></button>
+        <button class="choice" data-side="1"><span>B</span></button>
+      </div>
+      <div id="reveal" class="reveal" hidden></div>
+      <div class="game-foot"><button id="next" class="btn" hidden>Next pair</button></div>
+    </div>
+  </section>
+
+  <section id="leaderboard">
+    <h2>Leaderboard</h2>
+    <p class="muted" id="lb-note"></p>
+    <div class="tabs" id="lb-tabs"></div>
+    <div class="table-wrap"><table id="lb"></table></div>
+    <h3>Sensor classifier under increasing noise</h3>
+    <p class="muted">Logistic regression on degraded sensor signals. Strength 1 is the default cheap-hardware model (noise, 8 to 10 bit quantization, drift, latency, dropouts). The dashed line is the best vision model on the same test set.</p>
+    <svg id="sweep" class="chart" viewBox="0 0 640 260" role="img" aria-label="Noise sweep chart"></svg>
+  </section>
+
+  <section id="pairs">
+    <h2>Minimal pairs</h2>
+    <p class="muted">Same scene, same lighting, same camera. Left succeeded, right failed. Pixel difference is the mean absolute change per pixel between the two front images (0 to 255).</p>
+    <div class="filter" id="pair-filter"></div>
+    <div class="gallery" id="gallery"></div>
+  </section>
+
+  <section id="fool">
+    <h2>Millimeters to fool</h2>
+    <p class="muted">For each model and task, the attacker searches for the largest failure, in millimeters, that the model still calls a success. Ground truth is re-checked in simulation for every candidate. Higher bars mean easier to fool. Zero means the model was never fooled on the search ladder.</p>
+    <svg id="mm" class="chart" viewBox="0 0 640 280" role="img" aria-label="Millimeters to fool chart"></svg>
+    <div id="transfer"></div>
+  </section>
+
+  <section id="viewer">
+    <h2>3D scenes</h2>
+    <p class="muted">The exact simulator state at the moment both judges were asked. Drag to orbit. Switch between the success and failure of each pair.</p>
+    <div class="viewer-controls">
+      <div class="tabs" id="scene-tabs"></div>
+      <div class="tabs" id="variant-tabs"><button class="tab active" data-v="success">Success</button><button class="tab" data-v="failure">Failure</button></div>
+    </div>
+    <canvas id="three" aria-label="3D scene viewer"></canvas>
+  </section>
+</main>
+
+<footer>
+  <p>Code MIT, dataset CC BY 4.0. Robot model from MuJoCo Menagerie (Apache-2.0), decimated for the web. Results are from simulation only.</p>
+</footer>
+<script type="module" src="app.js"></script>
+</body>
+</html>
