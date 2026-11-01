@@ -98,7 +98,7 @@ def trials_summary(md: list[str]):
                 )
             )
     with open(EXP / "summary_trials.csv", "w", newline="", encoding="utf-8") as fh:
-        w = csv.DictWriter(fh, fieldnames=list(rows[0]))
+        w = csv.DictWriter(fh, fieldnames=list(rows[0]), lineterminator="\n")
         w.writeheader()
         w.writerows(rows)
 
@@ -220,7 +220,7 @@ def checkpoints_summary(md: list[str]):
             rows.append(dict(kind=kind, verifier=name, n=len(pairs), n_success=len(pos), n_failure=len(neg), correct=tp + tn, tp=tp, tn=tn, false_success=len(neg) - tn,
                              balanced=(tp / len(pos) + tn / len(neg)) / 2 if pos and neg else float("nan")))
     with open(EXP / "summary_checkpoints.csv", "w", newline="", encoding="utf-8") as fh:
-        w = csv.DictWriter(fh, fieldnames=list(rows[0]))
+        w = csv.DictWriter(fh, fieldnames=list(rows[0]), lineterminator="\n")
         w.writeheader()
         w.writerows(rows)
 

@@ -58,8 +58,9 @@ def main():
     print(f"done in {time.time() - t0:.0f}s")
 
     if "--check" in sys.argv:
-        out = subprocess.run(["git", "status", "--porcelain"], cwd=REPO, capture_output=True, text=True).stdout.splitlines()
-        changed = [l[3:] for l in out if l[3:].endswith(TEXT)]
+        # git diff compares normalized content, so line-ending differences do not count; new files count too.
+        git = lambda *a: subprocess.run(["git", *a], cwd=REPO, capture_output=True, text=True).stdout.splitlines()  # noqa: E731
+        changed = [p for p in git("diff", "--name-only") + git("ls-files", "--others", "--exclude-standard") if p.endswith(TEXT)]
         if changed:
             subprocess.run(["git", "--no-pager", "diff", "--", *changed], cwd=REPO)
             raise SystemExit("FAIL: regenerated results differ from the committed ones:\n  " + "\n  ".join(changed))

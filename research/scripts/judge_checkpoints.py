@@ -35,7 +35,7 @@ def rows():
 def camera():
     out = DATA / "checkpoints_camera.csv"
     with open(out, "w", newline="", encoding="utf-8") as f:
-        w = csv.writer(f)
+        w = csv.writer(f, lineterminator="\n")
         w.writerow(["id", "camera", "estGapMm", "detail"])
         for r in rows():
             meta = json.loads(r["meta"])
@@ -64,7 +64,7 @@ def vlm(spec: str):
         done = {r["id"] for r in csv.DictReader(open(out, encoding="utf-8"))}
     new = not out.exists()
     f = open(out, "a", newline="", encoding="utf-8")
-    w = csv.writer(f)
+    w = csv.writer(f, lineterminator="\n")
     if new:
         w.writerow(["id", "vlm", "confidence", "raw"])
     # Alternate kinds and labels so a quota cut leaves balanced coverage.
