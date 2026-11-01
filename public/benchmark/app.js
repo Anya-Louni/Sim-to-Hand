@@ -32,7 +32,7 @@ function headline() {
   const best = vlms.sort((a, c) => c.balanced_accuracy - a.balanced_accuracy)[0];
   if (!best) return (el.textContent = 'Vision model runs are still in progress; see the leaderboard for partial results.');
   const sensor = b.rows.find((r) => r.judge === 'sensor_logreg');
-  el.innerHTML = `On ${b.n_test} simulated contact-dependent attempts, the best free vision model (${esc(best.judge)}) scored <b>${pct(best.balanced_accuracy)}</b> balanced accuracy and called <b>${pct(best.false_success_rate)}</b> of failures a success. A logistic regression on three cheap, noisy sensor signals scored <b>${pct(sensor.balanced_accuracy)}</b> with a false-success rate of <b>${pct(sensor.false_success_rate)}</b>. It fails where its sensors cannot see the contact, and it does not transfer to unseen tasks.`;
+  el.innerHTML = `On ${b.n_test} simulated contact-dependent attempts, the best free vision model at scale (${esc(best.judge)}, ${best.coverage} answered) scored <b>${pct(best.balanced_accuracy)}</b> balanced accuracy and called <b>${pct(best.false_success_rate)}</b> of failures a success. A logistic regression on three cheap, noisy sensor signals scored <b>${pct(sensor.balanced_accuracy)}</b> with a false-success rate of <b>${pct(sensor.false_success_rate)}</b>. It fails where its sensors cannot see the contact, and it does not transfer to unseen tasks.`;
 }
 
 // ---------- Leaderboard ----------
